@@ -1,0 +1,132 @@
+page-omc-transfer {
+
+	.transfer-title {
+	    color: #1F222B;
+	    font-family: "SF-UI-Text";
+	    font-size: 1.8rem;
+	    line-height: 29px;
+	}
+
+	.balance-div {
+	    display: flex;
+    	align-items: center;
+
+		.balance-txt {
+			color: #009EA9;
+		    font-family: "SF-UI-Text";
+		    font-size: 1.8rem;
+		    line-height: 29px;
+	        margin-top: 20px;
+		}
+		.balance-img {
+			width: 20px;
+			margin-left: 10px;
+		}
+	}
+
+	.from-div {
+	    margin-top: 20px;
+
+		.from-title-txt {
+			color: #1F222B;
+		    font-family: "SF-UI-Text";
+		    font-size: 1.4rem;
+		    line-height: 19px;
+		}
+		.from-content-txt {
+		    color: #91928E;
+		    font-family: "SF-UI-Text";
+		    font-size: 1.3rem;
+		    line-height: 16px;
+		    width: 80%;
+		    margin-top: 5px;
+		}
+	}
+
+	.to-div {
+		margin-top: 20px;
+
+		.to-title-txt {
+			color: #1F222B;
+		    font-family: "SF-UI-Text";
+		    font-size: 1.4rem;
+		    line-height: 19px;
+		}
+		.to-content-div {
+			display: flex;
+			align-items: center;
+			margin-top: 5px;
+
+			.to-content-txt {
+				color: #91928E;
+			    font-family: "SF-UI-Text";
+			    font-size: 1.3rem;
+			    line-height: 16px;
+			    width: 80%;
+			    border: 0.5px solid $button-color;
+    			padding: 7px;
+			}
+			.paste-div {
+				margin-left: 10px;
+
+				.paste-img {
+					width: 20px;
+					margin-left: 10px;
+				}
+				.paste-txt {
+					color: #009EA9;
+				    font-family: "SF-UI-Text";
+				    font-size: 1rem;
+				    line-height: 18px;
+				    margin-left: 5px;
+				}
+			}
+		}
+	}
+
+	.amount-div {
+    	margin-top: 20px;
+	}
+	
+	.item_fld {
+	    padding: 0;
+	    width: 50%;
+	    .item-inner{
+	      	border: none !important;
+	      	.label{
+		        font-size: 1.2rem;
+		        font-family: 'SF-UI-Text' !important;
+		        color: #737370;
+		        padding-bottom: 3px;
+	      	}
+	      	.input{
+		        border: 1px solid $font-appcolor;
+		        border-radius: 2px;
+		        padding: 0 10px;
+		        font-size: 1.3rem;
+		        .text-input{
+		        }
+	      	}
+	      	.select{
+		        border: 1px solid $font-appcolor;
+		        padding: 8px 6px;
+		        border-radius: 1px;
+		        font-size: 1.4rem;
+	      	}
+	    }
+	}
+
+	.transfer-btn {
+	    border-radius: 4px;
+	    background-color: $button-color;
+	    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+	    color: #FFFFFF;
+	    font-family: 'SF-UI-Text';
+	    font-size: 20px;
+	    line-height: 24px;
+	    text-align: center;
+	    width: 100%;
+	    height: 40px;
+	    margin-top: 30vh;
+	}
+}

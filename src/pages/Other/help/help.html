@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Help</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <hr style="background-color:white">
+    <ion-item no-lines (click)="openLinkHelp()">
+      Contact Support
+    </ion-item>
+    <hr>
+    <ion-item no-lines (click)="openLinkWellness('resources/docs/privacy_policy.pdf')">
+      Terms and Privacy Policy
+    </ion-item>
+    <hr>
+    <ion-item no-lines (click)="about()">
+      App info
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,101 @@
+<!--
+  Generated template for the AddMedRecordsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button (click)="Done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>Add Medical Records</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div>
+    <ion-segment [(ngModel)]="searchDivided">
+      <ion-segment-button value="search">
+        Search
+      </ion-segment-button>
+      <ion-segment-button value="get">
+        Get
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="searchDivided">
+    <div *ngSwitchCase="'search'">
+      <img src="assets/imgs/AddMedImgs/search@3x.png" class="search-img" (click)="goToSandboxPage()" />
+      <ion-label class="search-txt">Search</ion-label>
+      <form class="top-part" ng-submit="submitLogin()">
+        <div class="search-div">
+          <ion-icon name="search"></ion-icon>
+          <ion-input type="text" [(ngModel)]="myInput" [ngModelOptions]="{standalone: true}" placeholder="Healthcare providers..."></ion-input>
+        </div>
+        <button type="submit" class="search-btn" (click)="submitLogin()">Go</button>
+      </form>
+      <ion-label class="recent-search-txt">RECENT SEARCH</ion-label>
+      <ion-list no-lines>
+        <button ion-item *ngFor="let item of recent_search_data" (click)="recentSearchItemSelected(item)">
+          <div class="item-div">
+            <div style="margin-left: 4vw;">
+              <div>{{ item }}</div>
+            </div>
+          </div>
+        </button>
+      </ion-list>
+    </div>
+
+    <div *ngSwitchCase="'get'">
+      <!-- camera and phone gallery -->
+      <ion-label class="recent-search-txt">UPLOAD IMAGE</ion-label>
+      <ion-list no-lines>
+        <button ion-item *ngFor="let item of upload_image_data" (click)="uploadImageItemSelected(item)">
+          <div class="item-div">
+            <div class="">
+              <img src="{{item.image}}" style="width: 6vw;" />
+            </div>
+            <div style="margin-left: 4vw;">
+              {{ item.name }}
+            </div>
+          </div>
+        </button>
+      </ion-list>
+
+      <ion-label class="recent-search-txt">OTHER APPS</ion-label>
+      <h6>Coming Soon</h6>
+      <!-- <ion-list no-lines>
+        <button ion-item *ngFor="let item of other_apps_data" (click)="otherAppsItemSelected(item)">
+          <div class="item-div">
+            <div class="" >
+              <img src="{{item.image}}" style="width: 6vw;" />
+            </div>
+            <div style="margin-left: 4vw;">
+              {{ item.name }}
+            </div>
+          </div>
+        </button> 
+      </ion-list> -->
+    </div>
+  </div>
+
+</ion-content>

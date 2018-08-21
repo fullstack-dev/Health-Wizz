@@ -1,0 +1,407 @@
+page-submit-report {
+  background-color: rgb(239, 239, 244);
+  .name_fld {
+    padding: 0;
+    width: 50%;
+    max-height: 4rem;
+    min-height: 4rem;
+    .item-inner {
+      border: none !important;
+      padding: 0 !important;
+      .label {
+        font-size: 14px;
+        font-family: 'SF-UI-Text' !important;
+        color: #737370;
+        padding-bottom: 3px;
+        sup {
+          color: red;
+          font-weight: 900;
+        }
+      }
+      .input {
+        border: 1px solid $font-appcolor;
+        border-radius: 2px;
+        padding: 0 10px;
+        .text-input {}
+        .text-input-md {
+          margin: 8px 8px;
+        }
+      }
+      .select {
+        border: 1px solid $font-appcolor;
+        padding: 8px 6px;
+        border-radius: 1px;
+        color: #015c63;
+      }
+    }
+  }
+  .slide-zoom {
+    height: 100%;
+    text-align: left;
+    display: block;
+    width: 85%;
+  }
+  .slide-background {
+    border-radius: 10px;
+    background-color: white;
+    -webkit-box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.16);
+    margin-bottom: 30vw;
+    padding: 0 3.5vw 2px;
+  }
+  .slide-title-div {
+    display: flex;
+    padding-top: 3.5vw;
+    align-items: center;
+    height: 20vw;
+    margin-bottom: 2vw;
+    position: relative;
+  }
+  .slide-title {
+    font-size: 1.6rem;
+    color: #009EA9;
+    margin-left: 6vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .slide-detail-btn {
+    position: absolute;
+    right: 2vw;
+    top: 4vh;
+    color: #179FA9;
+    font-size: 1.3rem;
+    margin-left: 13vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .detail-info-div {
+    display: flex;
+    padding-top: 3vh;
+  }
+  .detail-info-text {
+    // color: #EA6288;
+    font-size: 12px;
+    width: 85%;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .detail-info-value {
+    color: $gray;
+    font-size: 12px;
+    text-align: right;
+    width: 20%;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .bmi-text {
+    font-size: 24px;
+    margin-top: 3vh;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .bmi-img-div {
+    height: 130px;
+    text-align: center;
+    padding-top: 5vh;
+  }
+  .bmi-img {
+    width: 20vw;
+  }
+  .weight-div {
+    display: flex;
+    align-items: center;
+  }
+  .weight-edit-div {
+    position: relative;
+    width: 35vw;
+  }
+  .update-device-div {
+    font-size: 14px;
+    font-weight: bold;
+    color: #009EA9; // margin-top: 8vw;
+    margin-left: 3vw;
+    width: 37vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .waist-img-div {
+    height: 48vw;
+    text-align: center;
+    padding-top: 14vw;
+  }
+  .waist-img {
+    width: 27vw;
+  }
+  .update-device-div1 {
+    font-size: 3.6vw;
+    color: #009EA9;
+    margin-left: 3vw;
+    width: 37vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .zero-sign {
+    width: 20vw;
+    text-align: center; // color: red;
+    font-size: 4vw;
+  }
+  .first-sign {
+    width: 20vw;
+    text-align: center; // color: red;
+    border-left: 1px solid #D6D6D6;
+    font-size: 4vw;
+  }
+  .second-sign {
+    width: 20vw;
+    text-align: center;
+    border-left: 1px solid #D6D6D6;
+    border-right: 1px solid #D6D6D6; // color: #FFBB45;
+    font-size: 4vw;
+  }
+  .third-sign {
+    width: 20vw;
+    text-align: center; // color: green;
+    font-size: 4vw;
+  }
+  .nutrition-div {
+    margin: 2vh 0;
+    .item {
+      padding-left: 0;
+      .shown {
+        color: #000;
+      }
+      .hidden {
+        color: #b2b2b2;
+      }
+      .item-inner {
+        .label {
+          font-size: 1.3rem !important;
+        }
+      }
+    }
+    .checkbox-ios-dark .checkbox-checked {
+      background-color: $button-color;
+      border-color: $button-color;
+    }
+  }
+  .checkbox-ios .checkbox-icon {
+    border: 1px solid #B2B2B2;
+  }
+  .item.item-ios .checkbox-ios {
+    margin: 0px 16px 8px 2px;
+  }
+  ion-label {
+    white-space: normal;
+  }
+  .checkbox-ios.checkbox-disabled,
+  .item-ios.item-checkbox-disabled ion-label {
+    color: #91928E;
+  }
+  .first-word {
+    width: 50vw;
+    text-align: center; // color: green;
+    font-size: 7vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .second-word {
+    width: 50vw;
+    text-align: center;
+    border-left: 1px solid #D6D6D6; // color: red;
+    font-size: 7vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .alcohol-img-div {
+    height: 25vw;
+    text-align: center;
+    padding-top: 2vw;
+  }
+  .alcohol-img {
+    width: 13vw;
+  }
+  .alcohol-text1 {
+    font-size: 14px;
+    color: #60605D;
+    margin-top: 5vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .alcohol-text2 {
+    font-size: 1.2rem;
+    margin: 1.5vh 0;
+    font-family: 'SF-UI-Text' !important;
+    color: black;
+  }
+  .alcohol-text3 {
+    padding-top: 2vh;
+    font-size: 3.5vw;
+    color: #128E98;
+    border-top: 1px solid #EFEFF4;
+    font-family: 'SF-UI-Text' !important;
+  }
+  ion-list {
+    ion-list-header {
+      ion-label {
+        font-size: 1.2rem;
+        color: black;
+      }
+    }
+    ion-item {
+      border-bottom: 1px solid #EFEFF4 !important;
+      padding: 5px !important;
+      .shown {
+        color: #000;
+      }
+      .hidden {
+        color: #b2b2b2;
+      }
+      .item-inner {
+        .label {
+          font-size: 1.3rem !important;
+        }
+      }
+      ion-label {
+        margin: 0 !important;
+        font-size: 1.3rem;
+        color: #128E98;
+      }
+    }
+  }
+  .sleep-img-div {
+    height: 41vw;
+    text-align: center;
+    padding-top: 10vw;
+  }
+  .sleep-img {
+    width: 24vw;
+  }
+  .slide-item-title {
+    margin-top: 8vw;
+    font-size: 4vw;
+    color: #737370;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .input-text {
+    margin-top: 2vw;
+    width: 100%;
+    border: 0.5px solid #8E8E93;
+    padding-left: 2vw;
+    font-size: 4vw;
+    height: 10vw;
+  }
+  .input-date-text {
+    width: 100%;
+    border: 0.5px solid #8E8E93;
+    padding-left: 2vw;
+    height: 12vw;
+  }
+  .item-div {
+    display: flex;
+  }
+  .check-item-div {
+    display: flex;
+    height: 20vw;
+  }
+  .check-div {
+    margin-top: 4.5vw;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: #737370;
+    width: 6vw;
+    height: 6vw;
+  }
+  .label-div {
+    white-space: normal;
+    font-size: 4vw;
+    margin-left: 2vw;
+    color: #737370;
+    line-height: 8vw;
+  }
+  .space {
+    height: 64vw;
+  }
+  .radio-ios .radio-checked .radio-inner {
+    border-color: #009EA9 !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: $button-color;
+    opacity: 1;
+  }
+  .ion-select {
+    max-width: 100% !important;
+  }
+  .select-ios {
+    // padding-left: 0px !important;
+    max-width: 100% !important;
+  }
+  .select-text {
+    width: 100vw !important;
+  }
+  .scroll-content {
+    overflow: hidden;
+    padding-bottom: 0 !important;
+  }
+  .datetime-ios {
+    padding: 6px 8px 0px 16px !important;
+  }
+  .datetime-md {
+    padding: 0 6px !important;
+  }
+  .item-ios.item-block .item-inner {
+    border-bottom: 0 !important;
+  }
+  .item-md.item-block .item-inner {
+    border-bottom: 0 !important;
+  }
+  .alert-div {
+    color: #E85A88;
+    font-size: 3.5vw;
+    ion-icon {
+      color: red;
+    }
+  }
+  .unit-select-item {
+    width: 45%;
+    border: 1px solid #009ea9;
+    max-height: 4rem;
+    min-height: 4rem;
+    margin-left: 3px;
+    font-size: 14px;
+  }
+  .options-container {
+    margin-top: 3vh;
+    height: 30vh;
+    overflow-y: auto;
+    margin-bottom: 2vh;
+  }
+  /*.div.swiper-container.swiper-container-horizontal {
+    	bottom: 100px;
+    }*/
+  .alert-md .alert-radio-group,
+  .alert-md .alert-checkbox-group {
+    overflow: hidden !important;
+    max-height: 280px !important;
+  }
+}
+
+.alert-md .alert-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.alert-ios .alert-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+// .alert-md .alert-radio-group,
+// .alert-md .alert-checkbox-group {
+//   overflow: hidden !important;
+//   max-height: 280px !important;
+// }
+.list-ios>.item-block:first-child {
+  border-top: none !important;
+}
+
+.currentValue {
+  border-bottom: 1px solid;
+}
+
+.item-cover {
+  width: 5% !important;
+  height: 5% !important;
+  left: initial !important;
+  top: initial !important;
+}

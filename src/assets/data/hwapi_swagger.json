@@ -1,0 +1,2505 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.1",
+    "title": "Health Wizz mobile app backend API"
+  },
+  "host": "api.healthwizz.net",
+  "basePath": "/mobile/v1.1",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "parameters": {
+    "FieldsParam": {
+      "in": "query",
+      "name": "fields",
+      "description": "Choose fields to get",
+      "required": false,
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "collectionFormat": "csv"
+    },
+    "ExpandParam": {
+      "in": "query",
+      "name": "expand",
+      "description": "Choose links to expand",
+      "required": false,
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "collectionFormat": "csv"
+    },
+    "OffsetParam": {
+      "in": "query",
+      "name": "offset",
+      "description": "Offset for collections get",
+      "required": false,
+      "type": "integer"
+    },
+    "LimitParam": {
+      "in": "query",
+      "name": "limit",
+      "description": "Limit for collections get",
+      "required": false,
+      "type": "integer"
+    },
+    "BodyParam": {
+      "in": "query",
+      "name": "body",
+      "description": "Body required in post response",
+      "required": false,
+      "type": "boolean"
+    }
+  },
+  "paths": {
+    "/circles": {
+      "get": {
+        "summary": "Get circles list",
+        "parameters": [
+          {
+            "$ref": "#/parameters/OffsetParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "in": "query",
+            "name": "ownerId",
+            "description": "Filter by ownerId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "circleScope",
+            "description": "Filter by circleScope",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Circles"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create circle by name",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "URI of the created circle",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      }
+    },
+    "/circles/{circleId}": {
+      "get": {
+        "summary": "Get circle",
+        "parameters": [
+          {
+            "$ref": "#/parameters/FieldsParam"
+          },
+          {
+            "$ref": "#/parameters/ExpandParam"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Update circle",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace circle",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete circle",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/circles/{circleId}/members": {
+      "get": {
+        "summary": "Get circle members",
+        "parameters": [
+          {
+            "$ref": "#/parameters/OffsetParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleMembers"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Invite member to circle",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InviteInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SMSContent"
+            }
+          }
+        }
+      }
+    },
+    "/circles/{circleId}/members/{memberId}": {
+      "get": {
+        "summary": "Get circle membership",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleMemberInfo"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Update membership",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CircleMemberInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleMemberInfo"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace membership",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CircleMemberInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleMemberInfo"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete membership",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/challenges": {
+      "get": {
+        "summary": "Get challenges list",
+        "parameters": [
+          {
+            "$ref": "#/parameters/OffsetParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "in": "query",
+            "name": "memberId",
+            "description": "Filter by memberId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "challengeType",
+            "description": "Filter by challengeType",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Challenges"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create challenge by name",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "URI of the created challenge",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        }
+      }
+    },
+    "/challenges/{challengeId}": {
+      "get": {
+        "summary": "Get Challenge",
+        "parameters": [
+          {
+            "$ref": "#/parameters/FieldsParam"
+          },
+          {
+            "$ref": "#/parameters/ExpandParam"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Update challenge",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace challenge",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete challenge",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/challenges/{challengeId}/rewards": {
+      "get": {
+        "summary": "Get challenge rewards",
+        "parameters": [
+          {
+            "$ref": "#/parameters/OffsetParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Rewards"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add reward to challenge",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "URI of the created circle member",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        }
+      }
+    },
+    "/challenges/{challengeId}/rewards/{rewardId}": {
+      "get": {
+        "summary": "Get reward",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rewardId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Update reward",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rewardId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace reward",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rewardId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete reward",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rewardId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/challenges/{challengeId}/campaign": {
+      "get": {
+        "summary": "Get challenge campaign",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CampaignInfo"
+            }
+          }
+        }
+      }
+    },
+    "/challenges/{challengeId}/campaign/circle": {
+      "get": {
+        "summary": "Get challenge circle",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      }
+    },
+    "/challenges/{challengeId}/campaign/purse": {
+      "get": {
+        "summary": "Get challenge purse",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/WalletInfo"
+            }
+          }
+        }
+      }
+    },
+    "/challenges/{challengeId}/campaign/purse/ledger": {
+      "get": {
+        "summary": "Get challenge purse ledger",
+        "parameters": [
+          {
+            "$ref": "#/parameters/OffsetParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LedgerEntries"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add entry to ledger",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LedgerEntry"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "URI of the created circle member",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/LedgerEntry"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/profilePic": {
+      "get": {
+        "summary": "Get Profile Pic",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "Get Profile Pic for userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "description": "Get Profile Pic",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "byte"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Save Profile Pic",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "Save Profile Pic for userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "file",
+            "description": "profile pic",
+            "required": true,
+            "type": "string",
+            "format": "byte"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "Profile pic",
+                "type": "string",
+                "format": "byte"
+              }
+            },
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/circles": {
+      "get": {
+        "summary": "Get circles list",
+        "parameters": [
+          {
+            "$ref": "#/parameters/OffsetParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "Get circles for userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "circleScope",
+            "description": "Filter by circleScope",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Circles"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create circle by name",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "Get circles for userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "URI of the created circle",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/circles/{circleId}": {
+      "get": {
+        "summary": "Get circle",
+        "parameters": [
+          {
+            "$ref": "#/parameters/FieldsParam"
+          },
+          {
+            "$ref": "#/parameters/ExpandParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Update circle",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace circle",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete circle",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/users/{userId}/circles/{circleId}/members": {
+      "get": {
+        "summary": "Get circle members",
+        "parameters": [
+          {
+            "$ref": "#/parameters/OffsetParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleMembers"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Invite member to circle",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InviteInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SMSContent"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/circles/{circleId}/members/{memberId}": {
+      "get": {
+        "summary": "Get circle membership",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleMemberInfo"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Update membership",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CircleMemberInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleMemberInfo"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace membership",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CircleMemberInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleMemberInfo"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete membership",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "circleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "memberId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/users/{userId}/challenges": {
+      "get": {
+        "summary": "Get challenges list",
+        "parameters": [
+          {
+            "$ref": "#/parameters/OffsetParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "memberId",
+            "description": "Filter by memberId",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "challengeType",
+            "description": "Filter by challengeType",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Challenges"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create challenge by name",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "URI of the created challenge",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/challenges/{challengeId}": {
+      "get": {
+        "summary": "Get Challenge",
+        "parameters": [
+          {
+            "$ref": "#/parameters/FieldsParam"
+          },
+          {
+            "$ref": "#/parameters/ExpandParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Update challenge",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace challenge",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ChallengeInfo"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete challenge",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/users/{userId}/challenges/{challengeId}/members": {
+      "post": {
+        "summary": "Invite member to challenge",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InviteInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SMSContent"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/challenges/{challengeId}/rewards": {
+      "get": {
+        "summary": "Get rewards list",
+        "parameters": [
+          {
+            "$ref": "#/parameters/OffsetParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Rewards"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add reward to challenge",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "URI of the created circle member",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/challenges/{challengeId}/rewards/{rewardId}": {
+      "get": {
+        "summary": "Get reward",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rewardId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Update reward",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rewardId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace reward",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rewardId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "updateParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RewardInfo"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete reward",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "rewardId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/users/{userId}/challenges/{challengeId}/campaign": {
+      "get": {
+        "summary": "Get challenge campaign",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CampaignInfo"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/challenges/{challengeId}/campaign/circle": {
+      "get": {
+        "summary": "Get challenge circle",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CircleInfo"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/challenges/{challengeId}/campaign/purse": {
+      "get": {
+        "summary": "Get challenge purse",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/WalletInfo"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/challenges/{challengeId}/campaign/purse/ledger": {
+      "get": {
+        "summary": "Get purse ledger",
+        "parameters": [
+          {
+            "$ref": "#/parameters/OffsetParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LedgerEntries"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add entry to ledger",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "challengeId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LedgerEntry"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "URI of the created ledger entry",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/LedgerEntry"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/purse": {
+      "get": {
+        "summary": "Get user purse",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/WalletInfo"
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/purse/ledger": {
+      "get": {
+        "summary": "Get purse ledger",
+        "parameters": [
+          {
+            "$ref": "#/parameters/OffsetParam"
+          },
+          {
+            "$ref": "#/parameters/LimitParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LedgerEntries"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Add entry to ledger",
+        "parameters": [
+          {
+            "$ref": "#/parameters/BodyParam"
+          },
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "createParams",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LedgerEntry"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Location": {
+                "description": "URI of the created ledger entry",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/LedgerEntry"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Link": {
+      "type": "string",
+      "format": "uri"
+    },
+    "CircleScope": {
+      "type": "string",
+      "enum": [
+        "public",
+        "private",
+        "campaign"
+      ]
+    },
+    "CircleInfo": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "circleScope": {
+          "$ref": "#/definitions/CircleScope"
+        },
+        "ownerId": {
+          "type": "string"
+        },
+        "ownerName": {
+          "type": "string"
+        },
+        "invitationState": {
+          "$ref": "#/definitions/InvitationState"
+        },
+        "members": {
+          "type": "string"
+        }
+      }
+    },
+    "Circles": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CircleInfo"
+          }
+        }
+      }
+    },
+    "CircleMembers": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CircleMemberInfo"
+          }
+        }
+      }
+    },
+    "CircleMemberInfo": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "memberId": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "invitationState": {
+          "$ref": "#/definitions/InvitationState"
+        }
+      }
+    },
+    "InvitationState": {
+      "type": "string",
+      "enum": [
+        "invite",
+        "accept",
+        "deny",
+        "left",
+        "remove"
+      ]
+    },
+    "InviteInfo": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    },
+    "Challenges": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChallengeInfo"
+          }
+        }
+      }
+    },
+    "ChallengeInfo": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "daysLeft": {
+          "type": "integer"
+        },
+        "challengeScope": {
+          "$ref": "#/definitions/ChallengeScope"
+        },
+        "challengeType": {
+          "$ref": "#/definitions/ChallengeType"
+        },
+        "challengeTemplateInfo": {
+          "$ref": "#/definitions/ChallengeTemplate"
+        },
+        "indicatorLst": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Indicator"
+          }
+        },
+        "creatorId": {
+          "type": "string"
+        },
+        "moderator": {
+          "type": "boolean"
+        },
+        "validator": {
+          "type": "boolean"
+        },
+        "participant": {
+          "type": "boolean"
+        },
+        "campaignInfo": {
+          "$ref": "#/definitions/CampaignInfo"
+        },
+        "rewards": {
+          "$ref": "#/definitions/Rewards"
+        }
+      }
+    },
+    "ChallengeScope": {
+      "type": "string",
+      "enum": [
+        "noInvite",
+        "memberInvite",
+        "moderatorInvite",
+        "memberInviteWithModeratorConsent"
+      ]
+    },
+    "ChallengeType": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "ChallengeTemplate": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "templateCategory": {
+          "$ref": "#/definitions/TemplateCategory"
+        },
+        "challengeTemplateType": {
+          "$ref": "#/definitions/ChallengeTemplateType"
+        }
+      }
+    },
+    "ChallengeTemplateType": {
+      "type": "string",
+      "enum": [
+        "SYSTEM",
+        "CUSTOM"
+      ]
+    },
+    "Indicator": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "isCalculable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TemplateCategory": {
+      "type": "string",
+      "enum": [
+        "Chronic Disease Management"
+      ]
+    },
+    "CampaignInfo": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "circleInfo": {
+          "$ref": "#/definitions/CircleInfo"
+        },
+        "purse": {
+          "$ref": "#/definitions/WalletInfo"
+        },
+        "fundedBy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FundSource"
+          }
+        }
+      }
+    },
+    "WalletInfo": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "id": {
+          "type": "string"
+        },
+        "balance": {
+          "type": "integer"
+        },
+        "ledger": {
+          "$ref": "#/definitions/LedgerEntries"
+        }
+      }
+    },
+    "LedgerEntries": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LedgerEntry"
+          }
+        }
+      }
+    },
+    "LedgerEntry": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "transactionDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "amount": {
+          "type": "number"
+        }
+      }
+    },
+    "Rewards": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "info": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RewardInfo"
+          }
+        }
+      }
+    },
+    "RewardInfo": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "$ref": "#/definitions/Link"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "amount": {
+          "type": "integer"
+        },
+        "state": {
+          "$ref": "#/definitions/RewardState"
+        },
+        "recipient": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CircleMemberInfo"
+          }
+        },
+        "totalRecipient": {
+          "type": "integer"
+        }
+      }
+    },
+    "RewardState": {
+      "type": "string",
+      "enum": [
+        "CREATED",
+        "FINISHED",
+        "PARTIAL",
+        "CANCELLED"
+      ]
+    },
+    "SMSContent": {
+      "type": "object",
+      "properties": {
+        "smsContent": {
+          "type": "string"
+        }
+      }
+    },
+    "FundSource": {
+      "type": "object",
+      "properties": {
+        "sourceType": {
+          "$ref": "#/definitions/FundSourceType"
+        },
+        "participantFee": {
+          "type": "integer"
+        },
+        "sponsorName": {
+          "type": "string"
+        }
+      }
+    },
+    "FundSourceType": {
+      "type": "string",
+      "enum": [
+        "moderator",
+        "participants",
+        "sponsor"
+      ]
+    }
+  }
+}

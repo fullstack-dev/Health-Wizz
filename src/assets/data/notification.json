@@ -1,0 +1,17 @@
+{
+	"circle_notification":[
+		{ 
+			"who": "Alex",
+			"date": "Jan 10th, 2018",
+			"circle_name": "Cambridge", 
+			"circle_descriptions": "This is the descriptions for Cambridge.", 
+			"type": "Private",
+			"members_data":[
+				
+			]
+		}
+	],
+	"campaign_notification": [
+
+	]
+}

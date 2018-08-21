@@ -1,0 +1,293 @@
+{
+  "speciality": [{
+      "name": "Acupuncture",
+      "term": "acupuncturist",
+      "code": "1"
+    },
+    {
+      "name": "Allergy and immunology",
+      "term": "allergist",
+      "code": "2"
+    },
+    {
+      "name": "Dermatology",
+      "term": "dermatologist",
+      "code": "3"
+    },
+    {
+      "name": "Addiction Medicine",
+      "term": "addiction-specialist",
+      "code": "4"
+    },
+    {
+      "name": "Cardiology",
+      "term": "cardiologist",
+      "code": "5"
+    },
+    {
+      "name": "Thoracic surgery",
+      "term": "cardiothoracic-surgeon",
+      "code": "6"
+    },
+    {
+      "name": "Anesthesiology",
+      "term": "anesthesiologist",
+      "code": "7"
+    },
+    {
+      "name": "Proctology",
+      "term": "colorectal-surgeon",
+      "code": "8"
+    },
+    {
+      "name": "Cardiovascular surgery",
+      "term": "",
+      "code": "9"
+    },
+    {
+      "name": "Clinical laboratory sciences",
+      "term": "",
+      "code": "10"
+    },
+    {
+      "name": "Dietetics",
+      "term": "nutritionist",
+      "code": "11"
+    },
+    {
+      "name": "Ophthalmology",
+      "term": "ophthalmologist",
+      "code": "12"
+    },
+    {
+      "name": "Family Medicine",
+      "term": "family-practitioner",
+      "code": "13"
+    },
+    {
+      "name": "Gastroenterology",
+      "term": "gastroenterologist",
+      "code": "14"
+    },
+    {
+      "name": "Geriatrics",
+      "term": "geriatric-physical-therapist",
+      "code": "15"
+    },
+    {
+      "name": "Emergency medicine",
+      "term": "emergency-medicine-doctor",
+      "code": "16"
+    },
+    {
+      "name": "Endocrinology",
+      "term": "endocrinologist",
+      "code": "17"
+    },
+    {
+      "name": "Infectious disease",
+      "term": "infectious-disease-doctor",
+      "code": "18"
+    },
+    {
+      "name": "Internal Medicine",
+      "term": "internist",
+      "code": "19"
+    },
+    {
+      "name": "Pathology",
+      "term": "pathologist",
+      "code": "20"
+    },
+    {
+      "name": "Pediatric surgery",
+      "term": "pediatric-surgeon",
+      "code": "21"
+    },
+    {
+      "name": "Nephrology",
+      "term": "nephrologist",
+      "code": "22"
+    },
+    {
+      "name": "Neurology",
+      "term": "neurologist",
+      "code": "23"
+    },
+    {
+      "name": "Neurosurgery",
+      "term": "neurosurgeon",
+      "code": "24"
+    },
+    {
+      "name": "General surgery",
+      "term": "",
+      "code": "25"
+    },
+    {
+      "name": "Geriatrics",
+      "term": "geriatric-medicine-doctor",
+      "code": "26"
+    },
+    {
+      "name": "Family Medicine Bariatric Medicine",
+      "term": "family-medicine-bariatric-medicine",
+      "code": "27"
+    },
+    {
+      "name": "Oncology",
+      "term": "oncologist",
+      "code": "28"
+    },
+    {
+      "name": "Hepatology",
+      "term": "hepatologist",
+      "code": "29"
+    },
+    {
+      "name": "Hospital medicine",
+      "term": "hospitalist",
+      "code": "30"
+    },
+    {
+      "name": "Medical research",
+      "term": "",
+      "code": "31"
+    },
+    {
+      "name": "Orthopedic surgery",
+      "term": "orthopedic-surgeon",
+      "code": "32"
+    },
+    {
+      "name": "Obstetrics and gynecology",
+      "term": "obstetrics-gynecologist",
+      "code": "33"
+    },
+    {
+      "name": "Oral and maxillofacial surgery",
+      "term": "oral-maxillofacial-surgeon",
+      "code": "34"
+    },
+    {
+      "name": "Pediatrics",
+      "term": "pediatrician",
+      "code": "35"
+    },
+    {
+      "name": "Physical medicine and rehabilitation Or Physiatry",
+      "term": "physiatris",
+      "code": "36"
+    },
+    {
+      "name": "Physical Therapy",
+      "term": "physical-therapist",
+      "code": "37"
+    },
+    {
+      "name": "Plastic surgery",
+      "term": "plastic-surgery-specialist",
+      "code": "38"
+    },
+    {
+      "name": "Podiatry",
+      "term": "podiatrist",
+      "code": "39"
+    },
+    {
+      "name": "Palliative care",
+      "term": "hospice-care-palliative-doctor",
+      "code": "40"
+    },
+    {
+      "name": "Psychiatry",
+      "term": "psychiatrist",
+      "code": "41"
+    },
+    {
+      "name": "Psychology",
+      "term": "psychologist",
+      "code": "42"
+    },
+    {
+      "name": "Pulmonary Disease",
+      "term": "pulmonologist",
+      "code": "43"
+    },
+    {
+      "name": "Pulmonology",
+      "term": "",
+      "code": "44"
+    },
+    {
+      "name": "Rheumatology",
+      "term": "rheumatologist",
+      "code": "45"
+    },
+    {
+      "name": "Sleep Medicine",
+      "term": "sleep-medicine-doctor",
+      "code": "46"
+    },
+    {
+      "name": "Public Health",
+      "term": "",
+      "code": "47"
+    },
+    {
+      "name": "Radiology",
+      "term": "",
+      "code": "48"
+    },
+    {
+      "name": "Surgical oncology",
+      "term": "surgical-oncologist",
+      "code": "49"
+    },
+    {
+      "name": "Intensive care medicine",
+      "term": "critical-care-doctor",
+      "code": "50"
+    },
+    {
+      "name": "Urology",
+      "term": "urologist",
+      "code": "51"
+    },
+    {
+      "name": "Transplant surgery",
+      "term": "transplant-surgery",
+      "code": "52"
+    },
+    {
+      "name": "Vascular surgery",
+      "term": "vascular-surgeon",
+      "code": "53"
+    },
+    {
+      "name": "Urgent Care Medicine",
+      "term": "",
+      "code": "54"
+    },
+    {
+      "name": "Obesity Medicine",
+      "term": "",
+      "code": "55"
+    },
+    {
+      "name": "Nutrition Specialist",
+      "term": "nutritionist",
+      "code": "56"
+    },
+    {
+      "name": "Gynecology",
+      "term": "gynecologist",
+      "code": "57"
+    },
+    {
+      "name": "Otorhinolaryngology, or ENT",
+      "term": "",
+      "code": "58"
+    }
+  ]
+}

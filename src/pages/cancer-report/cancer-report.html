@@ -1,0 +1,199 @@
+<ion-header>
+
+  <ion-navbar hideBackButton>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>Cancer Report</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: #EFEFF4;">
+
+  <ion-slides pager spaceBetween="-40" speed="300" #slides>
+
+    <ion-slide *ngFor="let item of indicators; let card_index = index">
+      <form #healthForm="ngForm" class="" style="width: 100%;height: 100%;" novalidate>
+        <ion-scroll scrollY="true" style="width: 100%;height: 100%;">
+
+          <div class="slide-title-div">
+            <div class="slide-title">{{today | date: "MMMM d, y"}}</div>
+            <div class="slide-detail-btn" (click)="goToDetail(item, card_index)">Detail</div>
+            <!-- <div class="slide-detail-btn">Detail</div> -->
+          </div>
+
+          <div class="slide-background">
+
+            <div class="detail-info-div">
+
+              <div class="detail-info-text" *ngIf="item.data.lastUpdatedDate else noCancerLast">Last update {{item.data.lastUpdatedDate | date: 'MMM d, y h:mm a'}}</div>
+              <ng-template #noCancerLast>
+                <div class="alert-div">
+                  <ion-icon name="ios-alert-outline"></ion-icon>
+                </div>
+                <div class="detail-info-text" style="color:#FB4F84">Update Request!</div>
+              </ng-template>
+              <div class="detail-info-value" *ngIf="item.data.calculatedValue != 'null'">{{item.data.calculatedValue}}</div>
+            </div>
+
+            <div class="bmi-text">{{item.info.code}}</div>
+
+            <div class="bmi-img-div">
+              <img class="bmi-img" src={{item.info.image}}/>
+            </div>
+
+            <ion-list style="padding-bottom:5vh" *ngIf="item.info.code == 'Breast Cancer'">
+              <ion-item *ngIf="item.info.questions[0].value else breastLast">
+                <h2>Last screening date</h2>
+                <p>{{item.info.questions[0].value | date: 'MMM, y'}}</p>
+              </ion-item>
+              <ng-template #breastLast>
+                <ion-item>
+                  <h2>Last screening date</h2>
+                  <p>NA/NA</p>
+                </ion-item>
+              </ng-template>
+              <ion-item *ngIf="item.data.nextScreeningDate else breastNext">
+                <h2>Next screening date</h2>
+                <p>{{item.data.nextScreeningDate | date: 'MMM, y'}}</p>
+              </ion-item>
+              <ng-template #breastNext>
+                <ion-item>
+                  <h2>Next screening date</h2>
+                  <p>NA/NA</p>
+                </ion-item>
+              </ng-template>
+            </ion-list>
+
+            <ion-list style="padding-bottom:5vh" *ngIf="item.info.code == 'Cervical Cancer'">
+              <ion-item *ngIf="item.info.questions[1].value else cervicalLast">
+                <h2>Last screening date</h2>
+                <p>{{item.info.questions[1].value | date: 'MMM, y'}}</p>
+              </ion-item>
+              <ng-template #cervicalLast>
+                <ion-item>
+                  <h2>Last screening date</h2>
+                  <p>NA/NA</p>
+                </ion-item>
+              </ng-template>
+              <ion-item *ngIf="item.data.nextScreeningDate else cervicalNext">
+                <h2>Next screening date</h2>
+                <p>{{item.data.nextScreeningDate | date: 'MMM, y'}}</p>
+              </ion-item>
+              <ng-template #cervicalNext>
+                <ion-item>
+                  <h2>Next screening date</h2>
+                  <p>NA/NA</p>
+                </ion-item>
+              </ng-template>
+            </ion-list>
+
+            <ion-list style="padding-bottom:5vh" *ngIf="item.info.code == 'Colon Cancer'">
+              <ion-item *ngIf="item.info.questions[1].value else colonLast">
+                <h2>Last screening date</h2>
+                <p>{{item.info.questions[1].value | date: 'MMM, y'}}</p>
+              </ion-item>
+              <ng-template #colonLast>
+                <ion-item>
+                  <h2>Last screening date</h2>
+                  <p>NA/NA</p>
+                </ion-item>
+              </ng-template>
+              <ion-item *ngIf="item.data.nextScreeningDate else colonNext">
+                <h2>Next screening date</h2>
+                <p>{{item.data.nextScreeningDate | date: 'MMM, y'}}</p>
+              </ion-item>
+              <ng-template #colonNext>
+                <ion-item>
+                  <h2>Next screening date</h2>
+                  <p>NA/NA</p>
+                </ion-item>
+              </ng-template>
+            </ion-list>
+
+            <ion-list style="padding-bottom:5vh" *ngIf="item.info.code == 'Lung Cancer'">
+              <ion-item *ngIf="item.info.questions[1].value else lungLast">
+                <h2>Last screening date</h2>
+                <p>{{item.info.questions[1].value | date: 'MMM, y'}}</p>
+              </ion-item>
+              <ng-template #lungLast>
+                <ion-item>
+                  <h2>Last screening date</h2>
+                  <p>NA/NA</p>
+                </ion-item>
+              </ng-template>
+              <ion-item *ngIf="item.data.nextScreeningDate else lungNext">
+                <h2>Next screening date</h2>
+                <p>{{item.data.nextScreeningDate | date: 'MMM, y'}}</p>
+              </ion-item>
+              <ng-template #lungNext>
+                <ion-item>
+                  <h2>Next screening date</h2>
+                  <p>NA/NA</p>
+                </ion-item>
+              </ng-template>
+            </ion-list>
+
+            <ion-list style="padding-bottom:5vh" *ngIf="item.info.code == 'Prostate Cancer'">
+              <ion-item *ngIf="item.info.questions[0].value else prostateLast">
+                <h2>Last screening date</h2>
+                <p>{{item.info.questions[0].value | date: 'MMM, y'}}</p>
+              </ion-item>
+              <ng-template #prostateLast>
+                <ion-item>
+                  <h2>Last screening date</h2>
+                  <p>NA/NA</p>
+                </ion-item>
+              </ng-template>
+              <ion-item *ngIf="item.data.nextScreeningDate else prostateNext">
+                <h2>Next screening date</h2>
+                <p>{{item.data.nextScreeningDate | date: 'MMM, y'}}</p>
+              </ion-item>
+              <ng-template #prostateNext>
+                <ion-item>
+                  <h2>Next screening date</h2>
+                  <p>NA/NA</p>
+                </ion-item>
+              </ng-template>
+            </ion-list>
+
+            <!-- <div style="height:35vh">
+              <div style="padding-top:3vh; padding-bottom:3vh" *ngFor="let question of item.info.questions; let questionIndex = index">
+                <div *ngIf="question.type == 'date'">
+                  <div class="weight-div">
+                    <ion-item class="name_fld">
+                      <ion-label stacked>{{question.label}}</ion-label>
+                      <ion-datetime #valueInput="ngModel" name="valueInput[{{questionIndex}}]" [(ngModel)]="question.value" required placeholder=""></ion-datetime>
+                    </ion-item>
+                  </div>
+                </div>
+
+                <div *ngIf="question.type == 'toggle_yes_no'">
+                  <ion-label stacked>{{question.label}}</ion-label>
+                  <div class="weight-div">
+                    <div class="first-word" [ngStyle]="setYesActiveStyle(question.value)" (click)="question.value = 'YES'">Yes</div>
+                    <div class="second-word" [ngStyle]="setNoActiveStyle(question.value)" (click)="question.value = 'NO'">No</div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </ion-scroll>
+      </form>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

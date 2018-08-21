@@ -1,0 +1,80 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+@import "ionic.globals";
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+$colors: ( primary: #41c4cd, secondary: #32db64, danger: #f53d3d, light: #f4f4f4, dark: #222, appColor: #009ea9);
+$toolbar-order-ios: ( back-button: 0, buttons-left: 1, buttons-start: 2, menu-toggle-start: 3, content: 4, buttons-end: 5, buttons-right: 6, menu-toggle-end: 7, );
+$toolbar-order-md: ( back-button: 0, buttons-left: 1, buttons-start: 2, menu-toggle-start: 3, content: 4, buttons-end: 5, buttons-right: 6, menu-toggle-end: 7, );
+$toolbar-background: #FAFAFA;
+$loading-ios-spinner-dots-color: #ffffff;
+$loading-md-spinner-dots-color: #ffffff; // App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+@import "ionic.theme.default";
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+@import "ionic.ionicons";
+// Fonts
+// --------------------------------------------------
+@import "roboto";
+@import "noto-sans";
+@font-face {
+  font-family: 'SF-UI-Text';
+  src: url('../assets/fonts/HelveticaNeue.ttf') format('truetype'), url('../assets/fonts/SF-UI-Text/SF-UI-Text-Regular.woff') format('woff'), url('../assets/fonts/SF-UI-Text/SF-UI-Text-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF-Pro-Text';
+  src: url('../assets/fonts/SF-Pro-Text/San-Francisco-Display-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue-Haas-Grotesk-Text-Pro';
+  src: url('../assets/fonts/Neue-Haas-Grotesk-Text-Pro/NHaasGroteskTXProRg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica-Neue';
+  src: url('../assets/fonts/HelveticaNeue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

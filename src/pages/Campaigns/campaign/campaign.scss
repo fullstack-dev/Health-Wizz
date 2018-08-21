@@ -1,0 +1,230 @@
+page-campaign {
+  .toolbar {
+    button {
+      margin: 0 5px;
+    }
+    .menu_icon {
+      float: right;
+    }
+    .search-div {
+      width: 80%;
+      float: left;
+    }
+    .cancel {
+      float: left;
+      width: 15%;
+      margin-top: 8px;
+    }
+  }
+  h2,
+  h4,
+  p,
+  button {
+    font-family: 'SF-UI-Text';
+  }
+  .bg-class {
+    background-color: #EFEFF4;
+  }
+  .invitation {
+    padding: 10px 20px;
+  }
+  .slide-zoom {
+    width: 95%;
+  }
+  .sld-div {
+    .slides {
+      background-color: #EFEFF4;
+    }
+    .main_title {
+      padding-left: 20px;
+      float: left;
+    }
+    .sub_title {
+      padding-right: 20px;
+      font-size: 18px;
+      color: $font-appcolor;
+      float: right;
+    }
+  }
+  .campaign-last-update-text {
+    color: $red;
+    font-size: 12px;
+  }
+  .invite-fab {
+    padding: 0 !important;
+    button {
+      width: 170px !important;
+      border-radius: 0 20px 20px 0;
+      margin-left: 0 !important;
+    }
+    #moderator-invite-fab {
+      background-color: $moderator-color;
+    }
+    #validator-invite-fab {
+      background-color: $validator-color;
+    }
+    #unpublish-fab {
+      background-color: $primary;
+    }
+  }
+  .campaign_div {
+    width: 90%;
+    display: inline-block;
+    background-color: #fff;
+    box-shadow: 0px 0px 7px grey;
+    height: auto;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 5px 0;
+    .first-title {
+      width: 100%;
+      display: flex;
+      .status {
+        width: calc(100% - 70px);
+        float: left;
+        font-size: 14px;
+        text-align: left;
+      }
+      .details {
+        width: 70px;
+        text-align: right;
+        float: right;
+        font-size: 15px;
+        margin-top: 12px;
+        font-weight: 500;
+        color: $font-appcolor;
+      }
+    }
+    h4 {
+      text-align: left;
+    }
+    .second-title {
+      width: 100%;
+      display: flex;
+      .status {
+        width: calc(100% - 100px);
+        float: left;
+        margin: 0;
+        font-size: 12px;
+        text-align: left;
+        span {
+          color: $font-appcolor;
+        }
+      }
+      .person {
+        height: 15px;
+        display: inline-block;
+        width: 100px;
+        img {
+          height: 15px;
+          margin: 0;
+          float: right;
+        }
+        p {
+          margin: 0 5px;
+          font-size: 16px;
+          line-height: 15px;
+          float: right;
+          color: $font-appcolor;
+        }
+      }
+    }
+    img {
+      width: auto;
+      height: 120px;
+      margin: 30px auto;
+      display: block;
+    }
+    .result {
+      width: 100%;
+      display: flow-root;
+      padding: 3%;
+      button {
+        width: 45%;
+        font-size: 20px;
+        height: 45px;
+      }
+      .deny {
+        border: 2px solid $font-appcolor;
+        background-color: #fff;
+        color: $font-appcolor;
+        float: left;
+      }
+      .accept {
+        background-color: $font-appcolor;
+        float: right;
+      }
+    }
+    .update {
+      font-size: 13px;
+      text-align: left;
+      color: #ea6288;
+    }
+    .max_reward {
+      width: 100%;
+      display: inline-block;
+      p {
+        font-size: 14px;
+        text-align: left;
+        float: left;
+        margin: 5px;
+      }
+      img {
+        width: 20px;
+        float: left;
+        height: 20px;
+        margin: 3px 0;
+        margin-left: 10px;
+      }
+    }
+    .module-zero {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      button {
+        border-radius: 50%;
+        background-color: #ff3863;
+        box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 1);
+      }
+      .button-md {
+        width: 3.6rem;
+      }
+    }
+    .module-one {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      button {
+        border-radius: 50%;
+        background-color: #0098FF;
+        box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 1);
+        width: 45px;
+        height: 45px;
+      }
+      .button-md {
+        width: 3.6rem;
+      }
+    }
+    .module-two {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      button {
+        height: 40px;
+        box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 1);
+      }
+      button:nth-child(1) {
+        border-radius: 50% 0% 0% 50%;
+        background-color: #ff3863;
+        margin-right: -7px;
+      }
+      button:nth-child(2) {
+        border-radius: 0 50% 50% 0;
+        background-color: #0098FF;
+      }
+      .button-md {
+        width: 3.6rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+<!--
+  Generated template for the WelcomeCirclePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+  <ion-navbar *ngIf="!searchClick">
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Search()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="Add()">
+        <ion-icon ios="md-add" md="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{title}}</ion-title>
+
+  </ion-navbar>
+
+  <ion-navbar *ngIf="searchClick">
+    <ion-searchbar class="search-div" (ionInput)="onInput($event)"></ion-searchbar>
+    <button ion-button small class="cancel" (click)="onCancel($event)">Cancel</button>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content padding>
+  <div id="empty_area" class="sad-background-div" (click)="EmptyClick()" *ngIf="visibleNoCircle">
+    <div class="sad-img-div">
+      <img class="sad-img" src="assets/imgs/HealthIndexIcons/sad@2x.png">
+    </div>
+    <div class="first-txt-div">
+      {{lang_resource.circle.welcome_circle.welcome_text}}
+    </div>
+    <div class="second-txt-div">
+      {{lang_resource.circle.welcome_circle.no_circles}}
+    </div>
+    <div class="second-txt-div">
+      {{lang_resource.circle.welcome_circle.msg_text}}
+    </div>
+    <div class="arrow-img-div" *ngIf="visibleArrow">
+      <img src="assets/imgs/arrow.png" />
+    </div>
+  </div>
+  <div>
+    <ion-label class="available-circles-txt">{{lang_resource.circle.my_circles.available_circles}}</ion-label>
+    <ion-list no-lines>
+      <button ion-item *ngFor="let item of items" (click)="AvailableCirclesItemSelected(item)">
+        <div class="item-div">
+          <div class="item-img-div">
+            <img src="assets/imgs/AddMedImgs/Recent@2x.png" style="width: 6vw;" />
+          </div>
+          <div style="margin-left: 4vw;">
+            <div style="font-size: 1.6rem;">{{ item.name }}</div>
+            <div class="numberOfMembers-txt">{{ item.members_data.length }} members</div>
+          </div>
+          <div class="public-txt">
+            {{item.circleScope}}
+          </div>
+        </div>
+      </button>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,88 @@
+page-campaign-draft {
+	h1, h2, h3, h4, h5, p, button, .label{
+		font-family: 'SF-UI-Text';
+	}
+	.toolbar{
+		button{
+			margin: 0 5px;
+		}
+		.menu_icon{
+			float: right;
+		}
+	}
+
+	h2{
+		font-weight: 400;
+	}
+	.des{
+		padding: 5px;
+		img{
+			width: 50px;
+    		float: left;
+    		margin: 2px 15px 0px 0px;
+		}
+		p{
+			color: $font-des;
+			margin: 5px 0;
+		}
+	}
+	
+	.terms{
+		margin-top: 15px;
+		.description{
+			ul { 
+				list-style: none;
+				padding-left: 0;
+			 }
+			li::before {
+				content: "•"; 
+				color: $font-appcolor;
+				margin-right: 10px;
+			}
+		}
+	}
+	.measured{
+		margin: 20px 0;
+		.description{
+			img{
+				width: 50px;
+    			padding: 10px;
+			}
+		}
+	}
+
+	.organizers{
+		margin: 20px 0;
+		.description{
+			width: 100%;
+    		display: inline-flex;
+    		p{
+    			margin: 3px 0;
+    		}
+    		.name{
+    			color: $font-appcolor;
+    			font-weight: 500;
+    		}
+		}
+	}
+
+	.result-btn{
+		width: 100%;
+		display: inline-block;
+		padding: 3%;
+    	align-items: center;
+		button{
+			width: 40%;
+			font-size: 20px;
+			margin: 0 5%;
+			height: 45px;
+		}
+		.l-btn{		
+			border: 2px solid;
+			float: left;
+		}
+		.r-btn{
+			float: right;
+		}
+	}
+}

@@ -1,0 +1,226 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <!--  [disabled]="!chfForm.valid" -->
+      <button ion-button (click)="Done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{received_item?.data.indicatorCode}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="detail-body-div">
+    <div class="detail-txt">
+      <span>
+        <img class="detail-img" src={{received_item?.image}} align="left">
+      </span> {{received_item?.detail}}</div>
+  </div>
+
+  <div class="calendar-div">
+    <div class="calendar-header">
+      <ion-row class="calendar-month">
+        <ion-col col-2 (click)="goToLastMonth()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-col>
+        <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+        <ion-col col-2 (click)="goToNextMonth()">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="calendar-body">
+      <ion-grid>
+        <ion-row class="calendar-weekday">
+          <ion-col>Sun</ion-col>
+          <ion-col>Mon</ion-col>
+          <ion-col>Tue</ion-col>
+          <ion-col>Wed</ion-col>
+          <ion-col>Thu</ion-col>
+          <ion-col>Fri</ion-col>
+          <ion-col>Sat</ion-col>
+        </ion-row>
+        <ion-row class="calendar-date">
+          <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+          <ion-col col-1 *ngFor="let day of daysInThisMonth; let i = index" (click)="selectDate(day, i)">
+            <span class="currentDate" [ngClass]="{dataDay: temp_value[i] != null}" *ngIf="currentDate === day; else otherDate">{{day}}</span>
+            <ng-template #otherDate class="otherDate">
+              <span [ngClass]="{dataDay: temp_value[i] != null}">{{day}}</span>
+            </ng-template>
+          </ion-col>
+          <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!-- <div class="selected-event" *ngIf="isSelected">
+      <ion-list>
+        <ion-item *ngFor="let se of selectedEvent">
+          <ion-buttons end>
+            <button ion-button clear icon-only (click)="deleteEvent(se)">
+              <ion-icon name="close"></ion-icon>
+            </button>
+          </ion-buttons>
+          <h2>{{se.title}}</h2>
+          <h3>{{se.message}}</h3>
+          <p>Start Date: {{se.startDate}}
+            <br> Start Date: {{se.endDate}}</p>
+        </ion-item>
+      </ion-list>
+    </div> -->
+  </div>
+
+  <div class="nutrition-div">
+    <form #chfForm="ngForm" class="" style="width: 100%;height: 100%;" novalidate>
+      <div *ngIf="received_item.data.indicatorCode == 'Daily Weight'" style="height: 30vh;">
+        <ion-item>
+          <ion-label>Weight:
+            <span>{{received_item.newValue}}</span>
+            <span> lbs</span>
+          </ion-label>
+        </ion-item>
+        <!-- <div class="bmi-text">What's your weight?</div>
+
+        <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-label stacked>in (lbs)</ion-label>
+
+            <ion-input disabled #weight="ngModel" name="weight" type="number" [(ngModel)]="received_item.newValue" [pattern]="validator.indicator_validator.value_pattern"
+              required placeholder=""></ion-input>
+          </ion-item>
+        </div>
+        <div class="error-box" *ngIf="weight.hasError('required') && weight.touched">Required!</div>
+        <div class="error-box" *ngIf="weight.hasError('pattern') && weight.touched">Weight value is not valid!</div> -->
+      </div>
+
+      <div *ngIf="received_item.data.indicatorCode === 'Leg Swelling'" style="height: 22vh;">
+        <!-- <div class="bmi-text">How is your leg swelling today?</div> -->
+
+        <div class="weight-div" style="margin-top: 3vh;">
+          <div class="third-sign" [ngStyle]="setThirdActiveStyle(received_item.newValue)">+++</div>
+          <div class="second-sign" [ngStyle]="setSecondActiveStyle(received_item.newValue)">++</div>
+          <div class="first-sign" [ngStyle]="setFirstActiveStyle(received_item.newValue)">+</div>
+        </div>
+      </div>
+
+      <div *ngIf="received_item.data.indicatorCode === 'Short Of Breath'" style="height: 22vh;">
+        <!-- <div class="bmi-text">Are you short of breath?</div> -->
+
+        <!-- <div class="weight-div">
+        <ion-item class="name_fld">
+          <ion-input type="text" [(ngModel)]="received_item.newValue" required placeholder=""></ion-input>
+        </ion-item>
+        <div class="update-device-div-chf" (click)="goToConnectedDeviceFromBreath()">Update from Device</div>
+      </div> -->
+        <div class="weight-div" style="    margin-top: 7vh !important;">
+          <!-- (click)="received_item.newValue = 'VERY MUCH'" -->
+          <div class="third-sign" [ngStyle]="setMuchBreathActiveStyle(received_item.newValue)">A Lot</div>
+          <div class="second-sign" [ngStyle]="setSomeBreathActiveStyle(received_item.newValue)">Some</div>
+          <div class="first-sign" [ngStyle]="setNoBreathActiveStyle(received_item.newValue)">No</div>
+        </div>
+      </div>
+
+      <div *ngIf="received_item.data.indicatorCode === 'Pulse'" style="height: 26vh;">
+
+        <ion-item>
+          <ion-label>Pulse:
+            <span>{{received_item.newValue}}</span>
+            <span> bpm</span>
+          </ion-label>
+        </ion-item>
+        <!-- <div class="bmi-text">What's your Pulse?</div> -->
+        <!-- <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-label stacked>in (bpm)</ion-label>
+
+            <ion-input disabled #pulse="ngModel" name="pulse" type="number" [(ngModel)]="received_item.newValue" [pattern]="validator.indicator_validator.value_pattern"
+              required placeholder=""></ion-input>
+          </ion-item>
+        </div>
+        <div class="error-box" *ngIf="pulse.hasError('required') && pulse.touched">Required!</div>
+        <div class="error-box" *ngIf="pulse.hasError('pattern') && pulse.touched">Pulse value is not valid!</div> -->
+      </div>
+
+      <div *ngIf="received_item.data.indicatorCode === 'Oxygen Saturation'" style="height: 26vh;">
+        <ion-item>
+          <ion-label>Oxygen Saturation:
+            <span>{{received_item.newValue}}</span>
+            <span> %</span>
+          </ion-label>
+        </ion-item>
+        <!-- <div class="bmi-text">What's your oxygen saturation</div>
+
+        <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-label stacked>in (%)</ion-label>
+
+            <ion-input disabled #oxygen="ngModel" name="oxygen" type="number" [(ngModel)]="received_item.newValue" [pattern]="validator.indicator_validator.value_pattern"
+              required placeholder=""></ion-input>
+          </ion-item>
+        </div>
+        <div class="error-box" *ngIf="oxygen.hasError('required') && oxygen.touched">Required!</div>
+        <div class="error-box" *ngIf="oxygen.hasError('pattern') && oxygen.touched">Oxygen saturation value is not valid!</div> -->
+      </div>
+
+      <div *ngIf="received_item.data.indicatorCode === 'Fluid Restriction'" style="height: 22vh;">
+        <!-- <div class="bmi-text">Did you drink more than 1L liquid today?</div> -->
+
+        <div class="weight-div" style="margin-top: 3vh;">
+          <!-- <div class="first-word">{{received_item.newValue}}</div> -->
+          <!-- (click)="received_item.newValue = 'YES'" -->
+          <div class="first-word" [ngStyle]="setYesFluidActiveStyle(received_item.newValue)">Yes</div>
+          <div class="second-word" [ngStyle]="setNoFluidActiveStyle(received_item.newValue)">No</div>
+          <!-- TODO: how change will change the indicator value -->
+          <!-- <div class="change-txt">Change</div> -->
+        </div>
+      </div>
+
+      <div *ngIf="received_item.data.indicatorCode === 'Low Salt Diet'" style="height: 22vh;">
+        <!-- <div class="bmi-text">Did you have high salt food intake today?</div> -->
+
+        <div class="weight-div" style="margin-top: 3vh;">
+          <!-- <div class="first-word">{{received_item.newValue}}</div> -->
+          <div class="first-word" [ngStyle]="setYesFoodActiveStyle(received_item.newValue)">Yes</div>
+          <div class="second-word" [ngStyle]="setNoFoodActiveStyle(received_item.newValue)">No</div>
+          <!-- TODO: how change will change the indicator value -->
+          <!-- <div class="change-txt">Change</div> -->
+        </div>
+      </div>
+
+      <div *ngIf="received_item.data.indicatorCode === 'Meds Taken As Advised'" style="height: 22vh;">
+        <!-- <div class="bmi-text">Did you take meds today?</div> -->
+
+        <div class="weight-div" style="margin-top: 3vh;">
+          <!-- <div class="first-word">{{received_item.newValue}}</div> -->
+          <div class="first-word" [ngStyle]="setYesMedActiveStyle(received_item.newValue)">Yes</div>
+          <div class="second-word" [ngStyle]="setNoMedActiveStyle(received_item.newValue)">No</div>
+          <!-- TODO: how change will change the indicator value -->
+          <!-- <div class="change-txt">Change</div> -->
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="graphLoad">
+    <h2>{{lang_resource.chfs.detail_b.loading_chart_text}}</h2>
+  </div>
+  <div class="scrolling-wrapper">
+    <div id="container" style="min-width: 415vw; height: 200px; margin: 0 auto"></div>
+  </div>
+</ion-content>

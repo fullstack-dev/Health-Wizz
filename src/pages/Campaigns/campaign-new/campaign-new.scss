@@ -1,0 +1,44 @@
+page-campaign-new {
+	h1, h2, h3, h4, h5, p, button, .label{
+		font-family: 'SF-UI-Text';
+	}
+	.toolbar{
+		button{
+			margin: 0 5px;
+		}
+		.menu_icon{
+			float: right;
+		}
+	}
+
+	.box{
+		width: 80%;
+    	margin: 0 auto;
+		margin-top: 70px;
+		img{
+			width: 30%;
+		    display: block;
+		    margin: 0 auto;
+		}
+		h1{
+			font-weight: 400;
+			text-align: center;
+			margin-top: 40px;
+			font-size: 30px;
+		}
+		p{
+			font-size: 16px;
+			text-align: center;
+			margin-top: 30px;
+			color: gray;
+		}	
+	}
+
+	.arrow-img-div {
+        position: absolute;
+	    right: 5vw;
+	    top: 1vh;
+	    width: 26vw;
+	}
+
+}

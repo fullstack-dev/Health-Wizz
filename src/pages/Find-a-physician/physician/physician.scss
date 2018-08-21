@@ -1,0 +1,44 @@
+page-physician {
+
+	.avatarImg-div {
+	    margin-left: 50vw;
+	    transform: translateX(-50%);
+	}
+
+	.avatarImg {
+		width: 24vw !important;
+		height: 24vw !important;
+		/*border: 1px solid gray;*/
+	    border-radius: 50%;
+	}
+
+	.tel-div {
+		color: #91928E;
+	}
+
+	.more-btn-div {
+	    color: #009EA9;
+	    font-size: 18px;
+	    margin-left: 60vw;
+	    margin-top: 2vw;
+	    width: 15vw;
+	    font-family: 'SF-UI-Text' !important;
+	}
+
+	.more-part-div {
+	    margin: 6vw 1vw 3vw 1vw;
+	}
+
+	.card-ios{
+	    border-radius: 5px;
+	}
+
+	.card-title-ios {
+	    font-size: 6vw;
+	}
+
+	ion-icon {
+	    color: #009EA9;
+	}
+
+}

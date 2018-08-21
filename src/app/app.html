@@ -1,0 +1,149 @@
+<ion-menu [content]="content" type="overlay">
+  <ion-header>
+    <ion-toolbar>
+      <div class="title-text" start>
+        {{userName}}
+      </div>
+      <ion-title>
+        <div>
+        </div>
+      </ion-title>
+      <ion-buttons end>
+        <button class="close-button" menuClose>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="menu-logo-div" (click)="update_profile()">
+      <button menuClose ion-item detail-none>
+        <img class="menu-logo" [src]="profilePic">
+      </button>
+    </div>
+
+    <ion-list no-lines>
+
+      <ion-item *ngFor="let disease of chronicDiseases" (click)="goToChronicCampaigns(disease.campaigns)" menuClose>
+        <ion-avatar item-start>
+          <img style="border-radius: 0% !important" src="assets/imgs/CHFImgs/heart@2x.png">
+        </ion-avatar>
+        <h2>{{disease.template.name}}</h2>
+
+        <p item-right *ngIf="disease.campaigns.length > 1">{{disease.campaigns.length}}</p>
+        <button ion-button icon-only clear item-right>
+          <ion-icon style="color:gray" name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+
+      <ion-item (click)="goToHealthIndex()" menuClose>
+        <ion-avatar item-start>
+          <img style="border-radius: 0% !important" src="assets/imgs/HomeIcons/health_index@2x.png">
+        </ion-avatar>
+        <h2>{{lang_resource?.menu.health_index_text}}</h2>
+
+        <p item-right *ngIf="composite_score > 0">{{composite_score}}</p>
+        <button ion-button icon-only clear item-right>
+          <ion-icon style="color:gray" name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+
+      <ion-item *ngFor="let p of pages_up" (click)="openPage(p)" menuClose>
+        <ion-avatar item-start>
+          <img style="border-radius: 0% !important" src={{p?.item_src}}>
+        </ion-avatar>
+        <h2>{{p?.title}}</h2>
+
+        <p item-right>{{p?.item_number}}</p>
+        <button ion-button icon-only clear item-right>
+          <ion-icon style="color:gray" name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+
+      <ion-item (click)="goToCircles()" menuClose>
+        <ion-avatar item-start>
+          <img style="border-radius: 0% !important" src="assets/imgs/MenuIcons/Circles@2x.png">
+        </ion-avatar>
+        <h2>Circles</h2>
+
+        <p item-right *ngIf="circles?.length >= 1">{{circles?.length}}</p>
+        <button ion-button icon-only clear item-right>
+          <ion-icon style="color:gray" name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+
+      <ion-item (click)="goToCampaigns()" menuClose>
+        <ion-avatar item-start>
+          <img style="border-radius: 0% !important" src="assets/imgs/MenuIcons/Challenge@2x.png">
+        </ion-avatar>
+        <h2>Campaigns</h2>
+
+        <p item-right *ngIf="campaigns?.length >= 1">{{campaigns?.length}}</p>
+        <button ion-button icon-only clear item-right>
+          <ion-icon style="color:gray" name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+
+    </ion-list>
+
+    <div class="list-space"></div>
+
+    <ion-list no-lines>
+      <ion-item *ngFor="let p of pages_middle" (click)="openPage(p)" menuClose>
+        <ion-avatar item-start>
+          <img style="border-radius: 0% !important" src={{p?.item_src}}>
+        </ion-avatar>
+        <h2>{{p?.title}}</h2>
+        <button ion-button icon-only clear item-right>
+          <ion-icon style="color:gray" name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+
+    </ion-list>
+
+    <div class="list-space"></div>
+
+    <ion-list no-lines>
+
+      <ion-item (click)="openHome()" menuClose>
+        <ion-avatar item-start>
+          <img style="border-radius: 0% !important" src="assets/imgs/MenuIcons/house@3x.png">
+        </ion-avatar>
+        <h2>Home</h2>
+        <button ion-button icon-only clear item-right>
+          <ion-icon style="color:gray" name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+
+      <ion-item *ngFor="let p of pages_down" (click)="openPage(p)" menuClose>
+        <ion-avatar item-start>
+          <img style="border-radius: 0% !important" src={{p?.item_src}}>
+        </ion-avatar>
+        <h2>{{p?.title}}</h2>
+        <button ion-button icon-only clear item-right>
+          <ion-icon style="color:gray" name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+
+      <ion-item (click)="logout()" menuClose>
+        <ion-avatar item-start>
+          <img style="border-radius: 0% !important" src={{page_login?.item_src}}>
+        </ion-avatar>
+        <h2>{{page_login?.title}}</h2>
+        <button ion-button icon-only clear item-right>
+          <ion-icon style="color:gray" name="ios-arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+<div class="splash-div" [ngStyle]="loadSplashImage()" *ngIf="showSplash">
+
+</div>

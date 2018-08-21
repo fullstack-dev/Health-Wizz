@@ -1,0 +1,152 @@
+.login-social-text {
+  font-size: 2.4rem;
+  margin-top: 4vh;
+  font-family: 'SF-UI-Text' !important;
+}
+
+.login-social-div {
+  text-align: center;
+  display: flex;
+  height: 25vh;
+  width: 90vw;
+  margin-top: 3vh;
+}
+
+.facebook-div {
+  width: 30vw;
+}
+
+.facebook-logo {
+  max-width: 100px;
+}
+
+.google-div {
+  margin-top: 7vh;
+  width: 30vw;
+}
+
+.google-logo {
+  max-width: 100px;
+}
+
+.linkedin-div {
+  width: 30vw;
+}
+
+.linkedin-logo {
+  max-width: 100px;
+}
+
+.login-text {
+  font-size: 2.1rem;
+  margin-top: 3vh;
+  font-family: 'SF-UI-Text' !important;
+}
+
+.login-div {
+  margin-top: 2vh;
+}
+
+.email-text {
+  font-size: 4vw;
+  color: #737370;
+  font-family: 'SF-UI-Text' !important;
+}
+
+.password-text {
+  font-size: 4vw;
+  color: #737370;
+  margin-top: 8vw;
+  font-family: 'SF-UI-Text' !important;
+}
+
+.input-text {
+  margin-top: 2vw;
+  border: 0.5px solid #8E8E93;
+  padding-left: 2vw;
+}
+
+.forgot-button {
+  font-size: 1.2rem;
+  color: $button-color;
+  margin-top: 2vh;
+  height: 3vh;
+  background-color: transparent;
+  padding-right: 0;
+  font-family: 'SF-UI-Text' !important;
+  max-height: 42px;
+}
+
+.button-div {
+  margin-top: 10vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  position: absolute;
+  right: 16px;
+  left: 16px;
+}
+
+.signup-button {
+  font-size: 1.2rem;
+  color: $button-color;
+  height: 8vh;
+  border-radius: 5px;
+  background-color: transparent;
+  padding-left: 0;
+  font-family: 'SF-UI-Text' !important;
+  max-height: 42px;
+}
+
+.login-button {
+  font-size: 1.3rem;
+  width: 36%;
+  text-align: center;
+  color: white;
+  background-color: $button-color;
+  height: 8vh;
+  border-radius: 5px;
+  position: absolute;
+  right: 10px;
+  font-family: 'SF-UI-Text' !important;
+  max-height: 42px;
+}
+
+.error-box {
+  font-size: 3vw !important;
+  color: red;
+}
+
+.item_fld {
+  padding: 0;
+  width: 100%;
+  .item-inner {
+    border: none !important;
+    padding: 0 !important;
+    .label {
+      font-size: 1.2rem;
+      font-family: 'SF-UI-Text' !important;
+      color: #737370;
+      sup {
+        color: red;
+        font-weight: 900;
+      }
+    }
+    .input {
+      border: 1px solid $font-appcolor;
+      border-radius: 2px;
+      padding: 0 10px;
+      font-size: 1.3rem;
+      .text-input {}
+    }
+  }
+}
+
+@media only screen and (min-device-width: 800px) and (max-device-width: 1208px) {
+  .login-social-div {
+    margin-top: 2vh !important;
+  }
+  .login-text {
+    margin-top: 2vh !important;
+  }
+}

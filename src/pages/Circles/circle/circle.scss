@@ -1,0 +1,183 @@
+page-circle {
+  .healthindex-text {
+    font-size: 2rem;
+    margin-top: 3vw;
+    margin-left: 2vw;
+  }
+  .descriptions-part-div {
+    display: flex;
+    margin: 5vw 0 5vw 0;
+  }
+  .buttons-div {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 5vh 2.3vw 1vh;
+    margin-top: 0 !important;
+    position: relative;
+    width: 95%;
+  }
+  .leave-btn-div {
+    width: 41vw;
+    border: 1px solid #48C5CD;
+    border-radius: 4px;
+    padding: 1.2vh;
+    position: absolute;
+    left: 0;
+  }
+  .leave-btn {
+    background-color: transparent;
+    font-size: 1.6rem;
+    color: #48C5CD;
+    width: 38vw;
+    border: none;
+  }
+  .delete-btn-div {
+    width: 41vw;
+    border: 1px solid #48C5CD;
+    border-radius: 4px;
+    padding: 1.2vh;
+  }
+  .delete-btn {
+    background-color: transparent;
+    font-size: 1.6rem;
+    color: #48C5CD;
+    border: none;
+    width: 38vw;
+  }
+  .invite-btn-div {
+    width: 41vw;
+    border: 1px solid #48C5CD;
+    border-radius: 4px;
+    padding-top: 2vw;
+    background-color: #48C5CD;
+    position: absolute;
+    right: 0;
+    height: 10vw;
+  }
+  .invite-btn {
+    background-color: transparent;
+    font-size: 1.6rem;
+    color: white;
+    width: 38vw;
+    border: none;
+  }
+  .circle-header {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    margin: 20px;
+    img {
+      width: 20vw;
+      border-radius: 50%;
+    }
+    p {
+      font-size: 2rem;
+      margin-left: 5vw;
+    }
+  }
+  .percent-img {
+    max-width: 100%;
+    border: 0;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%
+  }
+}
+
+.members-div {
+  display: flex;
+  align-items: baseline;
+  position: relative;
+  margin-top: 5vw;
+}
+
+.member-txt {
+  font-size: 2rem;
+}
+
+.member-num-txt {
+  font-size: 1.3rem;
+  margin-left: 5vw;
+}
+
+.see-all-btn {
+  position: absolute;
+  right: 1.3rem;
+  font-size: 1.7rem;
+  color: #48C5CD;
+}
+
+.scroll-imgs-div {}
+
+.under-card-div {
+  border-radius: 10px;
+  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.16);
+  margin-top: 5vh;
+  padding: 5vw;
+}
+
+.card-firstlow-div {
+  display: flex;
+  position: relative;
+  padding-top: 4vh;
+}
+
+.started-txt {
+  font-size: 1.2rem;
+  color: #737370;
+}
+
+.details-btn {
+  position: absolute;
+  right: 6vw;
+  font-size: 1.2rem;
+  color: #48C5CD;
+}
+
+.med-rec-campaign-txt {
+  font-size: 1.3rem;
+  margin-top: 3vh;
+}
+
+.invite-div {
+  display: flex;
+  margin-top: 1vh;
+}
+
+.invite-txt {
+  font-size: 1.2rem;
+  color: #737370;
+}
+
+.invite-name {
+  font-size: 1.2rem;
+  color: #48C5CD;
+  margin-left: 2vw;
+}
+
+.campaign-img-div {
+  height: 30vh;
+  text-align: center;
+  padding-top: 10vw;
+}
+
+.campaign-img {
+  width: 20vw;
+}
+
+.last-txt {
+  font-size: 1.2rem;
+  color: #737370;
+}
+
+.slide-box .swiper-slide img {
+  width: 75px !important;
+  height: 75px !important;
+}

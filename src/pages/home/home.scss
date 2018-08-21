@@ -1,0 +1,226 @@
+page-home {
+  .first-row {
+    position: relative;
+    display: flex;
+    height: 13vh;
+    vertical-align: middle;
+    align-items: center;
+  }
+  .health-index-div {
+    width: 50vw;
+    position: relative;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #D6D6D6;
+  }
+  .health-index-icon {
+    width: 7vw;
+    height: 7vw;
+  }
+  .health-index-number {
+    font-size: 6vw;
+    margin-left: 1vw;
+  }
+  .health-index-text {
+    font-size: 1.2rem;
+    padding-left: 3vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .omcoins-div {
+    width: 50vw;
+    position: relative;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  .second-row {
+    position: relative;
+    text-align: center;
+    margin-top: 4vh;
+  }
+  .avatar-img {
+    width: 55vw;
+    height: 55vw;
+    max-width: 15rem;
+    max-height: 15rem;
+    border-radius: 50%;
+    border: 1px solid transparent;
+  }
+  .added-icon-div {
+    position: absolute;
+    border: 2px solid #FFFFFF;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 50%;
+    left: 60vw;
+    top: 36vw;
+    width: 14vw;
+    height: 14vw;
+    padding-top: 3vw;
+  }
+  .added-icon {
+    width: 7vw;
+    height: 7vw;
+  }
+  .name-text {
+    font-size: 6vw;
+    margin-top: 2vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .last-row {
+    position: absolute;
+    display: flex;
+    bottom: 2vh;
+    vertical-align: middle;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .med-records-div {
+    width: 30vw;
+    height: 30vw;
+    background: linear-gradient(180deg, #1AD5C7 0%, #009EA9 100%);
+    box-shadow: 0 4px 16px 0 rgba(1, 160, 170, 0.4);
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    max-width: 9rem;
+    max-height: 9rem;
+  }
+  .med-records-img {
+    width: 12vw;
+    margin-top: 2.5vh;
+    max-width: 65px;
+  }
+  .med-records-text {
+    color: white;
+    font-size: 3vw;
+    width: 23vw;
+    margin-top: 1.2vh;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    line-height: 4vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .circles-div {
+    position: relative;
+    width: 30vw;
+    height: 30vw;
+    background: linear-gradient(180deg, #C48FD8 0%, #846ACA 100%);
+    box-shadow: 0 4px 16px 0 rgba(134, 107, 203, 0.4);
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    max-width: 9rem;
+    max-height: 9rem;
+  }
+  .circle-badge-div {
+    position: absolute;
+    top: 0.5vh;
+    right: 0vw;
+    border: 1px solid white;
+    border-radius: 50%;
+    width: auto;
+    min-width: 7vw;
+    height: 7vw;
+    font-size: 5vw;
+    border: 2px solid #FFFFFF;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+  }
+  .campaigns-div {
+    position: relative;
+    width: 30vw;
+    height: 30vw;
+    background: linear-gradient(0deg, #515FED 0%, #5BADE4 100%);
+    box-shadow: 0 4px 16px 0 rgba(82, 98, 237, 0.4);
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    max-width: 9rem;
+    max-height: 9rem;
+  }
+  .chf-div {
+    margin: 7vw 27vw 0 27vw;
+    font-size: 1.6rem; // color: #E85A88;
+    border: 1px solid black;
+    border-radius: 10px;
+  } // sollogics 20 mar 2018
+  .chf-invite-div {
+    color: #E85A88 !important;
+    border: 1px solid #E85A88 !important;
+  }
+  .chf-mul-div {
+    margin: 5vh 27vw 0;
+    font-size: 1.6rem;
+    color: #E85A88;
+    border: 1px solid #E85A88;
+    border-radius: 10px;
+  }
+  .testCampaignNoti {
+    position: absolute;
+    width: 20vw;
+    font-size: 3vw;
+    word-wrap: break-word;
+    color: darkgray;
+    top: -9vw;
+    border: 1px solid;
+    border-radius: 10px;
+    right: 4vw;
+  }
+  .testCircleNotification {
+    position: absolute;
+    width: 20vw;
+    font-size: 3vw;
+    word-wrap: break-word;
+    color: darkgray;
+    top: -9vw;
+    border: 1px solid;
+    border-radius: 10px;
+    left: 4vw;
+  }
+  @media only screen and (min-device-width: 700px) and (max-device-width: 1024px) {
+    .circle-badge-div {
+      width: 5vw;
+      height: 5vw;
+      font-size: 3vw;
+    }
+    .med-records-text {
+      font-size: 2vw;
+    }
+    .circles-div {
+      max-width: 15rem;
+      max-height: 15rem;
+    }
+    .med-records-div {
+      max-width: 15rem;
+      max-height: 15rem;
+    }
+    .campaigns-div {
+      max-width: 15rem;
+      max-height: 15rem;
+    }
+  }
+  @media only screen and (min-device-width: 360px) and (max-device-width: 568px) {
+    .circles-div {
+      max-width: 12rem;
+      max-height: 12rem;
+    }
+    .med-records-div {
+      max-width: 12rem;
+      max-height: 12rem;
+    }
+    .campaigns-div {
+      max-width: 12rem;
+      max-height: 12rem;
+    }
+  }
+}

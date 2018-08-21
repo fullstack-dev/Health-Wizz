@@ -1,0 +1,54 @@
+page-monthly-passes {
+	.monthly-title {
+		margin-top: 3vw;
+	    text-align: center;
+	    font-size: 6vw;
+	}
+
+	.monthly-img-div {
+		margin: 5vw;
+	}
+
+	.monthly-img {
+    	width: 100%;
+	}
+
+	.monthly-description {
+		font-size: 3.5vw;
+	    margin-top: 3vw;
+	}
+
+	.monthly-price-div {
+	    display: flex;
+	    align-items: center;
+	    position: absolute;
+	    right: 10vw;
+	    bottom: 26vw;
+	    font-size: 5vw;
+
+		.monthly-price {
+    		font-size: 5vw;
+		}
+		.price-img-div {
+			margin-left: 1vw;
+
+			.price-img {
+    			width: 9vw;
+			}
+		}
+	}
+
+	.buy-btn {
+		position: absolute;
+	    background-color: #48c5cd;
+	    color: white;
+	    border-radius: 5px;
+	    width: 30vw;
+	    height: 10vw;
+	    text-align: center;
+	    padding-top: 2vw;
+	    right: 10vw;
+    	bottom: 10vw;
+	    font-size: 5vw;
+	}
+}

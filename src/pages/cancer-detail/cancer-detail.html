@@ -1,0 +1,131 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{indicator.info.label}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div id="guide_text_div">
+    {{cancer_guideline_text}}
+  </div>
+  <ion-list no-lines *ngIf="indicator.info.code == 'Breast Cancer'">
+    <ion-item (click)="openLink()">
+      <h2>{{americanCancerSocietyText}}</h2>
+    </ion-item>
+    <ion-label>{{indicator.info.questions[0].label}}</ion-label>
+    <ion-item>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="indicator.info.questions[0].value" placeholder="MM/DD/YYYY"></ion-datetime>
+      <ion-icon item-end name="ios-calendar-outline"></ion-icon>
+    </ion-item>
+    <hr>
+    <!-- <button ion-button block (click)="updateCancer(indicator)">update</button> -->
+
+    <div class="buttons-div">
+      <button class="hw-btn-fill" (click)="updateCancer(indicator)">Update</button>
+    </div>
+  </ion-list>
+
+  <ion-list no-lines *ngIf="indicator.info.code == 'Cervical Cancer'">
+    <ion-item (click)="openLink()">
+      <h2>{{USPSTFText}}</h2>
+    </ion-item>
+    <ion-label>{{indicator.info.questions[0].label}}</ion-label>
+    <ion-item>
+      <ion-segment color="primary" [(ngModel)]="indicator.info.questions[0].value">
+        <ion-segment-button value="YES">
+          Yes
+        </ion-segment-button>
+        <ion-segment-button value="NO">
+          No
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+    <!-- <hr> -->
+    <ion-label>{{indicator.info.questions[1].label}}</ion-label>
+    <ion-item>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="indicator.info.questions[1].value" placeholder="MM/DD/YYYY"></ion-datetime>
+      <ion-icon item-end name="ios-calendar-outline"></ion-icon>
+    </ion-item>
+    <hr>
+    <!-- <button ion-button block (click)="updateCancer(indicator)">update</button> -->
+
+    <div class="buttons-div">
+      <button class="hw-btn-fill" (click)="updateCancer(indicator)">Update</button>
+    </div>
+  </ion-list>
+
+  <ion-list no-lines *ngIf="indicator.info.code == 'Colon Cancer'">
+    <ion-item (click)="openLink()">
+      <h2>{{USPSTFText}}</h2>
+    </ion-item>
+    <ion-label>{{indicator.info.questions[0].label}}</ion-label>
+    <ion-item>
+      <ion-segment color="primary" [(ngModel)]="indicator.info.questions[0].value">
+        <ion-segment-button value="YES">
+          Yes
+        </ion-segment-button>
+        <ion-segment-button value="NO">
+          No
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+    <ion-label>{{indicator.info.questions[1].label}}</ion-label>
+    <ion-item>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="indicator.info.questions[1].value" placeholder="MM/DD/YYYY"></ion-datetime>
+      <ion-icon item-end name="ios-calendar-outline"></ion-icon>
+    </ion-item>
+    <hr>
+    <!-- <button ion-button block (click)="updateCancer(indicator)">update</button> -->
+
+    <div class="buttons-div">
+      <button class="hw-btn-fill" (click)="updateCancer(indicator)">Update</button>
+    </div>
+  </ion-list>
+
+  <ion-list no-lines *ngIf="indicator.info.code == 'Lung Cancer'">
+    <ion-item (click)="openLink()">
+      <h2>{{USPSTFText}}</h2>
+    </ion-item>
+    <ion-label>{{indicator.info.questions[0].label}}</ion-label>
+    <ion-item>
+      <ion-segment color="primary" [(ngModel)]="indicator.info.questions[0].value">
+        <ion-segment-button value="YES">
+          Yes
+        </ion-segment-button>
+        <ion-segment-button value="NO">
+          No
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+    <ion-label>{{indicator.info.questions[1].label}}</ion-label>
+    <ion-item>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="indicator.info.questions[1].value" placeholder="MM/DD/YYYY"></ion-datetime>
+      <ion-icon item-end name="ios-calendar-outline"></ion-icon>
+    </ion-item>
+    <hr>
+    <!-- <button ion-button block (click)="updateCancer(indicator)">update</button> -->
+
+    <div class="buttons-div">
+      <button class="hw-btn-fill" (click)="updateCancer(indicator)">Update</button>
+    </div>
+  </ion-list>
+
+  <ion-list no-lines *ngIf="indicator.info.code == 'Prostate Cancer'">
+    <ion-item (click)="openLink()">
+      <h2>{{americanCancerSocietyText}}</h2>
+    </ion-item>
+    <ion-label>{{indicator.info.questions[0].label}}</ion-label>
+    <ion-item>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="indicator.info.questions[0].value" placeholder="MM/DD/YYYY"></ion-datetime>
+      <ion-icon item-end name="ios-calendar-outline"></ion-icon>
+    </ion-item>
+    <hr>
+    <!-- <button ion-button block (click)="updateCancer(indicator)">update</button> -->
+
+    <div class="buttons-div">
+      <button class="hw-btn-fill" (click)="updateCancer(indicator)">Update</button>
+    </div>
+  </ion-list>
+</ion-content>

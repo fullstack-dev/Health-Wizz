@@ -1,0 +1,161 @@
+page-submit-report4 {
+
+	h1, h2, h3, h4, h5, p, button, div, .label{
+		font-family: 'SF-UI-Text';
+	}
+
+	.toolbar{
+		button{
+			margin: 0 5px;
+		}
+		.menu_icon{
+			float: right;
+		}
+	}
+
+	.bg-clr{
+		background-color: #f7f6f6;
+		.scroll-content{
+			overflow-y: hidden;
+		}
+		.title{
+	    	width: 100%;
+	    	margin: 20px 0 10px 0;
+	    	padding: 0 20px;
+	    	h4{
+	    		float: left;
+	    		color: $font-appcolor;
+	    		font-weight: 400;
+	    	}
+	    	p{
+	    		float: right;
+	    		color: $font-appcolor;
+	    		font-weight: 500;
+	    		margin-top: 20px;
+	    	}	    	
+	    }
+		ion-slides {
+			height: auto;
+		}
+	}
+
+	.swiper-pagination{
+		position: fixed;
+		bottom: 20px !important;
+	}
+	.slide-zoom{
+		height: 90vh;
+	}
+
+	.report_div{
+		width: 90%;
+		display: inline-block;
+		background-color: #fff;
+	    height: calc(100vh - 190px);
+	    box-shadow: 0px 0px 7px grey;
+	    border-radius: 10px;
+	    padding: 20px;
+	    margin-top: 10px;
+	    position: relative;
+	    .main_box{
+	    	overflow-y: scroll;
+		    display: block;
+		    height: calc(100% - 180px);
+		    border: 1px solid #f3efef;
+		    border-radius: 10px;
+		    padding: 0 10px;
+		    p{
+		    	font-size: 14px;
+		    	color: $font-appcolor;
+		    	margin: 30px 0;
+		    }		    
+	    }
+	    .records{
+	    	ion-label{
+		    	font-size: 14px;
+		    }
+	    }
+	    .single_btn{
+	    	display: block;
+	    	font-size: 15px;
+	    	color: $font-appcolor;
+	    }
+	    .submit{
+	    	position: absolute;
+	    	bottom: 20px;
+	    	right: 20px;
+	    	botton{
+	    		width: 150px;
+    			font-size: 17px;
+	    	}	    	
+	    }
+	    
+	    h2{
+	    	text-align: left;
+	    	font-weight: 400;
+	    	margin: 30px 0;
+	    }
+	    p{
+	    	font-size: 14px;
+	    	text-align: left;
+	    	margin-top: 15px;
+	    	color: gray;
+	    }
+	    .waist{
+	    	img{
+	    		margin: 40px;
+    			width: 150px;
+	    	}
+	    }
+	    .input_box{
+	    	width:  88%;
+	    	position: absolute;
+	    	bottom: 20px;
+	    	right: 20px;
+	    	ion-datetime{
+	    		border: 1px solid gray;
+			    padding-left: 10px;
+			    width: calc(100% - 150px);
+			    float: left;
+			    height: 40px;
+			    border-radius: 3px;
+			    padding: 0;
+	    	}
+	    	p{
+	    		width: 150px;
+			    float: left;
+			    padding-left: 14px;
+			    margin: 10px 0;
+	    	}
+	    }
+
+	    .danger{
+	    	color: #fb6767;
+	    }
+	    .clinic-img{
+	    	img{
+	    		width: 90px;
+    			margin: 30px 30px;
+	    	}
+	    }
+	    .clinic{
+	    	position: absolute;
+    		bottom: 40px;
+    		width: calc(100% - 60px);	    	
+	    	.chk{
+	    		font-size: 14px;
+	    	}
+
+	    	.item-block, .item-inner{
+	    		border: none;
+	    	}
+	    	ion-input{
+	    		height: 40px;
+			    border: 1px solid gray;
+			    border-radius: 3px;
+			    padding-left: 5px;
+	    	}
+	    }	  	    	    	    
+	}	
+
+}

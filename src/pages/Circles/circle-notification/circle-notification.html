@@ -1,0 +1,29 @@
+<!--
+  Generated template for the CircleNotificationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<div class="chf-modal-div">
+  <div class="chf-modal-title-div">
+    <div class="modal-title-txt"> {{lang_resource.circle.circle_notification.newCircle_text}}{{""}}{{circle_name}}</div>
+    <div class="close-btn" (click)="closeModal()">
+      <ion-icon name="ios-close-outline"></ion-icon>
+    </div>
+  </div>
+
+  <div class="top-line-div">
+    <div class="left-txt">{{lang_resource.circle.circle_notification.newInvite_text}} </div>
+    <div class="people-txt">{{who}}</div>
+    <div class="right-txt">{{date}}</div>
+  </div>
+  <div class="chf-img-div">
+    <img class="chf-img" src="assets/imgs/MenuIcons/Circles@2x.png" />
+  </div>
+  <div class="detail-btn" (click)="goToNotificationDetailPage()">{{lang_resource.circle.circle_notification.seeDetails_text}}</div>
+
+  <div class="buttons-div">
+    <button class="first-btn" (click)="denyClick()">{{lang_resource.button.deny_text}}</button>
+    <button class="second-btn" (click)="acceptClick()">{{lang_resource.button.accept_text}}</button>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+page-create-circle {
+  .new-circle-txt {
+    margin-top: 5vw;
+    font-size: 1.8rem;
+  }
+  .slide_item_fld {
+    padding: 0;
+    width: 100%;
+    .item-inner {
+      border: none !important;
+      padding: none !important;
+      .label {
+        font-size: 1.2rem;
+        font-family: 'SF-UI-Text' !important;
+        color: #737370;
+        padding-bottom: 3px;
+        sup {
+          color: red;
+          font-weight: 900;
+        }
+      }
+      .input {
+        border: 1px solid $font-appcolor;
+        border-radius: 2px;
+        padding: 0 10px;
+        font-size: 1.3rem;
+        .text-input {}
+      }
+      .select {
+        border: 1px solid $font-appcolor;
+        padding: 8px 6px;
+        border-radius: 1px;
+        font-size: 1.4rem;
+      }
+    }
+  }
+  .img-div {
+    margin: 5vh 0 0 5vw;
+    position: relative;
+  }
+  .img {
+    width: 38vw;
+    height: 38vw;
+    border: 1px solid transparent;
+    border-radius: 50%;
+  }
+  .change-picture-btn {
+    background: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #009EA9;
+    right: 4vw;
+    position: absolute;
+    top: 25vh;
+    padding: 6px 0;
+  }
+  .circle-name-txt {
+    margin-top: 15vw;
+    color: #737370;
+    font-size: 1.3rem;
+  }
+  .descriptions-txt {
+    margin-top: 10vw;
+    color: #737370;
+    font-size: 1.3rem;
+  }
+  .create-btn-div {
+    position: absolute;
+    right: 5vw;
+    background-color: #009EA9;
+    border-radius: 5px;
+    width: 35vw;
+    padding: 1.5vh;
+    text-align: center;
+    margin: 5vh 0;
+  }
+  .create-btn {
+    background: none;
+    font-size: 1.4rem;
+    color: white;
+  }
+  .item-ios.item-block .item-inner {
+    border-bottom: 0 solid #c8c7cc;
+  }
+  #messageInputBox {
+    height: 150px !important;
+    border: 0.5px solid #8E8E93;
+    padding: 1px 7px 1px 7px;
+  }
+  .action-sheets-basic-page {
+    .ion-md-share {
+      color: #ED4248;
+    }
+    .ion-md-arrow-dropright-circle {
+      color: #508AE4;
+    }
+    .ion-md-heart-outline {
+      color: #31D55F;
+    }
+    .action-sheet-cancel ion-icon,
+    .action-sheet-destructive ion-icon {
+      color: #757575;
+    }
+  }
+}
+
+.toastCss {
+  text-align: center;
+}
+
+.toast-ios .toast-wrapper {
+  background: #A3A3A3;
+}
+
+.toast-ios .toast-message {
+  color: black !important;
+  font-size: 4vw !important;
+}
+
+.item-md.item-block .item-inner {
+  padding: 0px;
+  border-bottom: none;
+}
+
+.item-ios.item-block .item-inner {
+  padding: 0px;
+  border-bottom: none;
+}

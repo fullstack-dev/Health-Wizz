@@ -1,0 +1,87 @@
+<!--
+  Generated template for the AddingMedRecordPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button (click)="done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>Add Medical Records</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="doc-img-div">
+    <img *ngIf="fileType == 'document'" class="doc-img" src="assets/imgs/AddMedImgs/Document@3x.png" />
+    <img *ngIf="fileType == 'image'" class="doc-img" src="assets/imgs/AddMedImgs/photo_preview@3x.png" />
+  </div>
+
+  <div class="doc-name-txt">{{this.docTitle}}</div>
+  <div class="doc-date-div">
+    <div class="doc-date-txt">Added:{{addedDate | date: ' MMM dd, yyyy'}}</div>
+  </div>
+
+  <div class="category-div">Condition</div>
+
+  <div class="tag-arrays">
+    <div class="tag-item" [ngClass]="{'blank-input': !condition.input || condition.focus}" *ngFor="let condition of conditionDatas; let ii = index;">
+      <input type="text" required name="conditionInput" [(ngModel)]="condition.input" style="position: relative;max-width: 78vw;"
+        [ngStyle]="setWidth(condition.input)" (focus)="checkFocus(condition)" (blur)="conditionInputChanged($event, ii)" />
+      <div *ngIf="condition.input && !condition.focus" (click)="deleteCondition(ii)" class="tag-icon-area">
+        <ion-icon class="close-icon" name="close"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <button class="add-more-btn" *ngIf="conditionDatas[conditionDatas.length - 1].input && !conditionDatas[conditionDatas.length - 1].focus"
+    (click)="addMoreCondition()">Add more</button>
+
+  <div class="category-div">Provider</div>
+
+  <div class="tag-arrays">
+    <div class="tag-item" [ngClass]="{'blank-input': !provider.input || provider.focus}" *ngFor="let provider of providerDatas; let ii = index;">
+      <input type="text" required name="providerInput" [(ngModel)]="provider.input" style="position: relative;max-width: 78vw;"
+        [ngStyle]="setWidth(provider.input)" (focus)="checkFocus(provider)" (blur)="providerInputChanged($event, ii)" />
+      <div *ngIf="provider.input && !provider.focus" (click)="deleteProvider(ii)" class="tag-icon-area">
+        <ion-icon class="close-icon" name="close"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <button class="add-more-btn" *ngIf="providerDatas[providerDatas.length - 1].input && !providerDatas[providerDatas.length - 1].focus"
+    (click)="addMoreProvider()">Add more</button>
+
+  <div class="category-div">Tags (visible only to you)</div>
+
+  <div class="tag-arrays">
+    <div class="tag-item" [ngClass]="{'blank-input': tag.input == '#' || tag.focus}" *ngFor="let tag of tagDatas; let ii = index;">
+      <input type="text" required placeholder="#" name="tagInput" [(ngModel)]="tag.input" style="position: relative;max-width: 78vw;"
+        [ngStyle]="setWidth(tag.input)" (focus)="checkFocus(tag)" (blur)="tagInputChanged($event, ii)" />
+      <div *ngIf="tag.input && !tag.focus && !(tag.input == '#')" (click)="deleteTag(ii)" class="tag-icon-area">
+        <ion-icon class="close-icon" name="close"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <button class="add-more-btn" *ngIf="tagDatas[tagDatas.length - 1].input && !tagDatas[tagDatas.length - 1].focus && !(tagDatas[tagDatas.length - 1].input == '#')"
+    (click)="addMoreTag()">Add more</button>
+
+</ion-content>

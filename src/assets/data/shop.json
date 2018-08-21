@@ -1,0 +1,16 @@
+{
+	"medical_services": [
+		{ "title": "DNA analysis from Encrypgen 1", "description": "A. GENE-CHAIN(TM) SOLUTIONS FOR THE GENOMICS MARKET", "image": "assets/imgs/ShopImgs/encrypgen.png"},
+		{ "title": "DNA analysis from Encrypgen 2", "description": "B. GENE-CHAIN(TM) SOLUTIONS FOR THE GENOMICS MARKET", "image": "assets/imgs/ShopImgs/encrypgen.png"},
+		{ "title": "DNA analysis from Encrypgen 3", "description": "C. GENE-CHAIN(TM) SOLUTIONS FOR THE GENOMICS MARKET", "image": "assets/imgs/ShopImgs/encrypgen.png"},
+		{ "title": "DNA analysis from Encrypgen 4", "description": "D. GENE-CHAIN(TM) SOLUTIONS FOR THE GENOMICS MARKET", "image": "assets/imgs/ShopImgs/encrypgen.png"},
+		{ "title": "DNA analysis from Encrypgen 5", "description": "E. GENE-CHAIN(TM) SOLUTIONS FOR THE GENOMICS MARKET", "image": "assets/imgs/ShopImgs/encrypgen.png"},
+		{ "title": "DNA analysis from Encrypgen 6", "description": "F. GENE-CHAIN(TM) SOLUTIONS FOR THE GENOMICS MARKET", "image": "assets/imgs/ShopImgs/encrypgen.png"}
+	],
+	"monthly_services": [
+		{ "title": "Monthly pass to the Gold's Gym 1", "description": "A. Planning to visit Las Vegas or any other vacational resort where casinos are a major portion of their business.", "price": "100", "image": "assets/imgs/ShopImgs/monthlypass.png"},
+		{ "title": "Monthly pass to the Gold's Gym 2", "description": "B. Planning to visit Las Vegas or any other vacational resort where casinos are a major portion of their business.", "price": "200", "image": "assets/imgs/ShopImgs/monthlypass.png"},
+		{ "title": "Monthly pass to the Gold's Gym 3", "description": "C. Planning to visit Las Vegas or any other vacational resort where casinos are a major portion of their business.", "price": "300", "image": "assets/imgs/ShopImgs/monthlypass.png"},
+		{ "title": "Monthly pass to the Gold's Gym 4", "description": "D. Planning to visit Las Vegas or any other vacational resort where casinos are a major portion of their business.", "price": "400", "image": "assets/imgs/ShopImgs/monthlypass.png"}
+	]
+}

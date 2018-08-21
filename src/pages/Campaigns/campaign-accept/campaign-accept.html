@@ -1,0 +1,111 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>Share settings</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="save()">
+        Done
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="title">{{campaignData?.name}}</div>
+  <ion-item no-lines style="margin-top:5px">
+    <!-- <ion-label>Invite from
+      <span style="color:#009ea9">{{campaignData.campaignInfo.circleInfo.ownerName}}</span>
+    </ion-label> -->
+    <p>{{campaignData.startDate}}</p>
+  </ion-item>
+  <div class="details">
+    <!-- <div class="description">
+      <p class="name" *ngIf="campaignData.creatorId != userService.getUserId()">Invite from
+        <span>{{campaignData.campaignInfo.circleInfo.ownerName}}</span>
+      </p>
+      <p class="date">{{campaignData.startDate}}</p>
+    </div> -->
+
+    <img src="assets/imgs/Campaign/Campaign.png" />
+    <!-- <button ion-button clear (click)="goToLeave()">See details</button> -->
+  </div>
+
+  <ion-list class="setting-list">
+    <ion-list-header class="setting-header">Moderator share settings</ion-list-header>
+    <ion-item>
+      <ion-label class="setting-label" [ngClass]="campaignSettings.ageForModerator ? 'shown':'hiden'">Make your age visible</ion-label>
+      <ion-toggle [(ngModel)]="campaignSettings.ageForModerator" item-end></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label class="setting-label" [ngClass]="campaignSettings.locationForModerator ? 'shown':'hiden'">Make your location visible</ion-label>
+      <ion-toggle [(ngModel)]="campaignSettings.locationForModerator" item-end></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label class="setting-label" [ngClass]="campaignSettings.circleForModerator ? 'shown':'hiden'">Make your circles visible</ion-label>
+      <ion-toggle [(ngModel)]="campaignSettings.circleForModerator" item-end></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label class="setting-label" [ngClass]="campaignSettings.campaignForModerator ? 'shown':'hiden'">Make your campaign visible</ion-label>
+      <ion-toggle [(ngModel)]="campaignSettings.campaignForModerator" item-end></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-list class="setting-list">
+    <ion-list-header class="setting-header">Participants share settings</ion-list-header>
+    <ion-item>
+      <ion-label class="setting-label" [ngClass]="campaignSettings.ageForParticipants ? 'shown':'hiden'">Make your age visible</ion-label>
+      <ion-toggle [(ngModel)]="campaignSettings.ageForParticipants" item-end></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label class="setting-label" [ngClass]="campaignSettings.locationForParticipants ? 'shown':'hiden'">Make your location visible</ion-label>
+      <ion-toggle [(ngModel)]="campaignSettings.locationForParticipants" item-end></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label class="setting-label" [ngClass]="campaignSettings.circleForParticipants ? 'shown':'hiden'">Make your circles visible</ion-label>
+      <ion-toggle [(ngModel)]="campaignSettings.circleForParticipants" item-end></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label class="setting-label" [ngClass]="campaignSettings.campaignForParticipants ? 'shown':'hiden'">Make your campaigns visible</ion-label>
+      <ion-toggle [(ngModel)]="campaignSettings.campaignForParticipants" item-end></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <!-- 
+  <div class="visible_make">
+    <ion-item>
+      <ion-label [ngClass]="ageVisible ? 'shown':'hiden'">Make your age visible</ion-label>
+      <ion-toggle [(ngModel)]="ageVisible"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_make">
+    <ion-item>
+      <ion-label [ngClass]="locationVisible ? 'shown':'hiden'">Make your location visible</ion-label>
+      <ion-toggle [(ngModel)]="locationVisible"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_make">
+    <ion-item>
+      <ion-label [ngClass]="circleVisible ? 'shown':'hiden'">Make your circles visible</ion-label>
+      <ion-toggle [(ngModel)]="circleVisible"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_make">
+    <ion-item>
+      <ion-label [ngClass]="challengesVisible ? 'shown':'hiden'">Make your campaigns visible</ion-label>
+      <ion-toggle [(ngModel)]="challengesVisible"></ion-toggle>
+    </ion-item>
+  </div> -->
+
+  <div class="result">
+    <button ion-button clear class="deny" (click)="exit()">Cancel</button>
+    <button ion-button class="accept" (click)="save()">Ok</button>
+  </div>
+
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      <button ion-button menuToggle icon-only class="menu_icon">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Draft </ion-title>
+
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="share()"><ion-icon name="md-share"></ion-icon></button>
+    </ion-buttons> -->
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>Campaign Name 1 Whatever it is </h2>
+
+  <div class="des">
+    <img src="assets/imgs/HealthIndexIcons/Diet@3x.png">
+    <p>Short descroption about the event and it's purpose. We should limit this is with a few lines only</p>
+  </div>
+
+  <div class="result-btn">
+    <button ion-button outline class="l-btn" (click)="delete()">Delete</button>
+    <button ion-button class="r-btn" (click)="publish()">Publish</button>
+  </div>
+
+  <div class="terms">
+    <h2>Terms</h2>
+    <div class="description">
+      <p>Participation in Whatever Campaign will request:</p>
+      <ul>
+        <li *ngFor="let item of terms">{{item.name}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="measured">
+    <h2>Measured Indexes</h2>
+    <div class="description">
+      <img *ngFor="let item of measured" src="{{item.url}}">
+    </div>
+  </div>
+
+  <div class="organizers">
+    <h2>Orgqanizers</h2>
+    <p>Here might be some text block about the organization if there is any</p>
+    <div class="description" *ngFor="let item of organizers">
+      <p col-6 class="name">{{item.name}}</p>
+      <p col-6>{{item.value}}</p>
+    </div>
+  </div>
+</ion-content>

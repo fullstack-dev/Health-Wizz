@@ -1,0 +1,38 @@
+<ion-list>
+
+  <ion-item *ngIf="!member.memberRoles.moderator" (click)="selected(1)">
+    <ion-avatar item-start>
+      <img src="assets/imgs/Campaign/moderator.png">
+    </ion-avatar>
+    <h2>Make Moderator</h2>
+  </ion-item>
+
+  <ion-item *ngIf="!member.memberRoles.validator" (click)="selected(2)">
+    <ion-avatar item-start>
+      <img src="assets/imgs/Campaign/validator.png">
+    </ion-avatar>
+    <h2>Make Validator</h2>
+  </ion-item>
+
+  <ion-item *ngIf="canRemoveModerator()" (click)="selected(3)">
+    <ion-avatar item-start>
+      <img src="assets/imgs/Campaign/trash_red.png">
+    </ion-avatar>
+    <h2>Remove From Moderators</h2>
+  </ion-item>
+
+  <ion-item *ngIf="member.memberRoles.validator" (click)="selected(4)">
+    <ion-avatar item-start>
+      <img src="assets/imgs/Campaign/trash_blue.png">
+    </ion-avatar>
+    <h2>Remove From Validators</h2>
+  </ion-item>
+
+  <ion-item *ngIf="canDeleteMember()" (click)="selected(5)">
+    <ion-avatar item-start>
+      <img src="assets/imgs/Campaign/trash_green.png">
+    </ion-avatar>
+    <h2>Remove from Campaign</h2>
+  </ion-item>
+
+</ion-list>

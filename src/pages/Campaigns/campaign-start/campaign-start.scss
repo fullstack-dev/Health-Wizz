@@ -1,0 +1,46 @@
+page-campaign-start {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  button,
+  div,
+  .label {
+    font-family: 'SF-UI-Text';
+  }
+  .bg-div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+  }
+  .item {
+    .label {
+      font-family: 'SF-Pro-Text';
+    }
+    img {
+      border-radius: 0;
+      width: 25px;
+      height: 25px;
+      margin-top: 6px
+    }
+  } // .block-list{
+  //     top: calc(50% - 110px);
+  //     display: block;
+  //     position: absolute;
+  //   width: 100%;
+  //     .item{
+  //     	.label{
+  //     		font-family: 'SF-Pro-Text';
+  //     	}
+  // 		img{
+  // 		    border-radius: 0;
+  // 		    width: 25px;
+  // 		    height: 25px;
+  // 		    margin-top: 6px
+  // 		}
+  // 	}
+  // }
+}

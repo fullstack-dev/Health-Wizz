@@ -1,0 +1,44 @@
+<!--
+  Generated template for the DepositFailurePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Deposit</ion-title>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<div class="sad-img-div">
+		<img class="sad-img" src="assets/imgs/HealthIndexIcons/sad@2x.png">
+	</div>
+	<div class="sorry-div">
+		Sorry
+	</div>
+	<div class="sorry-descrition">
+		Your deposit transaction was not complete.
+	</div>
+
+	<div class="failure-btns-div">
+		<div class="try-btn" (click)="TryAgain()">Try again</div>
+		<div class="clo-btn" (click)="Close()">Close</div>
+	</div>
+
+</ion-content>

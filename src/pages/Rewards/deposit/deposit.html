@@ -1,0 +1,295 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Deposit</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="background-div">
+
+  <ion-slides pager spaceBetween="-40" (ionSlideDidChange)="slideChanged()">
+
+    <ion-slide>
+      <div class="slide-title-txt">
+        <!-- Choose proposal -->
+        <div class="buy-txt">Buy OmPoints</div>
+        <div class="balance-div">
+          <div class="balance-txt">Balance: 145</div>
+          <img class="reward-img" src="assets/imgs/HomeIcons/Reward_Main.png" />
+        </div>
+      </div>
+
+      <div class="slide-background">
+
+        <div class="slide-body">
+
+          <div class="question-txt">How many OmPoints do you want to buy?</div>
+
+          <div class="unit-div">
+            <div class="omc-dolar-div">
+              <!-- <div class="omc-dolar-title-txt">
+                  Today's buying rate : 
+                </div> -->
+              <div class="omc-dolar-txt">
+                1 OMC = $ 0.027
+              </div>
+            </div>
+            <div class="omc-eth-txt">1 OMC = 0.000045 ETH</div>
+          </div>
+
+          <div class="eth-amount-div">
+            <div class="eth-select-div">
+              <ion-item class="name_fld" style="font-size: 1.3rem;">
+                <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" [(ngModel)]="selectedValue" [ngModelOptions]="{standalone: true}" (ionChange)="onSelectChange($event)">
+                  <ion-option *ngFor="let item of values" [value]="item.id">{{item.property}}</ion-option>
+                </ion-select>
+              </ion-item>
+            </div>
+            <div class="eth-amount-txt">You have 0.0027 ETH</div>
+          </div>
+
+          <div class="calculator-div">
+
+            <ion-item class="name_fld omcoins-div">
+              <ion-label stacked>OmPoints</ion-label>
+              <ion-input type="number" [(ngModel)]="omcValue" required placeholder="" (input)="omgToDollar($event)"></ion-input>
+            </ion-item>
+
+            <div class="sign-img-div">
+              <ion-icon name="arrow-round-forward" class="sign-img"></ion-icon>
+              <ion-icon name="arrow-round-back" class="sign-img"></ion-icon>
+            </div>
+
+            <ion-item class="name_fld amount-div">
+              <ion-label stacked>Amount in $</ion-label>
+              <ion-input type="number" [(ngModel)]="dollarValue" required placeholder="" (input)="dollarToOmc($event)"></ion-input>
+            </ion-item>
+
+          </div>
+
+        </div>
+
+        <div class="down-buttons-div">
+          <div class="cancel-btn-div" (click)="proposalCancelClick()">Cancel</div>
+          <div class="next-btn-div" (click)="proposalNextClick()">Next</div>
+        </div>
+
+      </div>
+
+    </ion-slide>
+
+    <ion-slide>
+      <div class="slide-title-txt">
+        Choose payment method
+      </div>
+
+      <div class="slide-background">
+        <div class="card-txt">
+          Saved card
+        </div>
+        <div class="card-detail-div">
+          <div class="txt-part">
+            <div style="font-size: 1.3rem;">American Express</div>
+            <div style="font-size: 1.2rem;color: #737370;">****7376</div>
+          </div>
+          <div class="right-arrow">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </div>
+        </div>
+        <div class="add-btn" (click)="AddNewCord()">
+          Add new card
+        </div>
+        <div class="payment-method-txt">
+          Payment methods
+        </div>
+        <div class="list-part">
+          <ion-item no-lines>
+            <ion-label>
+              <div class="payment-item-inner-div">
+                Visa/MasterCard
+                <div class="visa-card-img-div">
+                  <img style="width: 2rem;" src="assets/imgs/RewardsImgs/visacard.png" />
+                  <img style="width: 2rem;" src="assets/imgs/RewardsImgs/mastercard.png" />
+                </div>
+              </div>
+            </ion-label>
+            <ion-checkbox [(ngModel)]="visaSelect" (ionChange)="visaClick()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item no-lines>
+            <ion-label>
+              <div class="payment-item-inner-div">
+                Paypal
+                <div class="paypal-card-img-div">
+                  <img style="width: 2rem;" src="assets/imgs/RewardsImgs/paypalcard.png" />
+                </div>
+              </div>
+            </ion-label>
+            <ion-checkbox [(ngModel)]="paypalSelect" (ionChange)="paypalClick()"></ion-checkbox>
+          </ion-item>
+
+          <ion-item no-lines>
+            <ion-label>
+              <div class="payment-item-inner-div">
+                American Express
+                <div class="express-card-img-div">
+                  <img style="width: 3.2rem;" src="assets/imgs/RewardsImgs/americanexpresscard.png" />
+                </div>
+              </div>
+            </ion-label>
+            <ion-checkbox [(ngModel)]="americanExpressSelect" (ionChange)="expressClick()"></ion-checkbox>
+          </ion-item>
+        </div>
+        <div class="down-buttons-div">
+          <div class="cancel-btn-div" (click)="cardBackClick()">Back</div>
+          <div class="next-btn-div" (click)="cardNextClick()">Next</div>
+        </div>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="slide-title-txt">
+        Fill out the info
+      </div>
+
+      <div class="slide-background" *ngIf="visaSelect || americanExpressSelect">
+        <ion-item class="card_name_fld" style="padding-top: 3vh;">
+          <ion-label stacked>Name of the Card</ion-label>
+          <ion-input type="text" [(ngModel)]="nameOfCard" required placeholder=""></ion-input>
+        </ion-item>
+        <div class="number-div">
+          <div class="number-txt">
+            Card Number
+            <div class="visa-card-img-div" *ngIf="visaSelect">
+              <img style="width: 10vw;" src="assets/imgs/RewardsImgs/visacard.png" />
+              <img style="width: 10vw;" src="assets/imgs/RewardsImgs/mastercard.png" />
+            </div>
+            <div class="express-card-img-div" *ngIf="americanExpressSelect">
+              <img style="width: 12vw;" src="assets/imgs/RewardsImgs/americanexpresscard.png" />
+            </div>
+          </div>
+          <ion-input [(ngModel)]="numberOfCard" type="text" required placeholder="" class="input-text"></ion-input>
+        </div>
+        <div class="date-cvv-div">
+          <ion-item class="name_fld month-div">
+            <ion-label stacked>Month</ion-label>
+            <ion-input type="number" [(ngModel)]="month" maxlength="2" required placeholder=""></ion-input>
+          </ion-item>
+          <ion-item class="name_fld year-div">
+            <ion-label stacked>Year</ion-label>
+            <ion-input type="number" [(ngModel)]="year" maxlength="4" required placeholder=""></ion-input>
+          </ion-item>
+          <ion-item class="name_fld cvv-div">
+            <ion-label stacked>CVV</ion-label>
+            <ion-input type="number" [(ngModel)]="cvv" maxlength="3" required placeholder=""></ion-input>
+          </ion-item>
+        </div>
+        <div class="save-div">
+          <ion-item>
+            <ion-label [ngClass]="saveCardVisible ? 'shown':'hidden'">Save my card</ion-label>
+            <ion-toggle [(ngModel)]="saveCardVisible"></ion-toggle>
+          </ion-item>
+        </div>
+        <div class="down-buttons-div" style="padding-top: 2vh !important">
+          <div class="cancel-btn-div" (click)="inputBackClick()">Back</div>
+          <div class="next-btn-div" (click)="inputNextClick()">Next</div>
+        </div>
+      </div>
+
+      <div class="slide-background" *ngIf="paypalSelect">
+        <div class="paypal-title">Pay with PayPal</div>
+        <div class="paypal-description">
+          As a member, your eligible purchases are covered by
+          <span style="color: #159ADE;">PayPal Purchase Protection</span>.
+        </div>
+        <div class="email-password-part">
+          <ion-item class="card_name_fld">
+            <ion-input type="email" [(ngModel)]="email" required placeholder=""></ion-input>
+          </ion-item>
+          <ion-item class="card_name_fld" style="margin-top: 2vw;">
+            <ion-input type="password" [(ngModel)]="password" required placeholder=""></ion-input>
+          </ion-item>
+        </div>
+        <div class="additional-check">
+          <ion-checkbox checked="false"></ion-checkbox>
+          <div class="additional-txt">
+            Stay logged in for faster checkout
+          </div>
+          <ion-icon name="ios-help-outline" class="question-icon"></ion-icon>
+        </div>
+
+        <div class="login-btn" (click)="loginClick()">Log in</div>
+        <div class="forgot-btn" (click)="forgottenClick()">Forgot your email or password?</div>
+        <div class="or-div">-------------- or --------------</div>
+        <div class="signup-btn" (click)="signupClick()">Create an Account</div>
+
+      </div>
+
+    </ion-slide>
+
+    <ion-slide>
+      <div class="slide-title-txt">
+        Confirm
+      </div>
+      <div class="slide-background">
+        <div class="method-txt">
+          Payment method - Visa Card
+        </div>
+        <div class="purchase-txt">
+          Purchase
+        </div>
+        <div class="calculate-txt">
+          <div style="padding-top: 1.5vw;">
+            <img style="width: 7vw;" src="assets/imgs/HomeIcons/Reward_tiny@2x.png">
+          </div>
+          {{omcValue}} = ${{dollarValue}}
+        </div>
+        <div class="card-number-title">
+          Card Number
+        </div>
+        <div class="card-number-value">
+          {{numberOfCard}}
+        </div>
+        <div class="date-value">
+          <div class="month-value">
+            Month
+            <div class="month">
+              {{month}}
+            </div>
+          </div>
+          <div class="month-value">
+            Year
+            <div class="month">
+              {{year}}
+            </div>
+          </div>
+          <div class="month-value">
+            CVV
+            <div class="month">
+              {{cvv}}
+            </div>
+          </div>
+        </div>
+        <div class="down-buttons-div">
+          <div class="cancel-btn-div" (click)="confirmBackClick()">Back</div>
+          <div class="next-btn-div" (click)="confirmByeClick()">Buy</div>
+        </div>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>

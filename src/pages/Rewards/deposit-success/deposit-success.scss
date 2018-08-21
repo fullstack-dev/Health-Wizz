@@ -1,0 +1,39 @@
+page-deposit-success {
+	.success-img-div {
+	    margin: 20vw 0 10vw 0;
+	    text-align: center;
+	}
+
+	.success-img {
+    	width: 20vw;
+	}
+
+	.success-div {
+	    text-align: center;
+	    font-size: 8vw;
+	}
+
+	.success-descrition {
+	    text-align: center;
+	    font-size: 4vw;
+	    margin-top: 8vw;
+	    color: #737370;
+	}
+
+	.failure-btns-div {
+	    margin-top: 65vw;
+	    margin-left: 50%;
+	    transform: translateX(-50%);
+
+		.close-btn {
+		    text-align: center;
+		    border: 2px solid $button-color;
+		    border-radius: 5px;
+		    font-size: 5vw;
+		    color: white;
+		    background-color: $button-color;
+		    height: 11vw;
+		    padding-top: 2vw;
+		}
+	}
+}

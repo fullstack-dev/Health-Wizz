@@ -1,0 +1,53 @@
+<!--
+  Generated template for the AddTagPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button (click)="done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>Addtag</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list no-lines class="visible_div">
+    <div class="part" *ngFor="let tag of originalTags">
+      <ion-item *ngFor="let item of tag">
+        <ion-label [ngClass]="item.isChecked ? 'shown':'hidden'">{{item.tagName}}</ion-label>
+        <ion-checkbox [(ngModel)]="item.isChecked"></ion-checkbox>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div class="category-div">Add new tag</div>
+
+  <div style="display: flex;">
+    <ion-input type="text" required placeholder="#heartdisease" name="tagInput" [(ngModel)]="tagInput" class="input-text" style="position: relative;"></ion-input>
+    <div *ngIf="tagInput" (click)="addNewTag()" style="position: absolute;right: 7vw;">
+      <ion-icon class="remove-img" name="add"></ion-icon>
+    </div>
+  </div>
+
+</ion-content>

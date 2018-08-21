@@ -1,0 +1,20 @@
+<!--
+  Generated template for the LeaveDialogPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<div class="leave-modal-div">
+  <div class="leave-modal-title-div">
+    <div class="modal-title-txt">Leave Circle?</div>
+  </div>
+
+  <div class="leave-txt-div">
+    You're going to leave the {{circle.name}} circle. This action cannot be undone. Are you sure you want to leave?
+  </div>
+
+  <div class="buttons-div">
+    <button class="first-btn" (click)="cancelClick()">{{lang_resource.button.cancel_text}}</button>
+    <button class="second-btn" (click)="leaveClick()">{{lang_resource.button.leave_text}}</button>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<!--
+  Generated template for the FindPhysicianPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <!-- <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+
+    <ion-buttons end>
+      <button ion-button (click)="Submit()">
+        Submit
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{lang_resource.find_physician.find_physician_text}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="find-img-div">
+    <img class="find-img" src="assets/imgs/search@2x.png" />
+  </div>
+
+  <ion-item class="slide_item_fld">
+    <ion-label stacked>{{lang_resource.find_physician.speciality_text}}
+      <sup>*</sup>
+    </ion-label>
+    <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" [(ngModel)]="speciality" style="overflow: auto !important;">
+      <ion-option *ngFor="let option of docSpeciality" [value]="option.code">{{option.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <div class="date_fld">
+    <ion-item class="slide_item_fld" style="margin-right: 3px;">
+      <ion-label stacked>{{lang_resource.find_physician.zipcode_text}}
+        <sup>*</sup>
+      </ion-label>
+      <ion-input [(ngModel)]="zip_code" type="number" required placeholder=""></ion-input>
+    </ion-item>
+
+    <ion-item class="slide_item_fld" style="margin-left: 3px;">
+      <ion-label stacked>{{lang_resource.find_physician.within_text}}(in miles)</ion-label>
+      <ion-input type="number" [(ngModel)]="distance" required placeholder="10mi"></ion-input>
+      <!-- <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" [(ngModel)]="distance" [ngModelOptions]="{standalone: true}">
+        <ion-option value="5" selected>5mi</ion-option>
+        <ion-option value="10">10mi</ion-option>
+        <ion-option value="15" selected>15mi</ion-option>
+        <ion-option value="20">20mi</ion-option>
+      </ion-select> -->
+    </ion-item>
+  </div>
+</ion-content>

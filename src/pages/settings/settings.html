@@ -1,0 +1,136 @@
+<!--
+  Generated template for the SettingsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{lang_resource?.settings.title}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item class="item_fld">
+    <ion-label stacked>{{lang_resource?.settings.language_text}}</ion-label>
+    <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" [(ngModel)]="selectedLanguage" (ionChange)="requestLanguageChange()">
+      <ion-option *ngFor="let item of languages" [value]="item.code">{{item.type}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <div class="font-size-txt">{{lang_resource?.settings.font_size_text}}</div>
+  <div class="font-shape-div">
+    <div class="font-small-div" [ngStyle]="setSmallStyles(small_font)" (click)="font_small()">A</div>
+    <div class="font-middle-div" [ngStyle]="setMiddleStyles(middle_font)" (click)="font_middle()">A</div>
+    <div class="font-large-div" [ngStyle]="setLargeStyles(large_font)" (click)="font_large()">A</div>
+  </div>
+
+  <div class="visible_div">
+    <ion-item>
+      <ion-label [ngClass]="userSettings.age ? 'shown':'hidden'">{{lang_resource?.settings.age_text}}</ion-label>
+      <ion-toggle [(ngModel)]="userSettings.age"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_div">
+    <ion-item>
+      <ion-label [ngClass]="userSettings.location ? 'shown':'hidden'">{{lang_resource?.settings.location_text}}</ion-label>
+      <ion-toggle [(ngModel)]="userSettings.location"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_div">
+    <ion-item>
+      <ion-label [ngClass]="userSettings.circle ? 'shown':'hidden'">{{lang_resource?.settings.circle_text}}</ion-label>
+      <ion-toggle [(ngModel)]="userSettings.circle"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_div">
+    <ion-item>
+      <ion-label [ngClass]="userSettings.campaign ? 'shown':'hidden'">{{lang_resource?.settings.challenge_text}}</ion-label>
+      <ion-toggle [(ngModel)]="userSettings.campaign"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_div">
+    <ion-item>
+      <ion-label [ngClass]="userSettings.healthIndex ? 'shown':'hidden'">{{lang_resource?.settings.health_index_text}}</ion-label>
+      <ion-toggle [(ngModel)]="userSettings.healthIndex"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <!-- <div class="visible_div">
+    <ion-item>
+      <ion-label [ngClass]="otherVisible ? 'shown':'hidden'">{{lang_resource?.settings.cancer_text}}</ion-label>
+      <ion-toggle [(ngModel)]="otherVisible"></ion-toggle>
+    </ion-item>
+  </div> -->
+
+  <div class="title-txt">Wallet</div>
+
+  <ion-item (click)="openWalletDurationInput()">
+    <ion-label>Unlock duration</ion-label>
+    <p item-end>{{wallet_duration}}</p>
+  </ion-item>
+
+
+  <!-- <div class="title-txt">{{lang_resource?.settings.notification_text}}</div>
+
+  <div class="visible_div">
+    <ion-item>
+      <ion-label [ngClass]="general ? 'shown':'hidden'">{{lang_resource?.settings.general_notification_text}}</ion-label>
+      <ion-toggle [(ngModel)]="general"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_div">
+    <ion-item>
+      <ion-label [ngClass]="circle ? 'shown':'hidden'">{{lang_resource?.settings.receive_notification_text}}</ion-label>
+      <ion-toggle [(ngModel)]="circle"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_div">
+    <ion-item>
+      <ion-label [ngClass]="campaigns ? 'shown':'hidden'">{{lang_resource?.settings.receive_campaign_notification_text}}</ion-label>
+      <ion-toggle [(ngModel)]="campaigns"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_div">
+    <ion-item>
+      <ion-label [ngClass]="disease ? 'shown':'hidden'">{{lang_resource?.settings.receive_chronic_notification_text}}</ion-label>
+      <ion-toggle [(ngModel)]="disease"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_div">
+    <ion-item>
+      <ion-label [ngClass]="other ? 'shown':'hidden'">{{lang_resource?.settings.email_text}}</ion-label>
+      <ion-toggle [(ngModel)]="other"></ion-toggle>
+    </ion-item>
+  </div> -->
+
+</ion-content>

@@ -1,0 +1,615 @@
+<ion-header>
+
+  <ion-navbar hideBackButton>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>Submit Report</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: #EFEFF4;">
+  <!-- <ion-scroll scrollY="true" style="width: 100%;height: 100%;"> -->
+
+  <ion-slides [pager]="show_pager" spaceBetween="-40" speed="300" #slides (ionSlideDidChange)="slideChanged()">
+
+    <ion-slide *ngFor="let item of indicators; let indicatorIndex = index">
+      <form #healthForm="ngForm" class="" style="width: 100%;height: 100%;" novalidate>
+        <ion-scroll scrollY="true" style="width: 100%;height: 100%;">
+
+          <div class="slide-title-div">
+            <div class="slide-title">{{today | date: "MMMM dd, yyyy"}}</div>
+            <div class="slide-detail-btn" *ngIf="item.info.code != 'Cancer' else cancerDetailText" (click)="goToDetail(item, indicatorIndex)">Detail</div>
+            <ng-template #cancerDetailText>
+              <div class="slide-detail-btn" (click)="openCancerLink()">Details</div>
+            </ng-template>
+          </div>
+
+          <div class="slide-background" *ngIf="item.info.code != 'Cancer' else cancerCard">
+
+            <div class="detail-info-div">
+              <!-- [ngStyle]="setColorStyle(item.data.status)" -->
+              <div class="alert-div" *ngIf="item.data.updateRequire || item.data.lastUpdatedDate == null">
+                <ion-icon name="ios-alert-outline"></ion-icon>
+              </div>
+              <div class="detail-info-text" [ngStyle]="setColorStyle(item.data.updateRequire)" *ngIf="item.data.lastUpdatedDate != null">Last update {{item.data.lastUpdatedDate | date: 'MMM d, y h:mm a'}}
+              </div>
+              <div class="detail-info-text" [ngStyle]="setColorStyle(true)" *ngIf="item.data.lastUpdatedDate == null">Update Request!
+              </div>
+
+              <div class="detail-info-value" *ngIf="local.showScore(item.data)">
+                <b>{{item.data.mhiIndex}}</b>
+              </div>
+            </div>
+
+            <div class="bmi-text">{{item.info.label}}
+              <span *ngIf="item.info.code == 'BMI' && item.data.calculatedValue"> ({{formatValue(item.data.calculatedValue)}})</span>
+            </div>
+
+            <div class="bmi-img-div">
+              <img class="bmi-img" src={{item.info.image}}/>
+            </div>
+
+            <div *ngIf="item.info.code == 'BMI'" style="margin-top:3vh; padding-bottom:2vh;">
+              <div>
+                <ion-label stacked>Weight</ion-label>
+              </div>
+              <div class="weight-div">
+                <ion-item class="name_fld">
+                  <ion-input [ngClass]="{dirty_fld: isDirty(weight), error_fld: isErrored(weight)}" #weight="ngModel" type="number" name="weight"
+                    [(ngModel)]="item.info.questions[0].value" [pattern]="validator.indicator_validator.value_pattern" required
+                    placeholder="" (ionChange)="indicatorUpdated(item.info.code)"></ion-input>
+                </ion-item>
+
+                <ion-item class="unit-select-item">
+                  <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="weight_unit" [(ngModel)]="item.info.questions[0].unit"
+                    (ionChange)="indicatorUpdated(item.info.code);unitChange(indicatorIndex,item.info.questions[0].unit)">
+                    <ion-option *ngFor="let unit of item.info.questions[0].units" [value]="unit">{{getUnit(unit)}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <div class="update-device-div" (click)="goToConnectedDevice('BMI')">Update from Device</div>
+              </div>
+              <div class="error-box" *ngIf="weight.hasError('required') && weight.touched">Required!</div>
+              <div class="error-box" *ngIf="weight.hasError('pattern') && weight.touched">Weight value is not valid!</div>
+
+              <div>
+                <ion-label stacked>Height</ion-label>
+              </div>
+              <div class="weight-div">
+                <ion-item class="name_fld">
+
+                  <ion-input [ngClass]="{dirty_fld: isDirty(height), error_fld: isErrored(height)}" #height="ngModel" type="number" name="height"
+                    [(ngModel)]="item.info.questions[1].value" [pattern]="validator.indicator_validator.value_pattern" required
+                    placeholder="" (ionChange)="indicatorUpdated(item.info.code)"></ion-input>
+                </ion-item>
+
+                <ion-item class="unit-select-item">
+                  <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="height_unit" [(ngModel)]="item.info.questions[1].unit"
+                    (ionChange)="indicatorUpdated(item.info.code);heightChange(indicatorIndex,item.info.questions[1].unit)">
+                    <ion-option *ngFor="let unit of item.info.questions[1].units" [value]="unit">{{unit}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <div class="update-device-div" (click)="goToConnectedDevice('BMI')">Update from Device</div>
+              </div>
+              <div class="error-box" *ngIf="height.hasError('required') && height.touched">Required!</div>
+              <div class="error-box" *ngIf="height.hasError('pattern') && height.touched">Height value is not valid!</div>
+
+              <!-- <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+                </ion-col>
+              </ion-row> -->
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item, indicatorIndex)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.info.code == 'Waist Circumference'" style="margin-top:17vh; padding-bottom:2vh;">
+              <div>
+                <ion-label stacked>Waist</ion-label>
+              </div>
+              <div class="weight-div">
+                <ion-item class="name_fld">
+                  <ion-input [ngClass]="{dirty_fld: isDirty(waistF), error_fld: isErrored(waistF)}" #waistF="ngModel" type="number" name="waistF"
+                    [(ngModel)]="item.info.questions[0].value" [pattern]="validator.indicator_validator.value_pattern" required
+                    placeholder="" (ionChange)="indicatorUpdated(item.info.code)"></ion-input>
+                </ion-item>
+
+                <ion-item class="unit-select-item">
+                  <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="waist_unit" [(ngModel)]="item.info.questions[0].unit"
+                    (ionChange)="indicatorUpdated(item.info.code);waistUnitChange(item.info.questions[0])">
+                    <ion-option *ngFor="let unit of item.info.questions[0].units" [value]="unit">{{unit}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <!-- <div class="update-device-div1" (click)="goToConnectedDeviceFromWaist()">Update from Device</div> -->
+              </div>
+              <div class="error-box" *ngIf="waistF.hasError('required') && waistF.touched">Required!</div>
+              <div class="error-box" *ngIf="waistF.hasError('pattern') && waistF.touched">Waist value is not valid!</div>
+
+              <!-- <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+                </ion-col>
+              </ion-row> -->
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item, indicatorIndex)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.info.code == 'Exercise'" style="margin-top:19vh; padding-bottom:3vh;">
+              <div class="weight-div" *ngFor="let question of item.info.questions">
+                <div class="zero-sign" [ngStyle]="setZeroActiveStyle(question.value)" (click)="question.value = question.values[0].code; indicatorUpdated(item.info.code)">{{question.values[0].label}}</div>
+                <div class="first-sign" [ngStyle]="setFirstActiveStyle(question.value)" (click)="question.value = question.values[1].code; indicatorUpdated(item.info.code)">{{question.values[1].label}}</div>
+                <div class="second-sign" [ngStyle]="setSecondActiveStyle(question.value)" (click)="question.value = question.values[2].code; indicatorUpdated(item.info.code)">{{question.values[2].label}}</div>
+                <div class="third-sign" [ngStyle]="setThirdActiveStyle(question.value)" (click)="question.value = question.values[3].code; indicatorUpdated(item.info.code)">{{question.values[3].label}}</div>
+              </div>
+
+              <!-- <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+                </ion-col>
+              </ion-row> -->
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item, indicatorIndex)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.info.code == 'Nutrition'" style="padding-bottom:2vh;">
+              <ion-list>
+                <ion-item no-lines *ngFor="let question of item.info.questions; let questionIndex = index">
+                  <ion-label [ngClass]="question.value ? 'shown':'hidden'">{{question.label}}</ion-label>
+                  <ion-checkbox name="check[{{questionIndex}}]" [ngModelOptions]="{standalone: true}" [(ngModel)]="question.value" (ionChange)="indicatorUpdated(item.info.code)"></ion-checkbox>
+                </ion-item>
+              </ion-list>
+
+              <!-- <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+                </ion-col>
+              </ion-row> -->
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item, indicatorIndex)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.info.code == 'Smoking'" style="margin-top:19vh; padding-bottom:3vh;">
+              <div class="weight-div" *ngFor="let question of item.info.questions">
+                <div class="first-word" [ngStyle]="setYesActiveStyle(question.value)" (click)="question.value = 'YES'; indicatorUpdated(item.info.code)">Yes</div>
+                <div class="second-word" [ngStyle]="setNoActiveStyle(question.value)" (click)="question.value = 'NO'; indicatorUpdated(item.info.code)">No</div>
+              </div>
+
+              <!-- <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+                </ion-col>
+              </ion-row> -->
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item, indicatorIndex)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.info.code == 'Alcohol'" style="margin-top:5vh;">
+              <ion-list>
+                <ion-item *ngFor="let question of item.info.questions; let questionIndex = index" (click)="showCheckboxes(question, indicatorIndex, questionIndex)">
+                  {{question.label}}
+
+                  <div class="alcohol-text2">
+                    {{question.value}}
+                  </div>
+
+                </ion-item>
+              </ion-list>
+
+              <!-- <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+                </ion-col>
+              </ion-row> -->
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item, indicatorIndex)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.info.code == 'Sleep'">
+              <ion-list *ngFor="let question of item.info.questions; let questionIndex = index">
+                <ion-item no-lines *ngIf="showSleepQuestion(question.code)">
+                  <ion-label [ngClass]="question.value ? 'shown':'hidden'">{{question.label}}</ion-label>
+                  <ion-checkbox name="check[{{questionIndex}}]" [ngModelOptions]="{standalone: true}" [(ngModel)]="question.value" (ionChange)="indicatorUpdated(item.info.code)"></ion-checkbox>
+                </ion-item>
+              </ion-list>
+
+              <!-- <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+                </ion-col>
+              </ion-row> -->
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item, indicatorIndex)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.info.code == 'Hypertension'" style="margin-top:3vh; padding-bottom:2vh;">
+              <ion-list>
+                <ion-item no-lines>
+                  <ion-label [ngClass]="item.info.questions[2].value ? 'shown':'hidden'">{{item.info.questions[2].label}}</ion-label>
+                  <ion-checkbox name="check" [ngModelOptions]="{standalone: true}" [(ngModel)]="item.info.questions[2].value" (ionChange)="indicatorUpdated(item.info.code)"></ion-checkbox>
+                </ion-item>
+              </ion-list>
+              <div>
+                <ion-label stacked>Systolic blood pressure</ion-label>
+              </div>
+              <div class="weight-div">
+                <ion-item class="name_fld">
+
+                  <ion-input [ngClass]="{dirty_fld: isDirty(systolicF), error_fld: isErrored(systolicF)}" #systolicF="ngModel" type="number"
+                    name="systolicF" [(ngModel)]="item.info.questions[0].value" [pattern]="validator.indicator_validator.value_pattern"
+                    required placeholder="" (ionChange)="indicatorUpdated(item.info.code)"></ion-input>
+                </ion-item>
+
+                <ion-item class="unit-select-item">
+                  <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="sysbp_unit" [(ngModel)]="item.info.questions[0].unit"
+                    (ionChange)="indicatorUpdated(item.info.code)">
+                    <ion-option *ngFor="let unit of item.info.questions[0].units" [value]="unit">{{unit}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <div class="update-device-div" (click)="goToConnectedDevice('Hypertension')">Update from Device</div>
+              </div>
+              <div class="error-box" *ngIf="systolicF.hasError('required') && systolicF.touched">Required!</div>
+              <div class="error-box" *ngIf="systolicF.hasError('pattern') && systolicF.touched">Systolic BP value is not valid!</div>
+              <div>
+                <ion-label stacked>Diastolic blood pressure</ion-label>
+              </div>
+              <div class="weight-div">
+                <ion-item class="name_fld">
+                  <ion-input [ngClass]="{dirty_fld: isDirty(diastolicF), error_fld: isErrored(diastolicF)}" #diastolicF="ngModel" type="number"
+                    name="diastolicF" [(ngModel)]="item.info.questions[1].value" [pattern]="validator.indicator_validator.value_pattern"
+                    required placeholder="" (ionChange)="indicatorUpdated(item.info.code)"></ion-input>
+                </ion-item>
+
+                <ion-item class="unit-select-item">
+                  <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="dysbp_unit" [(ngModel)]="item.info.questions[1].unit"
+                    (ionChange)="indicatorUpdated(item.info.code)">
+                    <ion-option *ngFor="let unit of item.info.questions[1].units" [value]="unit">{{unit}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <div class="update-device-div" (click)="goToConnectedDevice('Hypertension')">Update from Device</div>
+              </div>
+              <div class="error-box" *ngIf="diastolicF.hasError('required') && diastolicF.touched">Required!</div>
+              <div class="error-box" *ngIf="diastolicF.hasError('pattern') && diastolicF.touched">Diastolic BP value is not valid!</div>
+
+              <!-- <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+                </ion-col>
+              </ion-row> -->
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item, indicatorIndex)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.info.code == 'Depression'">
+              <ion-list>
+
+                <ion-list-header>
+                  Over the last two weeks, how often have you been bothered by any of the following problems?
+                </ion-list-header>
+
+                <ion-item *ngFor="let question of item.info.questions; let questionIndex = index" (click)="showCheckboxes(question, indicatorIndex, questionIndex)">
+                  {{question.label}}
+
+                  <div class="alcohol-text2">
+                    {{question.value}}
+                  </div>
+                </ion-item>
+
+              </ion-list>
+
+              <!-- <ion-list>
+                <ion-list-header>
+                  Over the last two weeks, how often have you been bothered by any of the following problems?
+                </ion-list-header>
+                <div *ngFor="let question of item.info.questions; let questionIndex = index">
+                  <ion-item no-lines>
+                    {{question.label}}
+                  </ion-item>
+                  <ion-item>
+                    <ion-label></ion-label>
+                    <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="answer_select" placeholder="Select an answer" [(ngModel)]="question.value">
+                      <ion-option *ngFor="let answer of question.values" [value]="answer.code">{{answer.label}}</ion-option>
+                    </ion-select>
+                  </ion-item>
+                </div>
+              </ion-list> -->
+
+              <!-- <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+                </ion-col>
+              </ion-row> -->
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item, indicatorIndex)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.info.code == 'Diabetes'" style="margin-top:3vh; padding-bottom:2vh;">
+              <ion-list>
+                <ion-item no-lines>
+                  <ion-label [ngClass]="item.info.questions[0].value ? 'shown':'hidden'">{{item.info.questions[0].label}}</ion-label>
+                  <ion-checkbox name="check" [ngModelOptions]="{standalone: true}" [(ngModel)]="item.info.questions[0].value" (ionChange)="indicatorUpdated(item.info.code)"></ion-checkbox>
+                </ion-item>
+              </ion-list>
+              <div>
+                <ion-label stacked>Recent HbA 1c level</ion-label>
+              </div>
+              <div class="weight-div">
+                <ion-item class="name_fld">
+                  <ion-input [ngClass]="{dirty_fld: isDirty(hbaF), error_fld: isErrored(hbaF)}" #hbaF="ngModel" type="number" name="hbaF" [(ngModel)]="item.info.questions[1].value"
+                    [pattern]="validator.indicator_validator.value_pattern" required placeholder="" (ionChange)="indicatorUpdated(item.info.code)"></ion-input>
+                </ion-item>
+
+                <ion-item class="unit-select-item">
+                  <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="hba_unit" [(ngModel)]="item.info.questions[1].unit"
+                    (ionChange)="indicatorUpdated(item.info.code)">
+                    <ion-option *ngFor="let unit of item.info.questions[1].units" [value]="unit">{{unit}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <div class="update-device-div" (click)="goToConnectedDevice('Diabetes')">Update from Device</div>
+              </div>
+              <div class="error-box" *ngIf="hbaF.hasError('required') && hbaF.touched">Required!</div>
+              <div class="error-box" *ngIf="hbaF.hasError('pattern') && hbaF.touched">HBA value is not valid!</div>
+              <div>
+                <ion-label stacked>Fasting Glucose level</ion-label>
+              </div>
+              <div class="weight-div">
+                <ion-item class="name_fld">
+                  <ion-input [ngClass]="{dirty_fld: isDirty(glucoseF), error_fld: isErrored(glucoseF)}" #glucoseF="ngModel" type="number" name="glucoseF"
+                    [(ngModel)]="item.info.questions[2].value" [pattern]="validator.indicator_validator.value_pattern" required
+                    placeholder="" (ionChange)="indicatorUpdated(item.info.code)"></ion-input>
+                </ion-item>
+
+                <ion-item class="unit-select-item">
+                  <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="glucose_unit" [(ngModel)]="item.info.questions[2].unit"
+                    (ionChange)="indicatorUpdated(item.info.code)">
+                    <ion-option *ngFor="let unit of item.info.questions[2].units" [value]="unit">{{unit}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <div class="update-device-div" (click)="goToConnectedDevice('Diabetes')">Update from Device</div>
+              </div>
+              <div class="error-box" *ngIf="glucoseF.hasError('required') && glucoseF.touched">Required!</div>
+              <div class="error-box" *ngIf="glucoseF.hasError('pattern') && glucoseF.touched">Glucose value is not valid!</div>
+
+              <!-- <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+                </ion-col>
+              </ion-row> -->
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item, indicatorIndex)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.info.code == 'Cardio'" style="margin-top:3vh; padding-bottom:2vh;">
+              <div>
+                <ion-label stacked>Total cholesterol(mg/dL)</ion-label>
+              </div>
+              <div class="weight-div">
+                <ion-item class="name_fld">
+                  <ion-input [ngClass]="{dirty_fld: isDirty(totalF), error_fld: isErrored(totalF)}" #totalF="ngModel" type="number" name="totalF"
+                    [(ngModel)]="item.info.questions[0].value" [pattern]="validator.indicator_validator.value_pattern" required
+                    placeholder="" (ionChange)="indicatorUpdated(item.info.code)"></ion-input>
+                </ion-item>
+
+                <ion-item class="unit-select-item">
+                  <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="totalchl_unit" [(ngModel)]="item.info.questions[0].unit"
+                    (ionChange)="indicatorUpdated(item.info.code)">
+                    <ion-option *ngFor="let unit of item.info.questions[0].units" [value]="unit">{{unit}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <!-- <div class="update-device-div" (click)="goToConnectedDeviceFromTotalCholesterol()">Update from Device</div> -->
+              </div>
+              <div class="error-box" *ngIf="totalF.hasError('required') && totalF.touched">Required!</div>
+              <div class="error-box" *ngIf="totalF.hasError('pattern') && totalF.touched">Cholestrol value is not valid!</div>
+
+              <div>
+                <ion-label stacked>HDL cholesterol(mg/dL)</ion-label>
+              </div>
+              <div class="weight-div">
+                <ion-item class="name_fld">
+                  <ion-input [ngClass]="{dirty_fld: isDirty(hdlF), error_fld: isErrored(hdlF)}" #hdlF="ngModel" type="number" name="hdlF" [(ngModel)]="item.info.questions[1].value"
+                    [pattern]="validator.indicator_validator.value_pattern" required placeholder="" (ionChange)="indicatorUpdated(item.info.code)"></ion-input>
+                </ion-item>
+
+                <ion-item class="unit-select-item">
+                  <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="hdlchl_unit" [(ngModel)]="item.info.questions[1].unit"
+                    (ionChange)="indicatorUpdated(item.info.code)">
+                    <ion-option *ngFor="let unit of item.info.questions[1].units" [value]="unit">{{unit}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <!-- <div class="update-device-div" (click)="goToConnectedDeviceFromHDLCholesterol()">Update from Device</div> -->
+              </div>
+              <div class="error-box" *ngIf="hdlF.hasError('required') && hdlF.touched">Required!</div>
+              <div class="error-box" *ngIf="hdlF.hasError('pattern') && hdlF.touched">Cholestrol value is not valid!</div>
+              <!-- <ion-row>
+                <ion-col></ion-col>
+                <ion-col>
+                  <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+                </ion-col>
+              </ion-row> -->
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item, indicatorIndex)">Update</button>
+              </div>
+            </div>
+
+          </div>
+
+          <ng-template #cancerCard>
+            <div class="slide-background">
+              <div class="detail-info-div">
+                <div class="detail-info-text" *ngIf="item.info.lastValue else noCancerLast">Last update {{item.info.lastValue | date: 'MMM d, y, h:mm a'}}</div>
+                <ng-template #noCancerLast>
+                  <div class="alert-div">
+                    <ion-icon name="ios-alert-outline"></ion-icon>
+                  </div>
+                  <div class="detail-info-text" [ngStyle]="setColorStyle(true)">Update Request!</div>
+                </ng-template>
+              </div>
+
+              <div class="bmi-text">{{item.info.code}}</div>
+
+              <div class="bmi-img-div">
+                <img class="bmi-img" src={{item.info.image}}/>
+              </div>
+              <div style="margin-top:3vh; padding-bottom:2vh;">
+                <ion-list>
+                  <ion-item *ngFor="let indicator of item.data; let i = index" (click)="goToCancerReport(item.data, i, indicatorIndex)">
+                    <ion-avatar item-start>
+                      <img src={{indicator.info.image}}>
+                    </ion-avatar>
+                    <h2 [ngStyle]="setMyStyles(indicator.data.status)">{{indicator.info.code}}</h2>
+                    <p>{{indicator.data.lastUpdatedDate | date: 'short'}}</p>
+                    <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+                  </ion-item>
+                </ion-list>
+              </div>
+
+            </div>
+          </ng-template>
+
+        </ion-scroll>
+      </form>
+    </ion-slide>
+
+    <ion-slide *ngIf="custom_indexes && has_survey">
+      <ion-scroll scrollY="true" style="width: 100%;height: 100%;">
+        <div class="slide-title-div">
+          <div class="slide-title">{{today | date: "MMMM dd, yyyy"}}</div>
+        </div>
+        <div class="slide-background">
+          <div class="detail-info-div" *ngIf="survey_last_update == 'Update Request!'">
+            <div class="alert-div">
+              <ion-icon name="ios-alert-outline"></ion-icon>
+            </div>
+            <div class="detail-info-text" style="color:#EA6288">{{survey_last_update}}</div>
+          </div>
+          <div class="detail-info-div" *ngIf="survey_last_update != 'Update Request!'">
+            <div class="detail-info-text">  Last update {{survey_last_update | date: 'MMM d, y, h:mm a'}}</div>
+          </div>
+          <div class="bmi-text">Survey</div>
+          <!-- <div style=" margin: 5vw 0 5vw 0;" *ngFor="let question of campaign_survey?.surveyQuestionInfo; let ques_i = index">
+            <div *ngIf="question.answerType == 'YES/NO'">
+              <ion-label style="margin: 2vw 0 2vw 0;font-size: smaller;color: gray;">{{question.question}}</ion-label>
+
+              <div class="weight-div">
+                <div class="first-word" [ngStyle]="setYesActiveStyle(question.responseAnswer.value)" (click)="question.responseAnswer.value = 'YES'">Yes</div>
+                <div class="second-word" [ngStyle]="setNoActiveStyle(question.responseAnswer.value)" (click)="question.responseAnswer.value = 'NO'">No</div>
+              </div>
+
+            </div>
+
+            <div *ngIf="question.answerType == 'TEXTFIELD'">
+              <ion-label style=" margin: 2vw 0 2vw 0;font-size: smaller;color: gray;">{{question.question}}</ion-label>
+              <div class="weight-div">
+                <ion-item class="name_fld">
+                  <ion-input type="text" [(ngModel)]="question.responseAnswer.value" placeholder=""></ion-input>
+                </ion-item>
+              </div>
+
+            </div>
+            <div *ngIf="question.answerType == 'MULTIPLE CHOICE'">
+              <ion-label style=" margin: 2vw 0 2vw 0;font-size: smaller;color: gray;">{{question.question}}</ion-label>
+              <div class="alcohol-text2" (click)="showSurveyCheckboxes(question, ques_i)">
+                {{question.responseAnswer.value}}
+              </div>
+              <div *ngIf="!question.responseAnswer.value" (click)="showSurveyCheckboxes(question, ques_i)">Select your answer</div>
+            </div>
+          </div> -->
+
+          <ion-list no-lines *ngFor="let question of campaign_survey?.surveyQuestionInfo; let ques_i = index">
+            <ion-list-header>
+              <span style="color:#41C4CD">{{question.question}}</span>
+            </ion-list-header>
+
+            <ion-item *ngIf="question.answerType == 'YES/NO'">
+              <ion-segment [(ngModel)]="question.responseAnswer.value" color="primary">
+                <ion-segment-button value="YES">
+                  Yes
+                </ion-segment-button>
+                <ion-segment-button value="NO">
+                  No
+                </ion-segment-button>
+              </ion-segment>
+            </ion-item>
+
+            <ion-item *ngIf="question.answerType == 'TEXTFIELD'">
+              <ion-input type="text" [(ngModel)]="question.responseAnswer.value" placeholder="fill your answer"></ion-input>
+            </ion-item>
+
+            <ion-item *ngIf="question.answerType == 'MULTIPLE CHOICE'">
+              <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" [(ngModel)]="question.responseAnswer.value"
+                (ionChange)="updateSurveyAnswer(ques_i)">
+                <ion-option *ngFor="let item of question.surveyAnswerInfo" [value]="item.answer">{{item.answer}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+          </ion-list>
+
+          <!-- <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <button class="hw-btn-fill" (click)="updateSurvey()">Update</button>
+            </ion-col>
+          </ion-row> -->
+
+          <div class="buttons-div">
+            <button class="hw-btn-fill" (click)="updateSurvey()">Update</button>
+          </div>
+
+        </div>
+      </ion-scroll>
+    </ion-slide>
+  </ion-slides>
+  <!-- </ion-scroll> -->
+</ion-content>

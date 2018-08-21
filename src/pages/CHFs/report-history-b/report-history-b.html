@@ -1,0 +1,133 @@
+<!--
+  Generated template for the ReportHistoryBPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="Edit()">
+        {{lang_resource.chfs.report_history.edit_button_text}}
+      </button>
+    </ion-buttons> -->
+
+    <ion-title>{{lang_resource.chfs.report_history.title_text}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="calendar-div">
+    <div class="calendar-header">
+      <ion-row class="calendar-month">
+        <ion-col col-2 (click)="goToLastMonth()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-col>
+        <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+        <ion-col col-2 (click)="goToNextMonth()">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="calendar-body">
+      <ion-grid>
+        <ion-row class="calendar-weekday">
+          <ion-col>Sun</ion-col>
+          <ion-col>Mon</ion-col>
+          <ion-col>Tue</ion-col>
+          <ion-col>Wed</ion-col>
+          <ion-col>Thu</ion-col>
+          <ion-col>Fri</ion-col>
+          <ion-col>Sat</ion-col>
+        </ion-row>
+        <ion-row class="calendar-date">
+          <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+          <ion-col col-1 *ngFor="let day of daysInThisMonth; let i = index" (click)="selectDate(day)">
+            <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}</span>
+            <ng-template #otherDate class="otherDate">
+              <span [ngClass]="{'data-day': data_days[i] != null}">{{day}}</span>
+            </ng-template>
+          </ion-col>
+          <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="selected-event" *ngIf="isSelected">
+      <ion-list>
+        <ion-item *ngFor="let se of selectedEvent">
+          <ion-buttons end>
+            <button ion-button clear icon-only (click)="deleteEvent(se)">
+              <ion-icon name="close"></ion-icon>
+            </button>
+          </ion-buttons>
+          <h2>{{se.title}}</h2>
+          <h3>{{se.message}}</h3>
+          <p>{{lang_resource.chfs.report_history.start_date_text}} {{se.startDate}}
+            <br> {{lang_resource.chfs.report_history.end_date_text}} {{se.endDate}}</p>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+  <!-- <ion-item>
+    <ion-label class="verified-txt"> {{lang_resource.chfs.report_history.verified_text}}
+      <ion-icon ios="ios-checkmark" class="checkmark-icon"></ion-icon>
+    </ion-label>
+  </ion-item> -->
+
+  <!-- <div class="index-gallery-div">
+	    <div class="gallery-item" *ngFor="let chf of chfs_items">
+	      	<div class="title-div" [ngStyle]="setMyStyles(chf.top_color)" (click)="goToDetail(chf)">
+		        <div class="card-title-text">{{chf.name}}</div>
+		        <div class="title-number">{{chf.number}}</div>
+	      	</div> 
+	      	<div (click)="open($event, chf)">           
+		      	<div class="body-div">
+		        	<img class="body-img" src={{chf.imge}}/>
+		      	</div>
+		      	<div class="tail-div">
+			        <div class="tail-date-text">Last: {{chf.updated_value}}</div>
+			        <div class="tail-other-text">{{chf.status}}</div>
+		      	</div>
+		    </div>
+	    </div>
+		</div>
+		 -->
+  <div class="index-gallery-div" *ngIf="indicators?.length > 0">
+    <div class="gallery-item" *ngFor="let item of indicators; let i = index" (click)="open(i, item)">
+      <div class="title-div" [ngStyle]="setMyStyles(item?.data.status)">
+        <div class="card-title-text">{{item.data.indicatorCode}}</div>
+        <div class="title-number">{{item.data.mhiIndex}}</div>
+      </div>
+      <div class="body-div">
+        <img class="body-img" src={{item.image}}/>
+      </div>
+      <div class="tail-div">
+        <div class="tail-date-text">{{lang_resource.chfs.report_history.last_text}}{{item.data.questions[0].value}}</div>
+        <div class="tail-other-text" *ngIf="item.data.updateRequire">{{lang_resource.chfs.report_history.update_require_text}}</div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center" *ngIf="indicators?.length == 0">
+    <h3>{{lang_resource.chfs.report_history.no_history_text}}</h3>
+  </div>
+  <div *ngIf="!indicators" style="text-align:center;">
+    <img style="height:20vw;" src="assets/icon/Spinner.svg">
+    <!-- <h3>Loading indexes...</h3> -->
+  </div>
+
+</ion-content>

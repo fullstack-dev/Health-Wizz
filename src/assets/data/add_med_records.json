@@ -1,0 +1,14 @@
+{
+	"recent_search_data":[
+		{ "id": "0", "name": "Login", "website": "pl.taleo.net", "image": "assets/imgs/AddMedImgs/Recent@1x.png" },
+		{ "id": "1", "name": "Login into Facebook", "website": "facebook.com", "image": "assets/imgs/AddMedImgs/Recent@1x.png" },
+		{ "id": "2", "name": "Name of web site", "website": "exact address.com", "image": "assets/imgs/AddMedImgs/Recent@1x.png" }
+	],
+	"upload_image_data": [
+		{ "id": "0", "name": "Photos", "image": "assets/imgs/AddMedImgs/Photos.png" },
+		{ "id": "1", "name": "Camera", "image": "assets/imgs/AddMedImgs/Camera@2x.png" }
+	],
+	"other_apps_data": [
+		{ "id": "0", "name": "Email", "image": "assets/imgs/AddMedImgs/Email@2x.png" }
+	]
+}

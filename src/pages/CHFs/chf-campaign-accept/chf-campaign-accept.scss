@@ -1,0 +1,101 @@
+page-chf-campaign-accept {
+  .toolbar {
+    button {
+      margin: 0 5px;
+    }
+    .menu_icon {
+      float: right;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  button,
+  .label {
+    font-family: 'SF-UI-Text';
+  }
+  .title {
+    font-size: 25px;
+    font-weight: 400;
+    border-bottom: 1px solid #a9a9ad;
+    padding: 5px 0;
+    font-family: 'SF-UI-Text';
+  }
+  .details {
+    width: 100%;
+    padding: 0 5%;
+    border-bottom: 1px solid #a9a9ad;
+    display: flow-root;
+    .description {
+      width: 100%;
+      display: flex;
+      .name {
+        float: left;
+        width: 60%;
+        color: $font-text;
+        span {
+          color: $font-appcolor;
+        }
+      }
+      .date {
+        float: right;
+        width: 40%;
+        color: $font-text;
+        font-size: 12px;
+      }
+    }
+    img {
+      width: 120px;
+      margin: 0 auto;
+      display: block;
+      padding-top: 40px;
+      margin-bottom: 10px;
+    }
+    button {
+      float: right;
+      font-size: 20px;
+      color: $font-appcolor;
+    }
+  }
+  .visible_make {
+    margin-top: 10px;
+    .item {
+      padding-left: 0;
+      .shown {
+        color: #000;
+      }
+      .hiden {
+        color: #b2b2b2;
+      }
+      .item-inner {
+        padding-bottom: 10px;
+        .label {
+          font-size: 16px;
+        }
+      }
+    }
+    .toggle-checked .toggle-icon {
+      background-color: #37c592 !important;
+    }
+  }
+  .result {
+    width: 100%;
+    display: flow-root;
+    padding: 3%;
+    button {
+      width: 47%;
+      font-size: 20px;
+      height: 45px;
+    }
+    .deny {
+      border: 2px solid;
+      float: left;
+    }
+    .accept {
+      float: right;
+    }
+  }
+}

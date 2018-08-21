@@ -1,0 +1,50 @@
+page-reward {
+
+	h1, h2, h3, h4, h5, p, button, div, .label{
+		font-family: 'SF-UI-Text';
+	}
+
+	.head-title{
+		font-size: 16px;
+		color: $font-appcolor;
+	}
+	h2{
+		font-family: 'SF-Pro-Text';
+	}
+
+	.reward-box{
+		box-shadow: 0 0 20px lightgray;
+		border-radius: 5px;
+		margin: 20px 0;
+		.title{
+			width: 100%;
+			display: inline-block;
+			padding: 0 16px;
+			h4{
+				float: left;
+				margin-top: 15px;
+				font-weight: 400;
+			}
+			p{
+				float: right;
+				margin-top: 15px;
+				color: $font-appcolor;
+			}
+		}		
+		.item-inner{
+			border: none !important;
+			button{
+				width: 80px;
+    			height: 40px;
+    			font-size: 20px;
+			}
+		}
+		img{
+			border-radius: 50%;
+			border: 1px solid;
+		}
+
+	}
+	
+
+}

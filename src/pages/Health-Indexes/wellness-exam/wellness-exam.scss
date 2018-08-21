@@ -1,0 +1,62 @@
+page-wellness-exam {
+  .wellness-title-txt {
+    margin-top: 2vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .wellness-info-txt {
+    margin-top: 2vw;
+    font-size: 4vw;
+    color: #EB5887;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .find-physician-div {
+    margin-top: 6vw;
+    margin-left: 52vw;
+    color: #179FA9;
+  }
+  .find-physician-txt {
+    font-family: 'SF-UI-Text' !important;
+    font-size: 18px;
+  }
+  .exam-txt {
+    font-size: 1.2rem;
+    margin-top: 15vh;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .cal-div {
+    display: flex;
+    margin-top: 1vh;
+  }
+  .cal-icon {
+    font-size: 2.2rem;
+    position: absolute;
+    right: 8vw;
+    padding-top: 2vh;
+    color: #179fa9;
+  }
+  .input-date-text {
+    width: 100%;
+    border: 0.5px solid #8E8E93;
+  }
+  .datetime-ios {
+    padding: 2px 8px 5px 16px !important;
+  }
+  .datetime-md {
+    padding: 3px 6px 10px !important;
+  }
+  .item-ios.item-block .item-inner {
+    border-bottom: 0 !important;
+  }
+  .item-md.item-block .item-inner {
+    border-bottom: 0 !important;
+  }
+  .red2 {
+    color: #ed6087;
+  }
+  .green2 {
+    color: #6ec59a;
+  }
+  .datetime-text {
+    margin-top: 2% !important;
+  }
+}

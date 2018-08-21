@@ -1,0 +1,66 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons [hidden]="" start>
+
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      <!-- <button ion-button menuToggle icon-only class="menu_icon">
+        <ion-icon name="menu"></ion-icon>
+      </button> -->
+
+    </ion-buttons>
+
+    <ion-title>Delete Campaign</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="close()">Done</button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="draft" *ngIf="is_draft">
+
+    <img src="assets/imgs/Campaign/trash.png">
+    <p class="warning">You're going to delete the campaign draft, This action cannot be undone.</p>
+
+  </div>
+
+  <div class="delete" *ngIf="!is_draft">
+
+    <img src="assets/imgs/Campaign/trash.png">
+    <p class="warning">You are going to delete the campaign. This action cannot be undone.</p>
+
+    <p class="info">All participants will be notified. If there was a participation fee it will be refunded to participants.</p>
+
+    <p class="info">Please help us to improve our service by specifying the reason for deleting this campaign. The information will be confidential
+      and will not be shared with the participants.</p>
+
+    <ion-item class="name_fld">
+      <ion-label stacked>Reason (optional)</ion-label>
+      <ion-select [selectOptions]="local.selectOptions" interface="action-sheet" style="padding-left:5px !important" [(ngModel)]="reason">
+        <ion-option *ngFor="let item of reasonsList" [value]="item.id">{{item.reason}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="name_fld">
+      <ion-label stacked>Comment (optional)</ion-label>
+      <ion-input type="text" [(ngModel)]="optional"></ion-input>
+    </ion-item>
+
+
+  </div>
+
+
+  <div class="result-btn">
+    <button ion-button outline class="l-btn" (click)="close()">Cancel</button>
+    <button ion-button class="r-btn" (click)="delete()">Delete</button>
+  </div>
+
+</ion-content>

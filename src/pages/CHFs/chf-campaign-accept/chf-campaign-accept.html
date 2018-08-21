@@ -1,0 +1,78 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start>
+
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+
+      <button ion-button menuToggle icon-only class="menu_icon">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+    <ion-title>{{lang_resource.chfs.chf_campaign_accept.title_text}}</ion-title>
+
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="share()">
+        <ion-icon name="md-share"></ion-icon>
+      </button>
+    </ion-buttons> -->
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="title">{{campaign?.name}}</div>
+
+  <div class="details">
+    <div class="description">
+      <p class="name" *ngIf="campaign?.campaignInfo.circleInfo.ownerName != null">{{lang_resource.chfs.chf_campaign_accept.new_invite_text}}
+        <span>{{campaign?.campaignInfo.circleInfo.ownerName}}</span>
+      </p>
+      <p class="date">{{campaign?.startDate}}</p>
+    </div>
+    <img src="assets/imgs/HealthIndexIcons/Depression@3x.png" />
+    <button ion-button clear (click)="goToLeave()">{{lang_resource.chfs.chf_campaign_accept.see_details_button_text}}</button>
+  </div>
+
+  <div class="visible_make">
+    <ion-item>
+      <ion-label [ngClass]="ageVisible ? 'shown':'hiden'">{{lang_resource.chfs.chf_campaign_accept.age_visible_text}}</ion-label>
+      <ion-toggle [(ngModel)]="ageVisible"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_make">
+    <ion-item>
+      <ion-label [ngClass]="locationVisible ? 'shown':'hiden'">{{lang_resource.chfs.chf_campaign_accept.location_visible_text}}</ion-label>
+      <ion-toggle [(ngModel)]="locationVisible"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_make">
+    <ion-item>
+      <ion-label [ngClass]="circleVisible ? 'shown':'hiden'">{{lang_resource.chfs.chf_campaign_accept.circle_visible_text}}</ion-label>
+      <ion-toggle [(ngModel)]="circleVisible"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="visible_make">
+    <ion-item>
+      <ion-label [ngClass]="challengesVisible ? 'shown':'hiden'">{{lang_resource.chfs.chf_campaign_accept.challenges_visible_text}}</ion-label>
+      <ion-toggle [(ngModel)]="challengesVisible"></ion-toggle>
+    </ion-item>
+  </div>
+
+  <div class="result">
+    <button ion-button clear class="deny" (click)="before()">{{lang_resource.common.cancel_text}}</button>
+    <button ion-button class="accept" (click)="goCamapign()">{{lang_resource.common.ok_text}}</button>
+  </div>
+
+</ion-content>

@@ -1,0 +1,37 @@
+
+<ion-content class="bg">
+
+	<div class="noti-div">
+		<button ion-button clear icon-only class="close" (click)="closeModal()"><ion-icon name="md-close"></ion-icon></button>
+		
+		<div class="invite">
+			<p>INVITE TO VALIDATE</p>
+		</div>
+
+		<h2>Campaign Name 1</h2>
+		<h3>Whatever it is</h3>
+
+		<ion-grid class="name">
+			<ion-row>
+			    <ion-col col-7 class="first">New invite from <span>Alex</span></ion-col>
+			    <ion-col col-5 class="second" (click)="goNotiDetail()">See details</ion-col>
+			</ion-row>						  
+		</ion-grid>
+
+		<p class="date">{{currentDate | date: "MMM dd, yyyy"}}</p>
+
+		<img class="logo-img" src="assets/imgs/HealthIndexIcons/Depression@3x.png"/>
+
+		<div class="logo-list">
+			<img src="assets/imgs/Campaign/gym.png">
+			<img src="assets/imgs/Campaign/nike.png">
+		</div>
+
+		<div class="result-btn">
+		    <button ion-button outline class="l-btn" (click)="denyClick()">Dney</button>
+		    <button ion-button class="r-btn" (click)="acceptClick()">Accept</button>
+		</div>
+
+	</div>
+
+</ion-content>

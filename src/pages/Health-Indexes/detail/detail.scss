@@ -1,0 +1,420 @@
+page-detail {
+  .calendar-div {
+    margin-top: 4vw;
+  }
+  [col-1] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 8.33333%;
+    -ms-flex: 0 0 8.33333%;
+    flex: 0 0 14.285714285714286%;
+    width: 14.285714285714286%;
+    max-width: 14.285714285714286%;
+  }
+  .col {
+    text-align: center;
+    padding: 5px;
+  }
+  .last-month,
+  .next-month {
+    color: #999999;
+    font-size: 90%;
+  }
+  .currentDate,
+  .otherDate {
+    padding: 5px;
+  }
+  .currentDate {
+    font-weight: bold;
+    color: #48C5CD;
+    border-radius: 30px;
+  }
+  .dataDay {
+    font-weight: bold;
+  }
+  .calendar-header {
+    background-color: white;
+    color: black;
+    height: 55px;
+    padding-top: 10px;
+    font-size: 20px;
+    border-bottom: 1px solid #DCDCDC;
+  }
+  .event-bullet {
+    margin: 2px auto;
+    height: 5px;
+    width: 5px;
+    background-color: green;
+    border-radius: 30px;
+  }
+  .selected-date {
+    width: 20px;
+    height: 2px;
+    background-color: blue;
+  }
+  .unselected-date {
+    border: none;
+  }
+  .calendar-body {
+    border-bottom: solid 1px #DCDCDC;
+    .grid {
+      padding: 0;
+    }
+    .col:last-child {
+      border-right: none;
+    }
+    .calendar-weekday,
+    .calendar-date {
+      text-align: center;
+      margin: 0;
+    }
+    .calendar-weekday {
+      font-weight: normal;
+    }
+    .calendar-date {}
+  }
+  .highcharts-credits {
+    display: none;
+  }
+  .highcharts-legend {
+    display: none;
+  }
+  .event-div {}
+  .scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .lastday-txt {
+    color: #60605D;
+    font-size: 4vw;
+    margin-left: 40vw;
+    width: 100vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .detail-body-div {
+    display: flex;
+    margin-top: 5vw;
+  }
+  .detail-img {
+    width: 9vw;
+    margin-right: 2vw;
+  }
+  .detail-txt {
+    color: #60605D;
+    margin-left: 1vw;
+    line-height: 20px;
+    height: 28vw;
+    overflow: hidden;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .readmore-btn {
+    // margin: 3vw 0 0 65vw;
+    // width: 30vw;
+    color: #48C5CD;
+    font-size: 4vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .find-btn-div {
+    margin-top: 10vw;
+    text-align: center;
+  }
+  .find-btn {
+    background-color: #48C5CD;
+    height: 11vw;
+    border-radius: 5px;
+    padding-top: 2vw;
+    font-size: 5vw;
+    color: white;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .detail-list-div {
+    margin-top: 8vw;
+    border-top: 1px solid #C8C8C6;
+  }
+  .name_fld {
+    padding: 0;
+    width: 50%;
+    max-height: 4rem;
+    min-height: 4rem;
+    .item-inner {
+      border: none !important;
+      padding: 0 !important;
+      .label {
+        font-size: 14px;
+        font-family: 'SF-UI-Text' !important;
+        color: #737370;
+        padding-bottom: 3px;
+        sup {
+          color: red;
+          font-weight: 900;
+        }
+      }
+      .input {
+        border: 1px solid $font-appcolor;
+        border-radius: 2px;
+        padding: 0 10px;
+        .text-input {}
+        .text-input-md {
+          margin: 8px 8px;
+        }
+      }
+      .select {
+        border: 1px solid $font-appcolor;
+        padding: 8px 6px;
+        border-radius: 1px;
+        color: #015c63;
+      }
+    }
+  }
+  .weight-div {
+    display: flex;
+    align-items: center;
+  }
+  .weight-edit-div {
+    position: relative;
+    width: 50vw;
+  }
+  .update-device-div {
+    font-size: 3.6vw;
+    color: #009EA9; // margin-top: 14vw;
+    margin-left: 3vw;
+    width: 50vw;
+    text-align: center;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .update-device-div-chf {
+    font-size: 3.6vw;
+    color: #009EA9;
+    margin-left: 3vw;
+    width: 50vw;
+    text-align: center;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .waist-img-div {
+    height: 48vw;
+    text-align: center;
+    padding-top: 14vw;
+  }
+  .waist-img {
+    width: 27vw;
+  }
+  .update-device-div1 {
+    font-size: 3.6vw;
+    color: #009EA9; // margin-top: 10vw;
+    margin-left: 3vw;
+    width: 37vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .zero-sign {
+    width: 20vw;
+    text-align: center; // color: red;
+    font-size: 4vw;
+  }
+  .first-sign {
+    width: 30vw;
+    text-align: center;
+    border-left: 1px solid #D6D6D6;
+    font-size: 4vw;
+  }
+  .second-sign {
+    width: 30vw;
+    text-align: center;
+    border-left: 1px solid #D6D6D6;
+    border-right: 1px solid #D6D6D6; // color: #FFBB45;
+    font-size: 4vw;
+  }
+  .third-sign {
+    width: 30vw;
+    text-align: center;
+    /*color: #6EC59A;*/
+    // color: green;
+    font-size: 4vw;
+  }
+  .nutrition-div {
+    margin: 2vh 0;
+    .item {
+      // padding-left: 0;
+      .shown {
+        color: #000;
+      }
+      .hidden {
+        color: #b2b2b2;
+      }
+      .item-inner {
+        .label {
+          font-size: 1.3rem !important;
+        }
+      }
+    }
+    .checkbox-ios-dark .checkbox-checked {
+      background-color: $button-color;
+      border-color: $button-color;
+    }
+  }
+  .item-ios.item-block .item-inner {
+    font-size: 4vw;
+  }
+  .checkbox-ios .checkbox-icon {
+    border: 1px solid #B2B2B2;
+  }
+  ion-label {
+    white-space: normal;
+  }
+  .checkbox-ios.checkbox-disabled,
+  .item-ios.item-checkbox-disabled ion-label {
+    color: #91928E;
+  }
+  .first-word {
+    width: 50vw;
+    text-align: center; // color: #EA6288;
+    font-size: 5vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .second-word {
+    width: 50vw;
+    text-align: center;
+    border-left: 1px solid #D6D6D6; // color: #6EC59A;
+    font-size: 5vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .alcohol-img-div {
+    height: 25vw;
+    text-align: center;
+    padding-top: 2vw;
+  }
+  .alcohol-img {
+    width: 13vw;
+  }
+  .alcohol-text1 {
+    font-size: 4vw;
+    color: #60605D;
+    margin: 5vw 0 2vw 0;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .alcohol-text2 {
+    font-size: 1.2rem;
+    margin: 1.5vh 0;
+    font-family: 'SF-UI-Text' !important;
+    color: black;
+  }
+  .alcohol-text3 {
+    font-size: 4vw;
+    color: #128E98;
+    border-top: 1px solid #EFEFF4;
+    padding: 3vw 0 3vw 0;
+    font-family: 'SF-UI-Text' !important;
+  }
+  ion-list {
+    ion-list-header {
+      ion-label {
+        font-size: 1.2rem;
+        color: black;
+      }
+    }
+    ion-item {
+      border-bottom: 1px solid #EFEFF4 !important;
+      padding: 5px !important;
+      ion-label {
+        margin: 0 !important;
+        font-size: 1.3rem;
+        color: #128E98;
+      }
+    }
+  }
+  .sleep-img-div {
+    height: 41vw;
+    text-align: center;
+    padding-top: 10vw;
+  }
+  .sleep-img {
+    width: 24vw;
+  }
+  .slide-item-title {
+    margin-top: 8vw;
+    font-size: 4vw;
+    color: #737370;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .input-text {
+    margin-top: 2vw;
+    width: 100%;
+    border: 0.5px solid #8E8E93;
+    padding-left: 2vw;
+    font-size: 4vw;
+    height: 10vw;
+  }
+  .input-date-text {
+    margin-top: 2vw;
+    width: 100%;
+    border: 0.5px solid #8E8E93;
+    padding-left: 2vw;
+    height: 12vw;
+  }
+  .item-div {
+    display: flex;
+  }
+  .check-item-div {
+    display: flex;
+    height: 20vw;
+  }
+  .check-div {
+    margin-top: 4.5vw;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: #737370;
+    width: 6vw;
+    height: 6vw;
+  }
+  .label-div {
+    white-space: normal;
+    font-size: 4vw;
+    margin-left: 2vw;
+    color: #737370;
+    line-height: 8vw;
+  }
+  .space {
+    height: 64vw;
+  }
+  .radio-ios .radio-checked .radio-inner {
+    border-color: #009EA9 !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: $button-color;
+    opacity: 1;
+  }
+  .ion-select {
+    max-width: 100% !important;
+  }
+  .select-ios {
+    // padding-left: 0px !important;
+    max-width: 100% !important;
+  }
+  .select-text {
+    width: 100vw !important;
+  }
+  .bmi-text {
+    font-size: 24px;
+    margin-top: 3vh;
+    height: 10vh;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .change-txt {
+    color: #009EA9;
+    font-family: 'SF-UI-Text' !important;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+  }
+  .scroll-content {
+    padding-bottom: 0 !important;
+  }
+  .unit-select-item {
+    width: 45%;
+    border: 1px solid #009ea9;
+    max-height: 3.6rem;
+    min-height: 3.6rem;
+    margin-left: 3px;
+    font-size: 14px;
+  }
+}

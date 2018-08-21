@@ -1,0 +1,237 @@
+<ion-header>
+
+  <ion-navbar *ngIf=!search_bar>
+
+    <ion-buttons start>
+
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      <button ion-button menuToggle icon-only class="menu_icon">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+    <ion-title>{{lang_resource.chfs.chf_campaign.title_text}}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="search()">
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+      <!-- <button ion-button icon-only (click)="addCampaign()">
+        <ion-icon name="md-add"></ion-icon>
+      </button> -->
+    </ion-buttons>
+
+  </ion-navbar>
+
+  <ion-navbar *ngIf="search_bar" style="height: 40px;">
+
+    <ion-searchbar class="search-div" (ionInput)="onSearchInput()" [(ngModel)]="search_query"></ion-searchbar>
+    <button ion-button small class="cancel" (click)="search()">Cancel</button>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg-class">
+
+  <!-- invite -->
+  <div class="sld-div" *ngIf="invited_campaigns && invited_campaigns.data.length > 0">
+
+    <h2 class="main_title">{{invited_campaigns.name}}
+      <span style="font-size: 16px;">{{invited_campaigns.data.length}}</span>
+    </h2>
+    <ion-slides pager="false" spaceBetween="-35" #chfInvitesSlides>
+
+      <ion-slide *ngFor="let item of invited_campaigns.data | campaign: search_query ; let i2 = index">
+        <div class="campaign_div">
+
+          <div class="first-title">
+            <!-- <p class="status" *ngIf="category.name == 'Current Campaigns'">{{lang_resource.chfs.chf_campaign.start_text}}
+            <span>{{item.startDate | date: 'longDate'}}</span>
+          </p> -->
+            <p class="status">{{lang_resource.chfs.chf_campaign.invite_sent_text}}
+              <span>{{item.campaignInfo.circleInfo.invitationDate | date: 'MMM d, y'}}</span>
+            </p>
+            <!-- <p class="status" *ngIf="category.name == 'History'">{{lang_resource.chfs.chf_campaign.ended_text}}
+            <span>{{item.endDate | date: 'longDate'}}</span>
+          </p> -->
+            <!-- <p class="details" (click)="goToCampaignDetails(item)" *ngIf="item.campaignInfo.circleInfo.invitationState === 'accept'">Details</p> -->
+          </div>
+
+          <h4>{{item.name}}</h4>
+
+          <div class="second-title">
+            <p *ngIf="item.campaignInfo.circleInfo.ownerName != null" class="status">{{lang_resource.chfs.chf_campaign.invite_from_text}}
+              <span> {{item.campaignInfo.circleInfo.ownerName}} </span>
+            </p>
+            <!-- <p *ngIf="item.campaignInfo.circleInfo.invitationState === 'accept' && item.campaignInfo.circleInfo.ownerName != null" class="status">
+            <span> {{item.campaignInfo.circleInfo.ownerName}} </span>
+          </p> -->
+            <p *ngIf="item.campaignInfo.circleInfo.ownerName == null"></p>
+            <div class="person">
+              <p>{{item.campaignInfo.circleInfo.members - 1}}</p>
+              <img src="assets/imgs/Campaign/profile.png">
+            </div>
+          </div>
+
+          <!-- <img *ngIf="!pageValue" src="{{item.url}}">
+          <img *ngIf="pageValue" (click)="fineSponser()" src="{{item.url}}"> -->
+          <img src="assets/imgs/CHFImgs/heart@3x.png" (click)="goDetail(item)">
+
+
+          <div class="result">
+            <button ion-button class="deny" (click)="deny(item, i2)">{{lang_resource.button.deny_text}}</button>
+            <button ion-button class="accept" (click)="accept(item)">{{lang_resource.button.accept_text}}</button>
+          </div>
+
+        </div>
+
+      </ion-slide>
+
+    </ion-slides>
+
+  </div>
+  <!-- active -->
+  <div class="sld-div" *ngIf="active_campaigns && active_campaigns.data.length > 0">
+
+    <h2 class="main_title">{{active_campaigns.name}}
+      <span style="font-size: 16px;">{{active_campaigns.data.length}}</span>
+    </h2>
+    <ion-slides pager="false" spaceBetween="-35" #chfActiveSlides>
+
+      <ion-slide *ngFor="let item of active_campaigns.data | campaign: search_query ; let i2 = index">
+        <div class="campaign_div">
+
+          <div class="first-title">
+            <p class="status">{{lang_resource.chfs.chf_campaign.start_text}}
+              <span>{{item.startDate | date: 'MMM d, y'}}</span>
+            </p>
+            <!-- <p class="status" *ngIf="category.name == 'Invitations'">{{lang_resource.chfs.chf_campaign.invite_sent_text}}
+              <span>{{item.campaignInfo.circleInfo.invitationDate | date: 'longDate'}}</span>
+            </p>
+            <p class="status" *ngIf="category.name == 'History'">{{lang_resource.chfs.chf_campaign.ended_text}}
+              <span>{{item.endDate | date: 'longDate'}}</span>
+            </p> -->
+            <!-- <p class="details" (click)="goToCampaignDetails(item)" *ngIf="item.campaignInfo.circleInfo.invitationState === 'accept'">Details</p> -->
+          </div>
+
+          <h4>{{item.name}}</h4>
+
+          <div class="second-title">
+            <p *ngIf="item.campaignInfo.circleInfo.ownerName != null" class="status">{{lang_resource.chfs.chf_campaign.invite_from_text}}
+              <span> {{item.campaignInfo.circleInfo.ownerName}} </span>
+            </p>
+            <!-- <p *ngIf="item.campaignInfo.circleInfo.invitationState === 'accept' && item.campaignInfo.circleInfo.ownerName != null" class="status">
+            <span> {{item.campaignInfo.circleInfo.ownerName}} </span>
+          </p> -->
+            <p *ngIf="item.campaignInfo.circleInfo.ownerName == null"></p>
+            <div class="person">
+              <p>{{item.campaignInfo.circleInfo.members - 1}}</p>
+              <img src="assets/imgs/Campaign/profile.png">
+            </div>
+          </div>
+
+          <!-- <img *ngIf="!pageValue" src="{{item.url}}">
+          <img *ngIf="pageValue" (click)="fineSponser()" src="{{item.url}}"> -->
+          <img src="assets/imgs/CHFImgs/heart@3x.png" (click)="goDetail(item)">
+
+          <div class="max_reward">
+            <p>{{lang_resource.chfs.chf_campaign.max_reward_text}} 8</p>
+            <!-- {{item.campaignInfo.purse.balance}} -->
+            <img src="assets/imgs/HomeIcons/Reward_Main.png">
+            <p class="update">
+              <ion-icon name="heart"></ion-icon> {{lang_resource.chfs.chf_campaign.last_update_text}} {{chfLastUpdate | date: 'MMM d, y h:mm a'}}</p>
+          </div>
+
+          <ion-buttons *ngIf="item.moderator && item.validator" class="module-two" (click)="selectOptions($event, item)">
+            <button ion-button>M</button>
+            <button ion-button>V</button>
+          </ion-buttons>
+
+          <ion-buttons *ngIf="item.moderator && !item.validator" class="module-zero">
+            <button ion-button (click)="selectOptions($event, item)">M</button>
+          </ion-buttons>
+
+
+          <ion-buttons *ngIf="!item.moderator && item.validator" class="module-one" (click)="selectOptions($event, item)">
+            <button ion-button>V</button>
+          </ion-buttons>
+
+        </div>
+
+      </ion-slide>
+
+    </ion-slides>
+
+  </div>
+  <!-- history -->
+  <div class="sld-div" *ngIf="history_campaigns && history_campaigns.data.length > 0">
+
+    <h2 class="main_title">{{history_campaigns.name}}
+      <span style="font-size: 16px;">{{history_campaigns.data.length}}</span>
+    </h2>
+    <ion-slides pager="false" spaceBetween="-35" #chfHistorySlides>
+
+      <ion-slide *ngFor="let item of history_campaigns.data | campaign: search_query ; let i2 = index">
+        <div class="campaign_div">
+
+          <div class="first-title">
+            <p class="status">{{lang_resource.chfs.chf_campaign.ended_text}}
+              <span>{{item.endDate | date: 'MMM d, y'}}</span>
+            </p>
+            <!-- <p class="details" (click)="goToCampaignDetails(item)" *ngIf="item.campaignInfo.circleInfo.invitationState === 'accept'">Details</p> -->
+          </div>
+
+          <h4>{{item.name}}</h4>
+
+          <div class="second-title">
+            <p *ngIf="item.campaignInfo.circleInfo.ownerName != null" class="status">{{lang_resource.chfs.chf_campaign.invite_from_text}}
+              <span> {{item.campaignInfo.circleInfo.ownerName}} </span>
+            </p>
+            <!-- <p *ngIf="item.campaignInfo.circleInfo.invitationState === 'accept' && item.campaignInfo.circleInfo.ownerName != null" class="status">
+            <span> {{item.campaignInfo.circleInfo.ownerName}} </span>
+          </p> -->
+            <p *ngIf="item.campaignInfo.circleInfo.ownerName == null"></p>
+            <div class="person">
+              <p>{{item.campaignInfo.circleInfo.members - 1}}</p>
+              <img src="assets/imgs/Campaign/profile.png">
+            </div>
+          </div>
+
+          <!-- <img *ngIf="!pageValue" src="{{item.url}}">
+          <img *ngIf="pageValue" (click)="fineSponser()" src="{{item.url}}"> -->
+          <img src="assets/imgs/CHFImgs/heart@3x.png">
+
+          <div class="max_reward">
+            <p>{{lang_resource.chfs.chf_campaign.max_reward_text}} 8</p>
+            <!-- {{item.campaignInfo.purse.balance}} -->
+            <img src="assets/imgs/HomeIcons/Reward_Main.png">
+            <p class="update">
+              <ion-icon name="heart"></ion-icon> {{lang_resource.chfs.chf_campaign.last_update_text}} {{chfLastUpdate | date: 'MMM d, y h:mm a'}}</p>
+          </div>
+
+          <ion-buttons *ngIf="item.moderator && item.validator" class="module-two">
+            <button ion-button>M</button>
+            <button ion-button>V</button>
+          </ion-buttons>
+
+          <ion-buttons *ngIf="item.moderator && !item.validator" class="module-zero">
+            <button ion-button>M</button>
+          </ion-buttons>
+
+          <ion-buttons *ngIf="!item.moderator && item.validator" class="module-one">
+            <button ion-button>V</button>
+          </ion-buttons>
+        </div>
+
+      </ion-slide>
+
+    </ion-slides>
+
+  </div>
+
+</ion-content>

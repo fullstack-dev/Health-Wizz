@@ -1,0 +1,439 @@
+// http://ionicframework.com/docs/theming/
+@import "css/animate.scss";
+$font-title: #000000;
+$font-text: #73736F;
+$font-appcolor: #009ea9;
+$font-des: #60605d;
+$button-color: #41C4CD;
+$red: #EA6288;
+$moderator-color:#FF3863;
+$validator-color:#0098FF;
+$yellow:#FDBA45;
+$green: #6EC59A;
+$gray:#73736F;
+$primary:#41C4CD;
+$primary-text: #ffffff;
+html {
+  font-size: 12px;
+}
+
+.title.title-md {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 70%;
+  text-align: center;
+}
+
+.toolbar-title {}
+
+.toolbar-ios ion-title {}
+
+.toolbar-title-ios {
+  font-size: 1.5rem;
+}
+
+.toolbar-title-md {
+  font-size: 1.6rem;
+}
+
+.list-ios {
+  margin: 0px !important;
+}
+
+.menu-logo-div {
+  background-color: #FAFAFA;
+}
+
+.menu-inner {
+  width: 100vw !important;
+}
+
+.menu-logo {
+  width: 25vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+  border-radius: 50%;
+}
+
+.list-space {
+  height: 10vw;
+  background-color: #FAFAFA;
+}
+
+.ion-item-div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+
+.item-icon {
+  width: 2.3rem;
+  height: 2.3rem;
+  margin-left: 3vw;
+}
+
+.item-number {
+  position: absolute;
+  right: 10vw;
+  color: #B7B7B7;
+}
+
+.close-button {
+  background: transparent;
+  font-size: 7vw;
+  color: #737370;
+}
+
+.title-text {
+  font-size: 4.5vw;
+  padding-left: 2vw;
+  font-weight: 500;
+}
+
+.slide-box {
+  height: 120px;
+  position: relative;
+  top: 10px;
+  display: flex;
+  width: 100%;
+  margin-bottom: 30px;
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+    margin: 0px auto;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: transparent;
+    width: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+    img {
+      width: 75px;
+      height: 75px;
+      position: absolute;
+      border-radius: 50%;
+      box-shadow: 0 0 5px #272727;
+      border: 1px solid #fff;
+      top: 3px;
+      left: 10px;
+    }
+    p {
+      position: absolute;
+      bottom: 0;
+      margin: 0px auto;
+      width: 100%;
+      font-size: 14px;
+      color: #fff;
+    }
+  }
+  .swiper-slide-active {
+    opacity: 1;
+    display: block;
+    img {
+      width: 90px;
+      height: 90px;
+    }
+    p {
+      color: $font-appcolor;
+    }
+  }
+  .swiper-slide-next {
+    display: block;
+  }
+  .swiper-slide-prev {
+    display: block;
+  }
+  .swiper-scrollbar {
+    opacity: 0 !important;
+  }
+}
+
+.scroll-content {
+  padding-bottom: 0 !important;
+  overflow: scroll !important;
+  overflow-x: hidden !important;
+}
+
+.item-md.item-input.item-input-has-focus .item-inner {
+  box-shadow: none;
+}
+
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  box-shadow: none;
+}
+
+.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  box-shadow: none;
+}
+
+.campaign-create-modal .modal-wrapper,
+.circle-create-modal .modal-wrapper,
+.campaign-duplicate-modal .modal-wrapper,
+.campaign-template-modal .modal-wrapper {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.splash-div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.splash-div img {
+  margin-top: 30vh;
+}
+
+.scroll-content {
+  padding-bottom: 0px !important;
+}
+
+.input-cover {
+  position: static;
+}
+
+// sollogics
+.buttons-div {
+  .hw-btn-fill {
+    padding: 10px 0;
+    border: 1px solid #48C5CD;
+    background-color: #48C5CD;
+    color: white;
+    width: 48%;
+    margin-left: 50%;
+    font-size: 1.5rem;
+    border-radius: 3px;
+    right: 0;
+    font-family: 'SF-UI-Text' !important;
+  }
+}
+
+.list-md .item-input.item-input-has-focus:last-child,
+.list-md .item-input.input-has-focus:last-child {
+  box-shadow: none !important;
+}
+
+.bar-button-default-ios,
+.bar-button-default.bar-button-ios-default,
+.bar-button-clear-ios-default,
+.bar-button-default-md,
+.bar-button-default.bar-button-md-default,
+.bar-button-clear-md-default {
+  color: #41c4cd !important;
+}
+
+.button-md {
+  text-transform: none !important;
+}
+
+sup {
+  color: red;
+  font-weight: 900;
+}
+
+.select-ios {
+  padding-left: 5px !important;
+}
+
+ion-select {
+  padding-left: 5px !important;
+}
+
+.item-left {
+  margin-right: 2.5px;
+}
+
+.item-right {
+  margin-left: 2.5px;
+}
+
+.manged-bottom-border {
+  border-bottom: 1.5px solid #009ea9 !important;
+}
+
+ion-input {
+  padding-left: 5px !important;
+}
+
+.dirty_fld {
+  border: 1px solid brown !important;
+}
+
+.error_fld {
+  border: 1px solid red !important;
+}
+
+// modal styles
+.campaign-role-popover .popover-content {
+  left: 0;
+  width: 100%;
+}
+
+.manage-role-popover .popover-content {
+  left: 0;
+  width: 100%;
+}
+
+.campaign-start-popover .popover-content {
+  left: 0;
+  width: 100%;
+}
+
+/*
+*@alert not working in android @added in build 2.0.17
+*/
+
+// .hw-alert .alert-wrapper {
+//   position: absolute;
+//   bottom: 7%;
+//   max-width: 300px;
+//   .alert-head {
+//     text-align: left;
+//     .alert-title {
+//       font-size: 1.8rem;
+//     }
+//   }
+//   .alert-message {
+//     text-align: left;
+//     font-size: 16px;
+//   }
+//   .alert-button-group {
+//     margin: 10px;
+//     .alert-button {
+//       border-radius: 5%;
+//       border: 2px solid;
+//       padding: 0;
+//       min-width: 40%;
+//     }
+//     .alert-button:last-child {
+//       background: #41c4cd;
+//       color: white;
+//       border: 2px solid;
+//       border-radius: 5%;
+//       padding: 0;
+//       margin-left: 10px;
+//       border-color: #41c4cd;
+//       min-width: 40%;
+//     }
+//   }
+// }
+.hw-loader .loading-wrapper {
+  background: transparent;
+  box-shadow: none;
+  ion-spinner {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+.fab-moderator {
+  background-color: $moderator-color;
+}
+
+.fab-validator {
+  background-color: $validator-color;
+}
+
+ion-fab {
+  margin: 12px;
+}
+
+#left-fab {
+  right: 50px;
+  button {
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+  }
+}
+
+#right-fab {
+  button {
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+  }
+}
+
+.checkbox-md .checkbox-icon {
+  border-radius: 15px !important;
+  border-width: 1px !important;
+  width: 25px !important;
+  height: 25px !important; // background: transparent !important;
+}
+
+.checkbox-md .checkbox-checked .checkbox-inner {
+  left: 9px !important;
+  top: 5px !important;
+}
+
+.checkbox-md .checkbox-checked {
+  border-color: $primary !important;
+  background-color: $primary !important;
+}
+
+@media only screen and (min-device-width: 700px) and (max-device-width: 1024px) {
+  .bmi-img-div {
+    height: 250px !important;
+  }
+}
+
+@media only screen and (min-device-width: 700px) {
+  .tail-date-text,
+  .alert-txt,
+  .card-title-text,
+  .title-number,
+  .detail-info-text,
+  .detail-info-value {
+    font-size: 1.3rem !important;
+  }
+  .update-device-div,
+  .campaign-last-update-text {
+    font-size: 1.6rem !important;
+  }
+  .slide-detail-btn,
+  .lastday-txt,
+  .readmore-btn,
+  .find-btn,
+  .health-index-text {
+    font-size: 2rem !important;
+  }
+  .chf-div {
+    font-size: 2.5rem !important;
+  }
+  .name-text,
+  .healthindex-text,
+  .member-txt,
+  .member-num-txt {
+    font-size: 3rem !important;
+  }
+  .index-descriptions-div .index-descriptions p {
+    font-size: 1.8rem !important;
+    line-height: 3vw !important;
+  }
+  .index-descriptions-div .index-descriptions .wellnessexam-btn {
+    font-size: 3vw !important;
+  }
+  .detail-txt {
+    font-size: 2rem;
+    line-height: 3vw;
+  }
+  .display-counts .red-count,
+  .display-counts .green-count,
+  .display-counts .yellow-count {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+}

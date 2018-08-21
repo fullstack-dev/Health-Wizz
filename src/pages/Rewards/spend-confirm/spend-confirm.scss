@@ -1,0 +1,50 @@
+page-spend-confirm {
+	.question-img-div {
+		text-align: center;
+    	margin: 5vw;
+
+		.question-img {
+    		width: 50vw;
+		}
+	}
+
+	.question-txt {
+	    font-size: 7vw;
+	    text-align: left;
+	    margin: 0 3vw 0 3vw;
+	}
+
+	.under-btns-div {
+		display: flex;
+      	align-items: center;
+  	    padding: 55vw 5vw 0 5vw;
+      	text-align: center;
+      	position: relative;
+
+		.no-btn {
+			width: 44%;
+	        text-align: center;
+	        border: 2px solid $button-color;
+	        border-radius: 5px;
+	        font-size: 5vw;
+	        color: #41C4CD;
+	        background-color: white;
+	        height: 11vw;
+	        padding-top: 2vw;
+		}
+		.yes-btn {
+			width: 40%;
+	        text-align: center;
+	        border: 2px solid $button-color;
+	        border-radius: 5px;
+	        font-size: 5vw;
+	        color: white;
+	        background-color: $button-color;
+	        right: 0;
+	        position: absolute;
+	        height: 11vw;
+	        padding-top: 2vw;
+	        margin-right: 5vw;
+		}
+	}
+}

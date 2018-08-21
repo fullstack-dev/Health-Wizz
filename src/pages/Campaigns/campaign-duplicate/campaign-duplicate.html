@@ -1,0 +1,178 @@
+<ion-header>
+
+  <ion-navbar *ngIf="!search_bar">
+
+    <ion-buttons start>
+
+      <button ion-button icon-only (click)="before()">Cancel
+      </button>
+
+    </ion-buttons>
+
+    <ion-title>Campaigns</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="search()">
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+  </ion-navbar>
+
+  <ion-navbar *ngIf="search_bar" style="height: 40px;">
+
+    <ion-searchbar (ionInput)="onSearchInput()" [(ngModel)]="search_query" class="search-div"></ion-searchbar>
+    <button ion-button small class="cancel" (click)="search()">Cancel</button>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg-class">
+
+
+  <!-- new active ui -->
+  <div style="margin-top:20px" *ngIf="active_campaigns && active_campaigns.data.length > 0">
+    <div style="padding-left:16px; font-size:24px">
+      <p style="margin:10px">{{active_campaigns.name}}
+        <span style="font-size: 16px;">{{active_campaigns.data.length}}</span>
+      </p>
+    </div>
+    <ion-slides pager="false" #activeSlides>
+      <ion-slide *ngFor="let item of active_campaigns.data | campaign: search_query; let i2 = index;">
+        <ion-card style="background:#fff; border-radius:4%">
+
+          <ion-fab bottom right id="left-fab" *ngIf="item.moderator && item.validator">
+            <button ion-fab mini class="fab-moderator">
+              M
+            </button>
+          </ion-fab>
+
+          <ion-fab bottom right id="right-fab" *ngIf="item.moderator && item.validator">
+            <button ion-fab mini class="fab-validator">
+              V
+            </button>
+          </ion-fab>
+
+          <ion-fab bottom right *ngIf="item.moderator && !item.validator">
+            <button ion-fab mini class="fab-moderator">
+              M
+            </button>
+          </ion-fab>
+
+          <ion-fab bottom right *ngIf="!item.moderator && item.validator">
+            <button ion-fab mini class="fab-validator">
+              V
+            </button>
+          </ion-fab>
+
+          <ion-fab top left class="invite-fab" *ngIf="!item.campaignInfo.isPublish">
+            <button ion-fab mini id="unpublish-fab">
+              NOT PUBLISHED
+            </button>
+          </ion-fab>
+
+
+          <ion-item>
+            <p *ngIf="item.campaignInfo.isPublish">{{local.getDateText(item, false, active_campaigns)}}{{local.getDateText(item, true, active_campaigns) | date:
+              'MMM d, y'}}</p>
+          </ion-item>
+          <hr *ngIf="item.campaignInfo.isPublish" style="margin:0 10px">
+
+          <ion-item>
+            <p style="font-size:17px; color:#000;">{{item.name}}</p>
+            <p style="font-size:11px" *ngIf="item.creatorId != userId">Invite from: {{item.campaignInfo.circleInfo.ownerName}}</p>
+            <img item-end src="assets/imgs/Campaign/profile.png" style="width: 40px; height: 16px;">
+            <p item-end style="margin:8px;color:#41C4CD">{{item.campaignInfo.circleInfo.members}}</p>
+          </ion-item>
+
+          <ion-thumbnail (click)="setDuplicate(item)">
+            <img style="width:160px; margin:auto" src="assets/imgs/Campaign/Campaign.png">
+          </ion-thumbnail>
+
+          <ion-item *ngIf="item.updatedOn">
+            <p class="campaign-last-update-text">
+              <ion-icon name="ios-information-circle-outline"></ion-icon> Last Update {{item.updatedOn | date: 'MMM d, y h:mm a'}}</p>
+          </ion-item>
+
+          <div style="height:44px"></div>
+
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+
+  <div style="margin-top:20px" *ngIf="history_campaigns && history_campaigns.data.length > 0">
+    <div style="padding-left:16px; font-size:24px">
+      <p style="margin:10px">{{history_campaigns.name}}
+        <span style="font-size: 16px;">{{history_campaigns.data.length}}</span>
+      </p>
+    </div>
+    <ion-slides pager="false" #historySlides>
+      <ion-slide *ngFor="let item of history_campaigns.data | campaign: search_query; let i2 = index;">
+        <ion-card style="background:#fff; border-radius:4%">
+
+          <ion-fab bottom right id="left-fab" *ngIf="item.moderator && item.validator">
+            <button ion-fab mini class="fab-moderator">
+              M
+            </button>
+          </ion-fab>
+
+          <ion-fab bottom right id="right-fab" *ngIf="item.moderator && item.validator">
+            <button ion-fab mini class="fab-validator">
+              V
+            </button>
+          </ion-fab>
+
+          <ion-fab bottom right *ngIf="item.moderator && !item.validator">
+            <button ion-fab mini class="fab-moderator">
+              M
+            </button>
+          </ion-fab>
+
+          <ion-fab bottom right *ngIf="!item.moderator && item.validator">
+            <button ion-fab mini class="fab-validator">
+              V
+            </button>
+          </ion-fab>
+
+          <ion-fab top left class="invite-fab" *ngIf="!item.campaignInfo.isPublish">
+            <button ion-fab mini id="unpublish-fab">
+              NOT PUBLISHED
+            </button>
+          </ion-fab>
+
+
+          <ion-item>
+            <p *ngIf="item.campaignInfo.isPublish">{{local.getDateText(item, false, history_campaigns)}}{{local.getDateText(item, true, history_campaigns) | date:
+              'MMM d, y'}}</p>
+          </ion-item>
+          <hr *ngIf="item.campaignInfo.isPublish" style="margin:0 10px">
+
+          <ion-item>
+            <p style="font-size:17px; color:#000;">{{item.name}}</p>
+            <p style="font-size:11px" *ngIf="item.creatorId != userId">Invite from: {{item.campaignInfo.circleInfo.ownerName}}</p>
+            <img item-end src="assets/imgs/Campaign/profile.png" style="width: 40px; height: 16px;">
+            <p item-end style="margin:8px;color:#41C4CD">{{item.campaignInfo.circleInfo.members}}</p>
+          </ion-item>
+
+          <ion-thumbnail (click)="setDuplicate(item)">
+            <img style="width:160px; margin:auto" src="assets/imgs/Campaign/Campaign.png">
+          </ion-thumbnail>
+
+          <ion-item *ngIf="item.updatedOn">
+            <p class="campaign-last-update-text">
+              <ion-icon name="ios-information-circle-outline"></ion-icon> Last Update {{item.updatedOn | date: 'MMM d, y h:mm a'}}</p>
+          </ion-item>
+
+          <div style="height:44px"></div>
+
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+</ion-content>

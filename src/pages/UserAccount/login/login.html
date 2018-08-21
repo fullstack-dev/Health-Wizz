@@ -1,0 +1,51 @@
+<ion-content padding>
+  <div class="login-social-text">Login via social media</div>
+  <div class="login-social-div">
+    <div class="facebook-div" (click)="goToFacebook()">
+      <img class="facebook-logo" src="assets/imgs/LoginImgs/facebook-logo.png">
+    </div>
+    <div class="google-div" (click)="goToGoogle()">
+      <img class="google-logo" src="assets/imgs/LoginImgs/google-logo.png">
+    </div>
+    <!-- <div class="linkedin-div" (click)="goToLinkedin()">
+      <img class="linkedin-logo" src="assets/imgs/LoginImgs/linkedin-logo.png">
+    </div> -->
+    <div class="linkedin-div" (click)="goToTwitter()">
+      <img class="linkedin-logo" src="assets/imgs/LoginImgs/twitter-logo.png">
+    </div>
+  </div>
+  <div class="login-text">Login</div>
+  <div class="login-div">
+    <form [formGroup]="loginForm" (ngSubmit)="attemptLogin(true)" novalidate>
+
+      <ion-item class="item_fld">
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" formControlName="email" required placeholder=""></ion-input>
+      </ion-item>
+      <div class="error-box" *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched">* Email is required !</div>
+
+      <ion-item class="item_fld">
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" formControlName="password" required placeholder=""></ion-input>
+      </ion-item>
+      <div class="error-box" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">* Password is required !</div>
+
+      <div class="button-div">
+        <div style="position: relative;width: 100vw;display: flex;">
+          <button ion-button class="login-button" type="submit">Login</button>
+          <div style="position: absolute;width: 60%;">
+            <button ion-button class="signup-button" block clear (click)="signout()" [navPush]="pushPage">Create Free Account</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex;position: relative;">
+        <div style="position: absolute;right: 10px;padding:2% !important;">
+          <button ion-button class="forgot-button" block clear [navPush]="forgetPassword" (click)="signout()">Forgot Password?</button>
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+</ion-content>

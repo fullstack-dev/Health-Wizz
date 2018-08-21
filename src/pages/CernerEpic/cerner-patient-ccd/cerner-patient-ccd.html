@@ -1,0 +1,30 @@
+<!--
+  Generated template for the CernerPatientCcdPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+  	<ion-buttons start left>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Patient CCD Data</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding overflow-scroll="true">
+	<ul style="list-style-type:circle;">
+    <li style="margin-bottom: 3vh;" *ngFor="let item of resource; let ii = index;">
+      <div class="ccd-div" (click)="urlClick(item, ii)">{{item.display}}</div>
+    </li>
+	</ul>
+</ion-content>

@@ -1,0 +1,248 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-buttons start>
+         	<button ion-button (click)="cancel()">Cancel</button>     
+      	</ion-buttons> -->
+
+    <ion-title>Result Details</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="next()" *ngIf="!lastSlide">Next</button>
+      <!-- <button [hidden]="page != 3" ion-button (click)="done()">Next</button> -->
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-slides>
+
+    <!-- <ion-slide class="slide-data">
+
+      <h2 class="head">Cancer data report</h2>
+
+      <div class="data-list" *ngFor="let item of resultData">
+        <p class="title">Submitted on {{item.date}}</p>
+        <ion-grid class="docs">
+          <ion-row *ngFor="let doc of item.docs">
+            <ion-col col-8 class="first">{{doc}}.doc</ion-col>
+            <ion-col col-4 class="second">Open</ion-col>
+          </ion-row>
+        </ion-grid>
+        <button ion-button clear class="verified" icon-right *ngIf="item.result">Verified
+          <ion-icon name="md-checkmark"></ion-icon>
+        </button>
+        <button ion-button clear class="verified unverified" *ngIf="!item.result">Unverified</button>
+      </div>
+
+    </ion-slide> -->
+
+    <!-- Indicators -->
+
+    <ion-slide class="slide-data" *ngFor="let result of resultIndicators">
+
+      <h2 class="head">{{result.indicatorInfo.label}}</h2>
+      <div class="subtitle">
+        <div class="text">
+          <div class="subText">
+            <img align="left" class="detail-img" [src]="result.indicatorInfo.image">{{result.indicatorInfo.detail}}</div>
+        </div>
+      </div>
+
+      <ion-item *ngIf="!result.indicatorReport || result.indicatorReport.length < 1">
+        <p>No Details for
+          <b>{{result.indicatorInfo.label}}</b>
+        </p>
+      </ion-item>
+
+      <div class="data-list" *ngFor="let item of result.indicatorReport">
+        <p class="title">Submitted on {{item.updatedOn | date: 'MMM d, y'}}</p>
+        <ion-grid class="diet">
+          <ion-row *ngFor="let ques of item.value.questions">
+            <ion-col class="first" col-6 *ngIf="local.showQuestion(ques)">{{ques.label}}</ion-col>
+            <ion-col class="second" col-6 *ngIf="local.showQuestion(ques)">{{ques.value}}
+              <span *ngIf="ques.unit">{{ques.unit}}</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <button ion-button clear class="verified" icon-right *ngIf="item.isValidate">Verified
+          <ion-icon name="md-checkmark"></ion-icon>
+        </button>
+        <button ion-button clear class="verified unverified" *ngIf="!item.isValidate">Unverified</button>
+      </div>
+
+    </ion-slide>
+
+    <!-- Survey -->
+
+    <ion-slide class="slide-data" *ngIf="suveyReports && suveyReports.length > 0">
+      <h2 class="head">Some survey</h2>
+      <p class="sub-title">Over the last two weeks, how often have you been bothered by any of the following problems?</p>
+
+
+      <div class="data-list" *ngFor="let item of suveyReports">
+        <p class="title">Submitted on {{item.surveyQuestionInfo[0].responseAnswer.submitReportDate | date: 'MMM d, y'}}</p>
+        <ion-grid class="diet">
+          <ion-row *ngFor="let ques of item.surveyQuestionInfo">
+            <ion-col class="first" col-6>{{ques.question}}</ion-col>
+            <ion-col class="second" col-6>{{ques.responseAnswer.value}}
+              <!-- <span *ngIf="ques.unit">{{ques.unit}}</span> -->
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <button ion-button clear class="verified" icon-right *ngIf="item.validated">Verified
+          <ion-icon name="md-checkmark"></ion-icon>
+        </button>
+        <button ion-button clear class="verified unverified" *ngIf="!item.validated">Unverified</button>
+      </div>
+
+      <!-- <div class="survey-list">
+
+        <div class="choice">
+          <p class="s-title">Some single choice question</p>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-5>3 - 3-5 times a week</ion-col>
+              <ion-col col-3>2 - Often</ion-col>
+              <ion-col col-4>0 - Never</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="data-list" *ngFor="let item of singlesList">
+          <p class="title">Submitted on {{item.date}}</p>
+          <ion-grid class="docs">
+            <ion-row>
+              <ion-col col-8 class="first">{{item.choice}}</ion-col>
+              <ion-col col-4 class="second verified" icon-right [hidden]="!item.value">Verified
+                <ion-icon name="md-checkmark"></ion-icon>
+              </ion-col>
+              <ion-col col-4 class="second unverified" icon-right [hidden]="item.value">Unverified</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+      </div> -->
+
+      <!--  Multi Choice -->
+
+      <!-- <div class="survey-list">
+
+        <div class="choice">
+          <p class="s-title">Some multiple choice question</p>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-4>4 - Option1</ion-col>
+              <ion-col col-4>2 - Option2</ion-col>
+              <ion-col col-4>0 - Option3</ion-col>
+              <ion-col col-4>6 - Option4</ion-col>
+              <ion-col col-4>0 - Option5</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="data-list">
+          <p class="title">Submitted on Sep 18th, 2017 10: 00AM</p>
+          <ion-grid class="docs">
+            <ion-row>
+              <ion-col col-8 class="first">Option 1
+                <br>Option 4</ion-col>
+              <ion-col col-4 class="second verified" icon-right>Verified
+                <ion-icon name="md-checkmark"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="data-list">
+          <p class="title">Submitted on Sep 18th, 2017 10: 00 AM</p>
+          <ion-grid class="docs">
+            <ion-row>
+              <ion-col col-8 class="first">Option 1
+                <br>Option 2
+                <br>Option 3</ion-col>
+              <ion-col col-4 class="second unverified" icon-right>Unverified</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+      </div> -->
+
+      <!-- Yes/No Choice -->
+
+      <!-- <div class="survey-list">
+
+        <div class="choice">
+          <p class="s-title">Some Yes/NO question</p>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>3 - Yes</ion-col>
+              <ion-col col-6>2 - No</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+        <div class="data-list" *ngFor="let item of yesnoList">
+          <p class="title">Submitted on {{item.date}}</p>
+          <ion-grid class="docs">
+            <ion-row>
+              <ion-col col-8 class="first">{{item.answer}}</ion-col>
+              <ion-col col-4 class="second verified" icon-right [hidden]="!item.value">Verified
+                <ion-icon name="md-checkmark"></ion-icon>
+              </ion-col>
+              <ion-col col-4 class="second unverified" icon-right [hidden]="item.value">Unverified</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+      </div> -->
+
+      <!--   -->
+      <!-- 
+      <div class="survey-list">
+
+        <div class="choice">
+          <p class="s-title">Some Text field question</p>
+        </div>
+
+        <div class="data-list" *ngFor="let item of textList">
+          <p class="title">Submitted on {{item.date}}</p>
+          <ion-grid class="docs">
+            <ion-row>
+              <ion-col col-12 class="first">{{item.text}}</ion-col>
+              <ion-col col-4 class="second verified" icon-right [hidden]="!item.value">Verified
+                <ion-icon name="md-checkmark"></ion-icon>
+              </ion-col>
+              <ion-col col-4 class="second unverified" icon-right [hidden]="item.value">Unverified</ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+
+      </div> -->
+
+    </ion-slide>
+
+    <!--  -->
+
+    <!-- <ion-slide class="slide-data">
+
+      <h2 class="head">Some Clinic Trial</h2>
+      <p class="subtitle">3 Entry out of suggested</p>
+      <div class="data-list" *ngFor="let item of clinicData">
+        <p class="title">Submitted on {{item.date}}</p>
+        <ion-grid class="diet">
+          <ion-row>
+            <ion-col class="first" col-8>Some parmaeter value</ion-col>
+            <ion-col class="second" col-4>{{item.value}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+    </ion-slide> -->
+
+  </ion-slides>
+
+</ion-content>

@@ -1,0 +1,210 @@
+<ion-content class="signup-page">
+  <ion-slides [pager]="show_pager" spaceBetween="-40">
+    <ion-slide>
+      <form [formGroup]="slideRegistrationForm" class="slide-background" novalidate>
+        <h2 class="slide-title">{{lang_resource.sign_up.registration_title_text}}</h2>
+
+        <ion-item class="slide_item_fld">
+          <ion-label stacked>{{lang_resource.sign_up.language_text}}
+            <sup>*</sup>
+          </ion-label>
+
+          <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" [(ngModel)]="locale" [ngModelOptions]="{standalone: true}"
+            (ionChange)="requestLanguageChange()" required>
+            <ion-option *ngFor="let item of languages" [value]="item.code">{{item.type}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item class="slide_item_fld">
+          <ion-label stacked>{{lang_resource.sign_up.email_text}}
+            <sup>*</sup>
+          </ion-label>
+          <ion-input type="email" [disabled]="disableEmail" formControlName="email" required placeholder="" class="input-text"></ion-input>
+        </ion-item>
+        <div class="error-box" *ngIf="slideRegistrationForm.controls['email'].hasError('required') && slideRegistrationForm.controls['email'].touched">Email is required.</div>
+        <div class="error-box" *ngIf="slideRegistrationForm.controls['email'].hasError('pattern') && slideRegistrationForm.controls['email'].touched">Please enter a valid Email address.</div>
+
+        <ion-label stacked style="color:#737370">{{lang_resource.sign_up.password_text}}
+          <sup>*</sup>
+        </ion-label>
+        <ion-item class="slide_item_fld password_ion_item">
+          <ion-input type="password" formControlName="password" required placeholder="" class="input-text"></ion-input>
+          <ion-icon style="color:#41C4CD" name="ios-information-circle" item-end (click)="showPasswordPolicy()"></ion-icon>
+        </ion-item>
+        <div class="error-box" *ngIf="slideRegistrationForm.controls['password'].hasError('required') && slideRegistrationForm.controls['password'].touched">Password is required.</div>
+        <!-- <div class="error-box" *ngIf="!slideRegistrationForm.controls['password'].hasError('minlength') && slideRegistrationForm.controls['password'].hasError('pattern') && slideRegistrationForm.controls['password'].touched">Password should contain combination of one uppercase letter, one digit and one symbol.</div> -->
+        <div class="error-box" *ngIf="!slideRegistrationForm.controls['password'].hasError('minlength') && slideRegistrationForm.controls['password'].hasError('pattern') && slideRegistrationForm.controls['password'].touched">Please enter a strong password.</div>
+        <div class="error-box" *ngIf="slideRegistrationForm.controls['password'].hasError('minlength') && slideRegistrationForm.controls['password'].touched">Password should be 6 character long.</div>
+
+        <ion-item class="slide_item_fld">
+          <ion-label stacked>{{lang_resource.sign_up.confirm_password_text}}
+            <sup>*</sup>
+          </ion-label>
+          <ion-input formControlName="confirm_password" type="password" required placeholder="" class="input-text"></ion-input>
+        </ion-item>
+        <div class="error-box" *ngIf="slideRegistrationForm.controls['confirm_password'].hasError('required') && slideRegistrationForm.controls['confirm_password'].touched">Please re-enter your password.</div>
+        <div class="error-box" *ngIf="!slideRegistrationForm.controls['confirm_password'].hasError('required') && slideRegistrationForm.controls['confirm_password'].hasError('equalTo') && slideRegistrationForm.controls['confirm_password'].touched">Password doesn't match.</div>
+
+        <div class="signup-button-div">
+          <button ion-button class="next-button" block clear (click)="goToNext()" [disabled]="!slideRegistrationForm.valid">{{lang_resource.sign_up.registration_next_button_text}}</button>
+          <div class="login-return-button" (click)="goToLogin()">{{lang_resource.sign_up.back_button_text}}</div>
+        </div>
+      </form>
+    </ion-slide>
+    <ion-slide>
+      <form #slidePersonalForm="ngForm" class="slide-background">
+        <h2 class="slide-title">{{lang_resource.sign_up.personal_title_text}}</h2>
+
+        <ion-item class="slide_item_fld">
+          <ion-label stacked>{{lang_resource.common.firstname_text}}
+            <sup>*</sup>
+          </ion-label>
+          <ion-input #firstName="ngModel" [(ngModel)]="user_data.firstName" [maxlength]="validator.profile_validator.name_maxlength"
+            [pattern]="validator.profile_validator.name_pattern" name="first_name" id="first-name" type="text" required placeholder=""
+            class="input-text"></ion-input>
+        </ion-item>
+        <div class="error-box" *ngIf="firstName.hasError('required') && firstName.touched">First name is required.</div>
+        <div class="error-box" *ngIf="firstName.hasError('maxlength') && firstName.touched">First name connot be more than 20 characters.</div>
+        <div class="error-box" *ngIf="firstName.hasError('pattern') && firstName.touched">First name only accept hyphen and apostrophe, no digits and other symbols.</div>
+
+        <ion-item class="slide_item_fld">
+          <ion-label stacked>{{lang_resource.common.lastname_text}}
+            <sup>*</sup>
+          </ion-label>
+          <ion-input #lastName="ngModel" [(ngModel)]="user_data.lastName" [maxlength]="validator.profile_validator.name_maxlength"
+            [pattern]="validator.profile_validator.name_pattern" name="last_name" id="last-name" type="text" required placeholder=""
+            class="input-text"></ion-input>
+        </ion-item>
+        <div class="error-box" *ngIf="lastName.hasError('required') && lastName.touched">Last name is required.</div>
+        <div class="error-box" *ngIf="lastName.hasError('maxlength') && lastName.touched">Last name connot be more than 20 characters.</div>
+        <div class="error-box" *ngIf="lastName.hasError('pattern') && lastName.touched">Last name only accept hyphen and apostrophe, no digits and other symbols.</div>
+
+        <div class="birthday-txt">
+          {{lang_resource.common.dob_text}}
+          <sup>*</sup>
+        </div>
+        <div class="cal-item" (click)="picker.open()">
+          <ion-item style="padding-left: 0px !important;">
+            <ion-datetime #picker #dob="ngModel" name="dob" displayFormat="MM/DD/YYYY" [max]="getMaxDob()" [min]="getMinDob()" placeholder="MM/DD/YYYY"
+              [(ngModel)]="user_data.dob" class="input-date-text" required></ion-datetime>
+          </ion-item>
+          <ion-icon name="ios-calendar-outline"></ion-icon>
+        </div>
+        <div class="error-box" *ngIf="dob.hasError('required') && dob.touched">Date of birth is required.</div>
+
+        <ion-item class="slide_item_fld">
+          <ion-label stacked class="genderFlow">{{lang_resource.common.gender_text}}
+            <sup>*</sup>
+          </ion-label>
+          <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" #gender="ngModel" placeholder="Select"
+            [(ngModel)]="user_data.gender" name="gender" required>
+            <ion-option value="1">Male</ion-option>
+            <ion-option value="2">Female</ion-option>
+          </ion-select>
+        </ion-item>
+        <div class="error-box" *ngIf="gender.hasError('required') && gender.touched">Gender is required.</div>
+
+        <div class="space2"></div>
+
+        <div class="signup-button-div">
+          <button ion-button class="sec-next-button" block clear (click)="goToNext()" [disabled]="!slidePersonalForm.valid">{{lang_resource.sign_up.personal_next_button_text}}</button>
+        </div>
+      </form>
+    </ion-slide>
+    <ion-slide>
+      <form #slideLocationForm="ngForm" class="slide-background">
+        <h2 class="slide-title">{{lang_resource.sign_up.location_title_text}}</h2>
+
+        <ion-item class="slide_item_fld">
+          <ion-label stacked class="genderFlow">{{lang_resource.common.country_text}}
+            <sup>*</sup>
+          </ion-label>
+          <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" #country="ngModel" name="country" [ngModelOptions]="{standalone: true}"
+            [(ngModel)]="user_data.address.country" required (ionChange)="countryChanged()">
+            <ion-option [value]="country.code" *ngFor="let country of local.contries">{{country.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <div class="date_fld">
+          <ion-item class="slide_item_fld item-left">
+            <ion-label stacked>{{lang_resource.common.zip_code_text}}
+              <sup>*</sup>
+            </ion-label>
+            <ion-input class="manged-bottom-border input-text" #zipCode="ngModel" [(ngModel)]="user_data.address.zipCode" [pattern]="validator.healthwizz_validator.zip_code_pattern"
+              name="zip_code" id="zip-code" type="text" required placeholder=""></ion-input>
+          </ion-item>
+
+          <ion-item class="slide_item_fld item-right">
+            <ion-label stacked>{{lang_resource.common.state_text}}</ion-label>
+            <ion-select *ngIf="states" [selectOptions]="local.selectOptions" class="manged-bottom-border" style="padding-left:5px !important;margin-top:2vw"
+              #state="ngModel" [(ngModel)]="user_data.address.state" [disabled]="!user_data.address.country" name="state" [ngModelOptions]="{standalone: true}">
+              <ion-option [value]="state" *ngFor="let state of states">{{state}}</ion-option>
+            </ion-select>
+
+            <ion-input *ngIf="!states" class="input-text manged-bottom-border" name="state" [(ngModel)]="user_data.address.state">
+            </ion-input>
+          </ion-item>
+        </div>
+        <div class="error-box" *ngIf="zipCode.hasError('required') && zipCode.touched">Zip code is required.</div>
+        <div class="error-box" *ngIf="zipCode.hasError('pattern') && zipCode.touched">Please enter a valid Zip code.</div>
+
+        <ion-item class="slide_item_fld">
+          <ion-label stacked>{{lang_resource.common.address_text}}</ion-label>
+          <ion-input [(ngModel)]="user_data.address.addressLine1" name="addressline1" id="address" type="text" placeholder="" class="input-text"></ion-input>
+        </ion-item>
+
+        <ion-item class="slide_item_fld">
+          <ion-label stacked>{{lang_resource.common.city_text}}</ion-label>
+          <ion-input [(ngModel)]="user_data.address.city" name="city" id="city" type="text" placeholder="" class="input-text"></ion-input>
+        </ion-item>
+
+        <div class="space3"></div>
+
+        <div class="signup-button-div">
+          <button ion-button class="sec-next-button" block clear (click)="goToNext()" [disabled]="!slideLocationForm.valid">{{lang_resource.common.next_text}}</button>
+        </div>
+      </form>
+    </ion-slide>
+    <ion-slide>
+      <form class="slide-background">
+        <h2 class="slide-title">{{lang_resource.sign_up.permissions_title_text}}</h2>
+
+        <ion-list>
+
+          <ion-item no-lines class="check-item-div">
+            <ion-label [ngClass]="{'active-label': c_privacy}" class="label-div">{{lang_resource.sign_up.policy_text}}
+              <a href="#" (click)="openLinkWellness('resources/docs/privacy_policy.pdf')">
+                <b>Health Wizz's Privacy Policy.</b>
+              </a>
+              <sup>*</sup>
+            </ion-label>
+            <ion-checkbox class="check-div" [(ngModel)]="c_privacy" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+
+          <ion-item no-lines class="check-item-div">
+            <ion-label [ngClass]="{'active-label': hippa}" class="label-div">{{lang_resource.sign_up.hippa_text}}
+              <a href="#" (click)="openLinkWellness('resources/docs/hipaa_b_a.pdf')">
+                <b>HIPAA BA Authorization.</b>
+              </a>
+            </ion-label>
+            <ion-checkbox class="check-div" [(ngModel)]="hippa" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+
+          <ion-item no-lines class="check-item-div">
+            <ion-label [ngClass]="{'active-label': c_notification}" class="label-div">{{lang_resource.sign_up.notification_text}}</ion-label>
+            <ion-checkbox class="check-div" [(ngModel)]="c_notification" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+          </ion-item>
+
+        </ion-list>
+
+        <div class="space4"></div>
+
+        <div class="signup-button-div">
+          <button ion-button class="sec-next-button" block clear [disabled]="!slideRegistrationForm.valid || !slideLocationForm.valid || !slidePersonalForm.valid || !c_privacy"
+            (click)="attemptRegister()">{{lang_resource.sign_up.create_account_text}}</button>
+        </div>
+      </form>
+    </ion-slide>
+  </ion-slides>
+  <!-- >>>>>>> hw_mobile_new_devel -->
+</ion-content>

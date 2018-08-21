@@ -1,0 +1,94 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>{{lang_resource.health_indexes.myhealth_index_text}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding overflow-scroll="true">
+  <div class="healthindex-text">
+    {{lang_resource.health_indexes.myhealth_index_text}}
+  </div>
+
+  <div class="healthindex-detail1" [ngClass]="{'red2':wellness_exam_status=='RED','green2':wellness_exam_status=='GREEN'}"
+    *ngIf="received_lastDate != null">
+    <ion-icon name="ios-alert-outline" *ngIf="wellness_exam_status=='RED'"></ion-icon>
+    {{lang_resource.health_indexes.wellnes_text}} {{received_lastDate| date: 'MMM dd, yyyy'}}
+  </div>
+
+  <div class="index-descriptions-div">
+    <div class="index-descriptions">
+      <p>{{lang_resource.health_indexes.wellness_msg_text}}</p>
+      <button class="wellnessexam-btn" [ngClass]="{'red2':wellness_exam_status=='RED','green2':wellness_exam_status=='GREEN'}"
+        (click)="goToWellnessExam()">
+        {{lang_resource.health_indexes.wellness_exam_text}} ({{wellness_exam_mhi_index}})
+      </button>
+    </div>
+  </div>
+
+  <div class="percent-img-index-div" (click)="goToMyHealthIndex()">
+    <canvas id="myCanvas">
+    </canvas>
+  </div>
+  <div class="percent-num">
+    {{health_score}}
+  </div>
+
+  <div class="display-counts">
+    <div class="red-count">{{health_red_count}}</div>
+    <div class="green-count">{{health_green_count}}</div>
+    <div class="yellow-count">{{health_yellow_count}}</div>
+  </div>
+
+  <div class="buttons-div">
+    <button class="first-btn" (click)="goToHistory()">{{lang_resource.health_indexes.history_text}}</button>
+    <!-- <button class="second-btn" (click)="goToUpdate()">{{lang_resource.health_indexes.updateall_text}}</button> -->
+  </div>
+
+  <div class="index-gallery-div">
+    <div class="gallery-item animated zoomIn" *ngFor="let item of indicators; let i = index" (click)="open(i, item)">
+
+      <div class="title-div" [ngStyle]="setMyStyles(item.data.status)" *ngIf="item.info.code != 'Cancer' else cancerTitleDiv">
+        <div class="card-title-text">{{item.info.label}}</div>
+        <div class="title-number" *ngIf="local.showScore(item.data)">{{item.data.mhiIndex}}</div>
+      </div>
+
+      <ng-template #cancerTitleDiv>
+        <div class="title-div" [ngStyle]="setCancerStyle(item.data)">
+          <div class="card-title-text">{{item.info.label}}</div>
+          <div class="title-number">{{cancer_mhi_index}}</div>
+        </div>
+      </ng-template>
+
+      <div class="body-div">
+        <img class="body-img" src={{item.info.image}}/>
+      </div>
+
+      <div class="tail-div" *ngIf="item.info.code != 'Cancer' else cancerTailDiv">
+        <div class="tail-date-text" *ngIf="item.data.lastUpdatedDate != null">{{lang_resource.health_indexes.last_text}}{{":"}}{{item.data.lastUpdatedDate | date: 'mediumDate'}}</div>
+        <div class="tail-other-text" *ngIf="item.data.updateRequire == true || item.data.lastUpdatedDate == null">{{lang_resource.health_indexes.request_text}}</div>
+      </div>
+
+      <ng-template #cancerTailDiv>
+        <div class="tail-div">
+          <div class="tail-date-text" *ngIf="item.info.lastValue != null">{{lang_resource.health_indexes.last_text}}{{":"}} {{item.info.lastValue | date: 'mediumDate'}}</div>
+          <!-- <div class="tail-other-text" *ngIf="item.data.updateRequire">{{lang_resource.health_indexes.request_text}}</div> -->
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</ion-content>

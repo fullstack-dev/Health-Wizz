@@ -1,0 +1,89 @@
+<!--
+  Generated template for the MembersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="Search()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="Share()">
+        <img style="width: 20px;" src="assets/icon/share.png">
+      </button>
+    </ion-buttons> -->
+
+    <ion-title>Members</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div style="display: flex;">
+    <div class="percent-img-div" style="width:40%">
+      <img class="percent-img" *ngIf="circle.circlePic == null" src="assets/imgs/MenuIcons/Circles@2x.png">
+      <img class="percent-img" *ngIf="circle.circlePic != null" [src]="'data:image/jpeg;base64,' + circle.circlePic">
+    </div>
+    <div class="healthindex-text">
+      {{circle.name}}
+    </div>
+  </div>
+
+  <div class="descriptions-part-div">
+    <div class="healthindex-detail2">
+      {{circle.description}}
+    </div>
+  </div>
+
+  <!-- <div class="buttons-div">
+    <button class="first-btn" (click)="goToLeave()">Leave</button>
+    <button class="second-btn" (click)="goToInvite()">Invite</button>
+  </div> -->
+
+  <div class="members-div">
+    <div class="member-txt">Members</div>
+    <div class="member-num-txt">{{circle.members}}</div>
+  </div>
+
+  <ion-list no-lines>
+    <ion-item-sliding *ngFor="let item of members_data">
+      <ion-item (click)="memberSelect(item)">
+        <ion-avatar item-start>
+          <img [src]="item.avatar" alt="">
+        </ion-avatar>
+        <!-- <div id="member_id" class="member-item" > -->
+        <h2 [ngStyle]="setMyStyles(item)">{{item.info.firstName}}</h2>
+        <!-- <div style="position: absolute;right: 2vw;" *ngIf="item.info.invitationState=='accept'">{{item.info.invitationState}}</div> -->
+        <p item-right *ngIf="item.info.invitationState=='invite'">Pending</p>
+        <p item-right *ngIf="circle.ownerId == item.info.memberId">Admin</p>
+        <!-- </div> -->
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button *ngIf="circle.ownerId == userId && item.info.invitationState=='accept' && userId != item.info.memberId"
+          (click)="MemberDelete(item.info.memberId,item.info.firstName)">
+          <div class="option-div">
+            Delete
+            <ion-icon name="ios-trash-outline" style="margin-left: 1vw;"></ion-icon>
+          </div>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

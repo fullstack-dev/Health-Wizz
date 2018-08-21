@@ -1,0 +1,98 @@
+<!--
+  Generated template for the MemberDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="member-img-div">
+    <img style="width: 44vw;border-radius: 50%;" [src]="member_item?.avatar">
+  </div>
+
+  <div style="text-align: center;">
+    <button style="width:50%; margin:auto" ion-button block outline *ngIf="member_item?.info.invitationState != 'accept'" (click)="sendInvite()">
+      Invite again
+    </button>
+  </div>
+
+  <div style="margin: 8vw 2vw 10vw 2vw;">
+    <div class="item-title">Name</div>
+    <div class="item-value">{{name}}</div>
+
+    <div class="item-title">Date of Birth</div>
+    <div class="item-value">{{birthday | date: 'MMMM d, y'}}</div>
+
+    <div class="item-title">Gender</div>
+    <div class="item-value">{{gender}}</div>
+
+    <div class="item-title">Phone Number</div>
+    <div class="item-value">{{phone_number}}</div>
+
+    <div class="item-title">Country</div>
+    <div class="item-value">{{country}}</div>
+
+    <div class="item-title">Zip code</div>
+    <div class="item-value">{{zip_code}}</div>
+
+    <div class="item-title">Address</div>
+    <div class="item-value">{{address}}</div>
+
+    <div class="item-title">City</div>
+    <div class="item-value">{{city}}</div>
+
+  </div>
+
+
+
+
+  <!-- TODO: show member's public campaigns here -->
+  <!-- <div class="members-div">
+	    <div class="member-txt">Campaingns</div>
+	    <div class="member-num-txt">4</div>
+	    <div class="see-all-btn" (click)="goToAllCampaingns()">See All</div>
+  	</div>  
+
+  	<div class="under-card-div">
+	    <div class="card-firstlow-div">
+	      	<div class="started-txt">Started: Aug 08, 2017</div>
+	      	<div class="details-btn">Details</div>
+	    </div>
+	    <div class="med-rec-campaign-txt">Med Rec Campaign</div>
+	    <div class="invite-div">
+	      	<div class="invite-txt">Invite from</div>
+	      	<div class="invite-name">Alex</div>
+	    </div>
+	    
+	    <div class="campaign-img-div">
+	      	<img class="campaign-img" src="assets/imgs/MenuIcons/Shape@2x.png">
+	    </div>
+	    <div class="last-txt">Last Update Aug 13th, 2017 10:00 AM</div>
+  	</div> -->
+
+</ion-content>

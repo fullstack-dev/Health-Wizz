@@ -1,0 +1,180 @@
+<!--
+  Generated template for the MyMedRecordsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+
+  Category list:
+-->
+<ion-header>
+
+  <ion-navbar *ngIf="!searchClick">
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="search()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="add()">
+        <ion-icon ios="md-add" md="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>My Medical Records</ion-title>
+
+  </ion-navbar>
+
+  <ion-navbar *ngIf="searchClick">
+    <ion-searchbar class="search-div" (ionInput)="onInput($event)"></ion-searchbar>
+    <button ion-button small class="cancel" (click)="onCancel($event)">Cancel</button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background-color: #efeff4 !important;">
+
+  <div style="margin-bottom: 20px;">
+
+    <div class="recently-div" *ngIf="!searchClick">
+      <div class="recently-txt">Recently Viewed</div>
+      <!-- <div class="seeall-txt" (click)="seeAll()">See All</div> -->
+    </div>
+    <ion-slides *ngIf="!searchClick" pager spaceBetween="-40" class="slides-background" (ionSlideDidChange)="slideChanged()"
+      #slides>
+
+      <ion-slide *ngFor="let item of currentCardsData">
+        <div class="item-background">
+          <div class="date-txt">Added: {{item.addedDate | date: ' MMM dd, yyyy'}}</div>
+          <div class="con-div">
+            <ul *ngFor="let condition_item of item.condition">
+              <li>
+                <a>{{condition_item.conditionName}}</a>
+              </li>
+            </ul>
+          </div>
+          <div class="prov-div">
+            <ul *ngFor="let provider_item of item.provider">
+              <li>
+                <a>{{provider_item.providerName}}</a>
+              </li>
+            </ul>
+          </div>
+          <div class="tag-div">
+            <ul *ngFor="let tag_item of item.tag">
+              <li *ngIf="tag_item.isChecked" (click)="tagClick(tag_item, item)">
+                <a>{{tag_item.tagName}}</a>
+              </li>
+            </ul>
+          </div>
+          <ion-checkbox color="dark" class="check-icon posi" [(ngModel)]="item.openFlag" (ngModelChange)="cardItemSelected($event, item)"></ion-checkbox>
+        </div>
+      </ion-slide>
+
+    </ion-slides>
+
+    <div class="condition-div" *ngIf="itemsCondition.length > 0">
+      <div class="condition-txt" (click)="clickConditions()">Conditions</div>
+      <div class="number-txt">{{newConditionNameArrayLength}}</div>
+      <div class="seeall-txt" *ngIf="newConditionNameArrayLength > 3">
+        <p *ngIf="conditionSeeAllFlag" (click)="conditionsAll()">See All</p>
+        <p *ngIf="!conditionSeeAllFlag" (click)="conditionsLess()">See Less</p>
+      </div>
+    </div>
+    <ion-list no-lines>
+      <button ion-item *ngFor="let item of itemsCondition" (click)="conditionsItemSelected(item)">
+        <ion-label>
+          <div class="value-back">{{ item.el }}</div>
+          <div class="number-back">{{ item.count }}</div>
+        </ion-label>
+      </button>
+    </ion-list>
+
+    <div class="condition-div" *ngIf="itemsProvider.length > 0">
+      <div class="condition-txt" (click)="clickProviders()">Providers</div>
+      <div class="number-txt">{{newProviderNameArrayLength}}</div>
+      <div class="seeall-txt" *ngIf="newProviderNameArrayLength > 3">
+        <p *ngIf="providerSeeAllFlag" (click)="providersAll()">See All</p>
+        <p *ngIf="!providerSeeAllFlag" (click)="providersLess()">See Less</p>
+      </div>
+    </div>
+    <ion-list no-lines>
+      <button ion-item *ngFor="let item of itemsProvider" (click)="providesItemSelected(item)">
+        <ion-label>
+          <div class="value-back">{{ item.el }}</div>
+          <div class="number-back">{{ item.count }}</div>
+        </ion-label>
+      </button>
+
+    </ion-list>
+
+    <div class="condition-div" *ngIf="itemsTag.length > 0">
+      <div class="condition-txt" (click)="clickTags()">Tags</div>
+      <div class="number-txt">{{newTagNameArrayLength}}</div>
+      <div class="seeall-txt" *ngIf="newTagNameArrayLength > 3">
+        <p *ngIf="tagSeeAllFlag" (click)="tagsAll()">See All</p>
+        <p *ngIf="!tagSeeAllFlag" (click)="tagsLess()">See Less</p>
+      </div>
+    </div>
+    <ion-list no-lines>
+      <button ion-item *ngFor="let item of itemsTag" (click)="tagsItemSelected(item)">
+        <ion-label>
+          <div class="value-back">{{ item.el }}</div>
+          <div class="number-back">{{ item.count }}</div>
+        </ion-label>
+      </button>
+
+    </ion-list>
+
+    <div class="add-txt" *ngIf="itemsCondition.length == 0 && itemsProvider.length == 0 && itemsTag.length == 0">
+      Didn't find what you were searching? Try to download the records.
+    </div>
+
+    <button class="add-btn" (click)="addRecords()" *ngIf="itemsCondition.length == 0 && itemsProvider.length == 0 && itemsTag.length == 0">Add</button>
+
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar *ngIf="totalNumber == 1">
+    <ion-buttons>
+      <button ion-button icon-only class="bottom-many-btn" (click)="shareEvent($event)">
+        <img *ngIf="!platformFlag" src="assets/imgs/AddMedImgs/bottom_share@3x.png" />
+        <img *ngIf="platformFlag" style="width: 1.6rem;" src="assets/imgs/AddMedImgs/bottom_share_ios@3x.png" />
+      </button>
+
+      <button ion-button icon-only class="bottom-many-btn" (click)="bookEvent($event)">
+        Open
+      </button>
+
+      <button ion-button icon-only class="bottom-many-btn" (click)="signEvent($event)">
+        Edit
+      </button>
+
+      <button ion-button icon-only class="bottom-many-btn" (click)="recycleEvent($event)">
+        <img src="assets/imgs/AddMedImgs/bottom_delete@3x.png" />
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="totalNumber >= 2">
+    <ion-buttons>
+      <button ion-button icon-only class="bottom-small-btn" (click)="shareEvent($event)">
+        <img *ngIf="!platformFlag" src="assets/imgs/AddMedImgs/bottom_share@3x.png" />
+        <img *ngIf="platformFlag" style="width: 1.6rem;" src="assets/imgs/AddMedImgs/bottom_share_ios@3x.png" />
+      </button>
+
+      <button ion-button icon-only class="bottom-small-btn" (click)="recycleEvent($event)">
+        <img src="assets/imgs/AddMedImgs/bottom_delete@3x.png" />
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

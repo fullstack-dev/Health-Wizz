@@ -1,0 +1,136 @@
+page-campaign-notification-detail {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  button,
+  .label {
+    font-family: 'SF-UI-Text';
+  }
+  h2 {
+    font-weight: 400;
+    font-size: 24px;
+  }
+  .toolbar {
+    button {
+      margin: 0 5px;
+    }
+    .menu_icon {
+      float: right;
+    }
+  }
+  .des {
+    padding: 5px;
+    img {
+      width: 50px;
+      float: left;
+      margin: 2px 15px 0px 0px;
+    }
+    p {
+      color: $font-des;
+      margin: 5px 0;
+    }
+  }
+  .sponsors {
+    margin: 20px 0;
+    .description {
+      img {
+        height: 70px;
+        margin: 0 18px;
+      }
+    }
+  }
+  .terms {
+    margin-top: 15px;
+    .description {
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      li::before {
+        content: "•";
+        color: $font-appcolor;
+        margin-right: 10px;
+      }
+    }
+  }
+  .measured {
+    margin: 20px 0;
+    .description {
+      img {
+        width: 50px;
+        padding: 10px;
+      }
+    }
+  }
+  .omcoins {
+    margin: 20px 0;
+    span {
+      img {
+        width: 14px;
+        margin: 0 10px 0 10px;
+      }
+    }
+    .item-block:first-child {
+      border-top: none;
+    }
+    .item-block:last-child {
+      border-bottom: none;
+    }
+  }
+  .organizers {
+    margin: 20px 0;
+    .description {
+      width: 100%;
+      display: inline-flex;
+      p {
+        margin: 3px 0;
+      }
+      .name {
+        color: $font-appcolor;
+        font-weight: 500;
+      }
+    }
+  }
+  .participants {
+    h2 {
+      width: auto;
+      float: left;
+    }
+    .p-value {
+      display: flex;
+      height: 20px;
+      img {
+        width: 15px;
+        float: left;
+        height: 15px;
+        margin: 5px 10px 0 5px;
+      }
+      p {
+        float: left;
+        margin-top: 5px;
+      }
+    }
+  }
+  .result-btn {
+    width: 100%;
+    display: inline-block;
+    padding: 3%;
+    align-items: center;
+    button {
+      width: 40%;
+      font-size: 20px;
+      margin: 0 5%;
+      height: 45px;
+    }
+    .l-btn {
+      // border: 2px solid;
+      float: left;
+    }
+    .r-btn {
+      float: right;
+    }
+  }
+}

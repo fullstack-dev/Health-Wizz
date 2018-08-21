@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <!-- <button ion-button icon-only (click)="back()"><ion-icon name="ios-arrow-back"></ion-icon></button> -->
+      <button ion-button icon-only class="menu_icon">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Manage Roles</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="done()">Done</button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list class="manageList">
+
+    <ion-item *ngFor="let item of participants; let i = index">
+      <ion-avatar item-start class="avatar">
+        <img [src]="item.avatar">
+      </ion-avatar>
+      <h2>{{item.info.firstName}}
+        <span *ngIf="item.info.lastName"> {{item.info.lastName}}</span>
+        <span *ngIf="userId == item.info.memberId"> (you)</span>
+      </h2>
+      <div class="condition" *ngIf="item.info.memberRoles">
+        <p class="mode" *ngIf="item.info.memberRoles.moderator">Moderator</p>
+        <p class="valid" *ngIf="item.info.memberRoles.validator">Validator</p>
+      </div>
+
+      <button ion-button clear item-end icon-only (click)="selectOptions($event, item, i)">
+        <ion-icon name="md-more"></ion-icon>
+      </button>
+    </ion-item>
+
+
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,127 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      <button ion-button menuToggle icon-only class="menu_icon">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Submit Report</ion-title>
+
+    <ion-buttons end *ngIf="page == 3">
+      <button ion-button (click)="done()">Done</button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg-clr">
+
+  <div class="title">
+    <h4>September 13th, 2017</h4>
+    <p>Details</p>
+  </div>
+
+  <ion-slides pager="true" spaceBetween="-30" #slides (ionSlideDidChange)="slideChanged()">
+
+    <ion-slide>
+      <div class="report_div">
+        <p class="subtitle">Submit until Sep 18th, 2017 10:00AM</p>
+        <h2>Cancer data report</h2>
+        <p>please add cancer data reports for the last 2 years</p>
+        <p>Suggested med records</p>
+        <ion-list class="records">
+
+          <ion-item>
+            <ion-label>Danitict_Diana_Medina Addis_oc.doc</ion-label>
+            <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Rport2 oc.doc</ion-label>
+            <ion-checkbox [(ngModel)]="sausage"></ion-checkbox>
+          </ion-item>
+
+        </ion-list>
+
+        <button ion-button clear class="single_btn">Add more med records</button>
+
+        <ion-buttons class="submit">
+          <button ion-button>Submit Files</button>
+        </ion-buttons>
+
+      </div>
+    </ion-slide>
+
+    <!-- Slider 2 (Terms)-->
+
+    <ion-slide>
+
+      <div class="report_div">
+        <p class="subtitle">Submit until Sep 18th, 2017 10:00AM</p>
+        <h2 class="">Waist</h2>
+
+        <div class="waist">
+          <img src="assets/imgs/HealthIndexIcons/Waist@3x.png">
+        </div>
+
+        <div class="input_box">
+          <ion-datetime displayFormat="MM/DD/YYYY" placeholder="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="update"></ion-datetime>
+          <p>Update from Device</p>
+        </div>
+
+      </div>
+    </ion-slide>
+
+    <!-- Slider 3 (Indexes)-->
+
+    <ion-slide>
+      <div class="report_div">
+        <p class="danger">
+          <ion-icon name="ios-alert-outline"></ion-icon> last update Aug 13th, 2017 10:00 AM</p>
+        <h2>Some survey</h2>
+        <p class="subtitle">Over the last two weeks, how open have you been bothered by any of the following problems</p>
+        <div class="main_box">
+          <p *ngFor="let item of surveyList">{{item}}</p>
+        </div>
+      </div>
+    </ion-slide>
+
+    <!-- Slider 4 (Survey)-->
+
+    <ion-slide>
+
+      <div class="report_div">
+        <p class="subtitle">Submit until Sep 18th, 2017 10:00AM</p>
+        <h2 class="">Some Clinic Trial</h2>
+
+        <div class="clinic-img">
+          <img src="assets/imgs/HealthIndexIcons/Sleep@3x.png">
+        </div>
+
+        <ion-list class="clinic">
+          <ion-item>
+            <ion-label class="chk">I visted oncologist last week</ion-label>
+            <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+          </ion-item>
+
+          <ion-item>
+            <ion-label stacked>some parameter value</ion-label>
+            <ion-input type="text" placeholder=""></ion-input>
+          </ion-item>
+        </ion-list>
+      </div>
+
+    </ion-slide>
+
+
+  </ion-slides>
+
+
+</ion-content>

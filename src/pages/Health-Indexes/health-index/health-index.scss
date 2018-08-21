@@ -1,0 +1,222 @@
+page-health-index {
+  .red2 {
+    color: #ed6087;
+  }
+  .green2 {
+    color: #6ec59a;
+  }
+}
+
+.healthindex-text {
+  font-size: 2.2rem;
+  margin-top: 5vw;
+  font-family: 'SF-UI-Text' !important;
+}
+
+.healthindex-detail1 {
+  font-size: 1.3rem;
+  margin-top: 2vw; //   color: #ED6187;
+  font-family: 'SF-UI-Text' !important;
+}
+
+.index-descriptions-div {
+  margin-top: 15px;
+  width: 100%;
+  position: relative;
+  min-height: 150px;
+  .index-descriptions {
+    font-size: 1.4rem;
+    width: calc(100% - 120px);
+    position: absolute;
+    right: 0;
+    p {
+      font-size: 1.2rem;
+      line-height: 5vw;
+      color: #727271;
+      margin-left: 3vw;
+      margin-right: 3vw;
+    }
+    .wellnessexam-btn {
+      font-size: 16px;
+      margin-left: 10vw; // color: #48C5CD;
+      background-color: transparent;
+    }
+  }
+}
+
+.percent-img-index-div {
+  padding: 15px 2vw;
+  position: absolute;
+  top: 80px;
+}
+
+#myCanvas {
+  width: 200px;
+  height: 100px;
+}
+
+.percent-num {
+  position: absolute;
+  left: 65px;
+  top: 135px;
+  font-size: 1.8rem;
+  font-family: 'SF-UI-Text' !important;
+}
+
+.display-counts {
+  position: relative;
+  display: flex;
+  left: 25px;
+  .red-count {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    font-size: 13px;
+    background-color: #EA6288;
+    text-align: center;
+  }
+  .green-count {
+    background-color: #6EC59A;
+    width: 15px;
+    font-size: 13px;
+    height: 15px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 10px;
+  }
+  .yellow-count {
+    background-color: #FDBA45;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    font-size: 13px;
+    text-align: center
+  }
+}
+
+.buttons-div {
+  width: 95%;
+  padding: 10px 0;
+  position: relative;
+  margin: 3vh 2.3vw 1vh;
+  .first-btn {
+    background-color: transparent;
+    padding: 10px 0;
+    border: 1px solid #48C5CD;
+    color: #48C5CD;
+    width: 48%;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .second-btn {
+    padding: 10px 0;
+    border: 1px solid #48C5CD;
+    background-color: #48C5CD;
+    color: white;
+    width: 48%;
+    font-size: 1.5rem;
+    border-radius: 3px;
+    position: absolute;
+    right: 0;
+    font-family: 'SF-UI-Text' !important;
+  }
+}
+
+.index-gallery-div {
+  width: 100%;
+  display: inline-block;
+  .gallery-item {
+    width: 31%;
+    float: left;
+    margin: 1vw;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.col {
+  width: 30vw;
+}
+
+.card-div {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.title-div {
+  border-radius: 7px 7px 0 0;
+  display: flex;
+  position: relative;
+  height: 52px;
+}
+
+.card-title-text {
+  width: 90%;
+  padding-top: 2vw;
+  text-align: left;
+  padding-left: 2vw;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'SF-UI-Text' !important;
+}
+
+.title-number {
+  width: 10%;
+  font-size: 1rem;
+}
+
+.body-div {
+  height: 25vw;
+  padding-top: 3vw;
+  text-align: center;
+}
+
+.body-img {
+  width: 44%;
+}
+
+.tail-div {
+  border-radius: 0px 0px 7px 7px;
+  border-top: 0.5px solid #ABA9A2;
+  height: 45px;
+}
+
+.tail-date-text {
+  color: #8E8E93;
+  font-size: 0.65rem;
+  line-height: 20px;
+  margin-left: 2vw;
+  font-family: 'SF-UI-Text' !important;
+}
+
+.tail-other-text {
+  color: #EA6288;
+  font-size: 0.8rem;
+  line-height: 20px;
+  margin-left: 2vw;
+  font-family: 'SF-UI-Text' !important;
+}
+
+.red2 {
+  color: #ed6087;
+}
+
+.green2 {
+  color: #6ec59a;
+}
+
+@media only screen and (min-device-width: 700px) and (max-device-width: 1024px) {
+  .percent-num {
+    top: 190px;
+  }
+  .percent-img-index-div {
+    padding: 15px 2vw;
+    position: absolute;
+    top: 130px;
+  }
+  .buttons-div {
+    margin: 2vh 2.3vw 1vh !important;
+  }
+}

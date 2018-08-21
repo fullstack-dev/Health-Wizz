@@ -1,0 +1,117 @@
+{
+  "indexes": [{
+    "index": 1,
+    "href": "http://www.breastcancer.org/research-news/acs-guidelines-recommend-mammograms-at-45",
+    "detail": "Breast cancer details.",
+    "code": "Breast Cancer",
+    "label": "Breast: Mammography",
+    "state": null,
+    "lastValue": null,
+    "image": "assets/imgs/HealthIndexIcons/Cancer@3x.png",
+    "questions": [{
+      "type": "date",
+      "label": "Last Normal Mammogram Date",
+      "code": "LAST_NORMAL_MAMMOGRAM_DATE",
+      "value": null,
+      "unit": null,
+      "units": null,
+      "values": null
+    }]
+  }, {
+    "index": 2,
+    "href": "http://www.uspreventiveservicestaskforce.org/Page/Document/UpdateSummaryFinal/cervical-cancer-screening?ds=1&s=cervical%20cancer",
+    "detail": "Cervical cancer details.",
+    "code": "Cervical Cancer",
+    "label": "Cervical: Pap Exam",
+    "state": null,
+    "lastValue": null,
+    "image": "assets/imgs/HealthIndexIcons/Cancer@3x.png",
+    "questions": [{
+      "type": "toggle_yes_no",
+      "label": "Do you have a history of Hysterectomy and no history of Cancer?",
+      "code": "HYSTERECTOMY_HISTORY_NO_CANCER",
+      "value": null,
+      "unit": null,
+      "units": null,
+      "values": ["YES", "NO"]
+    }, {
+      "type": "date",
+      "label": "Last Normal Pap Exam Date",
+      "code": "LAST_NORMAL_PAP_EXAM",
+      "value": null,
+      "unit": null,
+      "units": null,
+      "values": null
+    }]
+  }, {
+    "index": 3,
+    "href": "http://www.uspreventiveservicestaskforce.org/Page/Document/UpdateSummaryFinal/colorectal-cancer-screening2",
+    "detail": "Colon cancer details.",
+    "code": "Colon Cancer",
+    "label": "Colonoscopy Screen",
+    "state": null,
+    "lastValue": null,
+    "image": "assets/imgs/HealthIndexIcons/Cancer@3x.png",
+    "questions": [{
+      "type": "toggle_yes_no",
+      "label": "Do you have a history of abnormal colon. Screening exam or pre-cancerous polyp?",
+      "code": "ABNORMAL_COLON_HISTORY",
+      "value": null,
+      "unit": null,
+      "units": null,
+      "values": ["YES", "NO"]
+    }, {
+      "type": "date",
+      "label": "Last Normal Colonoscopy Screening Date",
+      "code": "LAST_NORMAL_COLONOSCOPY",
+      "value": null,
+      "unit": null,
+      "units": null,
+      "values": null
+    }]
+  }, {
+    "index": 4,
+    "href": "http://www.uspreventiveservicestaskforce.org/Page/Document/UpdateSummaryFinal/lung-cancer-screening?ds=1&s=lung%20cancer",
+    "detail": "Lung cancer details.",
+    "code": "Lung Cancer",
+    "label": "Lung : Low dose CT Chest",
+    "state": null,
+    "lastValue": null,
+    "image": "assets/imgs/HealthIndexIcons/Cancer@3x.png",
+    "questions": [{
+      "type": "toggle_yes_no",
+      "label": "Do you have a history of smoking equivalent to one pack per day for 30 years or more?",
+      "code": "SMOKING_HISTORY_ONE_PACK_30YRS",
+      "value": null,
+      "unit": null,
+      "units": null,
+      "values": ["YES", "NO"]
+    }, {
+      "type": "date",
+      "label": "Low dose CT Chest Screening Date",
+      "code": "LAST_CT_CHEST_SCREENING",
+      "value": null,
+      "unit": null,
+      "units": null,
+      "values": null
+    }]
+  }, {
+    "index": 5,
+    "href": "http://www.cancer.org/cancer/prostatecancer/moreinformation/prostatecancerearlydetection/index",
+    "detail": "Prostate cancer details.",
+    "code": "Prostate Cancer",
+    "label": "Prostate Screen",
+    "state": null,
+    "lastValue": null,
+    "image": "assets/imgs/HealthIndexIcons/Cancer@3x.png",
+    "questions": [{
+      "type": "date",
+      "label": "Last Prostate Screening Date or PSA",
+      "code": "LAST_PROSTATE_SCREENING",
+      "value": null,
+      "unit": null,
+      "units": null,
+      "values": null
+    }]
+  }]
+}

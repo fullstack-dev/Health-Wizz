@@ -1,0 +1,38 @@
+page-chf {
+  .detail-body-div {
+    display: flex;
+    margin-top: 5vw;
+  }
+  .detail-img {
+    width: 9vw; //height: 10vw;
+    margin-right: 2vw;
+  }
+  .detail-txt {
+    color: #60605D;
+    margin-left: 1vw;
+    overflow: hidden;
+    font-family: 'SF-UI-Text' !important;
+    line-height: 25px;
+    text-align: justify;
+  }
+  .ccd-doc-div {
+    border-bottom: 1px solid #DCDCDC;
+    position: relative;
+    height: 6vh;
+    margin-top: 3vh;
+  }
+  .ccd-doc-txt {
+    color: #009EA9;
+    font-family: 'SF-UI-Text' !important;
+    font-size: 1.7rem;
+    line-height: 21px;
+    position: absolute;
+    right: 2vw;
+  }
+  .alert-txt {
+    font-size: 2.6vw;
+    line-height: 11px;
+    margin-left: 2vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+}

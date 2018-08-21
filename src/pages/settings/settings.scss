@@ -1,0 +1,113 @@
+page-settings {
+	.font-size-txt {
+	    /*font-size: 4vw;*/
+        font-size: 1.5rem;
+	    color: #82827F;
+	    margin-top: 10vw;
+	}
+
+	.font-shape-div {
+		display: flex;
+        margin: 2vw 0 5vw;
+	    align-items: center;
+	}
+
+	.font-small-div {
+	    padding-top: 1vw;
+		font-size: 14px;
+	    margin-right: 4vw;
+	    border-radius: 50%;
+	    width: 7vw;
+	    height: 7vw;
+	    text-align: center;
+	}
+
+	.font-middle-div {
+	    padding-top: 0.6vw;
+	    font-size: 18px;
+	    margin-right: 4vw;
+	    border-radius: 50%;
+	    width: 7vw;
+	    height: 7vw;
+	    text-align: center;
+	}
+
+	.font-large-div {
+	    font-size: 22px;
+	    margin-right: 4vw;
+	    border-radius: 50%;
+	    width: 7vw;
+	    height: 7vw;
+	    text-align: center;
+	}
+
+	.title-txt {
+	    /*font-size: 7vw;*/
+	    font-size: 2rem;
+    	padding: 15px 0;
+	}
+	
+	.visible_div{
+		margin-top: 10px;
+		.item{
+			padding-left: 0;
+
+			.shown{
+				color: #000;
+			}
+			.hidden{
+				color: #b2b2b2;
+			}
+			.item-inner{
+				padding-bottom: 10px;
+				.label{
+					/*font-size: 16px;*/
+					font-size: 1.4rem;
+					white-space: normal;
+				}
+
+			}
+		}	
+		.toggle-checked .toggle-icon
+		{
+			background-color: #37c592 !important;
+		}	
+	}
+
+	.item_fld {
+	    padding: 0;
+	    width: 100%;
+	    .item-inner{
+	      	border: none !important;
+	      	.label{
+		        font-size: 1.3rem;
+		        font-family: 'SF-UI-Text' !important;
+		        color: #737370;
+		        padding-bottom: 3px;
+		        sup{
+		          	color: red;
+		          	font-weight: 900;
+		        }
+	      	}
+	      	.input{
+		        border: 1px solid $font-appcolor;
+	          	border-radius: 2px;
+	          	padding: 0 10px;
+	          	.text-input{
+	          	}
+	      	}
+	      	.select{
+		        border: 1px solid $font-appcolor;
+	          	padding: 12px 6px 0 !important;
+	          	border-radius: 1px;
+	          	color: #015c63;
+	          	height: 45px;
+	          	font-size: 1.4rem;
+	      	}
+	    }
+	}
+}
+
+.md button .button-effect {
+    display: none;
+}

@@ -1,0 +1,136 @@
+<!--
+  Generated template for the MyGroupRecordsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+
+  Group List:
+-->
+<ion-header>
+
+  <ion-navbar *ngIf="!searchClick">
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="search()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="add()">
+        <ion-icon ios="md-add" md="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Group Records</ion-title>
+
+  </ion-navbar>
+
+  <ion-navbar *ngIf="searchClick">
+    <ion-searchbar class="search-div" (ionInput)="onInput($event)"></ion-searchbar>
+    <button ion-button small class="cancel" (click)="onCancel($event)">Cancel</button>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content style="background-color: #efeff4 !important;">
+
+  <ion-list no-lines>
+    <div *ngFor="let group of items">
+      <div class="recently-div" *ngIf="group.length">
+        <div class="recently-txt" *ngIf="recent_title == 'condition' && group.length">in {{group[0].condition[0].conditionName}}
+          <span>{{group.length}}</span>
+        </div>
+        <div class="recently-txt" *ngIf="recent_title == 'provider' && group.length">in {{group[0].provider[0].providerName}}
+          <span>{{group.length}}</span>
+        </div>
+        <div class="recently-txt" *ngIf="recent_title == 'tag' && group.length">in {{group[0].tag[0].tagName}}
+          <span>{{group.length}}</span>
+        </div>
+
+        <div class="seeall-txt" *ngIf="recent_title == 'condition'">
+          <p *ngIf="group.length > 3" (click)="conditionsAll()">See All</p>
+        </div>
+        <div class="seeall-txt" *ngIf="recent_title == 'provider'">
+          <p *ngIf="group.length > 3" (click)="providersAll()">See All</p>
+        </div>
+        <div class="seeall-txt" *ngIf="recent_title == 'tag'">
+          <p *ngIf="group.length > 3" (click)="tagsAll()">See All</p>
+        </div>
+      </div>
+      <ion-slides pager spaceBetween="-40" class="slides-background" #slides>
+        <ion-slide *ngFor="let item of group">
+          <div class="item-background">
+            <div class="date-txt">Added: {{item.addedDate | date: ' MMM dd, yyyy'}}</div>
+            <div class="con-div">
+              <ul *ngFor="let condition_item of item.condition">
+                <li>
+                  <a>{{condition_item.conditionName}}</a>
+                </li>
+              </ul>
+            </div>
+            <div class="prov-div">
+              <ul *ngFor="let provider_item of item.provider">
+                <li>
+                  <a>{{provider_item.providerName}}</a>
+                </li>
+              </ul>
+            </div>
+            <div class="tag-div">
+              <ul *ngFor="let tag_item of item.tag">
+                <li *ngIf="tag_item.isChecked" (click)="tagClick(tag_item, item)">
+                  <a>{{tag_item.tagName}}</a>
+                </li>
+              </ul>
+            </div>
+            <ion-checkbox color="dark" class="check-icon posi" [(ngModel)]="item.openFlag" (ngModelChange)="cardItemSelected($event, item)"></ion-checkbox>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </ion-list>
+
+  <div class="add-txt" *ngIf="bottomFlag">
+    Didn't find what you were searching? Try to download the records.
+  </div>
+
+  <button class="add-btn" (click)="addRecords()" *ngIf="bottomFlag">Add</button>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar *ngIf="totalNumber == 1">
+    <ion-buttons>
+      <button ion-button icon-only class="bottom-many-btn" (click)="shareEvent($event)">
+        <img *ngIf="!platformFlag" src="assets/imgs/AddMedImgs/bottom_share@3x.png" />
+        <img *ngIf="platformFlag" style="width: 1.6rem;" src="assets/imgs/AddMedImgs/bottom_share_ios@3x.png" />
+      </button>
+
+      <button ion-button icon-only class="bottom-many-btn" (click)="signEvent($event)">
+        Edit
+      </button>
+
+      <button ion-button icon-only class="bottom-many-btn" (click)="recycleEvent($event)">
+        <img src="assets/imgs/AddMedImgs/bottom_delete@3x.png" />
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="totalNumber >= 2">
+    <ion-buttons>
+      <button ion-button icon-only class="bottom-small-btn" (click)="shareEvent($event)">
+        <img *ngIf="!platformFlag" src="assets/imgs/AddMedImgs/bottom_share@3x.png" />
+        <img *ngIf="platformFlag" style="width: 1.6rem;" src="assets/imgs/AddMedImgs/bottom_share_ios@3x.png" />
+      </button>
+
+      <button ion-button icon-only class="bottom-small-btn" (click)="recycleEvent($event)">
+        <img src="assets/imgs/AddMedImgs/bottom_delete@3x.png" />
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

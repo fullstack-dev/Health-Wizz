@@ -1,0 +1,78 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-buttons start>
+      <button ion-button (click)="cancel()">Cancel</button>
+    </ion-buttons> -->
+
+    <ion-title>Validate Report</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="done()">Done</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="bg-clr">
+
+  <div class="title">
+    <h4>{{today | date: "MMMM dd, yyyy"}}</h4>
+  </div>
+
+  <ion-slides *ngIf="showSlides()" pager="true" spaceBetween="-30" #slides (ionSlideDidChange)="slideChanged()">
+
+    <ion-slide *ngFor="let survey of surveys; let i = index">
+      <div class="report_div">
+        <p>Submitted on {{survey.surveyQuestionInfo[0].responseAnswer.submitReportDate | date: 'short'}}</p>
+        <h2>Survey</h2>
+
+        <div class="main_box">
+          <p class="subtitle">Over the last two weeks, how open have you been bothered by any of the following problems</p>
+          <div class="question" *ngFor="let question of survey.surveyQuestionInfo">
+            <p>{{question.question}}</p>
+            <p>{{question.responseAnswer.value}}</p>
+          </div>
+        </div>
+
+        <div class="result-btn">
+          <button ion-button outline class="l-btn" (click)="validateSurvey(survey, i, false)">Disapprove</button>
+          <button ion-button class="r-btn" (click)="validateSurvey(survey, i, true)">Approve</button>
+        </div>
+
+      </div>
+    </ion-slide>
+
+    <ion-slide *ngFor="let indicator of pending_indicators; let i = index">
+      <div class="report_div">
+        <p class="subtitle">Submitted on {{indicator.indicator.updatedOn | date: 'short'}}</p>
+        <h2 class="">{{indicator.info.label}}</h2>
+
+        <div class="main_box">
+          <div *ngFor="let question of indicator.indicator.value?.questions">
+            <div class="question" *ngIf="local.showQuestion(question)">
+              <p>{{question.label}}</p>
+              <p>{{question.value}}{{" "}}
+                <span *ngIf="question.unit">{{question.unit}}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-btn">
+          <button ion-button outline class="l-btn" (click)="validateIndicator(indicator.indicator, i, false)">Disapprove</button>
+          <button ion-button class="r-btn" (click)="validateIndicator(indicator.indicator, i, true)">Approve</button>
+        </div>
+
+      </div>
+    </ion-slide>
+
+
+  </ion-slides>
+
+  <div style="margin-top:30vw; text-align: center" *ngIf="!showSlides()">
+    <h4>Nothing to validate</h4>
+  </div>
+
+
+</ion-content>

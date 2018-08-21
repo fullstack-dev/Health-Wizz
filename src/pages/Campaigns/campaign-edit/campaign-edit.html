@@ -1,0 +1,234 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button clear class="" (click)="close()">Cancel</button>
+    <ion-title>Edit Campaign</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background-color: lightgray; overflow-y: hidden;">
+
+  <!--  new invitation -->
+
+  <div class="sld-div">
+
+    <ion-slides pager="true" spaceBetween="-35">
+
+      <!-- Slider 1 (Campaign Info) -->
+
+      <ion-slide>
+        <div class="campaign_div">
+
+          <h2>Campaign info</h2>
+          <div class="main_box">
+            <ion-item class="name_fld">
+              <ion-label stacked>Campaign Name
+                <sup>*</sup>
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="campData.camp_name"></ion-input>
+            </ion-item>
+
+            <div class="date_fld">
+              <ion-item style="padding-left: 0; padding-right: 5px;">
+                <ion-label stacked>Start
+                  <sup>*</sup>
+                </ion-label>
+                <ion-datetime displayFormat="MM/DD/YYYY" placeholder="MM/DD/YYYY" pickerFormat="MMM/DD/YYYY" [(ngModel)]="campData.s_date"></ion-datetime>
+              </ion-item>
+
+              <ion-item>
+                <ion-label stacked>End (Optional)</ion-label>
+                <ion-datetime displayFormat="MM/DD/YYYY" placeholder="MM/DD/YYYY" pickerFormat="MMM/DD/YYYY" [(ngModel)]="campData.e_date"></ion-datetime>
+              </ion-item>
+            </div>
+
+            <div class="des">
+              <ion-item>
+                <ion-label stacked>Description
+                  <sup>*</sup>
+                </ion-label>
+                <ion-textarea rows="6" [(ngModel)]="campData.description"></ion-textarea>
+              </ion-item>
+            </div>
+
+            <div class="custom-toggle">
+              <p>Make Private</p>
+              <ion-toggle [(ngModel)]="campData.private_val"></ion-toggle>
+            </div>
+
+            <!-- <ion-item class="make_public">
+					    <ion-label>Make Private</ion-label>
+					    <ion-toggle [(ngModel)]="campData.private_val"></ion-toggle>
+					</ion-item> -->
+          </div>
+
+          <button ion-button class="next_btn" (click)="infoNext()">Next</button>
+        </div>
+      </ion-slide>
+
+      <!-- Slider 2 (Terms)-->
+
+      <ion-slide>
+        <div class="campaign_div">
+
+          <h2>Terms</h2>
+          <ion-list class="main_box">
+            <ion-item class="name_fld">
+              <ion-label stacked>Term 1
+                <sup>*</sup>
+              </ion-label>
+              <ion-input type="text" maxlength="50" [(ngModel)]="campData.term1"></ion-input>
+            </ion-item>
+
+            <ion-item class="name_fld">
+              <ion-label stacked>Term 2</ion-label>
+              <ion-input type="text" maxlength="50" [(ngModel)]="campData.term2"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          <button ion-button class="next_btn" (click)="termNext()">Next</button>
+
+        </div>
+      </ion-slide>
+
+      <!-- Slider 3 (Indexes)-->
+
+      <ion-slide>
+        <div class="campaign_div">
+
+          <h2>Indexes</h2>
+
+          <p class="subtitle">Select Indexes you want to check in this campaign</p>
+
+          <div class="main_box custom_sld">
+            <ion-list class="inbexes" *ngFor="let item of indexData" (click)="showIndexItem($event, item)">
+              <ion-item class="name">
+                <ion-avatar item-start>
+                  <img [ngClass]="{'name_clr': item.value}" [src]="item.img">
+                </ion-avatar>
+                <p [ngClass]="{'name_clr': item.value}">{{item.name}}</p>
+              </ion-item>
+
+              <div class="index" *ngIf="item.value">
+                <ion-item class="report">
+                  <ion-label stacked>Report Frequency</ion-label>
+                  <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" [(ngModel)]="item.freq">
+                    <ion-option *ngFor="let item of scheduals" [value]="item.id">{{item.name}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <div class="custom-toggle">
+                  <p>Accept data only from device</p>
+                  <ion-toggle [(ngModel)]="item.toggle"></ion-toggle>
+                </div>
+              </div>
+            </ion-list>
+          </div>
+
+          <div class="result-btn">
+            <button ion-button outline class="l-btn" (click)="goSlide(1)">Skip</button>
+            <button ion-button class="r-btn" (click)="goSlide(1)">Next</button>
+          </div>
+
+        </div>
+      </ion-slide>
+
+      <!-- Slider 4 (Survey)-->
+
+      <ion-slide>
+        <div class="campaign_div">
+
+          <h2>Survey</h2>
+          <div class="main_box">
+            <ion-item class="name_fld">
+              <ion-label stacked>Question 1</ion-label>
+              <ion-input type="text" [(ngModel)]="campData.question1"></ion-input>
+            </ion-item>
+
+            <ion-item class="name_fld">
+              <ion-label stacked>Report Frequency</ion-label>
+              <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" [(ngModel)]="campData.report">
+                <ion-option *ngFor="let item of scheduals" [value]="item.id">{{item.name}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item class="name_fld">
+              <ion-label stacked>Type of Question</ion-label>
+              <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" [(ngModel)]="campData.question_type">
+                <ion-option *ngFor="let item of types" [value]="item.id">{{item.type}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item class="name_fld" *ngIf="campData.question_type == 2 || campData.question_type == 3">
+              <ion-label stacked>Answer option 1</ion-label>
+              <ion-input type="text" [(ngModel)]="campData.answer1"></ion-input>
+            </ion-item>
+
+            <ion-item class="name_fld" *ngIf="campData.question_type == 3">
+              <ion-label stacked>Answer option 2</ion-label>
+              <ion-input type="text" [(ngModel)]="campData.answer2"></ion-input>
+            </ion-item>
+
+            <div class="div-section"></div>
+
+            <ion-item class="name_fld">
+              <ion-label stacked>Question 2</ion-label>
+              <ion-input type="text" [(ngModel)]="campData.question2"></ion-input>
+            </ion-item>
+          </div>
+
+          <div class="result-btn">
+            <button ion-button outline class="l-btn" (click)="goSlide(1)">Skip</button>
+            <button ion-button class="r-btn" (click)="goSlide(1)">Next</button>
+          </div>
+
+        </div>
+      </ion-slide>
+
+      <!-- Slider 5 (Rewards)-->
+
+      <ion-slide>
+        <div class="campaign_div reward-div">
+
+          <h2>Rewards</h2>
+
+          <div class="main_box">
+
+            <ion-list class="dup" *ngFor="let item of campData.rewardList; let index = index;">
+
+              <ion-item class="name_fld">
+                <ion-label stacked>Reward {{index + 1}} description</ion-label>
+                <ion-input type="text" [(ngModel)]="item.description"></ion-input>
+              </ion-item>
+
+              <div class="amount">
+                <ion-item class="name_fld">
+                  <ion-label stacked>Reward Amount</ion-label>
+                  <ion-input type="number" [(ngModel)]="item.amount" (input)="getAmounts(campData.rewardList)"></ion-input>
+                </ion-item>
+                <img src="assets/imgs/HomeIcons/Reward_Main@3x.png">
+              </div>
+
+            </ion-list>
+
+            <button ion-button clear class="custom" (click)="duplicateReward()">Duplicate Reward</button>
+
+            <div class="budget">
+              <p>Campaign budget is {{campData.totalAmount}}</p>
+              <img src="assets/imgs/HomeIcons/Reward_Main@3x.png">
+            </div>
+          </div>
+
+          <button ion-button class="next_btn" (click)="save()">Done</button>
+
+        </div>
+
+      </ion-slide>
+
+    </ion-slides>
+
+  </div>
+
+</ion-content>

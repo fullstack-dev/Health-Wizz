@@ -1,0 +1,398 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <!-- [disabled]="!healthForm.valid" -->
+      <button ion-button (click)="Done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{received_item.info.label}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div class="scrolling-wrapper">
+    <div id="container" style="min-width: 415vw; height: 200px; margin: 0 auto"></div>
+  </div>
+
+  <div class="lastday-txt">Last update {{received_item.data.lastUpdatedDate | date: 'longDate'}}</div>
+
+  <div class="calendar-div">
+    <div class="calendar-header">
+      <ion-row class="calendar-month">
+        <ion-col col-2 (click)="goToLastMonth()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-col>
+        <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+        <ion-col col-2 (click)="goToNextMonth()">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="calendar-body">
+      <ion-grid>
+        <ion-row class="calendar-weekday">
+          <ion-col>Su</ion-col>
+          <ion-col>Mo</ion-col>
+          <ion-col>Tu</ion-col>
+          <ion-col>We</ion-col>
+          <ion-col>Th</ion-col>
+          <ion-col>Fr</ion-col>
+          <ion-col>Sa</ion-col>
+        </ion-row>
+        <ion-row class="calendar-date">
+          <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+          <ion-col col-1 *ngFor="let day of daysInThisMonth; let i = index" (click)="selectDate(day)">
+            <span class="currentDate" [ngClass]="{dataDay: data_days[i]?.haveValue}" *ngIf="currentDate === day; else otherDate">{{day}}</span>
+            <ng-template #otherDate class="otherDate">
+              <span [ngClass]="{dataDay: data_days[i]?.haveValue}">{{day}}</span>
+            </ng-template>
+          </ion-col>
+          <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <div class="detail-body-div">
+    <div class="detail-txt" [ngStyle]="setDetailStyle()">
+      <span>
+        <img class="detail-img" [src]="received_item.info.image" align="left">
+      </span>
+      <span [ngStyle]="setDetailTextStyle(received_item.data.status)">
+        {{getDetailText(received_item)}}
+      </span>
+    </div>
+  </div>
+  <div></div>
+  <div>
+    <div class="readmore-btn" style="float: left;margin-top: 2vw;" (click)="learnMore()">Learn more</div>
+    <div class="readmore-btn" style="float: right;margin-top: 2vw;" (click)="readMore()">{{moreText}}</div>
+  </div>
+  <div class="find-btn-div" (click)="goToFind()">
+    <div class="find-btn">
+      Find a Physician
+    </div>
+  </div>
+
+  <div class="nutrition-div detail-list-div">
+
+    <form #healthForm="ngForm" class="" style="width: 100%;height: 100%;" novalidate>
+      <div *ngIf="received_item.info.code == 'BMI'" style="margin-top: 3vh;padding-bottom: 2vh;">
+        <ion-item>
+          <ion-label>Weight:
+            <span>{{received_item.info.questions[0].value}}</span>
+            <span>{{getUnit(received_item.info.questions[0].unit)}}</span>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Height:
+            <span>{{received_item.info.questions[1].value}}</span>
+            <span>{{getUnit(received_item.info.questions[1].unit)}}</span>
+          </ion-label>
+        </ion-item>
+        <!-- <div>
+          <ion-label stacked>Weight</ion-label>
+        </div>
+        <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-input disabled #weight="ngModel" type="text" name="weight" [pattern]="validator.indicator_validator.value_pattern" [(ngModel)]="received_item.info.questions[0].value"
+              required placeholder=""></ion-input>
+          </ion-item>
+
+          <ion-item class="unit-select-item">
+            <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" disabled name="weight_unit" [(ngModel)]="received_item.info.questions[0].unit"
+              (ionChange)="unitChange(received_item.info.questions[0].unit)">
+              <ion-option *ngFor="let unit of received_item.info.questions[0].units" [value]="unit">{{getUnit(unit)}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+
+        <div class="error-box" *ngIf="weight.hasError('required') && weight.touched">Required!</div>
+        <div class="error-box" *ngIf="weight.hasError('pattern') && weight.touched">Weight value is not valid!</div>
+
+        <div>
+          <ion-label stacked>Height</ion-label>
+        </div>
+        <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-input disabled #height="ngModel" type="text" name="height" [(ngModel)]="received_item.info.questions[1].value" [pattern]="validator.indicator_validator.value_pattern"
+              required placeholder=""></ion-input>
+          </ion-item>
+
+          <ion-item class="unit-select-item">
+            <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" disabled name="height_unit" [(ngModel)]="received_item.info.questions[1].unit"
+              (ionChange)="heightChange(received_item.info.questions[1].unit)">
+              <ion-option *ngFor="let unit of received_item.info.questions[1].units" [value]="unit">{{unit}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <div class="error-box" *ngIf="height.hasError('required') && height.touched">Required!</div>
+        <div class="error-box" *ngIf="height.hasError('pattern') && height.touched">Height value is not valid!</div> -->
+      </div>
+
+      <div *ngIf="received_item.info.code == 'Waist Circumference'" style="margin-top: 3vh;padding-bottom: 2vh;">
+        <ion-item>
+          <ion-label>Waist:
+            <span>{{received_item.info.questions[0].value}}</span>
+            <span>{{getUnit(received_item.info.questions[0].unit)}}</span>
+          </ion-label>
+        </ion-item>
+        <!-- <div>
+          <ion-label stacked>Waist</ion-label>
+        </div>
+        <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-input disabled #waistF="ngModel" type="text" name="waistF" [(ngModel)]="received_item.info.questions[0].value" [pattern]="validator.indicator_validator.value_pattern"
+              required placeholder=""></ion-input>
+          </ion-item>
+
+          <ion-item class="unit-select-item">
+            <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" disabled name="waist_unit" [(ngModel)]="received_item.info.questions[0].unit">
+              <ion-option *ngFor="let unit of received_item.info.questions[0].units" [value]="unit">{{unit}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <div class="error-box" *ngIf="waistF.hasError('required') && waistF.touched">Required!</div>
+        <div class="error-box" *ngIf="waistF.hasError('pattern') && waistF.touched">Waist value is not valid!</div> -->
+      </div>
+
+      <div *ngIf="received_item.info.code == 'Exercise'" style="margin-top: 3vh;padding-bottom: 3vh;">
+        <div class="weight-div" *ngFor="let question of received_item.info.questions">
+          <div class="zero-sign" [ngStyle]="setZeroActiveStyle(question.value)">{{question.values[0].label}}</div>
+          <div class="first-sign" [ngStyle]="setFirstActiveStyle(question.value)">{{question.values[1].label}}</div>
+          <div class="second-sign" [ngStyle]="setSecondActiveStyle(question.value)">{{question.values[2].label}}</div>
+          <div class="third-sign" [ngStyle]="setThirdActiveStyle(question.value)">{{question.values[3].label}}</div>
+        </div>
+      </div>
+
+      <div *ngIf="received_item.info.code == 'Nutrition'" style="padding-bottom: 2vh;">
+        <ion-list>
+          <ion-item no-lines *ngFor="let question of received_item.info.questions; let questionIndex = index">
+            <ion-label>{{question.label}}</ion-label>
+            <ion-checkbox name="check[{{questionIndex}}]" [ngModelOptions]="{standalone: true}" [(ngModel)]="question.value"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div *ngIf="received_item.info.code == 'Smoking'" style="margin-top: 3vh;padding-bottom: 3vh;">
+        <div class="weight-div" *ngFor="let question of received_item.info.questions">
+          <div class="first-word" [ngStyle]="setYesActiveStyle(question.value)">Yes</div>
+          <div class="second-word" [ngStyle]="setNoActiveStyle(question.value)">No</div>
+        </div>
+      </div>
+
+      <div *ngIf="received_item.info.code == 'Alcohol'" style="margin-top: 5vh;">
+        <ion-list>
+          <ion-item *ngFor="let question of received_item.info.questions; let questionIndex = index">
+            {{question.label}}
+
+            <div class="alcohol-text2">
+              {{question.value}}
+            </div>
+
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div *ngIf="received_item.info.code == 'Sleep'">
+        <ion-list *ngFor="let question of received_item.info.questions; let questionIndex = index">
+          <ion-item no-lines *ngIf="showSleepQuestion(question.code)">
+            <ion-label>{{question.label}}</ion-label>
+            <ion-checkbox disabled name="check[{{questionIndex}}]" [ngModelOptions]="{standalone: true}" [(ngModel)]="question.value"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div *ngIf="received_item.info.code == 'Hypertension'" style="margin-top: 3vh;padding-bottom: 2vh;">
+        <ion-list>
+          <ion-item no-lines>
+            <ion-label>{{received_item.info.questions[2].label}}</ion-label>
+            <ion-checkbox name="check" [ngModelOptions]="{standalone: true}" [(ngModel)]="received_item.info.questions[2].value"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+
+        <ion-item>
+          <ion-label>Systolic blood pressure:
+            <span>{{received_item.info.questions[0].value}}</span>
+            <span>{{getUnit(received_item.info.questions[0].unit)}}</span>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Diastolic blood pressure:
+            <span>{{received_item.info.questions[1].value}}</span>
+            <span>{{getUnit(received_item.info.questions[1].unit)}}</span>
+          </ion-label>
+        </ion-item>
+
+        <!-- <div>
+          <ion-label stacked>Systolic blood pressure</ion-label>
+        </div>
+        <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-input disabled #systolicF="ngModel" type="text" name="systolicF" [pattern]="validator.indicator_validator.value_pattern"
+              [(ngModel)]="received_item.info.questions[0].value" required placeholder=""></ion-input>
+          </ion-item>
+
+          <ion-item class="unit-select-item">
+            <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" disabled name="sysbp_unit" [(ngModel)]="received_item.info.questions[0].unit">
+              <ion-option *ngFor="let unit of received_item.info.questions[0].units" [value]="unit">{{unit}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+        </div>
+        <div class="error-box" *ngIf="systolicF.hasError('required') && systolicF.touched">Required!</div>
+        <div class="error-box" *ngIf="systolicF.hasError('pattern') && systolicF.touched">Systolic BP value is not valid!</div>
+
+        <div>
+          <ion-label stacked>Diastolic blood pressure</ion-label>
+        </div>
+        <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-input disabled #diastolicF="ngModel" type="text" name="diastolicF" [pattern]="validator.indicator_validator.value_pattern"
+              [(ngModel)]="received_item.info.questions[1].value" required placeholder=""></ion-input>
+          </ion-item>
+
+          <ion-item class="unit-select-item">
+            <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" disabled name="dysbp_unit" [(ngModel)]="received_item.info.questions[1].unit">
+              <ion-option *ngFor="let unit of received_item.info.questions[1].units" [value]="unit">{{unit}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <div class="error-box" *ngIf="diastolicF.hasError('required') && diastolicF.touched">Required!</div>
+        <div class="error-box" *ngIf="diastolicF.hasError('pattern') && diastolicF.touched">Diastolic BP value is not valid!</div> -->
+      </div>
+
+      <div *ngIf="received_item.info.code == 'Depression'">
+        <ion-list>
+
+          <ion-list-header>
+            Over the last two weeks, how often have you been bothered by any of the following problems?
+          </ion-list-header>
+          <ion-item *ngFor="let question of received_item.info.questions; let questionIndex = index">
+            {{question.label}}
+
+            <div class="alcohol-text2">
+              {{question.value}}
+            </div>
+          </ion-item>
+
+        </ion-list>
+      </div>
+
+      <div *ngIf="received_item.info.code == 'Diabetes'" style="margin-top: 3vh;padding-bottom: 2vh;">
+        <ion-item>
+          <ion-label>Recent HbA 1c level:
+            <span>{{received_item.info.questions[1].value}}</span>
+            <span>{{getUnit(received_item.info.questions[1].unit)}}</span>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Fasting Glucose level:
+            <span>{{received_item.info.questions[2].value}}</span>
+            <span>{{getUnit(received_item.info.questions[2].unit)}}</span>
+          </ion-label>
+        </ion-item>
+        <!-- <div>
+          <ion-label stacked>Recent HbA 1c level</ion-label>
+        </div>
+        <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-input disabled #hbaF="ngModel" type="text" name="hbaF" [(ngModel)]="received_item.info.questions[1].value" [pattern]="validator.indicator_validator.value_pattern"
+              required placeholder=""></ion-input>
+          </ion-item>
+
+          <ion-item class="unit-select-item">
+            <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" disabled name="hba_unit" [(ngModel)]="received_item.info.questions[1].unit">
+              <ion-option *ngFor="let unit of received_item.info.questions[1].units" [value]="unit">{{unit}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+        </div>
+        <div class="error-box" *ngIf="hbaF.hasError('required') && hbaF.touched">Required!</div>
+        <div class="error-box" *ngIf="hbaF.hasError('pattern') && hbaF.touched">HBA value is not valid!</div>
+
+        <div>
+          <ion-label stacked>Fasting Glucose level</ion-label>
+        </div>
+        <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-input disabled #glucoseF="ngModel" type="text" name="glucoseF" [pattern]="validator.indicator_validator.value_pattern"
+              [(ngModel)]="received_item.info.questions[2].value" required placeholder=""></ion-input>
+          </ion-item>
+
+          <ion-item class="unit-select-item">
+            <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" disabled name="glucose_unit" [(ngModel)]="received_item.info.questions[2].unit">
+              <ion-option *ngFor="let unit of received_item.info.questions[2].units" [value]="unit">{{unit}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <div class="error-box" *ngIf="glucoseF.hasError('required') && glucoseF.touched">Required!</div>
+        <div class="error-box" *ngIf="glucoseF.hasError('pattern') && glucoseF.touched">Glucose value is not valid!</div> -->
+      </div>
+
+      <div *ngIf="received_item.info.code == 'Cardio'" style="margin-top: 3vh;padding-bottom: 2vh;">
+
+        <ion-item>
+          <ion-label>Total cholesterol(mg/dL):
+            <span>{{received_item.info.questions[0].value}}</span>
+            <span>{{getUnit(received_item.info.questions[0].unit)}}</span>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>HDL cholesterol(mg/dL):
+            <span>{{received_item.info.questions[1].value}}</span>
+            <span>{{getUnit(received_item.info.questions[1].unit)}}</span>
+          </ion-label>
+        </ion-item>
+
+        <!-- <div>
+          <ion-label stacked>Total cholesterol(mg/dL)</ion-label>
+        </div>
+        <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-input disabled #totalF="ngModel" type="text" name="totalF" [(ngModel)]="received_item.info.questions[0].value" [pattern]="validator.indicator_validator.value_pattern"
+              required placeholder=""></ion-input>
+          </ion-item>
+          <ion-item class="unit-select-item">
+            <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" disabled name="totalchl_unit" [(ngModel)]="received_item.info.questions[0].unit">
+              <ion-option *ngFor="let unit of received_item.info.questions[0].units" [value]="unit">{{unit}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <div class="error-box" *ngIf="totalF.hasError('required') && totalF.touched">Required!</div>
+        <div class="error-box" *ngIf="totalF.hasError('pattern') && totalF.touched">Cholestrol value is not valid!</div>
+
+        <div>
+          <ion-label stacked>HDL cholesterol(mg/dL)</ion-label>
+        </div>
+        <div class="weight-div">
+          <ion-item class="name_fld">
+            <ion-input disabled #hdlF="ngModel" type="text" name="hdlF" [(ngModel)]="received_item.info.questions[1].value" [pattern]="validator.indicator_validator.value_pattern"
+              required placeholder=""></ion-input>
+          </ion-item>
+          <ion-item class="unit-select-item">
+            <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" disabled name="hdlchl_unit" [(ngModel)]="received_item.info.questions[1].unit">
+              <ion-option *ngFor="let unit of received_item.info.questions[1].units" [value]="unit">{{unit}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <div class="error-box" *ngIf="hdlF.hasError('required') && hdlF.touched">Required!</div>
+        <div class="error-box" *ngIf="hdlF.hasError('pattern') && hdlF.touched">Cholestrol value is not valid!</div> -->
+      </div>
+
+    </form>
+  </div>
+</ion-content>

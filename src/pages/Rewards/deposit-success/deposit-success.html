@@ -1,0 +1,41 @@
+<!--
+  Generated template for the DepositSuccessPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Deposit</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<div class="success-img-div">
+		<img class="success-img" src="assets/imgs/HealthIndexIcons/sad@2x.png">
+	</div>
+	<div class="success-div">
+		Thank you!
+	</div>
+	<div class="success-descrition">
+		Your deposit transaction was successfully done.
+	</div>
+
+	<div class="failure-btns-div">
+		<div class="close-btn" (click)="Close()">Close</div>
+	</div>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar *ngIf="!search_bar">
+
+    <ion-buttons start>
+      <button ion-button icon-only (click)="close()">Cancel</button>
+      <!-- <button ion-button menuToggle icon-only class="menu_icon"><ion-icon name="menu"></ion-icon></button> -->
+    </ion-buttons>
+
+    <ion-title>Select Campaign</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="search()">
+        <ion-icon name="ios-search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+  <ion-navbar *ngIf="search_bar" style="height: 40px;">
+
+    <ion-searchbar class="search-div" [(ngModel)]="search_query"></ion-searchbar>
+    <button ion-button class="cancel" (click)="search()">Cancel</button>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background-color: #eaeaea;">
+
+  <p class="head_title">Select one of our preset templates</p>
+
+  <div class="template" *ngFor="let item of templates | templateSearch: search_query" (click)="goCreateCampaign(item)">
+    <p>{{item.template}}</p>
+    <div class="img_list">
+      <img *ngFor="let img of item.data" [src]="img.image">
+    </div>
+  </div>
+</ion-content>

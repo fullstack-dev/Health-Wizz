@@ -1,0 +1,48 @@
+{
+  "frequency": [{
+      "indicatorCode": "Daily Weight",
+      "count": 24,
+      "timespan": "hour"
+    },
+    {
+      "indicatorCode": "Leg Swelling",
+      "count": 24,
+      "timespan": "hour"
+    },
+    {
+      "indicatorCode": "Short Of Breath",
+      "count": 24,
+      "timespan": "hour"
+    },
+    {
+      "indicatorCode": "Pulse",
+      "count": 24,
+      "timespan": "hour"
+    },
+    {
+      "indicatorCode": "Oxygen Saturation",
+      "count": 24,
+      "timespan": "hour"
+    },
+    {
+      "indicatorCode": "Fluid Restriction",
+      "count": 24,
+      "timespan": "hour"
+    },
+    {
+      "indicatorCode": "Meds Taken As Advised",
+      "count": 24,
+      "timespan": "hour"
+    },
+    {
+      "indicatorCode": "Low Salt Diet",
+      "count": 24,
+      "timespan": "hour"
+    },
+    {
+      "indicatorCode": "Appointment",
+      "count": 1,
+      "timespan": "month"
+    }
+  ]
+}

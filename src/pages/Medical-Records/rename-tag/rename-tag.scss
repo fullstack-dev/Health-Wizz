@@ -1,0 +1,28 @@
+page-rename-tag {
+	.name_fld{
+	    padding: 0;
+	    width: 100%;
+        margin-top: 50%;
+	        
+	    .item-inner{
+	      	border: none !important;
+	      	.label{
+		        font-size: 14px;
+		        font-family: 'SF-UI-Text' !important;
+		        color: #737370;
+		        padding-bottom: 3px;
+		        sup{
+		          color: red;
+		          font-weight: 900;
+		        }
+	      	}
+	      	.input{
+		        border: 1px solid $font-appcolor;
+		        border-radius: 2px;
+	      		padding: 0 10px;
+	      		.text-input{
+	      		}
+	      	}
+	    }
+	}
+}

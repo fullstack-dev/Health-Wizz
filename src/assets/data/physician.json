@@ -1,0 +1,31 @@
+{
+	"physicians": [
+		{ 
+			"name": "Anne Ferguson", 
+			"phone_number": "(781)135 8456", 
+			"address": "1 Main st., Somerville, MA, 02145 Distance: 1 mile", 
+			"avatar": "assets/imgs/AvatarImgs/avatar_ex1.png", 
+			"more_part": "1111 I no longer miss work to go to the doctor. I no longer wait hours sitting in a doctors office just to see the doctor. In the past, after seeing the doctor, I now no longer have to wait at a pharmacy to get my prescriptions filled. I now get medical treatment and prescriptions without leaving the house. I get all of this and its just a click away. Not only a click away, but its also legal." 
+		},		
+		{ 
+			"name": "Waist", 
+			"phone_number": "(581)135 8457", 
+			"address": "2 Main st., Somerville, MA, 02145 Distance: 2 mile", 
+			"avatar": "assets/imgs/AvatarImgs/avatar_ex2.jpg", 
+			"more_part": "2222 I no longer miss work to go to the doctor. I no longer wait hours sitting in a doctors office just to see the doctor. In the past, after seeing the doctor, I now no longer have to wait at a pharmacy to get my prescriptions filled. I now get medical treatment and prescriptions without leaving the house. I get all of this and its just a click away. Not only a click away, but its also legal." 
+		},
+		{ 
+			"name": "Exercise", 
+			"phone_number": "(281)135 8458", 
+			"address": "3 Main st., Somerville, MA, 02145 Distance: 3 mile", 
+			"avatar": "assets/imgs/AvatarImgs/avatar_ex3.png", 
+			"more_part": "3333 I no longer miss work to go to the doctor. I no longer wait hours sitting in a doctors office just to see the doctor. In the past, after seeing the doctor, I now no longer have to wait at a pharmacy to get my prescriptions filled. I now get medical treatment and prescriptions without leaving the house. I get all of this and its just a click away. Not only a click away, but its also legal." },
+		{ 
+			"name": "Nutrition/Diet", 
+			"phone_number": "(632)135 8459", 
+			"address": "4 Main st., Somerville, MA, 02145 Distance: 4 mile", 
+			"avatar": "assets/imgs/AvatarImgs/avatar_ex4.jpg", 
+			"more_part": "4444 I no longer miss work to go to the doctor. I no longer wait hours sitting in a doctors office just to see the doctor. In the past, after seeing the doctor, I now no longer have to wait at a pharmacy to get my prescriptions filled. I now get medical treatment and prescriptions without leaving the house. I get all of this and its just a click away. Not only a click away, but its also legal." 
+		}
+	]
+}

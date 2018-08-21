@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>My Health Index</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item-group *ngIf="high_risky_indexes.length > 0">
+    <ion-item-divider class="index-list-divider" id="high-risky-divider">High Risk</ion-item-divider>
+    <ion-item *ngFor="let index of high_risky_indexes">
+      <ion-avatar item-start>
+        <img [src]="index.info.image">
+      </ion-avatar>
+      <h2 class="index-label">{{index.info.label}}</h2>
+      <!-- <h2 class="index-count" item-end *ngIf="showScore(index.data.calculatedValue)">{{formatValue(index.data.calculatedValue)}}</h2> -->
+      <button ion-button item-end (click)="goToSubmitReport(index)">Update</button>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group *ngIf="risky_indexes.length > 0">
+    <ion-item-divider class="index-list-divider" id="risky-divider">Medium Risk</ion-item-divider>
+    <ion-item *ngFor="let index of risky_indexes">
+      <ion-avatar item-start>
+        <img [src]="index.info.image">
+      </ion-avatar>
+      <h2 class="index-label">{{index.info.label}}</h2>
+      <!-- <h2 class="index-count" item-end *ngIf="showScore(index.data.calculatedValue)">{{formatValue(index.data.calculatedValue)}}</h2> -->
+      <button ion-button item-end (click)="goToSubmitReport(index)">Update</button>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group *ngIf="healthy_indexes.length > 0">
+    <ion-item-divider class="index-list-divider" id="healthy-divider">Healthy</ion-item-divider>
+    <ion-item *ngFor="let index of healthy_indexes">
+      <ion-avatar item-start>
+        <img [src]="index.info.image">
+      </ion-avatar>
+      <h2 class="index-label">{{index.info.label}}</h2>
+      <!-- <h2 class="index-count" item-end *ngIf="showScore(index.data.calculatedValue)">{{formatValue(index.data.calculatedValue)}}</h2> -->
+      <button ion-button item-end (click)="goToSubmitReport(index)">Update</button>
+    </ion-item>
+  </ion-item-group>
+
+  <div *ngIf="high_risky_indexes.length == 0 && risky_indexes.length == 0 && healthy_indexes.length == 0">
+    <div id="empty-text-div">Your health index is not available yet. Go and update your indexes.</div>
+    <div id="empty-btn-div">
+      <button ion-button block style="width:50vw;margin:auto" (click)="goToSubmitReportInitial()">Take me there</button>
+    </div>
+  </div>
+
+</ion-content>

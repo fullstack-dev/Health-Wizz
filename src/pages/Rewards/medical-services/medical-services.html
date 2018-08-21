@@ -1,0 +1,49 @@
+<!--
+  Generated template for the MedicalServicesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+  	
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Shop</ion-title>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<div class="encryp-img-div">
+		<img class="encryp-img" src="assets/imgs/ShopImgs/encryp_title.png"/>
+	</div>
+
+	<div class="title">
+		{{medical_title}}
+	</div>
+
+	<div class="description">
+		{{medical_description}}
+	</div>
+
+	<div class="last-img-div">
+		<img class="last-img" src="assets/imgs/ShopImgs/encryp_detail.png"/>
+	</div>
+
+	<div class="gotowebsite-btn" (click)="goToWebsite()">
+		Go to website
+	</div>
+
+</ion-content>

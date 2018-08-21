@@ -1,0 +1,7 @@
+{
+	"login_data": [
+		{ "id": "1", "name": "Mary Hansen", "email": "mary.hansen@mail.com", "password": "abc123", "gender": "female" },
+		{ "id": "2", "name": "Frank Robben", "email": "frank_robbenok@outlook.com", "password": "abc123", "gender": "male" },
+		{ "id": "3", "name": "Test Robben", "email": "test@test.com", "password": "abc123", "gender": "male" }
+	]
+}

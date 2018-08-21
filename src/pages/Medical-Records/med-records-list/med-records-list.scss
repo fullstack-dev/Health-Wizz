@@ -1,0 +1,172 @@
+page-med-records-list {
+	.add-txt {
+		width: 88%;
+	    color: #009EA9;
+	    font-size: 17px;
+	    line-height: 20px;
+	    margin-left: 50%;
+	    transform: translateX(-50%);
+	    margin-top: 50px;
+	}
+
+	.add-btn {
+		width: 40%;
+	    height: 40px;
+	    margin-top: 20px;
+	    margin-left: 50%;
+	    transform: translateX(-50%);
+	    color: #FFFFFF;
+	    font-size: 20px;
+	    line-height: 24px;
+	    text-align: center;
+	    border-radius: 4px;
+	    background-color: #41C4CD;
+	    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+	}
+
+	.card-ios {
+    	border-radius: 10px;
+	}
+	
+	.item-background {
+		padding: 15px 25px 25px 15px;
+		position: relative;
+	}
+
+	.date-txt {
+	    color: #737370;
+	    font-family: 'SF-UI-Text';
+	    font-size: 3.5vw;	
+	    line-height: 14px;
+	}
+
+	.con-div {
+	    width: 100%;
+    	display: inline-block;
+	    margin-top: 3vh;
+	    min-height: 1.7rem;
+	}
+
+	.prov-div {
+	    width: 100%;
+    	display: inline-block;
+	    padding-bottom: 8px;
+	    min-height: 1.7rem;
+	}
+
+	.tag-div {
+	    width: 100%;
+    	display: inline-block;
+    	min-height: 1.7rem;
+	}
+
+	ul {
+	    list-style-type: none;
+	    margin: 0;
+	    padding: 0;
+	}
+
+	li {
+	    float: left;
+        min-height: 25px;
+        max-width: 100%;
+    	white-space: normal;
+	}
+
+	.con-div li a {
+	    padding: 0 8px 0 0;
+	    color: #000000;	
+	    font-family: 'SF-UI-Text';	
+	    font-size: 1.7rem;	
+	    line-height: 22px;
+	}
+
+	.prov-div li a {
+	    padding: 0 8px 0 0;
+	    color: #60605D;	
+   		font-family: 'SF-UI-Text';	
+   		font-size: 1.2rem;
+   		line-height: 22px;
+	}
+
+	.tag-div li a {
+	    padding: 0 8px 0 0;
+	    color: #179fa9;
+   		font-family: 'SF-UI-Text';	
+   		font-size: 1.4rem;	
+   		line-height: 22px;
+	}
+
+	.pencil-pro {
+	    width: 1.2rem;
+	    height: 1.2rem;
+	    right: 12px;
+	    position: absolute;
+	}
+
+	.doc-title-txt {
+		color: #91928E;	
+		font-family: 'SF-UI-Text';	
+		font-size: 3.5vw;	
+		line-height: 22px;
+	    margin-top: 3vw;
+	}
+
+	.posi {
+	    position: absolute;
+	    right: 5vw;
+	    bottom: 2vw;
+	}
+
+	.checkbox-ios-dark .checkbox-checked {
+	    background-color: $button-color;
+	    border: 1px solid $button-color;
+	}
+
+	.scroll-content { 
+	    margin: 44px 0 30px 0;
+	}
+
+	.toolbar {
+		.toolbar-content {
+			.bar-buttons {
+				justify-content: center;
+			    align-items: center;
+			    vertical-align: middle;
+			    text-align: center;
+			}
+		}
+	}
+
+	.toolbar-title {
+		color: #179fa9;
+	}
+
+	.bottom-many-btn {
+		width: 17%;
+
+		img {
+		    width: 1.3rem;
+		}
+
+		span {
+			color: white;
+		}
+
+		.icon {
+		    font-size: 1.3em!important;
+		}
+	}
+
+	.bottom-small-btn {
+		width: 22%;
+
+		img {
+		    width: 1.3rem;
+		}
+
+		.icon {
+		    font-size: 1.3em!important;
+		}
+	}
+}

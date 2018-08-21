@@ -1,0 +1,30 @@
+page-leave-dialog {
+    background-color: black;
+}
+
+.leave-modal-div {
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: 5%;
+    width: 80%;
+    border-radius: 10px;
+    padding: 5vw;
+}
+
+.leave-modal-title-div {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    height: 12vw;
+}
+
+.leave-txt-div {
+    text-align: left;
+    height: 30vw;
+    line-height: 8vw;
+}

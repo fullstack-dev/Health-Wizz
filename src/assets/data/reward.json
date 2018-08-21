@@ -1,0 +1,313 @@
+{
+  "wallet_list": [{
+      "wallet_title": "OmPoint wallet",
+      "balance": "145",
+      "wallet_address": "0x1ae42D3054b8079Ff0694E7B43c230394aFc2426",
+      "balance_logo": "assets/imgs/HomeIcons/Reward_Main.png",
+      "buy_omc_flag": "true",
+      "transaction_history": [{
+          "score": "+1",
+          "transaction_name": "Buying Used Electronic",
+          "date": "12/01/2017 11:34AM",
+          "amount": "145",
+          "sold_amount": "1",
+          "sold_unit": "ETH",
+          "bought_arrow": "right",
+          "bought_amount": "600",
+          "bought_unit": "OMC",
+          "balance_amount": "3"
+        },
+        {
+          "score": "+24",
+          "transaction_name": "Cooking For Special Occasions",
+          "date": "07/01/2017 03:11PM",
+          "amount": "144",
+          "sold_amount": "0.1",
+          "sold_unit": "ETH",
+          "bought_arrow": "right",
+          "bought_amount": "60",
+          "bought_unit": "OMC",
+          "balance_amount": "4.1"
+        },
+        {
+          "score": "-1",
+          "transaction_name": "Maui By Air The Best Way",
+          "date": "30/12/2016 2:03AM",
+          "amount": "120",
+          "sold_amount": "0.021",
+          "sold_unit": "ETH",
+          "bought_arrow": "right",
+          "bought_amount": "30",
+          "bought_unit": "OMC",
+          "balance_amount": "4.121"
+        },
+        {
+          "score": "-350",
+          "transaction_name": "MEN'S RUNNING ULTRABOOST SHOES",
+          "date": "29/12/2016 9:03AM",
+          "amount": "121",
+          "sold_amount": "0.11",
+          "sold_unit": "ETH",
+          "bought_arrow": "right",
+          "bought_amount": "450",
+          "bought_unit": "OMC",
+          "balance_amount": "4.231"
+        },
+        {
+          "score": "-100",
+          "transaction_name": "Mounthly pass to the Gold's Gym1",
+          "date": "25/12/2016 11:03AM",
+          "amount": "471",
+          "sold_amount": "Deposit",
+          "sold_unit": "",
+          "bought_arrow": "down",
+          "bought_amount": "1.180",
+          "bought_unit": "ETH",
+          "balance_amount": "6.681"
+        },
+        {
+          "score": "-300",
+          "transaction_name": "Mounthly pass to the Gold's Gym2",
+          "date": "25/12/2016 11:03AM",
+          "amount": "471",
+          "sold_amount": "Deposit",
+          "sold_unit": "",
+          "bought_arrow": "down",
+          "bought_amount": "1.25",
+          "bought_unit": "ETH",
+          "balance_amount": "5.581"
+        }
+      ],
+      "singlesList": [{
+          "id": 0,
+          "date": "Sep 18th, 2017 10: AM",
+          "choice": "Often",
+          "value": true
+        },
+        {
+          "id": 1,
+          "date": "Sep 17th, 2017 11: AM",
+          "choice": "3-5 times a week",
+          "value": false
+        },
+        {
+          "id": 2,
+          "date": "Sep 16th, 2017 09: AM",
+          "choice": "3-5 times a week",
+          "value": true
+        },
+        {
+          "id": 2,
+          "date": "Sep 15th, 2017 08: AM",
+          "choice": "Often",
+          "value": false
+        },
+        {
+          "id": 2,
+          "date": "Sep 14th, 2017 09: AM",
+          "choice": "3-5 times a week",
+          "value": true
+        }
+      ],
+      "yesnoList": [{
+          "id": 0,
+          "date": "Sep 18th, 2017 10: AM",
+          "answer": "Yes",
+          "value": true
+        },
+        {
+          "id": 1,
+          "date": "Sep 17th, 2017 08: AM",
+          "answer": "Yes",
+          "value": false
+        },
+        {
+          "id": 2,
+          "date": "Sep 16th, 2017 09: AM",
+          "answer": "No",
+          "value": true
+        },
+        {
+          "id": 2,
+          "date": "Sep 15th, 2017 05: AM",
+          "answer": "Yes",
+          "value": false
+        },
+        {
+          "id": 2,
+          "date": "Sep 14th, 2017 07: AM",
+          "answer": "No",
+          "value": true
+        }
+      ],
+      "textList": [{
+          "id": 0,
+          "date": "Sep 18th, 2017 10: AM",
+          "text": "Having trouble falling asleep, or sleeping too much. Filling tired or having little energy",
+          "value": true
+        },
+        {
+          "id": 0,
+          "date": "Sep 16th, 2017 07: AM",
+          "text": "Having trouble falling asleep, or sleeping too much. Filling tired or having little energy",
+          "value": false
+        }
+      ]
+    },
+    {
+      "wallet_title": "Ethereum wallet",
+      "balance": "0.0057",
+      "wallet_address": "0x2be42F9955h9979Ft7654E7B43c230394aVd8555",
+      "balance_logo": "assets/imgs/RewardsImgs/reward2.png",
+      "buy_omc_flag": "false",
+      "transaction_history": [{
+          "score": "+1",
+          "transaction_name": "Buying Used Electronic",
+          "date": "12/01/2017 11:34AM",
+          "amount": "145",
+          "sold_amount": "1",
+          "sold_unit": "ETH",
+          "bought_arrow": "right",
+          "bought_amount": "600",
+          "bought_unit": "OMC",
+          "balance_amount": "3"
+        },
+        {
+          "score": "+24",
+          "transaction_name": "Cooking For Special Occasions",
+          "date": "07/01/2017 03:11PM",
+          "amount": "144",
+          "sold_amount": "0.1",
+          "sold_unit": "ETH",
+          "bought_arrow": "right",
+          "bought_amount": "60",
+          "bought_unit": "OMC",
+          "balance_amount": "4.1"
+        },
+        {
+          "score": "-1",
+          "transaction_name": "Maui By Air The Best Way",
+          "date": "30/12/2016 2:03AM",
+          "amount": "120",
+          "sold_amount": "0.021",
+          "sold_unit": "ETH",
+          "bought_arrow": "right",
+          "bought_amount": "30",
+          "bought_unit": "OMC",
+          "balance_amount": "4.121"
+        },
+        {
+          "score": "-350",
+          "transaction_name": "MEN'S RUNNING ULTRABOOST SHOES",
+          "date": "29/12/2016 9:03AM",
+          "amount": "121",
+          "sold_amount": "0.11",
+          "sold_unit": "ETH",
+          "bought_arrow": "right",
+          "bought_amount": "450",
+          "bought_unit": "OMC",
+          "balance_amount": "4.231"
+        },
+        {
+          "score": "-100",
+          "transaction_name": "Mounthly pass to the Gold's Gym1",
+          "date": "25/12/2016 11:03AM",
+          "amount": "471",
+          "sold_amount": "Deposit",
+          "sold_unit": "",
+          "bought_arrow": "down",
+          "bought_amount": "1.180",
+          "bought_unit": "ETH",
+          "balance_amount": "6.681"
+        },
+        {
+          "score": "-300",
+          "transaction_name": "Mounthly pass to the Gold's Gym2",
+          "date": "25/12/2016 11:03AM",
+          "amount": "471",
+          "sold_amount": "Deposit",
+          "sold_unit": "",
+          "bought_arrow": "down",
+          "bought_amount": "1.25",
+          "bought_unit": "ETH",
+          "balance_amount": "5.581"
+        }
+      ],
+      "singlesList": [{
+          "id": 0,
+          "date": "Sep 18th, 2017 10: AM",
+          "choice": "Often",
+          "value": true
+        },
+        {
+          "id": 1,
+          "date": "Sep 17th, 2017 11: AM",
+          "choice": "3-5 times a week",
+          "value": false
+        },
+        {
+          "id": 2,
+          "date": "Sep 16th, 2017 09: AM",
+          "choice": "3-5 times a week",
+          "value": true
+        },
+        {
+          "id": 2,
+          "date": "Sep 15th, 2017 08: AM",
+          "choice": "Often",
+          "value": false
+        },
+        {
+          "id": 2,
+          "date": "Sep 14th, 2017 09: AM",
+          "choice": "3-5 times a week",
+          "value": true
+        }
+      ],
+      "yesnoList": [{
+          "id": 0,
+          "date": "Sep 18th, 2017 10: AM",
+          "answer": "Yes",
+          "value": true
+        },
+        {
+          "id": 1,
+          "date": "Sep 17th, 2017 08: AM",
+          "answer": "Yes",
+          "value": false
+        },
+        {
+          "id": 2,
+          "date": "Sep 16th, 2017 09: AM",
+          "answer": "No",
+          "value": true
+        },
+        {
+          "id": 2,
+          "date": "Sep 15th, 2017 05: AM",
+          "answer": "Yes",
+          "value": false
+        },
+        {
+          "id": 2,
+          "date": "Sep 14th, 2017 07: AM",
+          "answer": "No",
+          "value": true
+        }
+      ],
+      "textList": [{
+          "id": 0,
+          "date": "Sep 18th, 2017 10: AM",
+          "text": "Having trouble falling asleep, or sleeping too much. Filling tired or having little energy",
+          "value": true
+        },
+        {
+          "id": 0,
+          "date": "Sep 16th, 2017 07: AM",
+          "text": "Having trouble falling asleep, or sleeping too much. Filling tired or having little energy",
+          "value": false
+        }
+      ]
+    }
+  ]
+}

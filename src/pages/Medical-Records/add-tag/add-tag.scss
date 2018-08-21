@@ -1,0 +1,73 @@
+page-add-tag {
+
+	.name_fld{
+	    padding: 0;
+	    width: 100%;
+	    .item-inner{
+	      	border: none !important;
+	      	.label{
+		        font-size: 14px;
+		        font-family: 'SF-UI-Text' !important;
+		        color: #737370;
+		        padding-bottom: 3px;
+		        sup{
+		          color: red;
+		          font-weight: 900;
+		        }
+	      	}
+	      	.input{
+		        border: 1px solid $font-appcolor;
+		        border-radius: 2px;
+	      		padding: 0 10px;
+	      		.text-input{
+	      		}
+	      	}
+	    }
+	}
+
+	.category-div {
+		color: #737370;
+		margin-top: 3vh;
+	}
+
+	.input-remove-div {
+		display: flex;
+	}
+
+	.remove-img {
+	    font-size: 3rem;
+	    margin-top: 11px;
+	    font-weight: bold;
+	}
+
+	.visible_div{
+		margin-top: 10px;
+	    border-bottom: 1px solid #EFEFF4;
+
+	    .part {
+	    	border-bottom: 1px solid #EFEFF4;
+	    	
+	    	.item{
+				padding-left: 0;
+
+				.shown
+				{
+					color: #000;
+				}
+				.hidden
+				{
+					color: #b2b2b2;
+				}
+				.item-inner{
+					.label
+					{
+						font-size: 1.4rem;
+						white-space: normal;
+					}
+
+				}
+			}
+	    }	
+	}
+
+}

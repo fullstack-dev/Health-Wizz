@@ -1,0 +1,54 @@
+page-deposit-failure {
+	.sad-img-div {
+	    margin: 20vw 0 10vw 0;
+	    text-align: center;
+	}
+
+	.sad-img {
+    	width: 20vw;
+	}
+
+	.sorry-div {
+	    text-align: center;
+	    font-size: 8vw;
+	}
+
+	.sorry-descrition {
+	    text-align: center;
+	    font-size: 4vw;
+	    margin-top: 8vw;
+	    color: #737370;
+	}
+
+	.failure-btns-div {
+    margin-top: 65vw;
+    display: flex;
+	}
+
+	.try-btn {
+	    width: 44%;
+	    text-align: center;
+	    border: 2px solid $button-color;
+	    border-radius: 5px;
+	    font-size: 5vw;
+	    color: $button-color;
+	    background-color: white;
+	    height: 11vw;
+	    padding-top: 2vw;
+	}
+
+	.clo-btn {
+	    width: 40%;
+	    text-align: center;
+	    border: 2px solid $button-color;
+	    border-radius: 5px;
+	    font-size: 5vw;
+	    color: white;
+	    background-color: $button-color;
+	    right: 0;
+	    position: absolute;
+	    height: 11vw;
+	    padding-top: 2vw;
+	    margin-right: 5vw;
+	}
+}

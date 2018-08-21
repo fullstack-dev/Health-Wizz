@@ -1,0 +1,54 @@
+page-campaign-template {
+
+	h1, h2, h3, h4, h5, p, button, .label{
+		font-family: 'SF-UI-Text';
+	}
+
+	.toolbar{
+		button{
+			margin: 0 5px;
+		}
+		.menu_icon{
+			float: right;
+		}
+		.search-div{
+			width: 80%;
+			float: left;
+		}
+		.cancel{
+			float: left;
+			width: 15%;
+			margin-top: 8px;
+			font-size: 1rem;
+		}
+	}
+
+	.head_title{
+		font-size: 16px;
+		color: $font-des;
+	}
+
+	.template{
+
+		width: 100%;
+	    padding: 10px 30px;
+	    border: 1px solid white;
+	    border-radius: 10px;
+	    box-shadow: 0px 0px 20px grey;
+	    background-color: #fff;
+	    margin-bottom: 20px;
+	    p{
+	    	font-size: 18px;
+	    	margin-top: 5px;
+	    }
+		.img_list{
+			img{
+				width: 10%;
+				margin: 12px;
+			}
+		}
+	}
+
+
+
+}

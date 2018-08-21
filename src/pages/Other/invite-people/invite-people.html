@@ -1,0 +1,126 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start *ngIf="screen_info?.action == 'add'">
+      <button ion-button icon-only (click)="before()" *ngIf="!show_back">
+        Cancel
+      </button>
+      <!-- <button ion-button menuToggle icon-only class="menu_icon">
+        <ion-icon name="menu"></ion-icon>
+      </button> -->
+    </ion-buttons>
+
+    <ion-buttons start *ngIf="screen_info?.action == 'send' && show_back">
+
+      <button ion-button icon-only (click)="before()">
+        Close
+      </button>
+
+    </ion-buttons>
+    <ion-title *ngIf="screen_info">{{getTitle()}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="done()">Done</button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <!-- <ion-navbar *ngIf="pageValue">
+    <ion-buttons start>
+      <button ion-button clear (click)="cancel()">Cancel</button>
+    </ion-buttons>
+    <ion-title>{{pageValue}}</ion-title>
+    <ion-buttons end>
+      <button ion-button clear (click)="campDone()">Done</button>
+    </ion-buttons>
+  </ion-navbar> -->
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <!-- <div class="slide-box">
+
+    <swiper [config]="config" class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let item of socialData">
+          <img class="profile_img" [src]="item.image" alt="">
+          <p>{{item.name}}</p>
+        </div>
+      </div>
+      <div class="swiper-scrollbar"></div>
+    </swiper>
+
+  </div> -->
+
+  <div class="search_div">
+
+    <form #myform="ngForm">
+      <ion-item style="padding-left: 0">
+        <ion-input style="margin: 0 8px;border: 1px solid #00A1AD;border-radius: 4px;" name="invite_input" #inviteInput="ngModel"
+          [(ngModel)]="input_value.value" placeholder="Enter email or phone" required></ion-input>
+        <button ion-fab mini item-end *ngIf="screen_info?.action == 'send'" [disabled]="!validateInviteInput()" (click)="addContactFromInput()">
+          <ion-icon name="add" style="color:#ffffff"></ion-icon>
+        </button>
+        <button ion-fab mini item-end *ngIf="screen_info?.action == 'add'" [disabled]="!validateInviteInput()" (click)="addInvitieFromInput()">
+          <ion-icon name="add" style="color:#ffffff"></ion-icon>
+        </button>
+      </ion-item>
+      <div style="font-size: 12px; margin-left:8px; color: red" *ngIf="!validateInviteInput() && inviteInput.dirty && !inviteInput.hasError('required')">
+        <p style="margin:0">Email or phone is not valid.</p>
+      </div>
+
+      <!-- <ion-item style="padding-left: 0">
+        <ion-input style="margin: 0 8px;border: 1px solid #00A1AD;" name="invite_input" #inviteInput="ngModel" [(ngModel)]="input_value.value"
+          placeholder="Enter email or phone" required></ion-input>
+      </ion-item>
+      <div *ngIf="validateInviteInput() && screen_info?.action == 'send'" style="text-align: center">
+        <button style="width: 50%; margin:auto" ion-button block item-end (click)="addContactFromInput()">Add</button>
+      </div>
+      <div *ngIf="validateInviteInput() && screen_info?.action == 'add'" style="text-align: center">
+        <button style="width: 50%; margin:auto" ion-button block item-end (click)="addInvitieFromInput()">Add</button>
+      </div>
+      <div style="font-size: 12px; margin-left:8px; color: red" *ngIf="!validateInviteInput() && inviteInput.dirty && !inviteInput.hasError('required')">
+        <p style="margin:0">Email or phone is not valid.</p>
+      </div> -->
+
+    </form>
+
+    <ion-searchbar [(ngModel)]="searchQuery"></ion-searchbar>
+    <ion-list *ngIf="screen_info?.action == 'send'">
+      <ion-item *ngFor="let item of contacts_from_input">
+        <h2>{{item.name}}</h2>
+        <button ion-button clear item-end *ngIf="!item.selected" (click)="addContactForInvite(item, false)">Add</button>
+
+        <button ion-button icon-only clear item-end *ngIf="item.selected" (click)="removeContactFromInvite(item)">
+          <ion-icon name="ios-trash-outline"></ion-icon>
+        </button>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+
+      <ion-item *ngFor="let item of myContacts | invitePeopleSearch: searchQuery; let i = index">
+
+        <h2>{{item.name}}</h2>
+        <!-- <button ion-button clear item-end *ngIf="!item.selected" (click)="item.selected = true">Invite</button>
+        <button ion-button icon-only clear item-end *ngIf="item.selected" (click)="item.selected = false">
+          <ion-icon name="md-checkmark"></ion-icon>
+        </button> -->
+
+        <button ion-button clear item-end *ngIf="!item.selected && screen_info?.action == 'send'" (click)="addContactForInvite(item, false)">Add</button>
+        <button ion-button clear item-end *ngIf="!item.selected && screen_info?.action == 'add'" (click)="addInvitie(item, i, false)">Add</button>
+
+        <button ion-button icon-only clear item-end *ngIf="item.selected && screen_info?.action == 'add'">
+          <ion-icon name="md-checkmark"></ion-icon>
+        </button>
+
+        <button ion-button icon-only clear item-end *ngIf="item.selected && screen_info?.action == 'send'" (click)="removeContactFromInvite(item)">
+          <ion-icon name="ios-trash-outline"></ion-icon>
+        </button>
+      </ion-item>
+
+    </ion-list>
+
+
+  </div>
+
+</ion-content>

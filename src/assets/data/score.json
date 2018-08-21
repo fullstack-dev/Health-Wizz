@@ -1,0 +1,6 @@
+{
+	"score_data": [
+		{ "id": "1", "name": "Mary Hansen", "email": "mary.hansen@mail.com", "password": "abc123", "health_index": "18", "omcoins": "25", "circles": "1", "campaigns": "3" },
+		{ "id": "2", "name": "Frank Robben", "email": "frank_robbenok@outlook.com", "password": "abc123", "health_index": "19", "omcoins": "26", "circles": "2", "campaigns": "4" }
+	]
+}

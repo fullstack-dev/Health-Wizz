@@ -1,0 +1,73 @@
+<!--
+  Generated template for the MyWalletPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>My Wallet</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <!-- <div class="title-div">
+    <div class="title-txt" *ngIf="myWallet.walletBalance">Balance: {{myWallet.walletBalance}}</div>
+    <div class="title-txt" *ngIf="!myWallet.walletBalance">Balance: 0</div>
+    <div class="reward-img-div">
+      <img class="reward-img" src="assets/imgs/HomeIcons/Reward_Main@2x.png" />
+    </div>
+  </div> -->
+
+  <ion-item no-lines>
+    <p item-start class="title-txt" *ngIf="myWallet.walletBalance">Balance: {{myWallet.walletBalance}}</p>
+    <p item-start class="title-txt" *ngIf="!myWallet.walletBalance">Balance: 0</p>
+    <img item-start style="width:6vw; height:auto" src="assets/imgs/HomeIcons/Reward_Main@2x.png" />
+    <button ion-button clear ion-only item-end (click)="showAddress()">
+      <ion-icon style="font-size: 2rem;" name="ios-information-circle" color="primary"></ion-icon>
+    </button>
+  </ion-item>
+
+  <div class="buttons-div">
+    <div class="by-omcoins-btn" (click)="byOmCoinsClick()">Buy OmPoints</div>
+    <div class="shop-btn" (click)="shopClick()">Shop</div>
+  </div>
+
+  <ion-label class="transaction-title-txt">Transaction history</ion-label>
+  <ion-list>
+    <button ion-item *ngFor="let item of ledgers" (click)="transactionHistoryItemSelected(item)">
+      <div class="item-div">
+        <div class="score-txt" *ngIf="item.amount > 0">
+          +{{item.amount}}
+        </div>
+        <div class="score-txt" *ngIf="item.amount <= 0">
+          {{item.amount}}
+        </div>
+        <div class="middle-div">
+          <div class="transaction-item-txt">{{item.description}}</div>
+          <div class="date-txt">{{ item.transactionDate | date: 'short'}}</div>
+        </div>
+        <div class="amount-txt">
+          <!-- {{item.amount}} -->
+        </div>
+      </div>
+    </button>
+  </ion-list>
+  <ion-list *ngIf="ledgers?.length == 0">
+    <h4>No transction history for you!</h4>
+  </ion-list>
+
+</ion-content>

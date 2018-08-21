@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Invite Result</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="close()">Close</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item-group *ngIf="successes.length > 0">
+    <ion-item-divider>Successes</ion-item-divider>
+    <ion-item *ngFor="let name of successes">
+      <h2>{{name}}</h2>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group *ngIf="fails.length > 0">
+    <ion-item-divider>Successes</ion-item-divider>
+    <ion-item *ngFor="let name of fails">
+      <h2>{{name}}</h2>
+    </ion-item>
+  </ion-item-group>
+
+</ion-content>

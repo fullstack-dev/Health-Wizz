@@ -1,0 +1,238 @@
+page-signup {
+  background-color: rgb(239, 239, 244);
+  .slide_item_fld {
+    padding: 0;
+    width: 100%;
+    .item-inner {
+      border: none !important;
+      .label {
+        font-size: 1.2rem;
+        font-family: 'SF-UI-Text' !important;
+        color: #737370;
+        padding-bottom: 3px;
+        sup {
+          color: red;
+          font-weight: 900;
+        }
+      }
+      .input {
+        border: 1px solid $font-appcolor;
+        border-radius: 2px;
+        padding: 0 10px;
+        font-size: 1.3rem;
+        .text-input {}
+      }
+      .select {
+        border: 1px solid $font-appcolor;
+        padding: 8px 6px;
+        border-radius: 1px;
+        font-size: 1.4rem;
+      }
+    }
+  }
+  .date_fld {
+    width: 100%;
+    display: inline-flex;
+    .item {
+      width: 50%;
+      float: left;
+      .item-inner {
+        border: none;
+        .input {
+          border: 1px solid $font-appcolor;
+          border-radius: 2px;
+          padding: 0 10px;
+          height: 40px;
+          font-size: 1.4rem;
+          .text-input {
+            height: 20px;
+          }
+        }
+        .select {
+          border: 1px solid $font-appcolor;
+          padding: 8px 6px;
+          border-radius: 1px;
+          height: 40px;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+  .birthday-txt {
+    font-size: 1.2rem;
+    font-family: 'SF-UI-Text' !important;
+    color: #737370;
+    padding: 10px 0 0;
+  }
+  .input-date-text {
+    width: 100%;
+    border: 1px solid #009ea9;
+    padding-left: 2vw;
+    font-size: 1.4rem;
+  }
+  .item-ios.item-block .item-inner {
+    border-bottom: 0;
+  }
+  .item-ios {
+    padding-left: 0 !important;
+  }
+  .slide-zoom {
+    height: 100%;
+    text-align: left;
+    display: block;
+    width: 86%;
+  }
+  .slide-background {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 10px;
+    background-color: white;
+    -webkit-box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.16);
+  }
+  .slide-title {
+    font-size: 2.1rem;
+    margin-top: 5vh !important;
+    padding-top: 2vh;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .slide-item-title {
+    margin-top: 8vw;
+    font-size: 4vw;
+    color: #737370;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .input-text {
+    margin-top: 2vw;
+    width: 100%;
+    border: 0.5px solid #8E8E93;
+    padding-left: 2vw;
+  }
+  .signup-button-div {
+    margin-top: 5vh;
+    display: flex;
+    padding-bottom: 4vh;
+    position: relative;
+    display: flex;
+    height: 12vh;
+  }
+  .login-return-button {
+    font-size: 1.4rem;
+    width: 36vw;
+    text-align: center;
+    color: $button-color;
+    background-color: transparent;
+    border-radius: 5px;
+    padding-top: 3vw;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .next-button {
+    font-size: 1.4rem;
+    width: 40vw;
+    text-align: center;
+    color: white;
+    background-color: $button-color;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .sec-next-button {
+    font-size: 1.4rem;
+    width: 100vw;
+    text-align: center;
+    color: white;
+    background-color: $button-color;
+    border-radius: 5px;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .item-div {
+    display: flex;
+  }
+  .check-item-div {
+    display: flex;
+  }
+  .check-div {
+    border-width: 1px;
+    border-radius: 50%;
+    border-style: none;
+    border-color: #737370;
+  }
+  .label-div {
+    white-space: normal;
+    font-size: 1.4rem;
+    margin-left: 2vw;
+    color: #737370;
+    line-height: 20px;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .active-label {
+    color: $font-appcolor;
+  }
+  .space1 {
+    height: 10vh;
+  }
+  .space2 {
+    height: 9vh;
+  }
+  .space3 {
+    height: 10vh;
+  }
+  .space4 {
+    height: 20vh;
+  }
+  .radio-ios .radio-checked .radio-inner {
+    border-color: $button-color !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: $button-color;
+    opacity: 1;
+  }
+  .ion-select {
+    max-width: 100% !important;
+  }
+  .select-ios {
+    // padding-left: 0px !important;
+    max-width: 100% !important;
+  }
+  .select-text {
+    width: 100vw !important;
+    padding-left: 8px;
+  }
+  .scroll-content {
+    overflow: hidden;
+  }
+  .cal-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ion-icon {
+      font-size: 2rem !important;
+      position: absolute;
+      right: 14%;
+      color: $button-color;
+    }
+  }
+  .datetime-md {
+    padding: 9px 8px 9px 16px;
+  }
+  .password_ion_item {
+    border: 1px solid #009ea9 !important;
+    min-height: 10vw !important;
+    max-height: 10vw !important;
+    ion-input {
+      border: none !important;
+    }
+  }
+  @media only screen and (min-device-width: 700px) and (max-device-width: 1024px) {
+    .check-div {
+      width: 6vw !important;
+      height: 1vw !important;
+    }
+  }
+  @media only screen and (min-device-width: 360px) and (max-device-width: 568px) {
+    .genderFlow {
+      overflow: visible !important;
+    }
+  }
+}

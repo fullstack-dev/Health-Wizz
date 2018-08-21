@@ -1,0 +1,79 @@
+page-my-wallet {
+  .title-txt {
+    font-size: 24px;
+    color: #009EA9;
+  } // .title-div {
+  //   display: flex;
+  //   align-items: center;
+  //   .title-txt {
+  //     font-size: 5vw;
+  //     color: #009EA9;
+  //   }
+  //   .reward-img-div {
+  //     margin-left: 3vw;
+  //     .reward-img {
+  //       width: 6vw;
+  //     }
+  //   }
+  // }
+  .buttons-div {
+    display: flex;
+    align-items: flex;
+    .by-omcoins-btn {
+      width: 50%;
+      height: 11vw;
+      text-align: center;
+      border: 2px solid #41C4CD;
+      border-radius: 5px;
+      font-size: 5vw;
+      padding-top: 2vw;
+      margin-right: 2vw;
+      color: #41C4CD;
+      background-color: white;
+    }
+    .shop-btn {
+      width: 50%;
+      height: 11vw;
+      text-align: center;
+      border: 2px solid #41C4CD;
+      border-radius: 5px;
+      font-size: 5vw;
+      padding-top: 2vw;
+      margin-left: 2vw;
+      color: white;
+      background-color: #41C4CD;
+    }
+  }
+  .transaction-title-txt {
+    font-size: 6vw;
+    margin-top: 6vw;
+  }
+  .item-div {
+    display: flex;
+    align-items: center;
+    .score-txt {
+      width: 16%;
+      font-size: 5.5vw;
+      color: #6EC59A;
+    }
+    .middle-div {
+      width: 60%;
+      text-align: left;
+      .transaction-item-txt {
+        font-size: 4.3vw;
+        white-space: normal !important;
+      }
+      .date-txt {
+        font-size: 4vw;
+        margin-top: 2vw;
+        color: #8E8E93;
+      }
+    }
+    .amount-txt {
+      width: 20%;
+      font-size: 5.5vw;
+      color: #6EC59A;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,718 @@
+{
+  "chfs": [{
+      "id": "0",
+      "name": "Weight",
+      "number": "1",
+      "updated_date": "Aug 13th, 2017",
+      "updated_value": "255lbs",
+      "status": "Update Request",
+      "top_color": "yellow",
+      "imge": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png",
+      "detail": "Weigh yourself every morning after you urinate but before you eat breakfast. Wear roughly the same amount of clothing every time. And make sure to write down your weight every day in Health Wizz App. Call your doctor or nurse if your weight goes up by 2 or more pounds (1 kilogram) in 1 day, or 4 or more pounds (2 kilograms) in 1 week. When you have heart failure, sudden weight gain is a sign that your body could be holding on to too much fluid. You might need a change in your medication.",
+      "graph": [{
+          "date": "1",
+          "value": 17.0
+        },
+        {
+          "date": "2",
+          "value": 6.9
+        },
+        {
+          "date": "3",
+          "value": 9.5
+        },
+        {
+          "date": "4",
+          "value": 26.5
+        },
+        {
+          "date": "6",
+          "value": 25.2
+        },
+        {
+          "date": "8",
+          "value": 21.5
+        },
+        {
+          "date": "10",
+          "value": 13.3
+        },
+        {
+          "date": "11",
+          "value": 14.5
+        },
+        {
+          "date": "15",
+          "value": 18.4
+        },
+        {
+          "date": "17",
+          "value": 21.5
+        },
+        {
+          "date": "18",
+          "value": 25.2
+        },
+        {
+          "date": "19",
+          "value": 26.2
+        },
+        {
+          "date": "21",
+          "value": 25.5
+        },
+        {
+          "date": "22",
+          "value": 23.3
+        },
+        {
+          "date": "26",
+          "value": 18.3
+        },
+        {
+          "date": "27",
+          "value": 13.9
+        },
+        {
+          "date": "28",
+          "value": 9.6
+        },
+        {
+          "date": "30",
+          "value": 21.5
+        },
+        {
+          "date": "31",
+          "value": 25.3
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "name": "Leg Swelling",
+      "number": "0",
+      "updated_date": "Aug 13th, 2017",
+      "updated_value": "++",
+      "status": "Update Request",
+      "top_color": "red",
+      "imge": "assets/imgs/HealthIndexIcons/Lag-swelling@3x.png",
+      "detail": "Symptoms of edema include swelling or puffiness of the skin, causing it to appear stretched and shiny. This typically is worse in the areas of the body that are closest to the ground. Therefore, edema is generally the worst in the lower legs after walking about, standing, sitting in a chair for a period of time, or at the end of the day. It accumulates in the lower back after being in bed for a long period.",
+      "graph": [{
+          "date": "1",
+          "value": 17.0
+        },
+        {
+          "date": "3",
+          "value": 6.9
+        },
+        {
+          "date": "4",
+          "value": 9.5
+        },
+        {
+          "date": "6",
+          "value": 16.5
+        },
+        {
+          "date": "9",
+          "value": 25.2
+        },
+        {
+          "date": "10",
+          "value": 11.5
+        },
+        {
+          "date": "12",
+          "value": 13.3
+        },
+        {
+          "date": "15",
+          "value": 24.5
+        },
+        {
+          "date": "18",
+          "value": 18.4
+        },
+        {
+          "date": "20",
+          "value": 11.5
+        },
+        {
+          "date": "22",
+          "value": 25.2
+        },
+        {
+          "date": "23",
+          "value": 16.2
+        },
+        {
+          "date": "25",
+          "value": 9.5
+        },
+        {
+          "date": "27",
+          "value": 23.3
+        },
+        {
+          "date": "28",
+          "value": 28.3
+        },
+        {
+          "date": "30",
+          "value": 15.9
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Short of Breath",
+      "number": "3",
+      "updated_date": "Aug 13th, 2017",
+      "updated_value": "22",
+      "status": "",
+      "top_color": "green",
+      "imge": "assets/imgs/HealthIndexIcons/Breath@3x.png",
+      "detail": "Increased tiredness or trouble breathing. Breath rate higher than normal, hard breathing when lying down. Measure your breath rate per minute and report. 16-20 Healthy range.",
+      "graph": [{
+          "date": "1",
+          "value": 25.0
+        },
+        {
+          "date": "2",
+          "value": 16.9
+        },
+        {
+          "date": "3",
+          "value": 17.5
+        },
+        {
+          "date": "4",
+          "value": 10.5
+        },
+        {
+          "date": "5",
+          "value": 12.2
+        },
+        {
+          "date": "6",
+          "value": 11.5
+        },
+        {
+          "date": "8",
+          "value": 8.3
+        },
+        {
+          "date": "9",
+          "value": 11.5
+        },
+        {
+          "date": "12",
+          "value": 25.4
+        },
+        {
+          "date": "13",
+          "value": 11.5
+        },
+        {
+          "date": "15",
+          "value": 20.2
+        },
+        {
+          "date": "17",
+          "value": 16.2
+        },
+        {
+          "date": "19",
+          "value": 12.5
+        },
+        {
+          "date": "20",
+          "value": 15.3
+        },
+        {
+          "date": "23",
+          "value": 28.3
+        },
+        {
+          "date": "25",
+          "value": 23.9
+        },
+        {
+          "date": "27",
+          "value": 19.6
+        },
+        {
+          "date": "29",
+          "value": 11.5
+        },
+        {
+          "date": "30",
+          "value": 15.3
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Pulse",
+      "number": "3",
+      "updated_date": "Aug 13th, 2017",
+      "updated_value": "96",
+      "status": "",
+      "top_color": "green",
+      "imge": "assets/imgs/HealthIndexIcons/Pulse@3x.png",
+      "detail": "Heart rate less than 60 or more than 90 can be abnormal especially if you are not feeling well. Measure and report at least daily.",
+      "graph": [{
+          "date": "1",
+          "value": 17.0
+        },
+        {
+          "date": "2",
+          "value": 6.9
+        },
+        {
+          "date": "3",
+          "value": 17.5
+        },
+        {
+          "date": "4",
+          "value": 10.5
+        },
+        {
+          "date": "5",
+          "value": 12.2
+        },
+        {
+          "date": "6",
+          "value": 11.5
+        },
+        {
+          "date": "8",
+          "value": 8.3
+        },
+        {
+          "date": "9",
+          "value": 11.5
+        },
+        {
+          "date": "10",
+          "value": 13.3
+        },
+        {
+          "date": "11",
+          "value": 14.5
+        },
+        {
+          "date": "15",
+          "value": 18.4
+        },
+        {
+          "date": "17",
+          "value": 21.5
+        },
+        {
+          "date": "18",
+          "value": 25.2
+        },
+        {
+          "date": "19",
+          "value": 26.2
+        },
+        {
+          "date": "21",
+          "value": 25.5
+        },
+        {
+          "date": "22",
+          "value": 23.3
+        },
+        {
+          "date": "26",
+          "value": 18.3
+        },
+        {
+          "date": "27",
+          "value": 13.9
+        },
+        {
+          "date": "28",
+          "value": 9.6
+        },
+        {
+          "date": "30",
+          "value": 21.5
+        },
+        {
+          "date": "31",
+          "value": 25.3
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Oxygen Saturation",
+      "number": "3",
+      "updated_date": "Aug 13th, 2017",
+      "updated_value": "88",
+      "status": "",
+      "top_color": "green",
+      "imge": "assets/imgs/HealthIndexIcons/Oxygen@3x.png",
+      "detail": "If you are able to measure your oxygen saturation and it is above 92, that is a good number. Enter your number in the app for reporting to your caregiver. Measure Oxygen saturation with Oxygen ON if you have supplemental Oxygen.",
+      "graph": [{
+          "date": "1",
+          "value": 25.0
+        },
+        {
+          "date": "2",
+          "value": 16.9
+        },
+        {
+          "date": "3",
+          "value": 17.5
+        },
+        {
+          "date": "4",
+          "value": 10.5
+        },
+        {
+          "date": "6",
+          "value": 25.2
+        },
+        {
+          "date": "8",
+          "value": 21.5
+        },
+        {
+          "date": "10",
+          "value": 13.3
+        },
+        {
+          "date": "11",
+          "value": 14.5
+        },
+        {
+          "date": "15",
+          "value": 18.4
+        },
+        {
+          "date": "17",
+          "value": 21.5
+        },
+        {
+          "date": "18",
+          "value": 25.2
+        },
+        {
+          "date": "19",
+          "value": 26.2
+        },
+        {
+          "date": "21",
+          "value": 25.5
+        },
+        {
+          "date": "22",
+          "value": 23.3
+        },
+        {
+          "date": "23",
+          "value": 16.2
+        },
+        {
+          "date": "25",
+          "value": 9.5
+        },
+        {
+          "date": "27",
+          "value": 23.3
+        },
+        {
+          "date": "28",
+          "value": 28.3
+        },
+        {
+          "date": "30",
+          "value": 21.5
+        },
+        {
+          "date": "31",
+          "value": 25.3
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Fluid Restriction",
+      "number": "3",
+      "updated_date": "Aug 13th, 2017",
+      "updated_value": "No",
+      "status": "",
+      "top_color": "green",
+      "imge": "assets/imgs/HealthIndexIcons/liquid@3x.png",
+      "detail": "Your doctor might also tell you to limit the amount of fluids you drink. FLUID MEASUREMENTS 1 quart = 4 cups = 32 ounces = 960 ml    1 pint = 2 cups = 16 ounces = 480 ml    1 cup = 8 ounces = 240 ml ",
+      "graph": [{
+          "date": "1",
+          "value": 12.5
+        },
+        {
+          "date": "2",
+          "value": 26.9
+        },
+        {
+          "date": "3",
+          "value": 29.5
+        },
+        {
+          "date": "4",
+          "value": 16.5
+        },
+        {
+          "date": "6",
+          "value": 15.2
+        },
+        {
+          "date": "8",
+          "value": 24.5
+        },
+        {
+          "date": "10",
+          "value": 27.5
+        },
+        {
+          "date": "12",
+          "value": 13.3
+        },
+        {
+          "date": "14",
+          "value": 27.5
+        },
+        {
+          "date": "15",
+          "value": 28.4
+        },
+        {
+          "date": "17",
+          "value": 21.5
+        },
+        {
+          "date": "18",
+          "value": 15.2
+        },
+        {
+          "date": "19",
+          "value": 26.2
+        },
+        {
+          "date": "22",
+          "value": 15.5
+        },
+        {
+          "date": "24",
+          "value": 22.3
+        },
+        {
+          "date": "27",
+          "value": 13.9
+        },
+        {
+          "date": "28",
+          "value": 9.6
+        },
+        {
+          "date": "30",
+          "value": 21.5
+        },
+        {
+          "date": "31",
+          "value": 25.3
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Low Salt Diet",
+      "number": "1",
+      "updated_date": "Aug 13th, 2017",
+      "updated_value": "Yes",
+      "status": "Update Request",
+      "top_color": "yellow",
+      "imge": "assets/imgs/HealthIndexIcons/Diet@3x.png",
+      "detail": "Try not to add salt at the table or when you cook. Also, avoid foods that come in boxes and cans, unless their labels say they are low in sodium. The best choices for food are fresh or fresh frozen foods, and foods you prepare yourself .",
+      "graph": [{
+          "date": "1",
+          "value": 17.5
+        },
+        {
+          "date": "3",
+          "value": 6.5
+        },
+        {
+          "date": "6",
+          "value": 9.15
+        },
+        {
+          "date": "7",
+          "value": 24.3
+        },
+        {
+          "date": "8",
+          "value": 25.25
+        },
+        {
+          "date": "10",
+          "value": 22.5
+        },
+        {
+          "date": "12",
+          "value": 13.3
+        },
+        {
+          "date": "14",
+          "value": 17.5
+        },
+        {
+          "date": "15",
+          "value": 28.4
+        },
+        {
+          "date": "17",
+          "value": 21.5
+        },
+        {
+          "date": "18",
+          "value": 15.2
+        },
+        {
+          "date": "19",
+          "value": 26.2
+        },
+        {
+          "date": "22",
+          "value": 15.5
+        },
+        {
+          "date": "24",
+          "value": 22.3
+        },
+        {
+          "date": "26",
+          "value": 18.3
+        },
+        {
+          "date": "27",
+          "value": 19.9
+        },
+        {
+          "date": "28",
+          "value": 29.6
+        },
+        {
+          "date": "30",
+          "value": 11.5
+        },
+        {
+          "date": "31",
+          "value": 28.3
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "To Take Meds",
+      "number": "0",
+      "updated_date": "Aug 13th, 2017",
+      "updated_value": "3/4",
+      "status": "",
+      "top_color": "red",
+      "imge": "assets/imgs/HealthIndexIcons/Meds@3x.png",
+      "detail": "Take your medicines every day as directed. They can reduce the chances that you will need to go to the hospital, have a heart attack, or die. They can also reduce or get rid of your symptoms. If you are not able to get your medications or have side effects, notify your caregiver.",
+      "graph": [{
+          "date": "3",
+          "value": 15.5
+        },
+        {
+          "date": "5",
+          "value": 7.8
+        },
+        {
+          "date": "6",
+          "value": 9.5
+        },
+        {
+          "date": "8",
+          "value": 16.5
+        },
+        {
+          "date": "9",
+          "value": 24.2
+        },
+        {
+          "date": "11",
+          "value": 25.5
+        },
+        {
+          "date": "13",
+          "value": 19.3
+        },
+        {
+          "date": "14",
+          "value": 24.5
+        },
+        {
+          "date": "17",
+          "value": 28.4
+        },
+        {
+          "date": "19",
+          "value": 11.5
+        },
+        {
+          "date": "20",
+          "value": 15.2
+        },
+        {
+          "date": "21",
+          "value": 16.2
+        },
+        {
+          "date": "22",
+          "value": 15.5
+        },
+        {
+          "date": "24",
+          "value": 21.8
+        },
+        {
+          "date": "25",
+          "value": 13.3
+        },
+        {
+          "date": "27",
+          "value": 23.9
+        },
+        {
+          "date": "28",
+          "value": 19.6
+        },
+        {
+          "date": "29",
+          "value": 11.5
+        },
+        {
+          "date": "30",
+          "value": 15.3
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Appointment",
+      "number": "0",
+      "updated_date": "Sep 24th, 2016",
+      "updated_value": "",
+      "status": "",
+      "top_color": "red",
+      "imge": "assets/imgs/HealthIndexIcons/Alert@3x.png",
+      "detail": ""
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start *ngIf="!from_invite">
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      <button ion-button menuToggle icon-only class="menu_icon">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <!-- <ion-title>{{campaignData?.name}}</ion-title> -->
+    <ion-title>Campaign</ion-title>
+
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="share()">
+        <ion-icon name="md-share"></ion-icon>
+      </button>
+    </ion-buttons> -->
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item (click)="showMoreActions()" no-lines *ngIf="isPublished && campaignData?.campaignInfo.circleInfo.invitationState == 'accept'">
+    <ion-icon item-start name="md-more" color="primary">
+    </ion-icon>
+  </ion-item>
+
+  <ion-fab top right id="left-fab" *ngIf="campaignData?.moderator && campaignData?.validator">
+    <button ion-fab mini class="fab-moderator">
+      M
+    </button>
+  </ion-fab>
+
+  <ion-fab top right id="right-fab" *ngIf="campaignData?.moderator && campaignData?.validator">
+    <button ion-fab mini class="fab-validator">
+      V
+    </button>
+  </ion-fab>
+
+  <ion-fab top right *ngIf="campaignData?.moderator && !campaignData?.validator">
+    <button ion-fab mini class="fab-moderator">
+      M
+    </button>
+  </ion-fab>
+
+  <ion-fab top right *ngIf="!campaignData?.moderator && campaignData?.validator">
+    <button ion-fab mini class="fab-validator">
+      V
+    </button>
+  </ion-fab>
+
+  <ion-fab top right *ngIf="!campaignData?.moderator && !campaignData?.validator">
+    <button ion-fab mini color="primary">
+      P
+    </button>
+  </ion-fab>
+
+  <h2>{{campaignData?.name}} </h2>
+
+  <div class="des">
+    <img src="assets/imgs/Campaign/Campaign.png">
+    <p>{{campaignData?.description}}</p>
+  </div>
+
+  <!-- <div class="result-btn" *ngIf="this.status == 'campaign'"></div> -->
+  <div class="result-btn" *ngIf="showActions && isPublished">
+    <button ion-button class="l-btn" (click)="goHistory()" *ngIf="haveIndicators">History</button>
+    <button ion-button class="r-btn" (click)="goUpdate()" *ngIf="hasSurvey || haveIndicators">Update</button>
+  </div>
+
+  <div class="result-btn" *ngIf="!isPublished && campaignData?.moderator && !this.ended && campaignData?.campaignInfo.circleInfo.invitationState != 'invite'">
+    <button ion-button class="l-btn" (click)="deleteCampaign()">Delete</button>
+    <button ion-button class="r-btn" (click)="publishCampaign()">Publish</button>
+  </div>
+
+  <div class="result-btn" *ngIf="!isPublished && !campaignData?.moderator"></div>
+  <div class="result-btn" *ngIf="!showActions"></div>
+
+  <!-- <div class="sponsors">
+    <h2>Sponsors</h2>
+    <div class="description">
+      <img src="assets/imgs/Campaign/gym.png">
+      <img src="assets/imgs/Campaign/nike.png">
+    </div>
+  </div> -->
+
+  <div class="terms">
+    <h2>Terms</h2>
+    <div class="description" *ngIf="campaignData?.termsInfo && campaignData?.termsInfo.length == 0" style="height:20px"></div>
+    <div class="description" *ngIf="campaignData?.termsInfo && campaignData?.termsInfo.length > 0">
+      <!-- <p>Participation in
+        <b>{{campaignData?.name}}</b> Campaign will request:</p> -->
+      <ul>
+        <li *ngFor="let term of campaignData?.termsInfo">{{term}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="measured" *ngIf="measured && measured.length > 0">
+    <h2>Measured Indexes</h2>
+    <div class="description">
+      <img *ngFor="let item of measured" src="{{item.image}}">
+    </div>
+  </div>
+
+  <div class="omcoins" *ngIf="rewardList && rewardList.length > 0">
+    <h2>Rewards</h2>
+    <div class="description">
+      <!-- <p>You can earn rewards
+        <span>
+          <img src="assets/imgs/HomeIcons/Reward_Main.png">
+        </span>
+        for filling out reports selling the results of your research to pharmacy companies, etc.
+        <br>Exchange OmPoints for various goods and memeberships form OmPoints store.
+      </p> -->
+
+      <ion-list>
+        <ion-item style="font-size: 15px;" *ngFor="let rewards of rewardList">
+          <span *ngIf="rewards.amount else percentage">{{rewards.amount}}</span>
+          <ng-template #percentage>
+            <span *ngIf="rewards.percentage">{{rewards.percentage}}%</span>
+          </ng-template>
+          <span>
+            <img src="assets/imgs/HomeIcons/Reward_Main.png">
+          </span> for {{rewards.name}} report</ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+  <div class="organizers" *ngFor="let organizer of organizers">
+    <h2>{{organizer.label}}</h2>
+    <!-- <p>Here might be some text block about the organization if there is any</p> -->
+    <div class="description" *ngFor="let item of organizer.peoples">
+      <p col-6 class="name">{{item}}</p>
+      <!-- <p col-6>{{item.value}}</p> -->
+    </div>
+  </div>
+
+  <div class="participants" *ngIf="participants && participants.length > 0">
+    <h2>Participants</h2>
+    <div class="p-value">
+      <img src="assets/imgs/Icons/profile.png">
+      <!-- <p>{{campaignData?.campaignInfo.circleInfo.members - 1}}</p> -->
+      <p>{{participants?.length}}</p>
+
+    </div>
+
+    <div class="slide-box">
+
+      <swiper [config]="config" style="height: 100%;" class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let item of participants">
+            <img [src]="item.avatar" alt="">
+            <p>{{item.info.firstName}}</p>
+          </div>
+        </div>
+        <div class="swiper-scrollbar"></div>
+      </swiper>
+
+    </div>
+
+  </div>
+
+  <div class="result-btn" *ngIf="campaignData?.campaignInfo.circleInfo.invitationState == 'invite'">
+    <button ion-button outline class="l-btn" (click)="deny()">Deny</button>
+    <button ion-button class="r-btn" (click)="acceptClick()">Accept</button>
+  </div>
+</ion-content>

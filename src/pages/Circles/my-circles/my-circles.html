@@ -1,0 +1,160 @@
+<ion-header>
+
+  <ion-navbar *ngIf=!search_bar>
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="search()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="Add()">
+        <ion-icon ios="ios-add" md="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{lang_resource.circle.my_circles.my_title}}</ion-title>
+
+  </ion-navbar>
+
+  <ion-navbar *ngIf="search_bar" style="height: 40px;">
+
+    <ion-searchbar class="search-div" [(ngModel)]="search_query"></ion-searchbar>
+    <button ion-button small class="cancel" (click)="search()">{{lang_resource.button.cancel_text}}</button>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item-group *ngIf="invitations_circles?.length > 0">
+    <ion-item-divider>{{lang_resource.circle.my_circles.invitation_text}}</ion-item-divider>
+    <ion-item class="animated fadeInDown" *ngFor="let item of invitations_circles | circleSearch: search_query" (click)="goToCircle(item)">
+      <ion-avatar item-start *ngIf="item.circlePic == null">
+        <img id="default" src="assets/imgs/MenuIcons/Circles@2x.png">
+      </ion-avatar>
+      <ion-avatar item-start *ngIf="item.circlePic != null">
+        <img [src]="'data:image/jpeg;base64,' + item.circlePic">
+      </ion-avatar>
+      <h2>{{ item.name }}</h2>
+      <p>{{ item.members }}
+        <span *ngIf="item.members == 1 else members">member</span>
+        <ng-template #members>members</ng-template>
+      </p>
+      <p item-end> {{item.circleScope}}</p>
+      <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+    </ion-item>
+  </ion-item-group>
+
+  <!-- <ion-label class="recent-search-txt" *ngIf="invitations_circles.length > 0">{{lang_resource.circle.my_circles.invitation_text}}</ion-label>
+  <ion-list no-lines>
+    <button ion-item *ngFor="let item of invitations_circles | circleSearch: search_query" (click)="goToCircle(item)">
+      <div class="item-div">
+        <div class="item-img-div" *ngIf="item.circlePic == null">
+          <img src="assets/imgs/MenuIcons/Circles@2x.png" style="width: 6vw;" />
+        </div>
+        <div class="circle-img-div" *ngIf="item.circlePic != null">
+          <img [src]="'data:image/jpeg;base64,' + item.circlePic" />
+        </div>
+        <div style="margin-left: 4vw;">
+          <div style="">{{ item.name }}</div>
+          <div class="website-txt">{{ item.members }} members</div>
+        </div>
+        <div class="public-txt">
+          {{item.circleScope}}
+        </div>
+      </div>
+    </button>
+  </ion-list> -->
+
+  <ion-item-group *ngIf="active_circles?.length > 0">
+    <ion-item-divider>{{lang_resource.circle.my_circles.circles_text}}</ion-item-divider>
+    <ion-item class="animated fadeInDown" *ngFor="let item of active_circles | circleSearch: search_query" (click)="goToCircle(item)">
+      <ion-avatar item-start *ngIf="item.circlePic == null">
+        <img id="default" src="assets/imgs/MenuIcons/Circles@2x.png">
+      </ion-avatar>
+      <ion-avatar item-start *ngIf="item.circlePic != null">
+        <img [src]="'data:image/jpeg;base64,' + item.circlePic">
+      </ion-avatar>
+      <h2>{{ item.name }}</h2>
+      <p>{{ item.members }}
+        <span *ngIf="item.members == 1 else members">member</span>
+        <ng-template #members>members</ng-template>
+      </p>
+      <p item-end> {{item.circleScope}}</p>
+      <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+    </ion-item>
+  </ion-item-group>
+
+  <!-- <ion-label class="recent-search-txt" *ngIf="active_circles.length > 0">{{lang_resource.circle.my_circles.circles_text}}</ion-label>
+  <ion-list no-lines>
+    <button ion-item *ngFor="let item of active_circles | circleSearch: search_query" (click)="goToCircle(item)">
+      <div class="item-div">
+        <div class="item-img-div" *ngIf="item.circlePic == null">
+          <img src="assets/imgs/MenuIcons/Circles@2x.png" style="width: 6vw;" />
+        </div>
+        <div class="circle-img-div" *ngIf="item.circlePic != null">
+          <img [src]="'data:image/jpeg;base64,' + item.circlePic" />
+        </div>
+        <div style="margin-left: 4vw;">
+          <div style="">{{ item.name }}</div>
+          <div class="website-txt">{{ item.members }} members</div>
+        </div>
+        <div class="public-txt">
+          {{item.circleScope}}
+        </div>
+      </div>
+    </button>
+  </ion-list> -->
+
+  <ion-item-group *ngIf="available_cirlces?.length > 0">
+    <ion-item-divider>{{lang_resource.circle.my_circles.available_circles}}</ion-item-divider>
+    <ion-item class="animated fadeInDown" *ngFor="let item of available_cirlces | circleSearch: search_query" (click)="goToCircle(item)">
+      <ion-avatar item-start *ngIf="item.circlePic == null">
+        <img id="default" src="assets/imgs/MenuIcons/Circles@2x.png">
+      </ion-avatar>
+      <ion-avatar item-start *ngIf="item.circlePic != null">
+        <img [src]="'data:image/jpeg;base64,' + item.circlePic">
+      </ion-avatar>
+      <h2>{{ item.name }}</h2>
+      <p>{{ item.members }}
+        <span *ngIf="item.members == 1 else members">member</span>
+        <ng-template #members>members</ng-template>
+      </p>
+      <p item-end> {{item.circleScope}}</p>
+      <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+    </ion-item>
+  </ion-item-group>
+
+  <!-- <ion-label class="recent-search-txt" *ngIf="available_cirlces.length > 0">{{lang_resource.circle.my_circles.available_circles}}</ion-label>
+  <ion-list no-lines>
+    <button ion-item *ngFor="let item of available_cirlces | circleSearch: search_query" (click)="goToCircle(item)">
+      <div class="item-div">
+        <div class="item-img-div" *ngIf="item.circlePic == null">
+          <img src="assets/imgs/MenuIcons/Circles@2x.png" style="width: 6vw;" />
+        </div>
+        <div class="circle-img-div" *ngIf="item.circlePic != null">
+          <img [src]="'data:image/jpeg;base64,' + item.circlePic" />
+        </div>
+        <div style="margin-left: 4vw;">
+          <div style="">{{ item.name }}</div>
+          <div class="website-txt">{{ item.members }} members</div>
+        </div>
+        <div class="public-txt">
+          {{item.circleScope}}
+        </div>
+      </div>
+    </button>
+  </ion-list> -->
+
+  <page-welcome-circle *ngIf="emptyCircles()"></page-welcome-circle>
+
+</ion-content>

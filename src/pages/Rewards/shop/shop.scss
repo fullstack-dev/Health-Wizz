@@ -1,0 +1,67 @@
+page-shop {
+	.medical-service-div {
+	    display: flex;
+	    align-items: baseline;
+	}
+
+	.medical-service-txt {
+		font-size: 6vw;
+		margin-left: 5vw;
+	}
+
+	.medical-service-num {
+		font-size: 5vw;
+    	margin-left: 2vw;
+	}
+
+	.slides-background {
+		height: 33%;	
+	}
+
+	.swiper-pagination {
+		display: none;
+	}
+
+	.slide-zoom {
+	    text-align: left;
+	    display: block;
+        width: 90%;
+    }
+
+	.slide-background {
+	    padding-right: 8px;
+	    border-radius: 10px;
+	    background-color: white;
+	    -webkit-box-shadow: 0 5px 16px 0 rgba(0,0,0,0.16);
+	    box-shadow: 0 5px 16px 0 rgba(0,0,0,0.16);
+	    height: 45vw;
+	    position: relative;
+
+		.card-title {
+		    font-size: 4.5vw;
+		    padding: 4vw;
+		}
+
+		.inner-card-div {
+		    display: flex;
+		    padding-top: 4vw;
+
+			.card-img-div {
+			    width: 60%;
+			    text-align: center;
+			    padding-top: 1vw;
+
+				.card-img {
+					width: 29vw;
+				}
+			}
+			.card-description {
+			    font-size: 3vw;
+			    width: 40%;
+    			color: #737370;
+			}
+		}
+	}
+
+	
+}

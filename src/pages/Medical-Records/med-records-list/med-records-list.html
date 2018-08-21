@@ -1,0 +1,127 @@
+<!--
+  Generated template for the MedRecordsListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+
+  Docs list:
+-->
+<ion-header>
+
+  <ion-navbar *ngIf="!searchClick">
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="search()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="add()">
+        <ion-icon ios="md-add" md="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title (click)="titleClick()">{{titleName}}</ion-title>
+
+  </ion-navbar>
+
+  <ion-navbar *ngIf="searchClick">
+    <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="true" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background-color: #efeff4;">
+
+  <ion-card *ngFor="let item of items">
+    <div class="item-background">
+      <div style="display: flex;">
+        <div class="date-txt" style="text-align: right;">Added: {{item.addedDate | date: ' MMM dd, yyyy'}}</div>
+      </div>
+      <div class="con-div">
+        <ul *ngFor="let condition_item of item.condition">
+          <li (click)="conditionClick(condition_item, item)">
+            <a>{{condition_item.conditionName}}</a>
+          </li>
+        </ul>
+        <img class="pencil-pro" src="assets/imgs/pencil.png" (click)="conditionPencilClick(item)" />
+      </div>
+      <div class="prov-div">
+        <ul *ngFor="let provider_item of item.provider">
+          <li (click)="providerClick(provider_item, item)">
+            <a>{{provider_item.providerName}}</a>
+          </li>
+        </ul>
+        <img class="pencil-pro" src="assets/imgs/pencil.png" (click)="providerPencilClick(item)" />
+      </div>
+      <div class="tag-div">
+        <ul *ngFor="let tag_item of item.tag">
+          <li *ngIf="tag_item.isChecked" (click)="tagClick(tag_item, item)">
+            <a>{{tag_item.tagName}}</a>
+          </li>
+        </ul>
+        <img class="pencil-pro" src="assets/imgs/pencil.png" (click)="tagPencilClick(item)" />
+      </div>
+      <ion-checkbox color="dark" class="check-icon posi" [(ngModel)]="item.openFlag" (ngModelChange)="cardItemSelected($event, item)"></ion-checkbox>
+    </div>
+  </ion-card>
+
+  <div class="add-txt" *ngIf="bottomFlag">
+    Didn't find what you were searching? Try to download the records.
+  </div>
+
+  <button class="add-btn" (click)="addRecords()" *ngIf="bottomFlag">Add</button>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar *ngIf="totalNumber == 1">
+    <ion-buttons>
+      <button ion-button icon-only class="bottom-many-btn" (click)="shareEvent($event)">
+        <img *ngIf="!platformFlag" src="assets/imgs/AddMedImgs/bottom_share@3x.png" />
+        <img *ngIf="platformFlag" style="width: 1.6rem;" src="assets/imgs/AddMedImgs/bottom_share_ios@3x.png" />
+      </button>
+
+      <button ion-button icon-only class="bottom-many-btn" (click)="listEvent($event)">
+        <img style="width: 1.6rem;" src="assets/imgs/AddMedImgs/bottom_select_all@3x.png" />
+      </button>
+
+      <button ion-button icon-only class="bottom-many-btn" (click)="bookEvent($event)">
+        Open
+      </button>
+
+      <button ion-button icon-only class="bottom-many-btn" (click)="signEvent($event)">
+        Edit
+      </button>
+
+      <button ion-button icon-only class="bottom-many-btn" (click)="recycleEvent($event)">
+        <img src="assets/imgs/AddMedImgs/bottom_delete@3x.png" />
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="totalNumber >= 2">
+    <ion-buttons>
+      <button ion-button icon-only class="bottom-small-btn" (click)="shareEvent($event)">
+        <img *ngIf="!platformFlag" src="assets/imgs/AddMedImgs/bottom_share@3x.png" />
+        <img *ngIf="platformFlag" style="width: 1.6rem;" src="assets/imgs/AddMedImgs/bottom_share_ios@3x.png" />
+      </button>
+
+      <button ion-button icon-only class="bottom-small-btn" (click)="listEvent($event)">
+        <img style="width: 1.6rem;" src="assets/imgs/AddMedImgs/bottom_select_all@3x.png" />
+      </button>
+
+      <button ion-button icon-only class="bottom-small-btn" (click)="recycleEvent($event)">
+        <img src="assets/imgs/AddMedImgs/bottom_delete@3x.png" />
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

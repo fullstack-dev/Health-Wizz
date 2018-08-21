@@ -1,0 +1,240 @@
+POST http://54.152.10.249:8080/mobile/v1.1/authenticate
+Content-Type: application/json
+
+{
+  "emailID": "sanjuneogi@gmail.com",
+  "password": "admin@123" 
+}
+
+###
+GET http://54.152.10.249:8080/mobile/v1.1/userProfile/432
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTQ4MDYwNDMsInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.moMw4FmNf6d5riV0wHKAqMzevJt2tPXojY2plGPd6EI
+
+###
+GET http://54.152.10.249:8080/mobile/v1.1/getMHIStatus/432
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTIxMjk2ODksInVzZXJJZCI6IjQ3NiIsInJvbGUiOiJwYXRpZW50In0.FPbxoaVS7YG8Lbk_RSCB2bUBvHtynWKHkGTrU6X7UXc
+
+###
+
+GET http://54.152.10.249:8080/mobile/v1.1/getMHIReport/381?fromDate=2018-04-01&toDate=2018-04-30
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTAzMDQzMzYsInVzZXJJZCI6IjMzMCIsInJvbGUiOiJwYXRpZW50In0.T6q2aeSNRDJmzsoaCNu2EYDCh-hqxNbmdSKhZep3i64
+###
+
+GET http://54.152.10.249:8080/mobile/v1.1/users/381/challenges/
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTc0NzExOTYsInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.sI9WobaYUUFXkEu7D61DstUZ5iq4SKybvTc0MB71-zc
+
+###
+
+GET http://54.152.10.249:8080/mobile/v1.1/users/381/circles/615/members/574
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTYxOTgyNjIsInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.61kMgsks1rJM49fEDVewmDj0fo9poiUn2oMGairl6d4
+
+###
+POST http://54.152.10.249:8080/mobile/v1.1/users/381/circles/117/members
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTAzMjA1MTksInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.PWk-QJ5jGXqO3fDDecgFlSuos0SRz4i5kfV5nizwEqE
+
+{
+ "email": "yaduvanshimayank043@gmail.com",
+ "phone": "+917665920003"
+}
+
+###
+GET http://192.168.0.36:8081/mobile/v1.1/users/381/purse
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTAzMjA1MTksInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.PWk-QJ5jGXqO3fDDecgFlSuos0SRz4i5kfV5nizwEqE
+
+###
+
+GET http://52.207.221.179:8080/mobile/v1.1/users/381/purse/
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTAzMjA1MTksInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.PWk-QJ5jGXqO3fDDecgFlSuos0SRz4i5kfV5nizwEqE
+
+###
+GET http://192.168.0.36:8081/mobile/v1.1/users/381/circles/567/members
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTU2ODA2MTcsInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.JuO2UcICru2xYK94dtVFoBwyaTSPFeuN7l4wimQOcYU
+
+###
+GET http://192.168.0.36:8081/mobile/v1.1/users/381/challenges/23/survey
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTQ5NjYxNDQsInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.ZHEFeT92A972o5ZBfmZ9YPntpSnaXjYlUSEges3P2UM
+
+###
+DELETE http://192.168.0.36:8081/mobile/v1.1/users/381/challenges/23
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTQ5NjYxNDQsInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.ZHEFeT92A972o5ZBfmZ9YPntpSnaXjYlUSEges3P2UM
+
+###
+POST http://192.168.0.36:8081/mobile/v1.1/users/370/challenges/6/members
+Content-Type : application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTA5MDgzNzMsInVzZXJJZCI6IjM3MCIsInJvbGUiOiJwYXRpZW50In0.3Oj2SHFPY5wuVZ5y7OC63FIVF0St0zF397tKMfN9Dik
+
+{
+  "email": "vikashrai598@gmail.com"
+}
+
+###
+GET http://52.207.221.179:8080/mobile/v1.1/users/381/circles
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTAzMjA1MTksInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.PWk-QJ5jGXqO3fDDecgFlSuos0SRz4i5kfV5nizwEqE
+
+###
+POST http://54.152.10.249:8080/mobile/v1.1/saveUserMhi
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTY2MDk2NjUsInVzZXJJZCI6IjQzMSIsInJvbGUiOiJwYXRpZW50In0.PdckvWwNRsqjJfcDsu1L1VeYcq74V9_o06IrL46GnBo
+
+{
+  "userId": 570,
+  "indicator": {
+    "code": "Discharge"
+  },
+  "questions": [
+     {
+          "code": "DISCHARGE_DATE",
+          "value": "1523577600000",
+          "unit": null
+        },
+        {
+          "code": "DISCHARGE_BASELINE_WEIGHT",
+          "value": "100",
+          "unit": "lb"
+        }
+  ]
+}
+
+
+###
+POST http://52.207.221.179:8080/mobile/v1.1/users/381/challenges
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTI1NDgwODIsInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.QT3v7DYYTLWzYc3GCjq_UBq9La-kSQsgzHvzP8h5VB8
+
+{
+  "name": "Developerss Challenges 3",
+  "description": "Developerss Challenges",
+  "startDate": "12/31/2016",
+  "endDate": "12/31/2018",
+  "challengeScope": "noInvite",
+  "challengeType": {
+    "name": "INDICATOR_BASED",
+    "description": ""
+  },
+  "challengeTemplateInfo": {
+  "name": "Developerss Challenge",
+  "description": "Developerss Challenge",
+  "challengeTemplateType": "CUSTOM",
+  "indicatorLst": [ 
+    {
+      "code": "BMI",
+      "isCalculable": true
+    },
+    {
+      "code": "Alcohol",
+      "isCalculable": true
+    }
+  ]
+  }
+}
+
+###
+GET https://api.healthwizz.net/mobile/v1.1/getConnectedDevices/381
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTAzMjA1MTksInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.PWk-QJ5jGXqO3fDDecgFlSuos0SRz4i5kfV5nizwEqE
+
+###
+GET https://api.healthwizz.net/mobile/v1.1/getKiotUrl/381/fitbit/CONNECT
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTAzMjA1MTksInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.PWk-QJ5jGXqO3fDDecgFlSuos0SRz4i5kfV5nizwEqE
+
+###
+PUT http://54.152.10.249:8080/mobile/v1.1/updateProfile/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2Vycy9IZWFsdGhXaXp6SXNUaGVBcHAiLCJleHAiOjE1NTQ4MDYwNDMsInVzZXJJZCI6IjM4MSIsInJvbGUiOiJwYXRpZW50In0.moMw4FmNf6d5riV0wHKAqMzevJt2tPXojY2plGPd6EI
+
+{
+    "userId":381,
+    "firstName": "Mayank",
+    "lastName": "Yaduvanshi",
+    "dob": "1966-12-30T00:00:00.000Z",
+    "cell": "7665920002",
+    "gender": "1",
+    "userStatusId": null,
+    "email": "yaduvanshimayank042@gmail.com",
+    "password": null,
+    "promoCode": null,
+    "primaryPhysician": "primary name",
+    "nextOfKin": null,
+    "address": {
+      "addressLine1": null,
+      "addressLine2": null,
+      "city": null,
+      "zipCode": "12344",
+      "state": "NY",
+      "country": null
+    },
+    "hasPrimaryPhysician": false,
+    "primaryPhysicianDetail": "",
+    "hasInsurance": true,
+    "consents": [
+      {
+        "id": 1,
+        "code": "PP",
+        "value": true
+      },
+      {
+        "id": 4,
+        "code": "PC",
+        "value": false
+      },
+      {
+        "id": 2,
+        "code": "HA",
+        "value": true
+      },
+      {
+        "id": 3,
+        "code": "EM",
+        "value": false
+      }
+    ],
+    "pharmacy": [
+      {
+        "code": "mo",
+        "name": "Mail Order Pharmacy",
+        "type": "3"
+      },
+      {
+        "code": "pp",
+        "name": "Prefered Pharmacy",
+        "type": "1"
+      },
+      {
+        "code": "ba",
+        "name": "Backup Pharmacy",
+        "type": "2"
+      }
+    ],
+    "insurance": [
+      {
+        "id": 1,
+        "code": "pi",
+        "providedId": "2",
+        "type": null
+      },
+      {
+        "id": 2,
+        "code": "si",
+        "providedId": "3",
+        "type": null
+      }
+    ],
+    "providerId": null,
+    "uid": null,
+    "verified": false,
+    "isFederated": null,
+    "externalProvider": []
+  }

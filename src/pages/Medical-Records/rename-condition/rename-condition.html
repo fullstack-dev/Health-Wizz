@@ -1,0 +1,38 @@
+<!--
+  Generated template for the RenameConditionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button (click)="done()">Done</button>
+    </ion-buttons>
+
+    <ion-title>Rename Condition</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-item class="name_fld">
+	    <ion-label stacked>Condition</ion-label>
+	    <ion-input type="text" required placeholder="" name="conditionInput" [(ngModel)]="conditionInput" (ngModelChange)="conditionInputChanged($event)"></ion-input>
+  	</ion-item>
+
+</ion-content>

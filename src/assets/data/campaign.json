@@ -1,0 +1,758 @@
+{
+
+  "terms": [{
+      "id": "0",
+      "name": "Running 3K daily"
+    },
+    {
+      "id": "1",
+      "name": "Submitting a body wait data daily."
+    },
+    {
+      "id": "2",
+      "name": "Fill out weekly survey, starting from the day of trial acceptans and during the next 6 months"
+    }
+  ],
+  "measured": [{
+      "id": "0",
+      "url": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+    },
+    {
+      "id": "1",
+      "url": "assets/imgs/HealthIndexIcons/Exercise@3x.png"
+    },
+    {
+      "id": "2",
+      "url": "assets/imgs/HealthIndexIcons/Cardio@3x.png"
+    }
+  ],
+  "omCoins": [{
+      "id": "0",
+      "value": "10",
+      "name": "1 monthly"
+    },
+    {
+      "id": "1",
+      "value": "20",
+      "name": "2 monthly"
+    },
+    {
+      "id": "2",
+      "value": "60",
+      "name": "3 monthly"
+    }
+  ],
+  "organizers": [{
+      "id": "0",
+      "value": "Moderator",
+      "name": "Alex K."
+    },
+    {
+      "id": "1",
+      "value": "Validator",
+      "name": "Dr. Brett Watson"
+    },
+    {
+      "id": "2",
+      "value": "Validator",
+      "name": "Dr. Jerry Philips"
+    }
+  ],
+  "avatars": [{
+      "id": "0",
+      "name": "Anna Torben",
+      "image": "assets/imgs/HomeIcons/avatar_female_middle_01.png"
+    },
+    {
+      "id": "1",
+      "name": "Jssse Ross",
+      "image": "assets/imgs/HomeIcons/avatar_female_old_01.png"
+    },
+    {
+      "id": "2",
+      "name": "Laura Machale",
+      "image": "assets/imgs/HomeIcons/avatar_female_young_01.png"
+    },
+    {
+      "id": "3",
+      "name": "Mike Gomez",
+      "image": "assets/imgs/HomeIcons/avatar_male_middle_01.png"
+    },
+    {
+      "id": "4",
+      "name": "Pavel Atanassov",
+      "image": "assets/imgs/HomeIcons/avatar_male_old_01.png"
+    },
+    {
+      "id": "5",
+      "name": "Adam Fiola",
+      "image": "assets/imgs/HomeIcons/avatar_male_young_01.png"
+    },
+    {
+      "id": "6",
+      "name": "Tine Johnsgaard",
+      "image": "assets/imgs/AvatarImgs/avatar_ex1.png"
+    },
+    {
+      "id": "7",
+      "name": "Tomas Chen",
+      "image": "assets/imgs/AvatarImgs/avatar_ex2.jpg"
+    },
+    {
+      "id": "8",
+      "name": "David Arias",
+      "image": "assets/imgs/AvatarImgs/avatar_ex3.png"
+    },
+    {
+      "id": "9",
+      "name": "Simon Ronald",
+      "image": "assets/imgs/AvatarImgs/avatar_ex4.jpg"
+    }
+  ],
+
+  "campaigns": [{
+      "name": "Current Campaigns",
+      "data": [{
+          "id": "0",
+          "name": "Med Rex Campaign",
+          "startDate": "Aug 08, 2017",
+          "invite_name": "Cordova",
+          "view": "5",
+          "choice": "0",
+          "url": "assets/imgs/CHFImgs/shape_plus.png",
+          "reward": "145",
+          "update": "Aug 13, 2017 10:00 AM",
+          "module": "0"
+        },
+        {
+          "id": "1",
+          "name": "Test Bottle Campaign",
+          "startDate": "Jun 08, 2017",
+          "invite_name": "Phonegap",
+          "view": "3",
+          "choice": "2",
+          "url": "assets/imgs/HealthIndexIcons/liquid@3x.png",
+          "reward": "100",
+          "update": "Aug 08, 2017 08:30 PM",
+          "module": "1"
+        },
+        {
+          "id": "2",
+          "name": "Sample Inhalator Campaign",
+          "startDate": "Aug 21, 2017",
+          "invite_name": "Framework7",
+          "view": "15",
+          "choice": "1",
+          "url": "assets/imgs/HealthIndexIcons/Breath@3x.png",
+          "reward": "20",
+          "update": "Aug 21th, 2017 03:20 PM",
+          "module": "2"
+        }
+      ]
+    },
+    {
+      "name": "Drafts",
+      "data": [{
+          "id": "0",
+          "name": "Med Rex Campaign",
+          "startDate": "Aug 08, 2017",
+          "invite_name": "Node",
+          "view": "12",
+          "choice": "3",
+          "url": "assets/imgs/CHFImgs/shape_plus.png",
+          "reward": "50",
+          "update": "Aug 13, 2017 10:00 AM",
+          "module": "1"
+        },
+        {
+          "id": "1",
+          "name": "Test Bottle Campaign",
+          "startDate": "Jun 08, 2017",
+          "invite_name": "Angular",
+          "view": "23",
+          "choice": "1",
+          "url": "assets/imgs/HealthIndexIcons/liquid@3x.png",
+          "reward": "70",
+          "update": "Aug 08, 2017 08:30 PM",
+          "module": "2"
+        },
+        {
+          "id": "2",
+          "name": "Sample Inhalator Campaign",
+          "startDate": "Aug 21, 2017",
+          "invite_name": "Ionic",
+          "view": "5",
+          "choice": "0",
+          "url": "assets/imgs/HealthIndexIcons/Breath@3x.png",
+          "reward": "90",
+          "update": "Aug 21th, 2017 03:20 PM",
+          "module": "0"
+        }
+      ]
+    },
+    {
+      "name": "Historys",
+      "data": [{
+          "id": "0",
+          "name": "Campaign1",
+          "startDate": "Aug 09, 2017",
+          "invite_name": "Alex",
+          "view": "3",
+          "choice": "2",
+          "url": "assets/imgs/HealthIndexIcons/cardio_vascular_risk@2x.png",
+          "reward": "35",
+          "update": "Sep 30, 2017 03:20 PM",
+          "module": "0"
+        },
+        {
+          "id": "1",
+          "name": "Campaign2",
+          "startDate": "Jun 18, 2017",
+          "invite_name": "Machale",
+          "view": "5",
+          "choice": "1",
+          "url": "assets/imgs/HealthIndexIcons/depression@2x.png",
+          "reward": "45",
+          "update": "Aug 21, 2017 03:20 PM",
+          "module": "1"
+        },
+        {
+          "id": "2",
+          "name": "Campaign3",
+          "startDate": "Apr 21, 2017",
+          "invite_name": "Daniel",
+          "view": "7",
+          "choice": "3",
+          "url": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png",
+          "reward": "78",
+          "update": "Oct 26, 2017 03:20 PM",
+          "module": "2"
+        },
+        {
+          "id": "3",
+          "name": "Campaign4",
+          "startDate": "Oct 06, 2017",
+          "invite_name": "Jason",
+          "view": "20",
+          "choice": "1",
+          "url": "assets/imgs/HealthIndexIcons/Diabet@3x.png",
+          "reward": "99",
+          "update": "Jul 5, 2017 04:25 PM",
+          "module": "2"
+        },
+        {
+          "id": "4",
+          "name": "Campaign5",
+          "startDate": "Mar 11, 2017",
+          "invite_name": "Mobi",
+          "view": "5",
+          "choice": "3",
+          "url": "assets/imgs/HealthIndexIcons/Hypertension@3x.png",
+          "reward": "135",
+          "update": "Dec 11, 2017 06:30 PM",
+          "module": "1"
+        },
+        {
+          "id": "5",
+          "name": "Campaign6",
+          "startDate": "Sep 25, 2017",
+          "invite_name": "Raj",
+          "view": "2",
+          "choice": "1",
+          "url": "assets/imgs/HealthIndexIcons/Sleep@3x.png",
+          "reward": "12",
+          "update": "Jan 14, 2018 08:00 PM",
+          "module": "1"
+        },
+        {
+          "id": "6",
+          "name": "Campaign7",
+          "startDate": "Oct 21, 2017",
+          "invite_name": "Henry",
+          "view": "3",
+          "choice": "2",
+          "url": "assets/imgs/HealthIndexIcons/waist@2x.png",
+          "reward": "20",
+          "update": "Aug 21, 2017 11:20 PM",
+          "module": "0"
+        }
+      ]
+    }
+  ],
+
+
+  "current_campaigns": [{
+      "id": "0",
+      "name": "Med Rex Campaign",
+      "startDate": "Aug 08, 2017",
+      "invite_name": "Alex",
+      "url": "assets/imgs/CHFImgs/shape_plus.png",
+      "update": "Aug 13th, 2017 10:00 AM"
+    },
+    {
+      "id": "1",
+      "name": "Test Bottle Campaign",
+      "startDate": "Jun 08, 2017",
+      "invite_name": "Machale",
+      "url": "assets/imgs/HealthIndexIcons/liquid@3x.png",
+      "update": "Aug 08th, 2017 08:30 PM"
+    },
+    {
+      "id": "2",
+      "name": "Sample Inhalator Campaign",
+      "startDate": "Aug 21, 2017",
+      "invite_name": "Daniel",
+      "url": "assets/imgs/HealthIndexIcons/Breath@3x.png",
+      "update": "Aug 21th, 2017 03:20 PM"
+    }
+  ],
+
+  "histories": [{
+      "id": "0",
+      "name": "Campaign1",
+      "startDate": "Aug 09, 2017",
+      "invite_name": "Alex",
+      "view": "3",
+      "url": "assets/imgs/HealthIndexIcons/cardio_vascular_risk@2x.png",
+      "reward": "35"
+    },
+    {
+      "id": "1",
+      "name": "Campaign2",
+      "startDate": "Jun 18, 2017",
+      "invite_name": "Machale",
+      "view": "5",
+      "url": "assets/imgs/HealthIndexIcons/depression@2x.png",
+      "reward": "45"
+    },
+    {
+      "id": "2",
+      "name": "Campaign3",
+      "startDate": "Apr 21, 2017",
+      "invite_name": "Daniel",
+      "view": "7",
+      "url": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png",
+      "reward": "78"
+    },
+    {
+      "id": "3",
+      "name": "Campaign4",
+      "startDate": "Oct 06, 2017",
+      "invite_name": "Jason",
+      "view": "20",
+      "url": "assets/imgs/HealthIndexIcons/Diabet@3x.png",
+      "reward": "99"
+    },
+    {
+      "id": "4",
+      "name": "Campaign5",
+      "startDate": "Mar 11, 2017",
+      "invite_name": "Mobi",
+      "view": "5",
+      "url": "assets/imgs/HealthIndexIcons/Hypertension@3x.png",
+      "reward": "135"
+    },
+    {
+      "id": "5",
+      "name": "Campaign6",
+      "startDate": "Sep 25, 2017",
+      "invite_name": "Raj",
+      "view": "2",
+      "url": "assets/imgs/HealthIndexIcons/Sleep@3x.png",
+      "reward": "12"
+    },
+    {
+      "id": "6",
+      "name": "Campaign7",
+      "startDate": "Oct 21, 2017",
+      "invite_name": "Henry",
+      "view": "3",
+      "url": "assets/imgs/HealthIndexIcons/waist@2x.png",
+      "reward": "2"
+    }
+  ],
+
+  "indexs": [{
+      "id": 0,
+      "name": "BMI",
+      "freq": "0",
+      "img": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png",
+      "value": false,
+      "toggle": true
+    },
+    {
+      "id": 1,
+      "name": "Depression",
+      "freq": "1",
+      "img": "assets/imgs/HealthIndexIcons/liquid@3x.png",
+      "value": true,
+      "toggle": false
+    },
+    {
+      "id": 2,
+      "name": "Diabetes",
+      "freq": "2",
+      "img": "assets/imgs/HealthIndexIcons/Diet@3x.png",
+      "value": false,
+      "toggle": false
+    },
+    {
+      "id": 3,
+      "name": "Execise",
+      "freq": "3",
+      "img": "assets/imgs/HealthIndexIcons/Pulse@3x.png",
+      "value": false,
+      "toggle": false
+    },
+    {
+      "id": 4,
+      "name": "Sleep Apnea",
+      "freq": "1",
+      "img": "assets/imgs/HealthIndexIcons/Breath@3x.png",
+      "value": false,
+      "toggle": true
+    },
+    {
+      "id": 5,
+      "name": "BMI",
+      "freq": "2",
+      "img": "assets/imgs/HealthIndexIcons/Oxygen@3x.png",
+      "value": false,
+      "toggle": true
+    },
+    {
+      "id": 6,
+      "name": "Depression",
+      "freq": "3",
+      "img": "assets/imgs/HealthIndexIcons/Lag-swelling@3x.png",
+      "value": false,
+      "toggle": false
+    },
+    {
+      "id": 7,
+      "name": "Diabetes",
+      "freq": "0",
+      "img": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png",
+      "value": false,
+      "toggle": false
+    }
+
+  ],
+  "rewards": [{
+      "id": "0",
+      "title": "No Rewards",
+      "description": "Create a campaign which people will participate without OmPoints rewards"
+    },
+    {
+      "id": "1",
+      "title": "Fund Yourself",
+      "description": "Become a proud funder from your own OmPoints budget"
+    },
+    {
+      "id": "2",
+      "title": "Participation Fee",
+      "description": "Participants will pay frees to create the reward budget"
+    },
+    {
+      "id": "3",
+      "title": "Find a Sponsor",
+      "description": "Choose a sponsor for your Campaign"
+    }
+  ],
+  "templates": [{
+      "template": "Better BMI",
+      "data": [{
+          "id": 0,
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+        },
+        {
+          "id": 1,
+          "image": "assets/imgs/HealthIndexIcons/Nutrition@3x.png"
+        },
+        {
+          "id": 2,
+          "image": "assets/imgs/HealthIndexIcons/Exercise@3x.png"
+        },
+        {
+          "id": 3,
+          "image": "assets/imgs/HealthIndexIcons/Cardio@3x.png"
+        },
+        {
+          "id": 4,
+          "image": "assets/imgs/HealthIndexIcons/Hypertension@3x.png"
+        },
+        {
+          "id": 5,
+          "image": "assets/imgs/HealthIndexIcons/Waist@3x.png"
+        },
+        {
+          "id": 6,
+          "image": "assets/imgs/HealthIndexIcons/Diabet@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Wiggle Waist",
+      "data": [{
+          "id": 0,
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+        },
+        {
+          "id": 1,
+          "image": "assets/imgs/HealthIndexIcons/Nutrition@3x.png"
+        },
+        {
+          "id": 2,
+          "image": "assets/imgs/HealthIndexIcons/Exercise@3x.png"
+        },
+        {
+          "id": 3,
+          "image": "assets/imgs/HealthIndexIcons/Cardio@3x.png"
+        },
+        {
+          "id": 4,
+          "image": "assets/imgs/HealthIndexIcons/Hypertension@3x.png"
+        },
+        {
+          "id": 5,
+          "image": "assets/imgs/HealthIndexIcons/Waist@3x.png"
+        },
+        {
+          "id": 6,
+          "image": "assets/imgs/HealthIndexIcons/Diabet@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Get Moving",
+      "data": [{
+          "id": 0,
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+        },
+        {
+          "id": 1,
+          "image": "assets/imgs/HealthIndexIcons/Nutrition@3x.png"
+        },
+        {
+          "id": 2,
+          "image": "assets/imgs/HealthIndexIcons/Exercise@3x.png"
+        },
+        {
+          "id": 3,
+          "image": "assets/imgs/HealthIndexIcons/Cardio@3x.png"
+        },
+        {
+          "id": 4,
+          "image": "assets/imgs/HealthIndexIcons/Hypertension@3x.png"
+        },
+        {
+          "id": 5,
+          "image": "assets/imgs/HealthIndexIcons/Waist@3x.png"
+        },
+        {
+          "id": 6,
+          "image": "assets/imgs/HealthIndexIcons/Diabet@3x.png"
+        },
+        {
+          "id": 7,
+          "image": "assets/imgs/HealthIndexIcons/Depression@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Nutrition Nuts",
+      "data": [{
+          "id": 0,
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+        },
+        {
+          "id": 1,
+          "image": "assets/imgs/HealthIndexIcons/Waist@3x.png"
+        },
+        {
+          "id": 2,
+          "image": "assets/imgs/HealthIndexIcons/Nutrition@3x.png"
+        },
+        {
+          "id": 3,
+          "image": "assets/imgs/HealthIndexIcons/Cardio@3x.png"
+        },
+        {
+          "id": 4,
+          "image": "assets/imgs/HealthIndexIcons/Diabet@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Shoo Smoking",
+      "data": [{
+          "id": 0,
+          "image": "assets/imgs/HealthIndexIcons/Smoking@3x.png"
+        },
+        {
+          "id": 1,
+          "image": "assets/imgs/HealthIndexIcons/Cardio@3x.png"
+        },
+        {
+          "id": 2,
+          "image": "assets/imgs/HealthIndexIcons/Cancer@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Away fro Alcohol",
+      "data": [{
+          "id": 0,
+          "image": "assets/imgs/HealthIndexIcons/Alcohol@3x.png"
+        },
+        {
+          "id": 1,
+          "image": "assets/imgs/HealthIndexIcons/Depression@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Search Slppe Apnea",
+      "data": [{
+          "id": 0,
+          "image": "assets/imgs/HealthIndexIcons/Sleep@3x.png"
+        },
+        {
+          "id": 1,
+          "image": "assets/imgs/HealthIndexIcons/Cardio@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Heal Hypertension",
+      "data": [{
+          "id": 0,
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+        },
+        {
+          "id": 1,
+          "image": "assets/imgs/HealthIndexIcons/Waist@3x.png"
+        },
+        {
+          "id": 2,
+          "image": "assets/imgs/HealthIndexIcons/Hypertension@3x.png"
+        },
+        {
+          "id": 3,
+          "image": "assets/imgs/HealthIndexIcons/Cardio@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Deal with Depression",
+      "data": [{
+          "id": 0,
+          "image": "assets/imgs/HealthIndexIcons/Smoking@3x.png"
+        },
+        {
+          "id": 1,
+          "image": "assets/imgs/HealthIndexIcons/Alcohol@3x.png"
+        },
+        {
+          "id": 2,
+          "image": "assets/imgs/HealthIndexIcons/Depression@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Dwindle Diabetes Risk",
+      "data": [{
+          "id": 0,
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+        },
+        {
+          "id": 1,
+          "image": "assets/imgs/HealthIndexIcons/Waist@3x.png"
+        },
+        {
+          "id": 2,
+          "image": "assets/imgs/HealthIndexIcons/Nutrition@3x.png"
+        },
+        {
+          "id": 3,
+          "image": "assets/imgs/HealthIndexIcons/Exercise@3x.png"
+        },
+        {
+          "id": 4,
+          "image": "assets/imgs/HealthIndexIcons/Cardio@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Care for CV Risk",
+      "data": [{
+          "id": 0,
+          "image": "assets/imgs/HealthIndexIcons/Hypertension@3x.png"
+        },
+        {
+          "id": 1,
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+        },
+        {
+          "id": 2,
+          "image": "assets/imgs/HealthIndexIcons/Nutrition@3x.png"
+        },
+        {
+          "id": 3,
+          "image": "assets/imgs/HealthIndexIcons/Exercise@3x.png"
+        },
+        {
+          "id": 4,
+          "image": "assets/imgs/HealthIndexIcons/Diabet@3x.png"
+        }
+      ]
+    }
+  ],
+  "duplicates": [{
+      "id": 0,
+      "name": "Shape",
+      "date": "Aug 10, 2017",
+      "person": "5",
+      "image": "assets/imgs/CHFImgs/Shape@3x.png",
+      "reward": "145",
+      "module": "1"
+    },
+    {
+      "id": 1,
+      "name": "Inhalator",
+      "date": "Jan 30, 2018",
+      "person": "12",
+      "image": "assets/imgs/HealthIndexIcons/Breath@3x.png",
+      "reward": "75",
+      "module": "2"
+    },
+    {
+      "id": 2,
+      "name": "Bottle",
+      "date": "Jan 25, 2018",
+      "person": "15",
+      "image": "assets/imgs/HealthIndexIcons/liquid@3x.png",
+      "reward": "100",
+      "module": "1"
+    },
+    {
+      "id": 3,
+      "name": "Carrot",
+      "date": "Feb 08, 2018",
+      "person": "3",
+      "image": "assets/imgs/HealthIndexIcons/Diet@3x.png",
+      "reward": "200",
+      "module": "2"
+    },
+    {
+      "id": 4,
+      "name": "Weight",
+      "date": "Feb 15, 2018",
+      "person": "8",
+      "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png",
+      "reward": "80",
+      "module": "2"
+    }
+  ]
+
+}

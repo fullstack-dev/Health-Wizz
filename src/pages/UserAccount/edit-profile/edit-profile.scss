@@ -1,0 +1,195 @@
+page-edit-profile {
+  .slide_item_fld {
+    padding: 0;
+    width: 100%;
+    .item-inner {
+      border: none !important;
+      .label {
+        font-size: 1.2rem;
+        font-family: 'SF-UI-Text' !important;
+        color: #737370;
+        padding-bottom: 3px;
+        sup {
+          color: red;
+          font-weight: 900;
+        }
+      }
+      .input {
+        border: 1px solid $font-appcolor;
+        border-radius: 2px;
+        padding: 8px 10px;
+        height: 45px;
+        font-size: 1.3rem;
+        .text-input {}
+      }
+      .select {
+        border: 1px solid $font-appcolor;
+        padding: 12px 6px !important;
+        border-radius: 1px;
+        height: 45px;
+        font-size: 1.4rem;
+      }
+    }
+  }
+  .date_fld {
+    width: 100%;
+    display: inline-flex;
+    .item {
+      width: 50%;
+      float: left;
+      .item-inner {
+        border: none;
+        .input {
+          border: 1px solid $font-appcolor;
+          border-radius: 2px;
+          padding: 8px 10px;
+          height: 45px;
+          font-size: 1.3rem;
+          .text-input {}
+        }
+        .select {
+          border: 1px solid $font-appcolor;
+          padding: 12px 6px !important;
+          border-radius: 1px;
+          height: 45px;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+  .birthday-txt {
+    font-size: 1.2rem;
+    font-family: 'SF-UI-Text' !important;
+    color: #737370;
+    padding: 14px 0 3px;
+  }
+  .input-date-text {
+    width: 100%;
+    border: 1px solid #009ea9;
+    padding-left: 2vw;
+    font-size: 1.4rem;
+    height: 45px; // padding: 5px 10px 0;
+  }
+  .item-ios.item-block .item-inner {
+    border-bottom: 0;
+  }
+  .first-part-background {
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    background-color: white;
+    margin-bottom: 10vw;
+  }
+  .part-background {
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+    background-color: white;
+    border-top: 1px solid #F0F0F0;
+    margin-bottom: 10vw;
+  }
+  .item-div {
+    display: flex;
+  }
+  .item-title {
+    margin-top: 8vw;
+    font-size: 4vw;
+    color: #737370;
+  }
+  .input-text {
+    margin-top: 2vw;
+    width: 100%;
+    border: 0.5px solid #8E8E93;
+    padding-left: 2vw;
+    height: 12vw;
+    padding-top: 1vw;
+  }
+  .part-text {
+    font-size: 2.2rem;
+    margin-top: 5vw;
+  }
+  ion-select {
+    max-width: 100% !important;
+  }
+  .select-ios {
+    // padding-left: 0px !important;
+    max-width: 100% !important;
+  }
+  .select-text {
+    width: 100vw !important;
+  }
+}
+
+ion-select {
+  max-width: 100% !important;
+}
+
+.top-nav-div {
+  position: relative;
+}
+
+.back-btn-div {
+  margin-top: 2.5vw;
+  left: 1vw;
+  position: absolute;
+}
+
+.done-button {
+  background: transparent;
+  font-size: 4vw;
+  color: #737370;
+}
+
+.search-btn-div {
+  margin-top: 2.5vw;
+  right: 12vw;
+  position: absolute;
+}
+
+.search-btn {
+  background: transparent;
+  font-size: 5vw;
+  color: #009EA9;
+}
+
+.add-btn-div {
+  margin-top: 1.5vw;
+  position: absolute;
+  right: 0.1vw;
+}
+
+.add-btn {
+  background: transparent;
+  color: #009EA9;
+  font-size: 7vw;
+}
+
+.sec-toggle {
+  left: 10vw;
+  color: #009EA9 !important;
+}
+
+.fir-toggle {
+  color: #009EA9 !important;
+}
+
+.calendar-icon-div {
+  font-size: 6vw;
+  position: absolute;
+  margin-left: 36vw;
+  margin-top: 1vw;
+}
+
+.item-ios.item-block .item-inner {
+  padding-right: 0px !important;
+}
+
+.datetime-text {
+  // padding-top: 2vw;
+}
+
+.calendar-picker {
+  display: flex;
+  align-items: center;
+  border: 1px solid gray;
+  height: 12vw;
+  margin-top: 2vw;
+}

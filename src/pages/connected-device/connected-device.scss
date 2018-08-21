@@ -1,0 +1,43 @@
+page-connected-device {
+	.one-device-div{
+	    display: flex;
+	    height: 53vw;
+	    width: 100vw;
+	}
+
+	.device-property-div {
+	    width: 50vw;
+	    padding-top: 5vw;
+	    padding-left: 5vw;
+	}
+
+	.device-name-txt {
+	    font-size: 4.5vw;
+	}
+
+	.device-img {
+		width: 17vw;
+	    margin: 3vw;
+	    margin-left: 5vw;
+	}
+
+	.device-property-val {
+	    font-size: 5vw;
+	}
+
+	.select-btn-div {
+		width: 50vw;
+	    font-size: 5vw;
+	    margin-top: 30vw;
+	    text-align: center;
+	    margin-right: 5vw;
+	}
+
+	.select-btn {
+		border: 1px solid #48C5CD;
+	    margin: 0 10px;
+	    background-color: #48C5CD;
+	    color: white;
+	    border-radius: 5px;
+	}
+}

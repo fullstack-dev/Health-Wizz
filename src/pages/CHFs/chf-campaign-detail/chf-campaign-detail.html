@@ -1,0 +1,121 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      <button ion-button menuToggle icon-only class="menu_icon">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{campaign.name}}</ion-title>
+
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="share()">
+        <ion-icon name="md-share"></ion-icon>
+      </button>
+    </ion-buttons> -->
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>{{campaign.name}} </h2>
+
+  <div class="des">
+    <img src="assets/imgs/HealthIndexIcons/Diet@3x.png">
+    <p>{{campaign.description}}</p>
+  </div>
+
+  <!-- <div class="result-btn" *ngIf="this.status == 'campaign'"></div> -->
+  <div class="result-btn" *ngIf="campaign.campaignInfo.circleInfo.invitationState !== 'invite'">
+    <button ion-button class="l-btn" (click)="goHistory()">{{lang_resource.chfs.chf_campaign_detail.history_button_text}}</button>
+    <button ion-button class="r-btn" (click)="goUpdate()">{{lang_resource.chfs.chf_campaign_detail.update_button_text}}</button>
+  </div>
+
+  <div class="sponsors">
+    <h2>{{lang_resource.chfs.chf_campaign_detail.sponsers_text}}</h2>
+    <div class="description">
+      <img src="assets/imgs/Campaign/gym.png">
+      <img src="assets/imgs/Campaign/nike.png">
+    </div>
+  </div>
+
+  <div class="terms">
+    <h2>{{lang_resource.chfs.chf_campaign_detail.terms_text}}</h2>
+    <div class="description">
+      <p>{{lang_resource.chfs.chf_campaign_detail.participatoin_in_text}} {{campaign.name}} {{lang_resource.chfs.chf_campaign_detail.will_text}}</p>
+      <ul>
+        <li *ngFor="let item of terms">{{item.name}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="measured">
+    <h2>{{lang_resource.chfs.chf_campaign_detail.measured_indexes_text}}</h2>
+    <div class="description">
+      <img *ngFor="let item of measured" src="{{item.url}}">
+    </div>
+  </div>
+
+  <div class="omcoins">
+    <h2>{{lang_resource.chfs.chf_campaign_detail.om_coins_text}}</h2>
+    <div class="description">
+      <p>{{lang_resource.chfs.chf_campaign_detail.om_coins_description_text1}}
+        <span>
+          <img src="assets/imgs/HomeIcons/Reward_Main.png">
+        </span>
+        {{lang_resource.chfs.chf_campaign_detail.om_coins_description_text2}}
+        <br>{{lang_resource.chfs.chf_campaign_detail.om_coins_description_text3}}
+      </p>
+
+      <ion-list>
+        <ion-item style="font-size: 15px;" *ngFor="let item of omCoins"> {{item.value}}
+          <span>
+            <img src="assets/imgs/HomeIcons/Reward_Main.png">
+          </span> {{lang_resource.chfs.chf_campaign_detail.for_text}} {{item.name}} {{lang_resource.chfs.chf_campaign_detail.report_text}}</ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+  <div class="organizers">
+    <h2>{{lang_resource.chfs.chf_campaign_detail.organizers_text_text}}</h2>
+    <p>{{lang_resource.chfs.chf_campaign_detail.organizers_description_text}}</p>
+    <div class="description" *ngFor="let item of organizers">
+      <p col-6 class="name">{{item.name}}</p>
+      <p col-6>Moderator</p>
+    </div>
+  </div>
+
+  <div class="participants">
+    <h2>Participants</h2>
+    <div class="p-value">
+      <img src="assets/imgs/Icons/profile.png">
+      <p>{{campaign.campaignInfo.circleInfo.members - 1}}</p>
+    </div>
+
+    <div class="slide-box">
+
+      <swiper [config]="config" style="height: 100%;" class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let item of participants">
+            <img [src]="item.avatar" alt="">
+            <p>{{item.info.firstName}}</p>
+          </div>
+        </div>
+        <div class="swiper-scrollbar"></div>
+      </swiper>
+
+    </div>
+
+  </div>
+
+  <!-- <div class="result-btn" *ngIf="campaign.campaignInfo.circleInfo.invitationState === 'invite'">
+    <button ion-button class="l-btn" (click)="denyClick()">Deny</button>
+    <button ion-button class="r-btn" (click)="acceptClick()">Accept</button>
+  </div> -->
+</ion-content>

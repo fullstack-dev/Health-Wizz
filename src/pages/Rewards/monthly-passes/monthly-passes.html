@@ -1,0 +1,54 @@
+<!--
+  Generated template for the MonthlyPassesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+  	
+  	<ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Sport clothes</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<div class="monthly-title">
+		{{monthly_title}}
+	</div>
+
+	<div class="monthly-img-div">
+		<img class="monthly-img" src={{monthly_image}}/>
+	</div>
+
+	<div class="monthly-description">
+		{{monthly_description}}
+	</div>
+
+	<div class="monthly-price-div">
+		<div class="monthly_price">
+			Price: {{monthly_price}}
+		</div>
+		<div class="price-img-div">
+			<img class="price-img" src="assets/imgs/HomeIcons/Reward_tiny@2x.png"/>
+		</div>
+	</div>
+
+	<div class="buy-btn" (click)="Buy()">
+		Buy
+	</div>
+
+</ion-content>

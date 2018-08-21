@@ -1,0 +1,51 @@
+page-manage-roles {
+
+	h1, h2, h3, h4, h5, p, button, div, .label{
+		font-family: 'SF-UI-Text';
+	}
+
+	.toolbar{
+		button{
+			margin: 0 5px;
+		}
+		.menu_icon{
+			float: right;
+		}
+	}
+
+	
+
+	.manageList{
+
+		.item{
+			.avatar{
+				img{
+					width: 50px;
+					height: 50px;
+					border: 1px solid gray;
+				}
+			}
+			.item-inner{
+				.label{
+					.condition{
+						.mode{
+							float: left;
+    						color: red;
+    						padding-right: 15px;
+						}
+						.valid{
+							float: left;
+							color: $font-appcolor;							
+						}
+					}					
+				}
+				button{
+					width: 25px;
+				}
+			}
+		}
+	}
+
+
+
+}

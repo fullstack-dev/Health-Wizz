@@ -1,0 +1,34 @@
+<!-- <ion-content> -->
+
+<!-- <div class="bg-div" (click)="onPageClick('')">
+		
+	</div> -->
+<!-- <div>
+  <ion-list class="block-list">
+
+    <ion-item *ngFor="let item of menuList" (click)="onPageClick(item.id)">
+      <ion-avatar item-start>
+        <img [src]="item.icon">
+      </ion-avatar>
+      {{item.title}}
+      <ion-icon name="ios-arrow-forward-outline" item-end></ion-icon>
+    </ion-item>
+
+  </ion-list>
+</div> -->
+
+<ion-content>
+  <ion-list>
+
+    <ion-item *ngFor="let item of menuList" (click)="onPageClick(item.id)">
+      <ion-avatar item-start>
+        <img [src]="item.icon">
+      </ion-avatar>
+      {{item.title}}
+      <ion-icon name="ios-arrow-forward-outline" item-end></ion-icon>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+<!-- </ion-content> -->

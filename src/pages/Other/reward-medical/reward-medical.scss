@@ -1,0 +1,52 @@
+page-reward-medical {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  button,
+  div,
+  .label {
+    font-family: 'SF-UI-Text';
+  }
+  .toolbar {
+    button {
+      margin: 0 5px;
+    }
+    .menu_icon {
+      float: right;
+    }
+  }
+  .medical {
+    margin-top: 30px;
+    img {
+      width: 25px;
+      height: 25px;
+      margin-bottom: -4px;
+      margin-right: 10px;
+    }
+  }
+  .result-btn {
+    width: calc( 100% - 36px);
+    position: absolute;
+    display: inline-block;
+    margin-top: 20px;
+    align-items: center;
+    bottom: 50px;
+    button {
+      width: 40%;
+      font-size: 20px;
+      margin: 0 5%;
+      height: 45px;
+    }
+    .l-btn {
+      border: 2px solid;
+      float: left;
+    }
+    .r-btn {
+      float: right;
+      font-size: 16px !important;
+    }
+  }
+}

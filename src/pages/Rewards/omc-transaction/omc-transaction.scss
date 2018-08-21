@@ -1,0 +1,108 @@
+page-omc-transaction {
+	.date-div{
+		width: 100%;
+		display: flex;
+		align-items: center;
+	    margin-left: 50%;
+    	transform: translateX(-50%);
+
+		.left-line{
+			border-top: 1px solid #91928E;
+			width: 50%
+		}
+		.tran-date {
+		    color: #91928E;
+		    font-family: "SF-UI-Text";
+		    font-size: 10px;
+		    line-height: 12px;
+		    text-align: center;
+	        margin-bottom: 10px;
+	        padding-top: 8px;
+		}
+		.right-line {
+			border-top: 1px solid #91928E;
+			width: 50%
+		}
+	}
+	.tran-div {
+	    display: flex;
+    	align-items: center;
+
+		.sold-div {
+			display: flex;
+		    align-items: center;
+		    width: 33%;
+		    position: relative;
+
+			.amount-txt {
+			    color: #292929;
+			    font-family: "SF-UI-Text";
+			    font-size: 14px;
+			    line-height: 16px;
+		        margin-left: 10px;
+			}
+			.sold-txt {
+				position: absolute;
+			    right: 20px;
+			    color: #292929;
+			    font-family: "SF-UI-Text";
+			    font-size: 14px;
+			    line-height: 16px;
+			}
+		}
+
+		.bought-div {
+			display: flex;
+		    align-items: center;
+		    width: 40%;
+		    position: relative;
+
+			.arrow-o-img {
+				color: #009EA9;
+			    font-size: 1.6rem;
+    			padding-top: 4px;
+			}
+			.amount-txt {
+			    color: #1F222B;
+			    font-family: "SF-UI-Text";
+			    font-size: 14px;
+			    line-height: 16px;
+			}
+			.bought-txt {
+			    position: absolute;
+			    right: 20px;
+			    color: #1F222B;
+			    font-family: "SF-UI-Text";
+			    font-size: 14px;
+			    line-height: 16px;
+			}
+		}
+
+		.balance-div {
+		    display: flex;
+		    align-items: center;
+		    width: 26%;
+		    position: relative;
+
+			.arrow-e-img {
+
+			}
+			.amount-txt {
+				color: #1F222B;
+			    font-family: "SF-UI-Text";
+			    font-size: 14px;
+			    line-height: 16px;
+			    margin-left: 3px;
+			}
+			.balance-txt {
+				color: #1F222B;
+			    font-family: "SF-UI-Text";
+			    font-size: 14px;
+			    font-weight: bold;
+			    line-height: 16px;
+			    position: absolute;
+			    right: 5px;
+			}
+		}
+	}
+}

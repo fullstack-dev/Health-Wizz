@@ -1,0 +1,14 @@
+<div class="leave-modal-div">
+  <div class="leave-modal-title-div">
+    <div class="modal-title-txt">Delete {{type}}?</div>
+  </div>
+
+  <div class="leave-txt-div">
+    You're going to delete the {{label}}{{" "}}{{type}}. This action cannot be undone. Are you sure you want to delete it?
+  </div>
+
+  <div class="buttons-div">
+    <button class="first-btn" (click)="cancelClick()">{{lang_resource.button.cancel_text}}</button>
+    <button class="second-btn" (click)="deleteClick()">{{lang_resource.button.delete_text}}</button>
+  </div>
+</div>

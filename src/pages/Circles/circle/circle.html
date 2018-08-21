@@ -1,0 +1,157 @@
+<!--
+  Generated template for the CirclePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <!-- <button ion-button icon-only (click)="Share()">
+        <img style="width: 20px;" src="assets/icon/share.png">
+      </button> -->
+      <button ion-button (click)="Edit()" *ngIf="canUpdate">
+        {{lang_resource.button.edit_text}}
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{lang_resource.circle.my_circles.title}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="circle-header">
+    <img class="percent-img" [src]="circlePic">
+    <p>{{circle?.name}}</p>
+  </div>
+
+  <div class="descriptions-part-div">
+    <div class="healthindex-detail2">
+      {{circle?.description}}
+    </div>
+  </div>
+
+  <ion-row *ngIf="circle?.invitationState == 'invite'">
+    <ion-col>
+      <button ion-button outline style="width:80%;height:44px" (click)="denyInvite()">{{lang_resource.button.deny_text}}</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button style="width:80%;height:44px" (click)="acceptInvite()">{{lang_resource.button.accept_text}}</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="circle?.invitationState == 'accept' && canDelete && canInvite">
+    <ion-col>
+      <button ion-button outline style="width:80%;height:44px" (click)="goToDelete()">{{lang_resource.button.delete_text}}</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button style="width:80%;height:44px" (click)="goToInvite()">{{lang_resource.button.invite_text}}</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="circle?.invitationState == 'accept' && canLeave && canInvite">
+    <ion-col>
+      <button ion-button outline style="width:80%;height:44px" (click)="goToLeave()">{{lang_resource.button.leave_text}}</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button style="width:80%;height:44px" (click)="goToInvite()">{{lang_resource.button.invite_text}}</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="circle?.invitationState == 'accept' && canLeave && !canInvite">
+    <ion-col>
+      <button ion-button outline style="width:80%;height:44px" (click)="goToLeave()">{{lang_resource.button.leave_text}}</button>
+    </ion-col>
+  </ion-row>
+
+  <!-- <div class="buttons-div" *ngIf="circle?.invitationState == 'accept' && canLeave && !canInvite">
+    <button class="first-btn" (click)="goToLeave()">{{lang_resource.button.leave_text}}</button>
+  </div> -->
+
+  <!-- <div class="buttons-div" *ngIf="circle?.invitationState == 'accept' && canLeave && canInvite">
+    <button class="first-btn" (click)="goToLeave()">{{lang_resource.button.leave_text}}</button>
+    <button class="second-btn" (click)="goToInvite()">{{lang_resource.button.invite_text}}</button>
+  </div> -->
+
+  <!-- <div class="buttons-div" *ngIf="circle?.invitationState == 'accept' && canDelete && canInvite">
+    <button class="first-btn" (click)="goToDelete()">{{lang_resource.button.delete_text}}</button>
+    <button class="second-btn" (click)="goToInvite()">{{lang_resource.button.invite_text}}</button>
+  </div> -->
+
+  <!-- <div class="buttons-div" *ngIf="circle?.invitationState == 'invite'">
+    <div class="delete-btn-div">
+      <button class="delete-btn" (click)="denyInvite()">{{lang_resource.button.deny_text}}</button>
+    </div>
+    <div class="invite-btn-div">
+      <button class="invite-btn" (click)="acceptInvite()">{{lang_resource.button.accept_text}}</button>
+    </div>
+  </div> -->
+
+  <div class="members-div" *ngIf="circle?.invitationState == 'accept'">
+    <div class="member-txt">{{lang_resource.circle.circles.member_text}}</div>
+    <div class="member-num-txt">{{circle.members}}</div>
+    <div class="see-all-btn" (click)="goToAllMembers()">{{lang_resource.circle.circles.seeall_text}}</div>
+  </div>
+
+  <!-- scroll images part  -->
+  <div class="scroll-imgs-div" *ngIf="circle?.invitationState == 'accept'">
+    <div class="slide-box">
+      <swiper [config]="config" style="height: 100%;" class="swiper-container">
+        <div class="swiper-wrapper">
+          <div *ngIf="participants == undefined" style="text-align:center;">
+            <img style="height:10vw;" src="assets/icon/Spinner.svg">
+          </div>
+
+          <div class="swiper-slide" (click)="swiper_click(item)" *ngFor="let item of participants">
+            <div>
+              <img [src]="item.avatar" alt="">
+              <p>{{item.info.firstName}}</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="swiper-scrollbar"></div>
+      </swiper>
+
+    </div>
+  </div>
+
+  <!-- <div class="members-div">
+    <div class="member-txt">Campaingns</div>
+    <div class="member-num-txt">4</div>
+    <div class="see-all-btn" (click)="goToAllCampaingns()">See All</div>
+  </div>
+
+  <div class="under-card-div">
+    <div class="card-firstlow-div">
+      <div class="started-txt">Started: Aug 08, 2017</div>
+      <div class="details-btn">Details</div>
+    </div>
+    <div class="med-rec-campaign-txt">Med Rec Campaign</div>
+    <div class="invite-div">
+      <div class="invite-txt">Invite from</div>
+      <div class="invite-name">Alex</div>
+    </div>
+
+    <div class="campaign-img-div">
+      <img class="campaign-img" src="assets/imgs/MenuIcons/Shape@2x.png">
+    </div>
+    <div class="last-txt">Last Update Aug 13th, 2017 10:00 AM</div>
+  </div> -->
+
+</ion-content>

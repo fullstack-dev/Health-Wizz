@@ -1,0 +1,97 @@
+page-find-physician {
+  .slide_item_fld {
+    padding: 0;
+    width: 100%;
+    .item-inner {
+      border: none !important;
+      .label {
+        font-size: 1.2rem;
+        font-family: 'SF-UI-Text' !important;
+        color: #737370;
+        padding-bottom: 3px;
+        sup {
+          color: red;
+          font-weight: 900;
+        }
+      }
+      .input {
+        border: 1px solid $font-appcolor;
+        border-radius: 2px;
+        padding: 0 10px;
+        font-size: 1.3rem;
+        .text-input {}
+      }
+      .select {
+        border: 1px solid $font-appcolor;
+        padding: 8px 6px;
+        border-radius: 1px;
+        font-size: 1.4rem;
+      }
+    }
+  }
+  .date_fld {
+    width: 100%;
+    display: inline-flex;
+    .item {
+      width: 50%;
+      float: left;
+      .item-inner {
+        border: none;
+        .input {
+          border: 1px solid $font-appcolor;
+          border-radius: 2px;
+          padding: 0 10px;
+          height: 40px;
+          font-size: 1.3rem;
+          .text-input {}
+        }
+        .select {
+          border: 1px solid $font-appcolor;
+          padding: 8px 6px;
+          border-radius: 1px;
+          height: 40px;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+  .find-img-div {
+    height: 50vw;
+    text-align: center;
+    margin-top: 10vw;
+  }
+  .find-img {
+    width: 40vw;
+  }
+  .find-item-title {
+    margin-top: 8vw;
+    font-size: 4vw;
+    color: #737370;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .find-input-text {
+    margin-top: 2vw;
+    width: 100%;
+    border: 0.5px solid #8E8E93;
+    padding-left: 2vw;
+    height: 12vw !important;
+    font-family: 'SF-UI-Text' !important;
+  }
+  .find-item-div {
+    display: flex;
+  }
+  .ion-select {
+    max-width: 100% !important;
+  }
+  .select-ios {
+    // padding-left: 0px !important;
+    max-width: 100% !important;
+  }
+  .select-text {
+    width: 100vw !important;
+  }
+  .alert-md .alert-radio-group,
+  .alert-md .alert-checkbox-group {
+    overflow: auto !important;
+  }
+}

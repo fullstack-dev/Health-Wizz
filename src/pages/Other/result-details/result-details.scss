@@ -1,0 +1,120 @@
+page-result-details {
+
+	h1, h2, h3, h4, h5, p, button, div, .label{
+		font-family: 'SF-UI-Text';
+	}
+
+	.slide-zoom{
+		height: 100%;
+    	overflow: scroll;
+	}
+
+	.slide-data{
+
+		.head{
+			margin-top: 20px;
+    		text-align: left;
+    		font-weight: 400;
+		}
+		.sub-title{
+			font-size: 16px;
+			color: #000; 
+			text-align: left;
+		}
+		.sub-title{
+			font-size: 15px;
+			color: gray;
+			text-align: left;
+		}
+		.data-list{
+			width: 100%;
+		    height: auto;
+		    display: inline-block;
+			.title{
+				font-size: 14px;
+				text-align: left;
+				color: gray;
+				margin-bottom: 0;
+			}
+			/* Cancer Data*/
+			.docs{
+				.first{
+					font-size: 14px;
+					color: #000;
+					text-align: left;
+					margin: 5px 0;
+				}
+				.second{
+					color: $font-appcolor;
+					font-size: 15px;
+					text-align: right;
+					font-weight: 500;
+					margin: 5px 0;
+				}
+			}
+			/*Nutrition/Diet*/
+			.diet{
+				.first{
+					font-size: 14px;
+					color: dimgray;
+					text-align: left;
+				}
+				.second{
+					font-size: 14px;
+					text-align: left;
+				}
+			}
+
+
+			.verified{
+				float: left;
+				padding: 0;
+				height: 30px;
+			}
+			.unverified{
+				color: red !important;
+			}
+		}
+
+		.survey-list{
+			.choice{
+				p{
+					text-align: left;
+					font-size: 16px;
+				}
+				ion-col{
+					font-size: 14px;
+				}
+			}
+		}
+
+
+		.text{    
+			display: flex;
+		    margin-top: 20px;
+		    width: 100%;				
+			img{
+				width: 40px;
+    			margin-right: 10px;
+			}
+			.subText{
+				font-size: 14px;
+				color: dimgray;
+				text-align: left;
+				line-height: 20px;
+			}
+		}
+		
+	}
+
+	.detail-body-div {
+		display: flex;
+		margin-top: 5vw;
+	}
+
+	.detail-img {
+	    width: 9vw;
+	    //height: 10vw;
+	    margin-right: 2vw;
+	}
+}

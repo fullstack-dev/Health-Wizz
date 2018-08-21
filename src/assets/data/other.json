@@ -1,0 +1,48 @@
+{
+	"manageData":[
+		{ "id": "0", "name":"Anna Torben (you)", "image": "assets/imgs/HomeIcons/avatar_female_middle_01.png", "mod": true, "valid": true },
+		{ "id": "1", "name":"Jssse Ross", "image": "assets/imgs/HomeIcons/avatar_female_old_01.png", "mod": true, "valid": false},
+		{ "id": "2", "name":"Laura Machale", "image": "assets/imgs/HomeIcons/avatar_female_young_01.png", "mod": false, "valid": true},
+		{ "id": "3", "name":"Mike Gomez", "image": "assets/imgs/HomeIcons/avatar_male_middle_01.png", "mod": true, "valid": false},
+		{ "id": "4", "name":"Pavel Atanassov", "image": "assets/imgs/HomeIcons/avatar_male_old_01.png", "mod": true, "valid": false},
+		{ "id": "5", "name":"Adam Fiola", "image": "assets/imgs/HomeIcons/avatar_male_young_01.png", "mod": true, "valid": false},
+		{ "id": "6", "name":"Tine Johnsgaard", "image": "assets/imgs/AvatarImgs/avatar_ex1.png", "mod": false, "valid": false},
+		{ "id": "7", "name":"Tomas Chen", "image": "assets/imgs/AvatarImgs/avatar_ex2.jpg", "mod": true, "valid": true},
+		{ "id": "8", "name":"David Arias", "image": "assets/imgs/AvatarImgs/avatar_ex3.png", "mod": false, "valid": true},
+		{ "id": "9", "name":"Simon Ronald", "image": "assets/imgs/AvatarImgs/avatar_ex4.jpg", "mod": true, "valid": false}
+	],
+	"report4": [
+		"Little interest or pleasure in doing things",
+		"filling down, depressed , or hopless",
+		"Having thouble falling asleep, or sleeping too much",
+		"Feeling tired or having little energy",
+		"Poor appetite or overeating",
+		"feeling bad about yourself, or that you are a failture, or have let yourself of your family down",
+		"Truble concentrating on things, such as reading the newspaper or watching TV",
+		"Moving or speaking so slowly that other people could have noticed? Or the opposite, being so fidgety and restless that you have been moving around a log more than usual",
+		"Thoughs that you would be better off dead or hurting yourself in some way"
+	],
+	"rewards":[
+		{ "id": "0", "title": "1st Place", "name":"Anna Torben", "image": "assets/imgs/HomeIcons/avatar_female_middle_01.png", "valid": true },
+		{ "id": "1", "title": "2nd place", "name":"Jssse Ross", "image": "assets/imgs/HomeIcons/avatar_female_old_01.png", "valid": false},
+		{ "id": "2", "title": "3rd Place", "name":"Laura Machale", "image": "assets/imgs/HomeIcons/avatar_female_young_01.png", "valid": true},
+		{ "id": "3", "title": "4th Place", "name":"Mike Gomez", "image": "assets/imgs/HomeIcons/avatar_male_middle_01.png", "valid": false},
+		{ "id": "4", "title": "5th Place", "name":"Pavel Atanassov", "image": "assets/imgs/HomeIcons/avatar_male_old_01.png", "valid": false}
+	],
+	"results": [
+		{ "date": "Sep 18th, 2017 10: 10 AM", "docs": [ "Dantict_diana_Addis_oc", "Report_cancer"], "result": true },
+		{ "date": "Sep 13th, 2017 12: 48 AM", "docs": [ "Something_oc"], "result": false },
+		{ "date": "Sep 18th, 2017 10: 10 AM", "docs": [ "Myreport4524562_oc", "Dantict_Diana_Addis_oc", "Report_cancer"], "result": true }
+	],
+	"nutritions": [
+		{ "date": "Sep 18th, 2017 10: 10 AM", "weight": "256", "height": "5.6","result": true },
+		{ "date": "Sep 13th, 2017 12: 48 AM", "weight": "258", "height": "5.6", "result": false },
+		{ "date": "Sep 18th, 2017 10: 10 AM", "weight": "256", "height": "5.6", "result": true }
+	],
+	"clinics": [
+		{ "date": "Sep 18th, 2017 10: 10 AM", "value": "256/124" },
+		{ "date": "Sep 17th, 2017 12: 48 AM", "value": "258/87" },
+		{ "date": "Sep 16th, 2017 10: 10 AM", "value": "256/12" }
+	]
+
+}

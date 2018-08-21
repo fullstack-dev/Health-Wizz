@@ -1,0 +1,80 @@
+{
+  "diseases": [{
+    "name": "CHF",
+    "image": "assets/imgs/CHFImgs/heart@3x.png",
+    "description": "Heart failure is a condition in which the heart does not pump well. This causes the heart to lag behind in its job of moving blood throughout the body. As a result, fluid backs up in the body and the organs in the body do not get as much blood as they need. This can lead to symptoms  such as swelling, trouble breathing, and feeling tired.",
+    "indicators": [{
+        "index": 0,
+        "detail": "Weight yourself every morning after you urinate but before you eat breakfast. Wear roughly the same amount of clothing every time and make sure to note down your weight every day in Health Wizz App. Call your doctor or nurse if your weight goes up by 2 or more pounds (1 kilogram) in 1 day or 4 or more pounds (2 kilograms) in 1 week. When you have heart failure, sudden weight gain is a sign that your body could be holding on to too much fluid. You might need a change in your medication.",
+        "code": "Daily Weight",
+        "inputType": "value",
+        "showTitle": "What's your Weight?",
+        "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+      },
+      {
+        "index": 1,
+        "detail": "Symptoms of edema include swelling or puffiness of the skin, causing it to appear stretched and shiny. This typically is worse in the areas of the body that are closest to the ground. Therefore, edema is generally the worst in the lower legs after walking, standing, sitting in a chair for a period of time, or at the end of the day. It accumulates in the lower back after being in bed for a long period.",
+        "code": "Leg Swelling",
+        "inputType": "swel",
+        "showTitle": "How is your leg swelling today?",
+        "image": "assets/imgs/HealthIndexIcons/Lag-swelling@3x.png"
+      },
+      {
+        "index": 2,
+        "detail": "Increased tiredness or trouble breathing. Breath rate higher than normal, hard breathing when lying down. Measure your breath rate per minute and report. 16-20 is a healthy range.",
+        "code": "Short Of Breath",
+        "inputType": "swel",
+        "showTitle": "What's your breathing rate?",
+        "image": "assets/imgs/HealthIndexIcons/Breath@3x.png"
+      },
+      {
+        "index": 3,
+        "detail": "Heart rate less than 60 or more than 90 can be abnormal, especially if you are not feeling well. Measure and report at least daily.",
+        "code": "Pulse",
+        "inputType": "value",
+        "showTitle": "What's your Pulse?",
+        "image": "assets/imgs/HealthIndexIcons/Pulse@3x.png"
+      },
+      {
+        "index": 4,
+        "detail": "If you are able to measure your oxygen saturation and it is above 92, that is a good number. Enter your number in the app for reporting to your caregiver. Measure Oxygen saturation with Oxygen ON if you have supplemental Oxygen.",
+        "code": "Oxygen Saturation",
+        "inputType": "value",
+        "showTitle": "What's your oxygen saturation?",
+        "image": "assets/imgs/HealthIndexIcons/Oxygen@3x.png"
+      },
+      {
+        "index": 5,
+        "detail": "Try not to add salt at the table or when you cook. Also, avoid foods that come in boxes and cans, unless their labels say they are low in sodium. The best choices for food are fresh or fresh frozen foods, and foods you prepare yourself.",
+        "code": "Low Salt Diet",
+        "inputType": "yesNo",
+        "showTitle": "Did you follow a low salt food intake today?",
+        "image": "assets/imgs/HealthIndexIcons/Diet@3x.png"
+      },
+      {
+        "index": 6,
+        "detail": "Your doctor might also tell you to limit the amount of fluids you drink. FLUID MEASUREMENTS 1 quart = 4 cups = 32 ounces = 960 ml    1 pint = 2 cups = 16 ounces = 480 ml    1 cup = 8 ounces = 240 ml ",
+        "code": "Fluid Restriction",
+        "inputType": "yesNo",
+        "showTitle": "Did you drink more than 1L liquid today?",
+        "image": "assets/imgs/HealthIndexIcons/liquid@3x.png"
+      },
+      {
+        "index": 7,
+        "detail": "Take your medicines every day as directed. They can reduce the chances that you will need to go to the hospital, have a heart attack, or die. They can also reduce or get rid of your symptoms. If you are not able to get your medications or have side effects, notify your caregiver.",
+        "code": "Meds Taken As Advised",
+        "inputType": "yesNo",
+        "showTitle": "Medication compliance",
+        "image": "assets/imgs/CHFImgs/Shape@2x.png"
+      },
+      {
+        "index": 8,
+        "detail": "Select your appointment date.",
+        "code": "Appointment",
+        "inputType": "date",
+        "showTitle": "Appointment",
+        "image": "assets/imgs/HealthIndexIcons/Alert@3x.png"
+      }
+    ]
+  }]
+}

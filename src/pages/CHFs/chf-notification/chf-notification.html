@@ -1,0 +1,26 @@
+<div class="chf-modal-div">
+  <div class="chf-modal-title-div">
+    <div class="modal-title-txt">{{campaign.name}}</div>
+    <div class="close-btn" (click)="closeModal('close')">
+      <ion-icon name="ios-close-outline"></ion-icon>
+    </div>
+  </div>
+
+  <div class="top-line-div">
+    <div class="left-txt" *ngIf="campaign.campaignInfo.circleInfo.ownerName != null">New invite from
+      <span style="color: #009EA9; font-weight:bold">{{campaign.campaignInfo.circleInfo.ownerName}}</span>
+    </div>
+
+  </div>
+  <div>
+    <div>{{campaign.campaignInfo.circleInfo.invitationDate | date: 'longDate'}}</div>
+  </div>
+  <div class="chf-img-div">
+    <img class="chf-img" src="assets/imgs/CHFImgs/heart@3x.png" />
+  </div>
+  <!-- <div class="detail-btn" (click)="goToDetails()">See details</div> -->
+  <div class="last-line-div">
+    <div class="deny-btn" (click)="denyClick()">{{lang_resource.button.deny_text}}</div>
+    <div class="accept-btn" (click)="accept()">{{lang_resource.button.accept_text}}</div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+page-my-health-index {
+  $index-text-size: 1.3rem;
+  .item-ios ion-avatar ion-img,
+  .item-ios ion-avatar img {
+    border-radius: 0% !important;
+  }
+  ion-item-divider {
+    border-bottom: 2px solid;
+    color: black;
+    font-size: large;
+    padding-left: 10vw;
+    font-weight: 500;
+  }
+  .index-list-divider {
+    background-color: #ffffff !important;
+  }
+  #high-risky-divider {
+    border-bottom-color: $red;
+  }
+  #risky-divider {
+    border-bottom-color: $yellow;
+  }
+  #healthy-divider {
+    border-bottom-color: $green;
+  }
+  .index-label {
+    color: $gray;
+    font-size: $index-text-size;
+    padding: 0.5rem;
+  }
+  .index-count {
+    color: $gray;
+    font-size: $index-text-size;
+    margin-right: 5vw;
+  }
+  #empty-text-div {
+    text-align: center;
+    padding: 20px;
+  }
+  #empty-btn-div {
+    text-align: center;
+  }
+}

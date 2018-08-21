@@ -1,0 +1,56 @@
+<!-- <ion-list *ngIf="campaignData && campaignData.moderator && campaignData.validator && !isDraft && isPublished">
+
+  <button ion-item *ngFor="let item of popover0List" (click)="clickEvent($event, item.id)">
+    <img [src]="item.icon">
+    <p>{{item.title}}</p>
+  </button>
+
+</ion-list>
+
+<ion-list *ngIf="campaignData && campaignData.moderator && !campaignData.validator && !isDraft && isPublished">
+
+  <button ion-item *ngFor="let item of popover1List" (click)="clickEvent($event, item.id)">
+    <img [src]="item.icon">
+    <p>{{item.title}}</p>
+  </button>
+
+</ion-list>
+
+
+<ion-list *ngIf="campaignData && !campaignData.moderator && campaignData.validator && !isDraft && isPublished">
+
+  <button ion-item *ngFor="let item of popover2List" (click)="clickEvent($event, item.id)">
+    <img [src]="item.icon">
+    <p>{{item.title}}</p>
+  </button>
+
+</ion-list>
+
+<ion-list *ngIf="isDraft">
+
+  <button ion-item *ngFor="let item of popover3List" (click)="clickEvent($event, item.id)">
+    <img [src]="item.icon">
+    <p>{{item.title}}</p>
+  </button>
+
+</ion-list>
+
+
+<ion-list *ngIf="!isDraft && campaignData.moderator && !isPublished">
+
+  <button ion-item *ngFor="let item of popover4List" (click)="clickEvent($event, item.id)">
+    <img [src]="item.icon">
+    <p>{{item.title}}</p>
+  </button>
+
+</ion-list> -->
+
+
+<ion-list>
+
+  <button ion-item *ngFor="let item of roles" (click)="clickEvent($event, item.id)">
+    <img [src]="item.icon">
+    <p>{{item.title}}</p>
+  </button>
+
+</ion-list>

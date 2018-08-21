@@ -1,0 +1,41 @@
+page-update-avatar {}
+
+.avatar-div {
+  /*margin-top: 10vw;*/
+  text-align: center;
+}
+
+.avatar-img {
+  width: 80vw;
+  border-radius: 50%;
+}
+
+.upload-picture-div {
+  margin-top: 20vw;
+  text-align: center;
+  height: 12vw;
+  border: 2px solid #48c5cd;
+  padding-top: 2vw;
+  border-radius: 5px;
+}
+
+.upload-picture-btn {
+  background-color: transparent;
+  font-size: 5.5vw;
+  color: #48C5CD;
+}
+
+.use-default-div {
+  margin-top: 5vw;
+  text-align: center;
+  height: 12vw;
+  background-color: #48c5cd;
+  padding-top: 2vw;
+  border-radius: 5px;
+}
+
+.use-default-btn {
+  font-size: 5.5vw;
+  background-color: #48C5CD;
+  color: white;
+}

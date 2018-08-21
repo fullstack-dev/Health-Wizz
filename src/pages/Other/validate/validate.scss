@@ -1,0 +1,43 @@
+page-validate {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  button,
+  div,
+  .label {
+    font-family: 'SF-UI-Text';
+  }
+  .toolbar {
+    button {
+      margin: 0 5px;
+    }
+    .menu_icon {
+      float: right;
+    }
+  }
+  .item {
+    height: 75px;
+    border-top: none !important;
+    img {
+      width: 60px;
+      height: 60px;
+      border: 1px solid gray;
+    }
+    .item-inner {
+      .label {
+        h2 {
+          font-size: 20px;
+        }
+      }
+    }
+    .valid_btn {
+      height: 40px;
+      font-size: 12px;
+      width: 75px;
+      margin: auto 0;
+    }
+  }
+}

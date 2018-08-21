@@ -1,0 +1,244 @@
+<ion-header>
+
+  <ion-navbar hideBackButton>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{lang_resource.chfs.submit_report_b.title_text}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding style="background-color: #EFEFF4;">
+
+  <ion-slides [pager]="show_pager" spaceBetween="-30" speed="300" #slides>
+
+    <ion-slide *ngFor="let item of indicators">
+      <form #chfForm="ngForm" class="" style="width: 100%;height: 100%;" novalidate>
+        <ion-scroll scrollY="true" style="width: 100%;height: 100%;">
+
+          <div class="slide-title-div">
+            <h2 class="slide-title">{{data_date | date: "MMMM dd, yyyy"}}</h2>
+            <div class="slide-detail-btn" *ngIf="item.data.indicatorCode !== 'Appointment'" (click)="goToDetail(item)">Detail</div>
+          </div>
+          <div class="slide-background">
+            <div class="detail-info-div" *ngIf="item.data.indicatorCode !== 'Appointment' else lastAppointment">
+              <div class="alert-div" *ngIf="item.data.updateRequire || item.data.lastUpdatedDate == null">
+                <ion-icon name="ios-alert-outline"></ion-icon>
+              </div>
+              <div class="detail-info-text" [ngStyle]="setColorStyle(item.data.updateRequire)" *ngIf="item.data.lastUpdatedDate != null">Last update {{item.data.lastUpdatedDate | date: 'MMM d, y h:mm a'}}</div>
+              <div class="detail-info-text" [ngStyle]="setColorStyle(true)" *ngIf="item.data.lastUpdatedDate == null">Update Request!</div>
+
+              <div class="detail-info-value" *ngIf="item.data.indicatorCode !== 'Leg Swelling' else legSwellingDiv">{{getAnswer(item.data.questions[0].value)}}</div>
+              <!-- [ngStyle]="setColorStyle(item.data.questions[0].value)" -->
+              <ng-template #legSwellingDiv>
+                <div class="detail-info-value" *ngIf="item.data.questions[0].value == 'LOT'">+++</div>
+                <div class="detail-info-value" *ngIf="item.data.questions[0].value == 'SOME'">++</div>
+                <div class="detail-info-value" *ngIf="item.data.questions[0].value == 'SLIGHT'">+</div>
+              </ng-template>
+            </div>
+            <ng-template #lastAppointment>
+              <div class="detail-info-div">
+
+              </div>
+            </ng-template>
+
+            <div *ngIf="item.data.indicatorCode == 'Daily Weight'">
+              <div class="bmi-text">What's your weight?</div>
+
+              <div class="bmi-img-div">
+                <img class="bmi-img" src={{item.image}}/>
+              </div>
+
+              <div class="weight-div">
+                <ion-item class="name_fld">
+                  <ion-label stacked>in (lbs)</ion-label>
+
+                  <ion-input [ngClass]="{dirty_fld: isDirty(weight), error_fld: isErrored(weight)}" #weight="ngModel" type="number" name="weight"
+                    [(ngModel)]="item.newValue" [pattern]="validator.indicator_validator.value_pattern" required placeholder=""
+                    (ionChange)="indicatorUpdated(item.data.indicatorCode)"></ion-input>
+                </ion-item>
+                <div class="update-device-div" (click)="goToConnectedDevice('Daily Weight')">Update from Device</div>
+              </div>
+              <div class="error-box" *ngIf="weight.hasError('required') && weight.touched">Required!</div>
+              <div class="error-box" *ngIf="weight.hasError('pattern') && weight.touched">Weight value is not valid!</div>
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.data.indicatorCode == 'Leg Swelling'">
+              <div class="bmi-text">How is your leg swelling today?</div>
+
+              <div class="bmi-img-div">
+                <img class="bmi-img" src={{item.image}}/>
+              </div>
+              <div class="weight-div">
+                <div class="third-sign" [ngStyle]="setThirdActiveStyle(item.newValue)" (click)="item.newValue = 'LOT';indicatorUpdated(item.data.indicatorCode)">+++</div>
+                <div class="second-sign" [ngStyle]="setSecondActiveStyle(item.newValue)" (click)="item.newValue = 'SOME';indicatorUpdated(item.data.indicatorCode)">++</div>
+                <div class="first-sign" [ngStyle]="setFirstActiveStyle(item.newValue)" (click)="item.newValue = 'SLIGHT';indicatorUpdated(item.data.indicatorCode)">+</div>
+              </div>
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.data.indicatorCode == 'Short Of Breath'">
+              <div class="bmi-text">Are you short of breath?</div>
+
+              <div class="bmi-img-div">
+                <img class="bmi-img" src={{item.image}}/>
+              </div>
+
+              <div class="weight-div" style="    margin-top: 7vh !important;">
+                <div class="third-sign" [ngStyle]="setMuchBreathActiveStyle(item.newValue)" (click)="item.newValue = 'VERY MUCH';indicatorUpdated(item.data.indicatorCode)">A Lot</div>
+                <div class="second-sign" [ngStyle]="setSomeBreathActiveStyle(item.newValue)" (click)="item.newValue = 'SOME';indicatorUpdated(item.data.indicatorCode)">Some</div>
+                <div class="first-sign" [ngStyle]="setNoBreathActiveStyle(item.newValue)" (click)="item.newValue = 'NO';indicatorUpdated(item.data.indicatorCode)">No</div>
+              </div>
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.data.indicatorCode == 'Pulse'">
+              <div class="bmi-text">What's your Pulse?</div>
+
+              <div class="bmi-img-div">
+                <img class="bmi-img" src={{item.image}}/>
+              </div>
+
+              <div class="weight-div">
+                <ion-item class="name_fld">
+                  <ion-label stacked>in (bpm)</ion-label>
+                  <ion-input [ngClass]="{dirty_fld: isDirty(pulse), error_fld: isErrored(pulse)}" #pulse="ngModel" type="number" name="pulse"
+                    [(ngModel)]="item.newValue" [pattern]="validator.indicator_validator.value_pattern" required placeholder=""
+                    (ionChange)="indicatorUpdated(item.data.indicatorCode)"></ion-input>
+                </ion-item>
+
+                <!-- <div class="update-device-div" (click)="goToConnectedDeviceFromPulse()">Update from Device</div> -->
+              </div>
+              <div class="error-box" *ngIf="pulse.hasError('required') && pulse.touched">Required!</div>
+              <div class="error-box" *ngIf="pulse.hasError('pattern') && pulse.touched">Pulse value is not valid!</div>
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.data.indicatorCode == 'Oxygen Saturation'">
+              <div class="bmi-text">What's your oxygen saturation?</div>
+
+              <div class="bmi-img-div">
+                <img class="bmi-img" src={{item.image}}/>
+
+              </div>
+              <div class="weight-div">
+                <ion-item class="name_fld">
+                  <ion-label stacked>in (%)</ion-label>
+                  <ion-input [ngClass]="{dirty_fld: isDirty(oxygen), error_fld: isErrored(oxygen)}" #oxygen="ngModel" type="number" name="oxygen"
+                    [(ngModel)]="item.newValue" [pattern]="validator.indicator_validator.value_pattern" required placeholder=""
+                    (ionChange)="indicatorUpdated(item.data.indicatorCode)"></ion-input>
+                </ion-item>
+
+                <div class="update-device-div" (click)="goToConnectedDevice('Oxygen Saturation')">Update from Device</div>
+              </div>
+              <div class="error-box" *ngIf="oxygen.hasError('required') && oxygen.touched">Required!</div>
+              <div class="error-box" *ngIf="oxygen.hasError('pattern') && oxygen.touched">Oxygen saturation value is not valid!</div>
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.data.indicatorCode == 'Fluid Restriction'">
+              <div class="bmi-text">Did you drink more than 1L liquid today?</div>
+
+              <div class="bmi-img-div">
+                <img class="bmi-img" src={{item.image}}/>
+              </div>
+              <div class="weight-div">
+                <div class="first-word" [ngStyle]="setYesFluidActiveStyle(item.newValue)" (click)="item.newValue = 'YES';indicatorUpdated(item.data.indicatorCode)">Yes</div>
+                <div class="second-word" [ngStyle]="setNoFluidActiveStyle(item.newValue)" (click)="item.newValue = 'NO';indicatorUpdated(item.data.indicatorCode)">No</div>
+              </div>
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.data.indicatorCode == 'Low Salt Diet'">
+              <div class="bmi-text">Did you follow a low salt food intake today?</div>
+
+              <div class="bmi-img-div">
+                <img class="bmi-img" src={{item.image}}/>
+              </div>
+              <div class="weight-div">
+                <div class="first-word" [ngStyle]="setYesFoodActiveStyle(item.newValue)" (click)="item.newValue = 'YES';indicatorUpdated(item.data.indicatorCode)">Yes</div>
+                <div class="second-word" [ngStyle]="setNoFoodActiveStyle(item.newValue)" (click)="item.newValue = 'NO';indicatorUpdated(item.data.indicatorCode)">No</div>
+              </div>
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.data.indicatorCode == 'Meds Taken As Advised'">
+              <div class="bmi-text">Medication Compliance</div>
+
+              <div class="bmi-img-div">
+                <img class="bmi-img" src={{item.image}}/>
+              </div>
+              <div class="weight-div">
+                <div class="first-word" [ngStyle]="setYesMedActiveStyle(item.newValue)" (click)="item.newValue = 'YES';indicatorUpdated(item.data.indicatorCode)">Yes</div>
+                <div class="second-word" [ngStyle]="setNoMedActiveStyle(item.newValue)" (click)="item.newValue = 'NO';indicatorUpdated(item.data.indicatorCode)">No</div>
+              </div>
+
+              <div class="buttons-div">
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+              </div>
+            </div>
+
+            <div *ngIf="item.data.indicatorCode == 'Appointment'">
+              <div class="bmi-text">Appointment</div>
+              <div class="bmi-img-div">
+                <img class="bmi-img" src={{item.image}}/>
+              </div>
+              <div class="appointment-txt" *ngIf="item.data.questions[0].value != null">{{item.data.questions[0].value | date: 'MMMM d, y h:mm a'}}</div>
+              <div class="appointment-txt" *ngIf="item.data.questions[0].value == null">Your appointment is not scheduled.</div>
+              <!-- <div style="text-align: center">
+                <h4 *ngIf="item.data.questions[1].value == 'NO' || item.data.questions[1].value == null" style="color:red">Not Fulfilled.</h4>
+                <h4 *ngIf="item.data.questions[1].value == 'YES'" style="color:green">Fulfilled.</h4>
+              </div> -->
+              <!-- <div class="weight-div">
+                <div class="update-device-div" (click)="goToFindPhysician()">Find Physician</div>
+              </div> -->
+            </div>
+
+            <!-- <ion-row *ngIf="item.data.indicatorCode != 'Appointment'">
+              <ion-col></ion-col>
+              <ion-col>
+                <button class="hw-btn-fill" (click)="updateIndicatorInfo(item)">Update</button>
+              </ion-col>
+            </ion-row> -->
+          </div>
+        </ion-scroll>
+      </form>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

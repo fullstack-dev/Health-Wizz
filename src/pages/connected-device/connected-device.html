@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button (click)="Done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>Connected devices</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+
+  <ion-list *ngFor="let device of devices; let i = index">
+    <ion-item no-line>
+      <ion-thumbnail item-start>
+        <img src={{device.image}}>
+      </ion-thumbnail>
+      <ion-label>{{device.label}}</ion-label>
+
+      <!-- <ion-toggle *ngIf="!device.connected" [(ngModel)]="device.tempConnect" (click)="connectToDevice(device, i)"></ion-toggle> -->
+      <!-- <ion-toggle *ngIf="device.connected" [(ngModel)]="device.connected" (click)="connectToDevice(device, i)"></ion-toggle> -->
+
+      <button ion-button item-end *ngIf="!device.connected" (click)="connectToDevice(device, i)">Connect</button>
+      <button ion-button item-end *ngIf="device.name=='fitbit' && device.connected" (click)="goToFitbit()">View data</button>
+    </ion-item>
+    <ion-item>
+      <!-- <ion-label *ngIf="device.name=='fitbit'">Activity Tracker</ion-label> -->
+      <button ion-button small outline *ngIf="device.connected" (click)="connectToDevice(device, i)">Disconnect</button>
+      <!-- <ion-label>{{device.label}}</ion-label>
+      <ion-toggle [(ngModel)]="device.connected" (ionChange)="connectToDevice(device.name,device.connected)"></ion-toggle> -->
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list-header>Coming Soon</ion-list-header>
+  <ion-item no-line *ngFor="let device of incoming_devices" disabled>
+    <ion-thumbnail item-start>
+      <img src={{device.image}}>
+    </ion-thumbnail>
+    <ion-label>{{device.label}}</ion-label>
+
+  </ion-item>
+
+</ion-content>

@@ -1,0 +1,32 @@
+page-wallet-confg {
+  // .wallet-btns {
+  //   height: 40px;
+  //   width: 170px;
+  // }
+  // #new-wallet ion-card {
+  //   position: absolute;
+  //   border-radius: 50%;
+  //   width: 40vw;
+  //   margin: auto;
+  //   height: 40vw;
+  //   padding-bottom: 0;
+  //   top: 0;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  // }
+  // #new-wallet ion-card img {
+  //   width: 40vw;
+  // }
+  .wallet-inputs {
+    border: 1px solid $primary;
+  } // #secure-wallet .key_text {
+  //   font-size: medium;
+  //   font-weight: bold;
+  //   margin: 5px;
+  // }
+  .key_text {
+    font-size: medium;
+    font-weight: bold;
+    margin: 5px;
+  }
+}

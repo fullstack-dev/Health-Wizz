@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start>
+      <!-- <button ion-button icon-only (click)="before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button> -->
+      <button ion-button menuToggle icon-only class="menu_icon">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Reward</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="done()">Done</button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+
+  <div *ngIf="rewardsList1?.length> 0" class="medical">
+
+    <h2>Reward</h2>
+    <ion-list *ngFor="let item of rewardsList1">
+      <ion-item>
+        <ion-label>
+          <span *ngIf="item.reward.amount">{{item.reward.amount}}</span>
+          <span *ngIf="item.reward.percentage">{{item.reward.percentage}}%</span>
+          <span>
+            <img src="assets/imgs/HomeIcons/Reward_Main@3x.png">
+          </span>{{item.reward.name}}</ion-label>
+        <ion-checkbox [disabled]="disableReward(item.reward)" [(ngModel)]="item.selected"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+  <div *ngIf="rewardsList1?.length> 0" class="result-btn">
+    <button ion-button outline class="l-btn" (click)="goCampaign()">Cancel</button>
+    <button ion-button class="r-btn" (click)="goToSuccess()">Give Reward</button>
+  </div>
+  <h2 style="color:olivedrab" *ngIf="rewardsList1?.length == 0">No Rewards</h2>
+
+</ion-content>

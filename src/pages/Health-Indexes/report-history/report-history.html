@@ -1,0 +1,114 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <!-- <ion-buttons end>
+      <button ion-button icon-only (click)="Edit()">
+        Edit
+      </button>
+    </ion-buttons> -->
+
+    <ion-title>{{lang_resource.health_indexes.report_title}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="calendar-div">
+    <!-- <div class="temp-btn" (click)="temp_aug()">Aug 13th, 2017</div>
+    <div class="temp-btn" (click)="temp_jun()">Jun 15th, 2017</div>
+    <div class="temp-btn" (click)="temp_sep()">Sep 23th, 2017</div> -->
+
+    <div class="calendar-header">
+      <ion-row class="calendar-month">
+        <ion-col col-2 (click)="goToLastMonth()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-col>
+        <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+        <ion-col col-2 (click)="goToNextMonth()">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="calendar-body">
+      <ion-grid>
+        <ion-row class="calendar-weekday">
+          <ion-col>Su</ion-col>
+          <ion-col>Mo</ion-col>
+          <ion-col>Tu</ion-col>
+          <ion-col>We</ion-col>
+          <ion-col>Th</ion-col>
+          <ion-col>Fr</ion-col>
+          <ion-col>Sa</ion-col>
+        </ion-row>
+        <ion-row class="calendar-date">
+          <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+          <ion-col col-1 *ngFor="let day of daysInThisMonth; let i = index" (click)="selectDate(day)">
+            <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}</span>
+            <ng-template #otherDate class="otherDate">
+              <span [ngClass]="{'data-day': data_days[i] != null}">{{day}}</span>
+            </ng-template>
+          </ion-col>
+          <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <!-- <div *ngIf="!verified" class="unverified-txt">
+    Unverified
+  </div>
+  <div *ngIf="verified" class="verified-txt">
+    Verified
+    <ion-icon name="checkmark"></ion-icon>
+  </div> -->
+  <div class="index-gallery-div">
+    <!-- <div class="gallery-item" *ngFor="let item of temp_health_indexs" (click)="open($event, item)"> -->
+    <div class="gallery-item" *ngFor="let item of indicators; let i = index" (click)="open(i, item)">
+      <div class="title-div" [ngStyle]="setMyStyles(item.data.status)" *ngIf="item.info.code != 'Cancer' else cancerTitleDiv">
+        <div class="card-title-text">{{item.info.label}}</div>
+        <div class="title-number">{{item.data.mhiIndex}}</div>
+      </div>
+
+      <ng-template #cancerTitleDiv>
+        <div class="title-div" [ngStyle]="setCancerStyle(item.data)">
+          <div class="card-title-text">{{item.info.label}}</div>
+          <div class="title-number">{{getCancerMHI(item.data)}}</div>
+        </div>
+      </ng-template>
+
+      <div class="body-div">
+        <img class="body-img" src={{item.info.image}}/>
+      </div>
+      <div class="tail-div" *ngIf="item.info.code != 'Cancer' else cancerTailDiv">
+        <div class="tail-date-text">{{item.data.lastUpdatedDate | date: 'dd MMM yyyy'}}</div>
+        <div class="tail-other-text" *ngIf="item.data.updateRequire">{{lang_resource.health_indexes.request_text}}</div>
+      </div>
+
+      <ng-template #cancerTailDiv>
+        <div class="tail-div">
+          <div class="tail-date-text" *ngIf="item.info.lastValue != null">{{lang_resource.health_indexes.last_text}}{{":"}} {{item.info.lastValue | date: 'mediumDate'}}</div>
+          <!-- <div class="tail-other-text" *ngIf="item.data.updateRequire">{{lang_resource.health_indexes.request_text}}</div> -->
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div style="text-align:center" *ngIf="indicators?.length == 0">
+    <h3>{{lang_resource.chfs.report_history.no_history_text}}</h3>
+  </div>
+  <div *ngIf="!indicators" style="text-align:center;">
+    <img style="height:20vw;" src="assets/icon/Spinner.svg">
+    <!-- <h3>Loading indexes...</h3> -->
+  </div>
+</ion-content>

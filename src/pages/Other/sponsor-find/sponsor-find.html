@@ -1,0 +1,95 @@
+<!--
+  Generated template for the SponsorFindPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button clear (click)="close()">Close</button>
+    </ion-buttons>
+    <ion-title>Find Sponsor</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <div class="sld-div">
+
+    <ion-slides pager="false">
+      <ion-slide>
+
+        <div class="bring">
+          <p>send a request to the organization you'd like to invite to be your campaign sponsor</p>
+
+          <ion-list class="request">
+
+            <!-- <ion-item>
+              <ion-avatar item-start class="avatar_div">
+                <img src="assets/imgs/AddMedImgs/Photos.png">
+                <p>Nike</p>
+              </ion-avatar>
+              <h2 (click)="goSlide()">Request</h2>
+            </ion-item> -->
+
+            <ion-item>
+              <ion-avatar item-start class="avatar_div">
+                <img src="assets/imgs/ShopImgs/healthwizz.png">
+                <!-- <p>Health Wizz</p> -->
+              </ion-avatar>
+              <h2 (click)="goSlide()">Request</h2>
+            </ion-item>
+
+          </ion-list>
+
+          <!-- <button ion-button outline class="bring_next" color="appColor" (click)="sendEmail()">Bring Your Own Sponsor</button> -->
+        </div>
+
+      </ion-slide>
+
+      <ion-slide>
+
+        <div class="box">
+
+          <img src="assets/imgs/HealthIndexIcons/Nutrition@3x.png">
+          <h2>Thank you!</h2>
+          <p>You just submitted requested sponsorship from Nike</p>
+
+          <p>You can configure your rewards after you 'll get a reply from sponsor. Normally it takes 2~3 work days</p>
+
+          <button ion-button end color="appColor" class="next_slide" (click)="goCampaignPage()">Close</button>
+        </div>
+
+      </ion-slide>
+
+      <ion-slide>
+
+        <div class="box">
+
+          <img src="assets/imgs/HealthIndexIcons/Nutrition@3x.png">
+          <h2>Congratulations!</h2>
+          <p>Nile became a sponsor for your Campaign1 campaign with 1000 rewards budget</p>
+
+          <p>The sponsor's logo appear in the descriptions of your campaign</p>
+
+          <p>Now you can complete your campaign configuration</p>
+
+          <!-- <button ion-button end color="appColor" class="next_slide" (click)="close()">Configure rewards</button> -->
+        </div>
+
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+
+
+
+
+
+</ion-content>

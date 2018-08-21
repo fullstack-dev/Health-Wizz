@@ -1,0 +1,44 @@
+<!--
+  Generated template for the CampaignParticipantsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      Participants
+    </ion-title>
+    <ion-buttons end *ngIf="!ended">
+
+      <button ion-button icon-only *ngIf="campaign?.moderator" (click)="openInvitePeople()">
+        Invite
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list style="margin-top:5px">
+    <ion-item *ngFor="let member of participants">
+      <ion-avatar item-start>
+        <img [src]="member.avatar">
+      </ion-avatar>
+      <h3 [ngClass]="{invited: member.info.invitationState == 'invite'}">{{member.info.firstName}}
+        <span *ngIf="member.info.lastName">{{member.info.lastName}}</span>
+        <span *ngIf="userService.getUserId() == member.info.memberId">(you)</span>
+      </h3>
+      <p>
+        <span id="moderator" *ngIf="member.info.memberRoles.moderator">Moderator</span>
+        <span id="validator" *ngIf="member.info.memberRoles.validator">Validator</span>
+      </p>
+
+      <p *ngIf="isAdmin(member)" item-end>Admin</p>
+      <p *ngIf="member.info.invitationState == 'invite'" item-end>Pending</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

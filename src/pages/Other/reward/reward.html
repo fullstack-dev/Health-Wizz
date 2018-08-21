@@ -1,0 +1,58 @@
+<!--
+  Generated template for the RewardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-buttons start>
+      <button ion-button (click)="cancel()">Cancel</button>
+    </ion-buttons> -->
+
+    <ion-title>Rewards</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="done()">Done</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <p class="head-title">Distribute rewards automatically</p>
+
+  <div class="reward-box" *ngFor="let member of participants">
+    <div class="title">
+      <!-- <h4>{{item.title}}</h4> -->
+      <p (click)="goToResultDetails(member.info.memberId)">Result Details</p>
+    </div>
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img [src]="member.avatar">
+      </ion-thumbnail>
+      <h2 [ngClass]="{invited: member.info.invitationState == 'invite'}">{{member.info.firstName}} {{""}} {{member.info.lastName}}</h2>
+      <!-- <span *ngIf="member.info.lastName"></span> -->
+      <button ion-button item-end style="font-size: 15px !important;" (click)="reward(member.info)">Reward</button>
+      <!-- <button ion-button icon-only clear item-end class="valid_btn">
+        <ion-icon name="md-checkmark"></ion-icon>
+      </button> -->
+    </ion-item>
+  </div>
+  <!-- <ion-list>
+    <ion-item *ngFor="let member of participants">
+      <ion-avatar item-start>
+        <img [src]="member.avatar">
+      </ion-avatar>
+      <h3 [ngClass]="{invited: member.info.invitationState == 'invite'}">{{member.info.firstName}}
+        <span *ngIf="member.info.lastName">{{member.info.lastName}}</span>
+        
+      </h3>
+      <button ion-button item-end (click)="reward()">Reward</button>
+     
+    </ion-item>
+  </ion-list> -->
+</ion-content>

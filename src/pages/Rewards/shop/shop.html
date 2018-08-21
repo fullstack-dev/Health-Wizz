@@ -1,0 +1,113 @@
+<!--
+  Generated template for the ShopPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Shop</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div>
+    <ion-slides>
+      <ion-slide>
+        <ion-card style="border-radius: 4%;padding:16px; box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3)" (click)="shopFromAmazon()">
+          <img src="assets/imgs/ShopImgs/amazon.png" style="margin:30px 0" />
+
+        </ion-card>
+        <div style="text-align: center;padding:16px">
+          <h4>$50 Amazon Gift Card</h4>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <hr>
+  <div style="margin-top:24px;">
+    <ion-slides>
+      <ion-slide>
+        <ion-card style="border-radius: 4%;padding:16px; box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3)" (click)="shopFromStarbucks()">
+          <img src="assets/imgs/ShopImgs/starbucks.png" style="max-width: 54%; margin:auto" />
+        </ion-card>
+        <div style="text-align: center;padding:16px">
+          <h4>$5 Starbucks Gift Card</h4>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+
+  <!-- <div class="medical-service-div">
+		<div class="medical-service-txt">
+			Medical services
+		</div>
+		<div class="medical-service-num">
+			{{services_length}}
+		</div>
+	</div>
+
+	<ion-slides pager spaceBetween="-20" class="slides-background">
+
+      	<ion-slide *ngFor="let item of medical_services_data" (click)="MedicalServiceItemSelected(item)">
+	        <div class="slide-background">
+	          	<div class="card-title">
+		            {{item.title}}
+	          	</div>
+	          	<div class="inner-card-div">
+	          		<div class="card-img-div">
+	          			<img class="card-img" src={{item.image}}/>
+	          		</div>
+	          		<div class="card-description">
+	          			{{item.description}}
+	          		</div>
+	          	</div>
+	        </div>
+      	</ion-slide>
+      
+    </ion-slides>
+
+	<div class="medical-service-div">
+		<div class="medical-service-txt">
+			Monthly passes
+		</div>
+		<div class="medical-service-num">
+			{{passes_length}}
+		</div>
+	</div>
+	
+	<ion-slides pager spaceBetween="-20" class="slides-background">
+
+      	<ion-slide *ngFor="let item of monthly_passes_data" (click)="MonthlyPassesItemSelected(item)">
+	        <div class="slide-background">
+	          	<div class="card-title">
+		            {{item.title}}
+	          	</div>
+	          	<div class="inner-card-div">
+	          		<div class="card-img-div">
+	          			<img class="card-img" src={{item.image}}/>
+	          		</div>
+	          		<div class="card-description">
+	          			{{item.description}} 
+	          		</div>
+	          	</div>
+	        </div>
+      	</ion-slide>
+      
+    </ion-slides> -->
+
+</ion-content>

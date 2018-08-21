@@ -1,0 +1,58 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Close()">
+        Close
+      </button>
+    </ion-buttons>
+    <ion-title>Congratulations!</ion-title>
+
+    <ion-buttons end *ngIf="page == 3">
+        <button ion-button (click)="close()">Close</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngIf="!pageValue">
+    <div class="congratulations-img-div">
+      <img class="congratulations-img" src="assets/imgs/ShopImgs/congratulations.png" />
+    </div>
+
+    <div class="successful-txt">The transaction was successful!</div>
+
+    <div class="pass-txt">You got {{title}}</div>
+
+    <div class="back-btn" (click)="BackToShop()">Back To Shop</div>
+
+  </div>
+
+  <div *ngIf="pageValue" class="congrate">
+
+    <img class="congratulations-img" src="assets/imgs/ShopImgs/congrat2.png" />
+
+    <h1>You got 100
+      <span>
+        <img src="assets/imgs/HomeIcons/Reward_Main@3x.png">
+      </span>
+    </h1>
+
+    <p>Reward for successful participation in Campaign 1 campaign</p>
+
+  </div>
+</ion-content>
+

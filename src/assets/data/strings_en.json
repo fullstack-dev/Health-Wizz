@@ -1,0 +1,494 @@
+{
+  "common": {
+    "ok_text": "Ok",
+    "cancel_text": "Cancel",
+    "deny_text": "Deny",
+    "yes_text": "Yes",
+    "no_text": "No",
+    "last_text": "Last",
+    "accept_text": "Accept",
+    "last_update_text": "Last update",
+    "firstname_text": "First Name",
+    "lastname_text": "Last Name",
+    "date_text": "Date",
+    "gender_text": "Gender",
+    "dob_text": "Date of Birth",
+    "phone_number_text": "Phone Number",
+    "location_text": "Location",
+    "country_text": "Country",
+    "zip_code_text": "Zip Code",
+    "state_text": "State ",
+    "address_text": "Address ",
+    "city_text": "City ",
+    "next_text": "Next"
+  },
+  "messages": {
+    "email_verify_msg": "Please verify your email by clicking link that has been already sent to your email. If you want another verification link select YES.",
+    "verification_email_msg": "A verification mail has been sent to registered email ID.",
+    "verify_now_msg": "You have verify your identity. Verify now?",
+    "check_mail_msg": "A verification mail has been sent to registered email ID. Please check your email.",
+    "invalid_email_password_msg": "Email or password is invalid.",
+    "invalid_signin_msg": "We are unable to signin you. It might be a problem with installation of Health Wizz.",
+    "wrong_password_msg": "Your password is wrong",
+    "blocked_healthwizz_msg": "Your access to Health Wizz is blocked for some reasons.",
+    "went_wrong_msg1": "Something went wrong with your Sign In. Please try again.",
+    "emailid_exist_msg": "Email ID is already registered with another account.",
+    "sent_email_msg": "A verification mail has been sent to your email ID.",
+    "sending_verifymail_msg": "Sending verification email.",
+    "invalid_email_msg": "Email ID you entered is not valid.",
+    "went_wrong_msg2": "Something is not right with your account. Please try again.",
+    "went_wrong_msg3": "Your session has been expired. Please login again.",
+    "linked_accounts_msg": "Accounts are now linked, you can now login with any of them.",
+    "link_credential_msg": "link with credential",
+    "again_email_verification_msg": "You have to login again for email verification.",
+    "no_user_msg": "No user found with this email.",
+    "something_wrong_msg": "Something is wrong.",
+    "password_reset_msg": "Password reset email has been sent.",
+    "unsuccessfull_attempts_msg": "Too many unsuccessfull attempts. If you are having problems to register with us, please contact our support.",
+    "invalid_healthwizz_registration_msg": "Your registration in Health Wizz not compeleted.",
+    "failed_data_msg": "Failed to update data. Try again."
+  },
+  "label": {
+    "not_verified_label": "Not verified",
+    "re_verify_label": "Re-Verify!",
+    "wrong_credentials_label": "Wrong credentials!",
+    "access_denied_label": "Access denied!",
+    "invalid_label": "Invalid!",
+    "blocked_label": "Blocked!",
+    "unknown_error_label": "Unknown error!",
+    "account_exist_label": "Account Exist!",
+    "updated_email_label": "Email updated",
+    "invalid_email_label": "Invalid Email!",
+    "verification_failed_label": "Verification Failed.",
+    "success_label": "Success",
+    "cancel_operation_label": "Cancel operation?",
+    "not_found_label": "Not found!",
+    "tray_again_label": "Try again!",
+    "failed_registration_label": "Registration Failed!",
+    "failed_label": "Failed!"
+
+  },
+  "login_page": {
+    "login_social_text": "Login via social media",
+    "login_title": "Login",
+    "email_text": "Email",
+    "password_text": "Password",
+    "login_button_text": "Login",
+    "create_account_text": "Create Free Account",
+    "forgot_password_text": "Forgot Password?",
+    "verify_text": "Verify"
+  },
+  "home_page": {
+    "om_coins_text": "OmPoints",
+    "med_records_text": "Med Records",
+    "circles_text": "Circles",
+    "campaigns_text": "Campaigns",
+    "health_index": "Health Index"
+  },
+  "sign_up": {
+    "registration_title_text": "Registration",
+    "language_text": "Language",
+    "email_text": "Email",
+    "password_text": "Password",
+    "confirm_password_text": "Confirm Password",
+    "registration_next_button_text": "Next",
+    "back_button_text": "Back to Login",
+    "personal_title_text": "Personal details",
+    "personal_next_button_text": "Next",
+    "location_title_text": "Location",
+    "location_next_button-text": "Next",
+    "permissions_title_text": "Permissions",
+    "policy_text": "I have read and accept ",
+    "notification_text": "I want receive email/notification from Health Wizz",
+    "hippa_text": "I have read and accept Health Wizz's ",
+    "create_account_text": "Create account"
+  },
+  "request_password": {
+    "reset_password_text": "Reset Password",
+    "email_text": "Email",
+    "send_button_text": "Send",
+    "back_button_text": "Back to Login"
+  },
+  "edit_profile": {
+    "primary_physician_text": "Primary Physician",
+    "primary_physician_name_text": "Primary Physician Name",
+    "primary_physician_email_text": "Primary Physician Email",
+    "primary_physician_phone_text": "Primary Physician Phone Number",
+    "primary_physician_country_text": "Country ",
+    "primary_physician_zip_text": "Zip Code",
+    "primary_physician_state_text": "State ",
+    "primary_physician_address_text": "Address ",
+    "primary_physician_city_text": "City "
+  },
+  "chfs": {
+    "chf": {
+      "last_update_text": "Last update",
+      "ccd_documents_text": "Med Records",
+      "history_button_text": "History",
+      "update_all_button_text": "Update All",
+      "last_text": "Last"
+    },
+    "chf_campaign": {
+      "title_text": "CHF Campaigns",
+      "invite_date_text": "Invite Date:",
+      "details_button_text": "Details:",
+      "invite_from_text": "Invite from:",
+      "max_reward_text": "Max Reward:",
+      "start_text": "Started:",
+      "invite_sent_text": "Invite Sent:",
+      "ended_text": "Ended:",
+      "last_update_text": "Last Update"
+    },
+    "chf_campaign_accept": {
+      "title_text": "Accept",
+      "new_invite_text": "New invite from",
+      "see_details_button_text": "See details",
+      "age_visible_text": "Make your age visible",
+      "location_visible_text": "Make your location visible",
+      "circle_visible_text": "Make your circles visible",
+      "challenges_visible_text": "Make your campaigns visible"
+    },
+    "chf_campaign_detail": {
+      "history_button_text": "History",
+      "update_button_text": "Update",
+      "sponsers_text": "Sponsers",
+      "terms_text": "Terms",
+      "participatoin_in_text": "Participation in",
+      "will_text": "will request:",
+      "measured_indexes_text": "Measured Indexes",
+      "om_coins_text": "OmPoints",
+      "participants_text": "Participants",
+      "moderator_text": "Moderator",
+      "organizers_text": "Organizers",
+      "om_coins_description_text1": "You can earn OmPoints",
+      "om_coins_description_text2": "for filling out reports selling the results of of your research to pharmacy companies, etc.",
+      "om_coins_description_text3": "Exchange OmPoints for various goods and memeberships form OmPoints store.",
+      "for_text": "for",
+      "report_text": "report",
+      "organizers_description_text": "Here might be some text block about the organization if there is any"
+    },
+    "detail_b": {
+      "update_device_text": "Update from Device",
+      "loading_chart_text": "Loading chart....",
+      "appointment_text": "Appointment scheduled on:"
+    },
+    "report_history": {
+      "edit_button_text": "Edit",
+      "title_text": "Report History",
+      "start_date_text": "Start Date:",
+      "end_date_text": "End Date",
+      "verified_text": "Verified",
+      "update_require_text": "Update Require",
+      "no_history_text": "No history",
+      "loading_indexes_text": "Loading indexes...",
+      "last_text": "Last"
+    },
+    "submit_report_b": {
+      "title_text": "Submit Report",
+      "detail_text": "Detail",
+      "update_device_text": "Update from Device"
+    }
+  },
+  "circle": {
+    "my_circles": {
+      "circles_text": "Your circles",
+      "available_circles": "Available circles",
+      "title": "Circle",
+      "my_title": "My Circles",
+      "invitation_text": "Invitations"
+    },
+    "circles": {
+      "seeall_text": "See All",
+      "member_text": "Members"
+    },
+    "create_circle": {
+      "circle_name": "Circle Name",
+      "description_text": "Description",
+      "change_picture": "Change picture",
+      "new_circle": "New Circle"
+    },
+    "circle_notification": {
+      "newInvite_text": "New invite from",
+      "newCircle_text": "New Circle",
+      "seeDetails_text": "See details"
+    },
+    "circle_notification_details": {
+      "message_text": "To see more information about this circle you have to be a member"
+    },
+    "welcome_circle": {
+      "welcome_text": "Welcome to Circles page!",
+      "no_circles": "You are not part of any Circle yet.",
+      "msg_text": "Start with creating your own Circle or join one if you received an invitation code."
+
+    }
+  },
+  "button": {
+    "leave_text": "Leave",
+    "delete_text": "Delete",
+    "edit_text": "Edit",
+    "invite_text": "Invite",
+    "deny_text": "Deny",
+    "accept_text": "Accept",
+    "cancel_text": "Cancel"
+  },
+  "Campaigns": {
+    "campaign": {
+      "campaign_title": "Campaigns",
+      "end_text": "Ended",
+      "details_text": "Details",
+      "invite_text": "invite from:",
+      "max_text": "Max Reward:",
+      "lastupdate_text": "Last Update"
+    },
+    "campaign_accept": {
+      "accept_title": "Accept",
+      "invite_text": "New invite from",
+      "details_text": "See details",
+      "age_text": "Make your age visible",
+      "location_text": "Make your location visible",
+      "circle_text": "Make your circles visible",
+      "challenge_text": "Make your campaigns visible"
+    },
+    "create_campaign": {
+      "create_text": "Create Campaign",
+      "info_text": "Campaign info",
+      "campaign_name_text": "Campaign Name",
+      "description_text": "Description",
+      "private_text": "Make Private",
+      "next_text": "Next",
+      "terms_text": "Terms",
+      "indexes_text": "Indexes",
+      "indexes-subtitle_text": "Select Indexes you want to check in this campaign",
+      "frequency_text": "Report Frequency",
+      "accept_data_text": "Accept data only from device",
+      "survey_text": "Survey",
+      "question1_text": "Question 1",
+      "question_type_text": "Type of Question",
+      "answer1_text": "Answer option 1",
+      "answer2_text": "Answer option 2",
+      "question2_text": "Question 2",
+      "funding_text": "Funding",
+      "funding_sub_text": "Choose between differnet ways to rewards your participants",
+      "rewards_text": "Rewards",
+      "reward_amount_text": "Reward Amount",
+      "duplicate_reward_text": "Duplicate Reward",
+      "budget_text": "Campaign budget is",
+      "om_msg_text": "! we're sorry, but you don't have enough OmPoints for ths reward",
+      "tips_text": "Here are some tips",
+      "collect_budget_text": "% out of collected budget",
+      "rewards_msg_text1": "Total rewards percentage is",
+      "rewards_msg_text2": "! The total percentage should be 100%",
+      "roles_text": "Roles",
+      "roles_sub_text": "Co-moderators",
+      "add_moderator_button_text": "Add Moderator",
+      "validators_text": "Validators",
+      "add_validator_button_text": "Add Validator",
+      "submit_button_text": "submit"
+    },
+    "campaign_delete": {
+      "add_medical_text": "Add Med Records",
+      "delete_draft_text1": "You 're going to delete the campaign draft, This is action cannot be undone",
+      "delete_draft_text2": "All participants will get notified and all partcipants funds will be returned to them.",
+      "delete_draft_text3": "Please help us to improve the service, specify the reason why you 're deleting the event. This is not going to be shown to participants",
+      "reason_text": "Reason",
+      "comment_text": "Comment"
+    },
+    "campaign_draft": {
+      "draft_text": "Draft",
+      "draft_msg1_text": "Campaign Name 1 Whatever it is",
+      "draft_msg2_text": "Short descroption about the event and it's purpose. We should limit this is with a few lines only",
+      "publish_button_text": "Publish",
+      "terms_text": "Terms",
+      "terms_msg_text": "Participation in Whatever Campaign will request:",
+      "measured_text": "Measured Indexes",
+      "organizers_text": "Orgqanizers",
+      "organizers_msg_text": "Here might be some text block about the organization if there is any"
+    },
+    "campaign_duplicate": {
+      "invite_sent_text": "invite sent:",
+      "invite_from_text": "invite from:",
+      "max_text": "Max Reward",
+      "last_update_text": "Last Update"
+    },
+    "campaign_notification": {
+      "validate_text": "INVITE TO VALIDATE",
+      "msg_text1": "Campaign Name 1",
+      "msg_text2": "Whatever it is",
+      "new_invite_text": "New invite from",
+      "see_text": "See details"
+    },
+    "campaign_notification_detail": {
+      "sponsors_text": "Sponsors",
+      "terms_text": "Terms",
+      "msg_text1": "Participation in Whatever Campaign will request:",
+      "msg_text2": "for filling out reports selling the results of of your research to pharmacy companies, etc.Exchange OmPoints for various goods and memeberships form OmPoints store.",
+      "index_text": "Measured Indexes",
+      "coins_text": "OmPoints",
+      "coins_text1": "You can earn OmPoints",
+      "organizer_msg_text": "Here might be some text block about the organization if there is any",
+      "organizer_text": "Orgqanizers",
+      "participants_text": "Participants"
+    },
+    "campaign_success": {
+      "success_text": "Success",
+      "congratulations_text": "Congratulations!",
+      "msg_text": "campaign is now live!"
+    }
+  },
+  "find_physician": {
+    "find_physician_text": "Find a Physician",
+    "speciality_text": "Speciality",
+    "zipcode_text": "Zip Code",
+    "within_text": "Within"
+  },
+  "health_indexes": {
+    "myhealth_index_text": "My Health Index",
+    "wellnes_text": "Last Wellness Exam was on",
+    "wellness_msg_text": "Create New Challenge or Participate in existing Challenge to improve your Health Index and earn more HealthCoins",
+    "wellness_exam_text": "Wellness Exam",
+    "history_text": "History",
+    "updateall_text": "Update All",
+    "request_text": "Update Request",
+    "last_text": "Last:",
+    "report_title": "Report History"
+  },
+  "med_record": {
+    "title": "Add Med Records",
+    "go_button_text": "Go",
+    "recent_search_text": "RECENT SEARCH",
+    "upload_text": "UPLOAD IMAGE",
+    "other_text": "OTHER APPS",
+    "new_tag_text": "Add new tag",
+    "addede_text": "Added",
+    "condition_text": "Condition",
+    "provider_text": "Provider",
+    "tag_text": "Tag",
+    "my_med_text": "My Med Records",
+    "med_msg_text1": "Welcome to med records page!",
+    "med_msg_text2": "You have no med records in your library yet.",
+    "med_msg_text3": "Start with adding some",
+    "recently_viewed_text": "Recently Viewed"
+  },
+  "result_details": {
+    "title": "Result Details",
+    "cancer_data_text": "Cancer data report",
+    "submitted_text": "Submitted on",
+    "verified_text": "Verified",
+    "unverified_text": "Unverified",
+    "nutrition_text": "Nutrition/Diet",
+    "weight_text": "Weight",
+    "height_text": "Height",
+    "some_survey_text": "Some survey",
+    "some_survey_sub_text": "Over the last two weeks, how often have you been bothered by any of the following problems?",
+    "single_text": "Some single choice question",
+    "multiple_text": "Some multiple choice question",
+    "yes_no_text": "Some Yes/NO question",
+    "some_text": "Some Text field question"
+  },
+  "reward": {
+    "title": "Rewards",
+    "sub_title": "Distribute rewards automatically",
+    "result_details_text": "Result Details",
+    "reward_success_text": "reward-success",
+    "reward_msg_text1": "Rewards were sent!",
+    "reward_msg_text2": "Thank you for moderating this challenge. The rewards were sent to winners"
+  },
+  "some_tips": {
+    "tips_msg_text1": "Here is what you can do if you don't have enough OmPoints",
+    "tips_msg_text2": "Decrease the reward amount",
+    "tips_msg_text3": "Buy more OmPoints",
+    "tips_msg_text4": "Get More OmPoints by participating Health Wizz Activities"
+  },
+  "find_sponsor": {
+    "title": "Find Sponsor",
+    "msg_text1": "send a request to the organization you'd like to invite to be your campaign sponsor",
+    "msg_text2": "Bring Your Own Sponsor",
+    "msg_text3": "You just submitted requested sponsorship from Nike",
+    "msg_text4": "You can configure your rewards after you 'll get a reply from sponsor. Normally it takes 2~3 work days",
+    "congratulatoins_text": "Congratulations!",
+    "msg_text5": "Nile became a sponsor for your Campaign1 campaign with 1000 rewards budget",
+    "msg_text6": "The sponsor's logo appear in the descriptions of your campaign",
+    "msg_text7": "Now you can complete your campaign configuration",
+    "configure_reward_button_text": "Configure rewards"
+  },
+  "pop_over": {
+    "make_moderator_text": "Make Moderator",
+    "make_validator_text": "Make Validator",
+    "remove_moderator_text": "Remove From Moderators",
+    "remove_validator_text": "Remove From Validators",
+    "remove_campaign_text": "Remove from Campaign"
+  },
+  "rewards": {
+    "congratulations": {
+      "title": "Congratulations",
+      "transaction_msg_text1": "The transaction was successful!",
+      "show_text": "You got",
+      "back_text": "Back To Shop",
+      "transaction_msg_text2": "Reward for successful participation in Campaign 1 campaign"
+    },
+    "deposit": {
+      "title": "Deposit",
+      "buy_coins_text": "Buy OmPoints",
+      "balance_text": "Balance",
+      "omcoins_text1": "How much OmPoints do you need?",
+      "payment_method_text": "Choose payment method",
+      "saved_card_text": "Saved card",
+      "newcard_button_text": "Add new card",
+      "payment_text": "Payment methods",
+      "visa_text": "Visa/MasterCard",
+      "paypal_text": "Paypal",
+      "deposit_fail_text": "Your deposit transaction was not complete.",
+      "deposit_success_text": "Your deposit transaction was successfully done.",
+      "wallet_text": "My Wallet",
+      "transaction_history_text": "Transaction history",
+      "buy_text": "Buy OmPoints",
+      "shop_text": "Shop",
+      "omc_text": "OMC Transfer",
+      "omc_msg_text1": "From OmC Wallet Address:",
+      "omc_msg_text2": "To OmC Wallet Address:",
+      "omc_amount_text": "Amount in OmC"
+
+    }
+
+  },
+  "settings": {
+    "title": "Settings",
+    "language_text": "Language",
+    "font_size_text": "Font Size",
+    "age_text": "Make your age visible",
+    "location_text": "Make your location visible",
+    "circle_text": "Make your circles visible",
+    "challenge_text": "Make your campaigns visible",
+    "health_index_text": "Make your Health Index visible",
+    "cancer_text": "I'm interesting in participating cancer trials",
+    "notification_text": "Notification",
+    "general_notification_text": "General notification",
+    "receive_notification_text": "Receive notification from Circles",
+    "receive_campaign_notification_text": "Receive notification from Campaigns",
+    "receive_chronic_notification_text": "Receive notification from Chronic disease",
+    "email_text": "I want to receive email/notification from Health Wizz"
+
+  },
+  "account_link": {
+    "email_text": "Email",
+    "verify_text": "Verify"
+  },
+  "update_avatar": {
+    "title": "Avatar",
+    "upload_text": "Upload Picture",
+    "default_avtar_text": "Use Default Avatar"
+
+  },
+  "menu": {
+    "health_index_text": "Health Index",
+    "omcoin_text": "OmPoint Wallet",
+    "med_text": "Med Records",
+    "profile_text": "Profile",
+    "settings_text": "Settings",
+    "Otp_text": "Invitation Code",
+    "device_text": "Connected devices",
+    "find_physician_text": "Find a physician",
+    "help_text": "Help",
+    "logout_text": "Log out"
+  }
+}

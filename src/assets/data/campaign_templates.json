@@ -1,0 +1,149 @@
+{
+  "templates": [{
+      "template": "Better BMI",
+      "data": [{
+        "code": "BMI",
+        "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+      }]
+    },
+    {
+      "template": "Wiggle Waist",
+      "data": [{
+          "code": "BMI",
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+        },
+        {
+          "code": "Waist Circumference",
+          "image": "assets/imgs/HealthIndexIcons/Waist@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Get Moving",
+      "data": [{
+        "code": "BMI",
+        "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+      }]
+    },
+    {
+      "template": "Nutrition Nuts",
+      "data": [{
+        "code": "BMI",
+        "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+      }]
+    },
+    {
+      "template": "Shoo Smoking",
+      "data": [{
+        "code": "Smoking",
+        "image": "assets/imgs/HealthIndexIcons/Smoking@3x.png"
+      }]
+    },
+    {
+      "template": "Away from Alcohol",
+      "data": [{
+        "code": "Alcohol",
+        "image": "assets/imgs/HealthIndexIcons/Alcohol@3x.png"
+      }]
+    },
+    {
+      "template": "Search Sleep Apnea",
+      "data": [{
+        "code": "Sleep",
+        "image": "assets/imgs/HealthIndexIcons/Sleep@3x.png"
+      }]
+    },
+    {
+      "template": "Heal Hypertension",
+      "data": [{
+        "code": "Hypertension",
+        "image": "assets/imgs/HealthIndexIcons/Hypertension@3x.png"
+      }]
+    },
+    {
+      "template": "Deal with Depression",
+      "data": [{
+        "code": "Depression",
+        "image": "assets/imgs/HealthIndexIcons/Depression@3x.png"
+      }]
+    },
+    {
+      "template": "Dwindle Diabetes Risk",
+      "data": [{
+          "code": "BMI",
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+        },
+        {
+          "code": "Exercise",
+          "image": "assets/imgs/HealthIndexIcons/Exercise@3x.png"
+        }
+      ]
+    },
+    {
+      "template": "Care for CV Risk",
+      "data": [{
+        "code": "Cardio",
+        "image": "assets/imgs/HealthIndexIcons/Cardio@3x.png"
+      }]
+    },
+    {
+      "template": "Curb Cancer",
+      "data": [{
+        "code": "Cancer",
+        "image": "assets/imgs/HealthIndexIcons/Cancer@3x.png"
+      }]
+    },
+    {
+      "template": "My Health Index",
+      "data": [{
+          "code": "Alcohol",
+          "image": "assets/imgs/HealthIndexIcons/Alcohol@3x.png"
+        },
+        {
+          "code": "BMI",
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+        },
+        {
+          "code": "Cardio",
+          "image": "assets/imgs/HealthIndexIcons/Cardio@3x.png"
+        },
+        {
+          "code": "Depression",
+          "image": "assets/imgs/HealthIndexIcons/Depression@3x.png"
+        },
+        {
+          "code": "Diabetes",
+          "image": "assets/imgs/HealthIndexIcons/Diabet@3x.png"
+        },
+        {
+          "code": "Exercise",
+          "image": "assets/imgs/HealthIndexIcons/Exercise@3x.png"
+        },
+        {
+          "code": "Hypertension",
+          "image": "assets/imgs/HealthIndexIcons/Hypertension@3x.png"
+        },
+        {
+          "code": "Nutrition",
+          "image": "assets/imgs/HealthIndexIcons/Nutrition@3x.png"
+        },
+        {
+          "code": "Sleep",
+          "image": "assets/imgs/HealthIndexIcons/Sleep@3x.png"
+        },
+        {
+          "code": "Smoking",
+          "image": "assets/imgs/HealthIndexIcons/Smoking@3x.png"
+        },
+        {
+          "code": "Waist Circumference",
+          "image": "assets/imgs/HealthIndexIcons/Waist@3x.png"
+        },
+        {
+          "code": "Cancer",
+          "image": "assets/imgs/HealthIndexIcons/Cancer@3x.png"
+        }
+      ]
+    }
+  ]
+}

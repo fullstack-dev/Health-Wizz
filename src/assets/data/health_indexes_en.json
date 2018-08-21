@@ -1,0 +1,687 @@
+{
+  "indexes": [{
+      "index": 5,
+      "href": "http://www.rethinkingdrinking.niaaa.nih.gov/",
+      "detail": "Alcohol use is prevalent in modern society and accepted socially within its limitations. Alcohol use can be social and within healthy limits but can also be at risk of medical conditions like Liver disease, Depression, Neurological conditions and addiction. Alcohol use disorder leads to dysfunctional personal, social and Work related performance and can truly be hazardous to your health.",
+      "detail_red": "You are at high risk for a diagnosis of Alcohol addiction or Alcohol use disorder. There are community resources and Medical treatment options available to help you. Please consult your primary care physician for proper testing and treatment.",
+      "detail_yellow": "You are at moderate risk for a diagnosis of Alcohol addiction or Alcohol use disorder. There are community resources and Medical treatment options available to help you. Please consult your primary care physician for proper testing and treatment.",
+      "code": "Alcohol",
+      "label": "Alcohol",
+      "image": "assets/imgs/HealthIndexIcons/Alcohol@3x.png",
+      "state": null,
+      "lastValue": null,
+      "questions": [{
+          "type": "check",
+          "label": "How often did you have a drink containing alcohol in the past year?",
+          "code": "DRINK_ALCOHOL",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "Never",
+              "code": "NEVER"
+            },
+            {
+              "label": "Monthly or less",
+              "code": "MONTHLY OR LESS"
+            },
+            {
+              "label": "2 to 4 times a month",
+              "code": "2 TO 4 TIMES A MONTH"
+            },
+            {
+              "label": "2 to 3 times a week",
+              "code": "2 TO 3 TIMES A WEEK"
+            },
+            {
+              "label": "4 or more times a week",
+              "code": "4 OR MORE TIMES A WEEK"
+            }
+          ]
+        },
+        {
+          "type": "check",
+          "label": "How many drinks did you have on a typical day when you were drinking in the past year?",
+          "code": "DRINK_IN_A_DAY",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "1 or 2",
+              "code": "1 OR 2"
+            },
+            {
+              "label": "3 or 4",
+              "code": "3 OR 4"
+            },
+            {
+              "label": "5 or 6",
+              "code": "5 OR 6"
+            },
+            {
+              "label": "7 or 9",
+              "code": "7 OR 9"
+            },
+            {
+              "label": "10 or more",
+              "code": "10 OR MORE"
+            }
+          ]
+        },
+        {
+          "type": "check",
+          "label": "How often did you have 6 or more drinks on one ocassion in the past year?",
+          "code": "SIX_OR_MORE_DRINKS",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "Never",
+              "code": "NEVER"
+            },
+            {
+              "label": "Less than monthly",
+              "code": "LESS THAN MONTHLY"
+            },
+            {
+              "label": "Monthly",
+              "code": "MONTHLY"
+            },
+            {
+              "label": "Weekly",
+              "code": "WEEKLY"
+            },
+            {
+              "label": "Daily or almost daily",
+              "code": "DAILY OR ALMOST DAILY"
+            }
+          ]
+        }
+      ]
+    }, {
+      "index": 0,
+      "href": "http://www.nhlbi.nih.gov/health/educational/lose_wt/risk.htm",
+      "detail": "Body Mass Index(BMI) is a person's weight in Pounds or Kilograms divided by the square of height. A high BMI can be an indicator of high body fatness. BMI can be used to screen for weight categories that may lead to health problems but it is not diagnostic of the body fatness or health of an individual.",
+      "detail_red": "You are in range of high risk and Obesity. It is never too late to work on your weight and other modifiable risk factors to prevent Type II Diabetes, Heart Disease , Vascular Disease like stroke and other medical conditions that you are at higher risk for.",
+      "detail_yellow": "Below normal BMI or over. If over, You are at risk of Type II Diabetes , Heart condition like Myocardial Infarction or Vascular condition like stroke depending on other factors involved. It is never too late to start working on your risk factors! If you are underweight, consult a Physician to see if there is any medical condition you need to worry about for further evaluation.",
+      "code": "BMI",
+      "label": "BMI",
+      "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png",
+      "state": null,
+      "lastValue": null,
+      "questions": [{
+          "type": "value",
+          "label": "Weight",
+          "code": "Weight",
+          "value": null,
+          "unit": "lb",
+          "units": ["kg", "lb"],
+          "values": null
+        },
+        {
+          "type": "value",
+          "label": "Height",
+          "code": "Height",
+          "value": null,
+          "unit": "in",
+          "units": ["in", "cm"],
+          "values": null
+        }
+      ]
+    }, {
+      "index": 10,
+      "href": "http://www.cdc.gov/heartdisease/prevention.htm",
+      "detail": "Predicting your risk of heart disease like Heart attacks, blockages or Angina and your risk of a Vascular condition like stroke are well  known. There are risk factors like Age, Sex or Family history that can not be modified. There are risk factors like Hypertension control, Exercise level, Cholesterol control and smoking cessation that are within your control called modifiable risk factors. This means, you are in charge of changing your risk of heart attacks and stroke.",
+      "detail_red": "You are at high risk for Heart Disease and Stroke. Heart disease is number one cause of death and you can change your risk based on modifiable risk factors. Your risk of Heart disease and Stroke can be lowered by targeted changes. The change begins with you and your health care provider.",
+      "detail_yellow": "You are at moderate risk for  Heart disease and Stroke. Heart disease is number one cause of death and you can change your risk based on modifiable risk factors.",
+      "code": "Cardio",
+      "label": "Cardio Vascular Risk",
+      "state": null,
+      "lastValue": null,
+      "image": "assets/imgs/HealthIndexIcons/Cardio@3x.png",
+      "questions": [{
+        "type": "value",
+        "label": "Total cholesterol(mg/dL)",
+        "code": "TOTAL_CHOLESTEROL",
+        "value": null,
+        "unit": "mg/dL",
+        "units": ["mg/dL"],
+        "values": null
+      }, {
+        "type": "value",
+        "label": "HDL cholesterol(mg/dL)",
+        "code": "HDL_CHOLESTEROL",
+        "value": null,
+        "unit": "mg/dL",
+        "units": ["mg/dL"],
+        "values": null
+      }]
+    },
+    {
+      "index": 8,
+      "href": "http://www.nimh.nih.gov/health/publications/depression-what-you-need-to-know-12-2015/index.shtml",
+      "detail": "Depression and related disorders are prevalent in our society and are underdiagnosed and under treated. Depression can be situational and transient or can be a chronic long term Disorder. Treatment of Depression is complicated by access to care, attached social stigma and lack of available resources. Depression is however a manageable condition.",
+      "detail_red": "Depression is a common condition that goes undiagnosed unless an individual is properly screened and tested. Fortunately , Depresssion can be treated successfully with proper medical care. You are at a high risk of Depression based on the standardized questionnaire you responded to. We strongly encourage you to seek medical care via your primary care physician or a Mental health provider. Depression is associated with Medical conditions and other Mental Health disorders in some cases. Depression is treatable, act now!\nIF YOU ARE IN NEED FOR URGENT ACTION, PLAESE CALL YOUR LOCAL EMERGENCY HOT LINE LIKE 911.",
+      "detail_yellow": "Depression is a common condition that goes undiagnosed unless an individual is properly screened and tested. Fortunately , Depresssion can be treated successfully with proper medical care. You are at a moderate risk of Depression based on the standardized questionnaire you responded to. We strongly encourage you to seek medical care via your primary care physician or a Mental health provider. Depression is associated with Medical conditions and other Mental Health disorders in some cases. Depression is treatable, act now!",
+      "code": "Depression",
+      "label": "Depression",
+      "state": null,
+      "lastValue": null,
+      "image": "assets/imgs/HealthIndexIcons/Depression@3x.png",
+      "questions": [{
+          "type": "check",
+          "label": "Little interest or pleasure in doing thing",
+          "code": "LITTLE_INTEREST",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "Not at all",
+              "code": "NOT AT ALL"
+            },
+            {
+              "label": "Several days",
+              "code": "SEVERAL DAYS"
+            },
+            {
+              "label": "More than half the days",
+              "code": "MORE THAN HALF THE DAYS"
+            },
+            {
+              "label": "Nearly daily",
+              "code": "NEARLY DAY"
+            }
+          ]
+        }, {
+          "type": "check",
+          "label": "Feeling down, depressed, or hopeless",
+          "code": "FEELING_DOWN",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "Not at all",
+              "code": "NOT AT ALL"
+            },
+            {
+              "label": "Several days",
+              "code": "SEVERAL DAYS"
+            },
+            {
+              "label": "More than half the days",
+              "code": "MORE THAN HALF THE DAYS"
+            },
+            {
+              "label": "Nearly daily",
+              "code": "NEARLY DAY"
+            }
+          ]
+        }, {
+          "type": "check",
+          "label": "Having trouble falling asleep, or sleeping too much",
+          "code": "TROUBLE_FALLING",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "Not at all",
+              "code": "NOT AT ALL"
+            },
+            {
+              "label": "Several days",
+              "code": "SEVERAL DAYS"
+            },
+            {
+              "label": "More than half the days",
+              "code": "MORE THAN HALF THE DAYS"
+            },
+            {
+              "label": "Nearly daily",
+              "code": "NEARLY DAY"
+            }
+          ]
+        }, {
+          "type": "check",
+          "label": "Feeling tired or having little energy",
+          "code": "FEELING TIRED",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "Not at all",
+              "code": "NOT AT ALL"
+            },
+            {
+              "label": "Several days",
+              "code": "SEVERAL DAYS"
+            },
+            {
+              "label": "More than half the days",
+              "code": "MORE THAN HALF THE DAYS"
+            },
+            {
+              "label": "Nearly daily",
+              "code": "NEARLY DAY"
+            }
+          ]
+        }, {
+          "type": "check",
+          "label": "Poor appetite or overeating",
+          "code": "POOR_APPETITE",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "Not at all",
+              "code": "NOT AT ALL"
+            },
+            {
+              "label": "Several days",
+              "code": "SEVERAL DAYS"
+            },
+            {
+              "label": "More than half the days",
+              "code": "MORE THAN HALF THE DAYS"
+            },
+            {
+              "label": "Nearly daily",
+              "code": "NEARLY DAY"
+            }
+          ]
+        }, {
+          "type": "check",
+          "label": "Feeling bad about yourself, or that you are a failure, or have let yourself or your family down",
+          "code": "FEELING_BAD",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "Not at all",
+              "code": "NOT AT ALL"
+            },
+            {
+              "label": "Several days",
+              "code": "SEVERAL DAYS"
+            },
+            {
+              "label": "More than half the days",
+              "code": "MORE THAN HALF THE DAYS"
+            },
+            {
+              "label": "Nearly daily",
+              "code": "NEARLY DAY"
+            }
+          ]
+        }, {
+          "type": "check",
+          "label": "Trouble concentrating on things, such as reading the newspaper or watching TV",
+          "code": "TROUBLE_CONCENTRATING",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "Not at all",
+              "code": "NOT AT ALL"
+            },
+            {
+              "label": "Several days",
+              "code": "SEVERAL DAYS"
+            },
+            {
+              "label": "More than half the days",
+              "code": "MORE THAN HALF THE DAYS"
+            },
+            {
+              "label": "Nearly daily",
+              "code": "NEARLY DAY"
+            }
+          ]
+        }, {
+          "type": "check",
+          "label": "Moving or speaking so slowly that other people could have noticed? Or the opposite, being so fidgety and restless that you have been moving around a lot more than usual",
+          "code": "MOVING_SPEAKING_SLOWLY",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "Not at all",
+              "code": "NOT AT ALL"
+            },
+            {
+              "label": "Several days",
+              "code": "SEVERAL DAYS"
+            },
+            {
+              "label": "More than half the days",
+              "code": "MORE THAN HALF THE DAYS"
+            },
+            {
+              "label": "Nearly daily",
+              "code": "NEARLY DAY"
+            }
+          ]
+        },
+        {
+          "type": "check",
+          "label": "Thoughts that you would be better off dead or hurting yourself in some way",
+          "code": "THOUGHTS_DEAD_HURTING",
+          "value": null,
+          "unit": null,
+          "units": null,
+          "values": [{
+              "label": "Not at all",
+              "code": "NOT AT ALL"
+            },
+            {
+              "label": "Several days",
+              "code": "SEVERAL DAYS"
+            },
+            {
+              "label": "More than half the days",
+              "code": "MORE THAN HALF THE DAYS"
+            },
+            {
+              "label": "Nearly daily",
+              "code": "NEARLY DAY"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "href": "https://www.cdc.gov/diabetes/ndep/index.html",
+      "detail": "Predicting your risk of developing Diabetes Mellitus (Type II) is well  known. There are risk factors like Age, Sex or Family history that can not be modified. There are risk factors like Body weight and BMI control, Exercise level, Dietary habits and appropriate timely diagnostic screening labs that are within your control called modifiable risk factors. This means, you are in charge of changing your risk of heart attacks and stroke.",
+      "detail_red": "You are at high risk for developing Type II Diabetes. Type II Diabetes is a harbinger of multiple Chronic medical conditons like Heart disease, Stroke, Kidney failure, blindness etc. You can reduce your risk of developing Type II Diabetes and you can change your risk based on modifiable risk factors.",
+      "detail_yellow": "You are at moderate risk for  developing Type II Diabetes. Type II Diabetes is a harbinger of multiple Chronic medical conditons like Heart disease, Stroke, Kidney failure, blindness etc. You can reduce your risk of developing Type II Diabetes and you can change your risk based on modifiable risk factors.",
+      "code": "Diabetes",
+      "label": "Diabetes Risk",
+      "state": null,
+      "lastValue": null,
+      "image": "assets/imgs/HealthIndexIcons/Diabet@3x.png",
+      "questions": [{
+        "type": "toggle_list",
+        "label": "Do you have a brother or sister or a parent with TYPE-II Diabetes?",
+        "code": "RELATIVE_WITH_DIABETES",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }, {
+        "type": "value",
+        "label": "Recent HbA 1c level",
+        "code": "HBA1C_LEVEL",
+        "value": null,
+        "unit": "%",
+        "units": ["%"],
+        "values": null
+      }, {
+        "type": "value",
+        "label": "Fasting Glucose level",
+        "code": "FASTING_GLUCOSE",
+        "value": null,
+        "unit": "mg/dL",
+        "units": ["mg/dL"],
+        "values": null
+      }, {
+        "type": "toggle_list",
+        "label": "",
+        "code": "ETHINICITY_BACKGROUND",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }]
+    },
+    {
+      "index": 2,
+      "href": "https://www.cdc.gov/physicalactivity/basics/adults/index.htm",
+      "detail": "Regular Physical activity and Exercise have known benefits ranging from Prevention of Heart Disease, Stroke, Diabetes Mellitus , Alzheimer Dementia to name a few. Current literature supports a long term exercise regimen with combination of Aerobic exercise and Muscle Strengthening exercises.",
+      "detail_red": "You are not moving and need to do better ! Both Aerobic ( Walking, running, treadmill ) and Muscle strengthening Exercises ( Weight lifting, Body machines) in a right combination makes the difference. Consult a Physician for an Exercise prescription to prevent injuries and find your personal limitations if you have any medical condition.",
+      "detail_yellow": "You are moving some but need to do better ! Both Aerobic ( Walking, running, treadmill ) and Muscle strengthening Exercises ( Weight lifting, Body machines) in a right combination makes the difference. Consult a Physician for an Exercise prescription to prevent injuries and find your personal limitations if you have any medical condition.",
+      "code": "Exercise",
+      "label": "Exercise",
+      "state": null,
+      "lastValue": null,
+      "image": "assets/imgs/HealthIndexIcons/Exercise@3x.png",
+      "questions": [{
+        "type": "toggle",
+        "label": "Exercise",
+        "code": "EXE_STATUS",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": [{
+            "label": "No",
+            "code": "NO EXERCISE"
+          },
+          {
+            "label": "Moderate",
+            "code": "MODERATE"
+          },
+          {
+            "label": "Mix",
+            "code": "EQUAL MIX"
+          },
+          {
+            "label": "Intense",
+            "code": "VIGOROUS"
+          }
+        ]
+      }]
+    },
+    {
+      "index": 7,
+      "href": "http://www.cdc.gov/bloodpressure/materials_for_patients.htm",
+      "detail": "High blood pressure is a chronic medical condition known as a “silent killer”. Many individuals with Hypertension are not diagnosed or treated in a timely fashion. Undiagnosed or Untreated Hypertension is a harbinger of complications like Heart attack, Stroke, Kidney failure etc. Factors in developing or controlling your blood pressure are within your control.",
+      "detail_red": "You are at high risk for developing Hypertension related complication if not well controlled. Hypertension is a harbinger of multiple Chronic medical conditons like Heart disease, Stroke, Kidney failure etc. You can reduce your risk of developing Hpertension related complications and you can change your risk based on modifiable risk factors, adequate BP control and appropriate medications and medical treatment which usually are lifelong.",
+      "detail_yellow": "You are at moderate risk for  developing  Hypertension diagnosis or related  complications. Hypertension is a harbinger of multiple Chronic medical conditons like Heart disease, Stroke, Kidney failure etc..",
+      "code": "Hypertension",
+      "label": "Hypertension",
+      "state": null,
+      "lastValue": null,
+      "image": "assets/imgs/HealthIndexIcons/Hypertension@3x.png",
+      "questions": [{
+        "type": "value",
+        "label": "Systolic blood pressure",
+        "code": "SYSTOLIC_BLOOD",
+        "value": null,
+        "unit": "mmHg",
+        "units": ["mmHg"],
+        "values": null
+      }, {
+        "type": "value",
+        "label": "Diastolic blood pressure",
+        "code": "DIASTOLIC_BLOOD",
+        "value": null,
+        "unit": "mmHg",
+        "units": ["mmHg"],
+        "values": null
+      }, {
+        "type": "toggle_list",
+        "label": "Treated for high blood pressure",
+        "code": "TREATED_HIGH_BLOOD_PRESSURE",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }]
+    },
+    {
+      "index": 3,
+      "href": "http://familydoctor.org/familydoctor/en/prevention-wellness/food-nutrition.html",
+      "detail": "Healthy eating and nutrition are confusing and have a large available information base.The key to nutrition is to change your dietary habits for lifetime with small changes in a stepwise fashion.Current research supports a Mediterranean style diet.",
+      "detail_red": "You need some drastic changes in your diet habits. Start with cleaning your food supply to healthy choices. Make small choices in diet change and stick with each and every change. Your dietary habits will need a plan and commitment for change. Retake Nutrtion quiz as often as once a week to reinforce your lifestyle change , for long.",
+      "detail_yellow": "You are able to improve your nutrition from your current state with small changes in dietary habits. Take baby steps and make long lasting changes.",
+      "code": "Nutrition",
+      "label": "Nutrition/Diet",
+      "state": null,
+      "lastValue": null,
+      "image": "assets/imgs/HealthIndexIcons/Nutrition@3x.png",
+      "questions": [{
+        "type": "toggle_list",
+        "label": "Consuming a Fatty Fish meal once a week",
+        "code": "FISH_MEAL",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }, {
+        "type": "toggle_list",
+        "label": "Consuming meat intake lean and trimmed Poultry variety vs Red meat",
+        "code": "MEAT_INTAKE",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }, {
+        "type": "toggle_list",
+        "label": "Consuming beans several times a week",
+        "code": "LEGUMES_BEANS",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }, {
+        "type": "toggle_list",
+        "label": "Consuming 2~3 whole fruits once a day",
+        "code": "FRUITS",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }, {
+        "type": "toggle_list",
+        "label": "Consuming Vegetables as half of a day's dietary intake",
+        "code": "VEGETABLES",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }, {
+        "type": "toggle_list",
+        "label": "Restricting your dietary salt intake and no added salt in prepared food",
+        "code": "DIETARY_SALT",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }]
+    },
+    {
+      "index": 6,
+      "href": "https://www.thoracic.org/patients/patient-resources/resources/obstructive-sleep-apnea-in-adults.pdf",
+      "detail": "Obstructive Sleep Apnea is a chronic medical condition.Many individuals with Sleep Apnea are not diagnosed or treated in a timely fashion. Undiagnosed or Untreated Sleep Apnea is a harbinger of complications like Heart attack, Irregular Heartbeats,  Stroke, daytime sleepiness leading to Motor Vehicle Accidents etc.",
+      "detail_red": "You are at high risk for a diagnosis of Sleep Apnea. Sleep Apnea testing a simple method with an effective treatment option available. Please consult your primary care physician for proper testing and treatment..",
+      "detail_yellow": "You are at moderate risk for  a diagnosis of having Sleep Apnea. Sleep Apnea testing a simple method with an effective treatment option available. Please consult your primary care physician for proper testing and treatment..",
+      "code": "Sleep",
+      "label": "Sleep Apnea",
+      "state": null,
+      "lastValue": null,
+      "image": "assets/imgs/HealthIndexIcons/Sleep@3x.png",
+      "questions": [{
+        "type": "toggle_list",
+        "label": "Snore loudy (louder than talking or loud enough to be heard through closed doors)",
+        "code": "SNORE_LOUDLY",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }, {
+        "type": "toggle_list",
+        "label": "Someone Observed you stop breathing during sleep",
+        "code": "STOP_BREATH_SLEEPING",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }, {
+        "type": "toggle_list",
+        "label": "Often feel tired during daytime",
+        "code": "FEEL_TIRED",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }, {
+        "type": "toggle_list",
+        "label": "Treated for high blood pressure",
+        "code": "TREATED_HIGHBLOOD_PRESSURE",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }, {
+        "type": "toggle_list",
+        "label": "Female collar",
+        "code": "FEMALE_COLLAR",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }, {
+        "type": "toggle_list",
+        "label": "Male collar",
+        "code": "MALE_COLLAR",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }]
+    },
+    {
+      "index": 4,
+      "href": "http://www.lung.org/stop-smoking/i-want-to-quit/",
+      "detail": "Smoking and Tobacco use is known high risk personal habit that can lead to various types of Cancer like Lung, Urinary Bladder and Mouth . Smoking is known to increase risk of Heart Disease and Stroke as well as Peripheral Arterial Disease. Smoking cessation is a personal effort with help available from Community resources and your Health care provider. Successful smoking cessation is possible despit previous failed attempts.",
+      "detail_red": "Smoking and Tobacco use is known high risk personal habit that can lead to various types of Cancer like Lung, Urinary Bladder and Mouth . Smoking is known to increase risk of Heart Disease and Stroke as well as Peripheral Arterial Disease. Smoking cessation is a personal effort with help available from Community resources and your Health care provider. Successful smoking cessation is possible despit previous failed attempts.",
+      "detail_yellow": "Smoking and Tobacco use is known high risk personal habit that can lead to various types of Cancer like Lung, Urinary Bladder and Mouth . Smoking is known to increase risk of Heart Disease and Stroke as well as Peripheral Arterial Disease. Smoking cessation is a personal effort with help available from Community resources and your Health care provider. Successful smoking cessation is possible despit previous failed attempts.",
+      "code": "Smoking",
+      "label": "Smoking",
+      "state": null,
+      "lastValue": null,
+      "image": "assets/imgs/HealthIndexIcons/Smoking@3x.png",
+      "questions": [{
+        "type": "toggle_yes_no",
+        "label": "",
+        "code": "DO_YOU_SMOKE",
+        "value": null,
+        "unit": null,
+        "units": null,
+        "values": ["YES", "NO"]
+      }]
+    },
+    {
+      "index": 1,
+      "href": "http://www.nhlbi.nih.gov/health/educational/lose_wt/risk.htm",
+      "detail": "To measure waist circumference in adults, locate upper hip bone and the top of the right Iliac crest. Place a measuring tape in a horizontal plane around the abdomen at the level of the Iliac crest. Note the measurement in inches at end of a normal expiration of breath.",
+      "detail_red": "Above normal Waist or Abdomen girth. Waist size correlates with a certain body type like an Apple or Pear shaped body habitus. You are at risk of Type II Diabetes , Hypertension, Heart condition like Myocardial Infarction or Vascular condition like stroke depending on other factors involved. It is never too late to start working on your risk factors! Despite extensive research, Nutrition and Physical activity are the main elements on risk reduction.",
+      "detail_yellow": "Above normal Waist or Abdomen girth. Waist size correlates with a certain body type like an Apple or Pear shaped body habitus. You are at risk of Type II Diabetes , Hypertension, Heart condition like Myocardial Infarction or Vascular condition like stroke depending on other factors involved. It is never too late to start working on your risk factors! Despite extensive research, Nutrition and Physical activity are the main elements on risk reduction.",
+      "code": "Waist Circumference",
+      "label": "Waist",
+      "state": null,
+      "lastValue": null,
+      "image": "assets/imgs/HealthIndexIcons/Waist@3x.png",
+      "questions": [{
+        "type": "value",
+        "label": "Waist",
+        "code": "WAIST_CIRCUMFERENCE",
+        "value": null,
+        "unit": null,
+        "units": ["in", "cm"],
+        "values": null
+      }]
+    },
+    {
+      "index": 11,
+      "detail": "Cancer screening is an important part of overall health risk reduction.There are established criteria for an appropriate cancer screen. Please follow published guidelines and educational resources in consulation with your Physician. Many cancers are Totally PREVENTABLE.",
+      "detail_red": "",
+      "detail_yellow": "You have done some work on this important issue of Cancer screening appropriate for your age. You need to complete your recommended cancer screenings and reduce your risk of PREVENTABLE cancers. There are many scientifically proven cancer screening guidelines and educational resources available. Take charge and be an educated and consult your Physician to complete your required cancer screenings.",
+      "code": "Cancer",
+      "label": "Cancer Screening",
+      "state": null,
+      "lastValue": null,
+      "image": "assets/imgs/HealthIndexIcons/Cancer@3x.png",
+      "questions": null
+    }
+  ]
+}

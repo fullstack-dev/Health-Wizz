@@ -1,0 +1,74 @@
+page-congratulations {
+
+	.toolbar{
+		button{
+			margin: 0 5px;
+		}
+		.menu_icon{
+			float: right;
+		}
+	}
+
+	.congrate{
+		width: 100%;
+		img{
+			width: 100%;
+		}
+		h1{				
+			text-align: center;
+			margin: 40px;
+			img{
+				width: 30px;
+			    height: 30px;
+			    margin-bottom: -7px;
+			    margin-left: 15px;
+			}	
+		}
+		p{
+			width: 85%;
+		    text-align: center;
+		    margin: 0 auto;
+		    font-size: 18px;
+		    color: gray;
+		}
+		button{
+		    margin: 0 auto;
+		    width: 50%;
+		    display: block;
+		    min-width: 170px;
+		    margin-top: 50px;
+		}
+	}
+
+	.congratulations-img {
+
+	}
+
+	.successful-txt {
+	    font-size: 6vw;
+	    text-align: center;
+	    margin: 8vw 8vw 5vw 8vw;
+	    color: gray;
+	}
+
+	.pass-txt {
+	    font-size: 4.5vw;
+	    text-align: center;
+	    margin: 0 15vw 5vw 15vw;
+	}
+
+	.back-btn {
+	    position: absolute;
+	    background-color: #48c5cd;
+	    color: white;
+	    border-radius: 5px;
+	    width: 45vw;
+	    height: 10vw;
+	    text-align: center;
+	    padding-top: 2vw;
+	    left: 50%;
+	    bottom: 10vw;
+	    font-size: 5vw;
+	    transform: translateX(-50%);
+	}
+}

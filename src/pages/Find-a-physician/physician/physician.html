@@ -1,0 +1,65 @@
+<!--
+  Generated template for the PhysicianPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <!-- <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+
+    <ion-title>Physician</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content style="background-color: #EFEFF4;">
+
+  <div class="gallery-item" *ngFor="let item of physicians_data; let index=index">
+    <ion-card>
+      <div class="avatarImg-div">
+        <img class="avatarImg" src={{item.imageUrl}}/>
+      </div>
+      <ion-card-content>
+        <ion-card-title>
+          {{item.name}}
+        </ion-card-title>
+        <div class="tel-div">
+          <ion-icon name="ios-call-outline"></ion-icon>
+          {{item.phones[0].number}}
+        </div>
+        <div class="tel-div">
+          <ion-icon name="ios-pin-outline"></ion-icon>
+          {{item.address}}
+        </div>
+        <div class="more-part-div" *ngIf="item.openFlag">
+          {{item.info}}
+        </div>
+        <div class="more-btn-div" (click)="open($event, item,index)" *ngIf="item.openFlag">
+          Less
+        </div>
+        <div class="more-btn-div" (click)="open($event, item, index)" *ngIf="!item.openFlag">
+          More
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-list *ngIf="physicians_data && physicians_data.length == 0">
+    <ion-item>
+      <h2>No physicians available in search area for {{filterSpeciality}}.</h2>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

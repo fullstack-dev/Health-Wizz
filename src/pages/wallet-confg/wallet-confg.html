@@ -1,0 +1,180 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{pageTitle}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button clear *ngIf="walletStarted()" (click)="reset()">Reset</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-slides>
+      <ion-slide>
+        <ion-card style="border-radius:50%;height:40vw;width:40vw;margin:auto">
+          <img style="width:40vw" src="assets/imgs/HomeIcons/Reward_Main@3x.png">
+        </ion-card>
+
+
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <ion-item>
+            <p item-start>
+              A mnemonic recovery phrase is a unique list of seed words which store all the information needed to recover your OmPoints
+              wallet.
+            </p>
+          </ion-item>
+          <hr>
+          <ion-card-content>
+            <ion-row>
+              <ion-col *ngFor="let string of seedStrings">
+                <span class="key_text">{{string}}</span>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+          <hr>
+          <ion-card-content style="text-align: left">
+            <p style="font-size: 14px">
+              If you ever lose your phone and need to restore your OmPoints wallet you will need your list of seed words to recover it.
+            </p>
+            <p style="font-size: 14px">
+              <b>From left to right, please copy these words in order.</b>
+            </p>
+          </ion-card-content>
+        </ion-card>
+
+        <button ion-button block style="margin:auto; height:44px" *ngIf="slide_index == 1" (click)="goNext()">Next</button>
+
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <ion-item>
+            <p item-start>To verify whether the recovery phrase was copied correctly, please click on the words in the box below in the
+              same order that you copied them.</p>
+          </ion-item>
+          <hr>
+          <ion-card-content *ngIf="localSeedStrings?.length > 0">
+            <ion-row align-items-center>
+              <ion-col align-self-start *ngFor="let string of localSeedStrings; let i = index">
+                <button ion-button outline small [hidden]="hideSeedString(string)" (click)="addChip(string)">
+                  {{string}}
+                </button>
+              </ion-col>
+            </ion-row>
+
+          </ion-card-content>
+          <hr *ngIf="seedStrings?.length > 0">
+          <ion-card-header *ngIf="ordered_chips.length > 0">12 ordered words:</ion-card-header>
+
+          <ion-card-content>
+            <ion-chip *ngFor="let chip of ordered_chips;let i = index">
+              <ion-label>{{chip}}</ion-label>
+              <button class="chip-btn" ion-button clear color="light" (click)="deleteChip(i)">
+                <ion-icon name="close-circle"></ion-icon>
+              </button>
+            </ion-chip>
+
+          </ion-card-content>
+        </ion-card>
+
+        <button ion-button block style="margin:auto; height:44px" *ngIf="slide_index == 2" [disabled]="!isOrderValid()" (click)="goNext()">Next</button>
+      </ion-slide>
+
+      <ion-slide *ngIf="restore_wallet">
+        <ion-item no-lines>
+          <p>Provide your mnemonic keystore seed:</p>
+        </ion-item>
+
+        <form #restoreFrom="ngForm" (submit)="addRestorekey()">
+          <ion-item>
+            <ion-input #restoreKeyInput="ngModel" required name="restoreKey" type="text" [(ngModel)]="restore_key" style="border: solid 1px #41c4cd;border-radius: 4px;"></ion-input>
+            <button type="submit" ion-fab mini item-end [disabled]="restore_keys?.length > 11">
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </ion-item>
+        </form>
+        <ion-card style="padding:16px">
+          <div *ngIf="restore_keys.length > 0">
+            <ion-chip *ngFor="let chip of restore_keys;let i = index">
+              <ion-label>{{chip}}</ion-label>
+              <button class="chip-btn" ion-button clear color="light" (click)="deleteFromRestoreKeys(i)">
+                <ion-icon name="close-circle"></ion-icon>
+              </button>
+            </ion-chip>
+            <p style="padding:16px">Remaining: {{12 - restore_keys.length}}</p>
+          </div>
+
+          <div *ngIf="restore_keys.length < 1">
+            Enter a mnemonic keyword (case sensitive) in above field and click "+".
+          </div>
+
+        </ion-card>
+
+        <button ion-button block style="margin:auto; height:44px" [disabled]="restore_keys?.length < 12" *ngIf="slide_index == 3 && restore_wallet"
+          (click)="goNext()">Next</button>
+      </ion-slide>
+
+      <ion-slide>
+
+        <ion-card>
+          <ion-card-header> Set password </ion-card-header>
+          <hr>
+          <form #walletForm="ngForm" (submit)="createWallet()">
+            <ion-list no-lines>
+              <ion-item no-lines style="padding-right:16px">
+                <ion-label stacked>Password</ion-label>
+                <ion-input required name="w_password" #wPassword="ngModel" minlength="8" [pattern]="validator.healthwizz_validator.password_pattern"
+                  type="password" [(ngModel)]="wallet_password" class="wallet-inputs"></ion-input>
+              </ion-item>
+              <ion-item no-lines style="padding-right:16px" *ngIf="wPassword.touched && !wPassword.valid">
+                <p style="color:red">Password must be 8 character long, having at least 1 uppercase, 1 digit and 1 symbol in it.</p>
+              </ion-item>
+              <ion-item *ngIf="wPassword.valid" no-lines style="padding-right:16px">
+                <ion-label stacked>Confirm Password</ion-label>
+                <ion-input required name="w_rePassword" #wRepassword="ngModel" type="password" [(ngModel)]="wallet_c_password" class="wallet-inputs"></ion-input>
+              </ion-item>
+              <ion-item no-lines style="padding-right:16px" *ngIf="wRepassword && wRepassword.touched && !validPassword()">
+                <p style="color:red">Passwords must be same.</p>
+              </ion-item>
+              <!-- <ion-item no-lines style="padding-right:16px" *ngIf="(wallet_password && wallet_c_password) && (wallet_c_password == wallet_password)">
+                <ion-label stacked>Pin</ion-label>
+                <ion-input type="number" [(ngModel)]="wallet_pin" class="wallet-inputs"></ion-input>
+              </ion-item> -->
+              <ion-item></ion-item>
+            </ion-list>
+            <div style="margin:16px 0">
+              <button ion-button block style="margin:auto; width:50%; height:44px" [disabled]="walletForm.invalid || !validPassword()"
+                type="submit">Start</button>
+            </div>
+          </form>
+        </ion-card>
+
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+  <div style="padding:0 10vw; bottom:24px; left:0; position:absolute;width:100%" *ngIf="slide_index == 0">
+    <ion-row>
+      <ion-col>
+        <button ion-button style="height:44px" outline block (click)="createNewWallet()" *ngIf="!myWallet.have_wallet">Create New</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button style="height:44px" block (click)="restoreExisting()">Restore existing</button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <!-- <div style="bottom:30px;position:absolute;width:100%; left:50%;transform: translateX(-50%);"> -->
+  <!-- <button ion-button block style="margin:auto; width:50%; height:44px" *ngIf="slide_index == 1" (click)="goNext()">Next</button> -->
+  <!-- <button ion-button block style="margin:auto; width:50%; height:44px" [disabled]="restore_keys?.length < 12" *ngIf="slide_index == 3 && restore_wallet"
+      (click)="goNext()">Next</button> -->
+  <!-- <button ion-button block style="margin:auto; width:50%; height:44px" *ngIf="slide_index == 2" [disabled]="!isOrderValid()"
+      (click)="goNext()">Next</button> -->
+
+  <!-- </div> -->
+</ion-content>

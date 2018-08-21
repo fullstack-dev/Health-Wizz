@@ -1,0 +1,79 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>{{cdView?.info.name}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="healthindex-text">
+    {{campaign.name}}
+  </div>
+
+  <div class="healthindex-detail1">
+    {{lang_resource.chfs.chf.last_update_text}} {{chfLastUpdate | date: 'medium'}}
+  </div>
+
+  <div class="detail-body-div">
+    <div class="detail-txt">
+      <span>
+        <img class="detail-img" [src]="cdView?.info.image" align="left">
+      </span>
+      {{cdView?.info.description}}
+    </div>
+  </div>
+
+  <div class="ccd-doc-div">
+    <div class="ccd-doc-txt" (click)="goToCCD()">
+      {{lang_resource.chfs.chf.ccd_documents_text}}
+    </div>
+  </div>
+
+  <div class="buttons-div">
+    <button class="first-btn" (click)="goToHistory()">{{lang_resource.chfs.chf.history_button_text}}</button>
+    <!-- <button class="second-btn" (click)="goToUpdateAll()">{{lang_resource.chfs.chf.update_all_button_text}}</button> -->
+  </div>
+
+  <div class="index-gallery-div">
+    <div class="gallery-item animated zoomIn" *ngFor="let item of indicators" (click)="open($event, item)">
+      <div class="title-div" [ngStyle]="setMyStyles(item.data.status)">
+        <div class="card-title-text">{{item.data.indicatorCode}}</div>
+        <div class="title-number"></div>
+      </div>
+      <div class="body-div">
+        <img class="body-img" src={{item.image}}/>
+      </div>
+
+      <!-- <div class="tail-div">
+        <div class="tail-date-text" *ngIf="item.data.questions[0].value">{{lang_resource.chfs.chf.last_text}}: {{item.data.questions[0].value}}</div>
+        <div class="alert-txt" *ngIf="item.data.questions[0].value" [ngStyle]="setAlertStyle(item.state)">{{item.state}}</div>
+        <div class="alert-txt" *ngIf="!item.data.questions[0].value && item.data.indicatorCode != 'Appointment'" style="color:#EA6288; margin-top:2px">Update Request!</div>
+        <div class="alert-txt" *ngIf="item.data.indicatorCode == 'Appointment' && item.data.lastUpdatedDate == null" style="color:#EA6288; margin-top:2px">{{item.state}}</div>
+        <div class="alert-txt" *ngIf="item.data.indicatorCode == 'Appointment' && item.data.lastUpdatedDate !== null">{{item.data.lastUpdatedDate | date: 'mediumDate'}}</div>
+      </div> -->
+
+      <div class="tail-div">
+        <div class="tail-date-text" *ngIf="item.data.questions[0].value && item.data.indicatorCode != 'Appointment'">{{lang_resource.chfs.chf.last_text}}: {{getAnswer(item.data.questions[0].value)}}</div>
+        <div class="tail-date-text" *ngIf="item.data.lastUpdatedDate && item.data.indicatorCode == 'Appointment'">{{lang_resource.chfs.chf.last_text}}: {{item.data.lastUpdatedDate | date: 'MMM d, y'}}</div>
+        <div class="alert-txt" *ngIf="item.data.questions[0].value" [ngStyle]="setAlertStyle(item.state)">{{item.state}}</div>
+        <!-- <div class="alert-txt" *ngIf="!item.data.questions[0].value" style="color:#EA6288; margin-top:2px">Update Request!</div> -->
+        <div class="alert-txt" *ngIf="item.data.updateRequire == true || item.data.lastUpdatedDate == null" style="color:#EA6288; margin-top:2px">Update Request!</div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

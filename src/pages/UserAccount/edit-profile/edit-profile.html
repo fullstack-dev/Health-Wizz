@@ -1,0 +1,226 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="Before()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-buttons end>
+      <button ion-button icon-only [disabled]="!editForm.valid" (click)="Done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{profile.firstName}}{{" "}}{{profile.lastName}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form #editForm="ngForm">
+
+    <div>
+      <img (click)="goToUpdateAvatar()" class="menu-logo" [src]="profilePic">
+    </div>
+
+    <div class="first-part-background">
+      <div class="date_fld">
+        <ion-item class="slide_item_fld" style="margin-right: 3px;">
+          <ion-label stacked>{{lang_resource.common.firstname_text }}
+            <!-- <sup>*</sup> -->
+          </ion-label>
+          <ion-input disabled #firstName="ngModel" name="firstName" [maxlength]="name_maxlength" [pattern]="name_pattern" type="text"
+            [(ngModel)]="profile.firstName" placeholder="" required></ion-input>
+        </ion-item>
+
+        <ion-item class="slide_item_fld" style="margin-left: 3px;">
+          <ion-label stacked>{{lang_resource.common.lastname_text }}
+            <!-- <sup>*</sup> -->
+          </ion-label>
+          <ion-input disabled #lastName="ngModel" name="lastName" [maxlength]="name_maxlength" [pattern]="name_pattern" [(ngModel)]="profile.lastName"
+            placeholder="" type="text" required></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="error-box" *ngIf="firstName.hasError('required') && firstName.touched">First Name is required!</div>
+      <div class="error-box" *ngIf="firstName.hasError('maxlength') && firstName.touched">First name connot be more than 20 characters.</div>
+      <div class="error-box" *ngIf="firstName.hasError('pattern') && firstName.touched">First name only accept hyphen and apostrophe, no digits and other symbols.</div>
+      <div class="error-box" *ngIf="lastName.hasError('required') && lastName.touched">Last name is required!</div>
+      <div class="error-box" *ngIf="lastName.hasError('maxlength') && lastName.touched">Last name connot be more than 20 characters.</div>
+      <div class="error-box" *ngIf="lastName.hasError('pattern') && lastName.touched">Last name only accept hyphen and apostrophe, no digits and other symbols.</div>
+
+      <!-- <div class="date_fld"> -->
+      <div style="display: flex; width: 100%;align-items: center;">
+        <!-- <div class="slide_item_fld">
+          <div class="birthday-txt">
+            {{lang_resource.common.dob_text}}
+          </div>
+          <div style="display: flex;" (click)="picker.open()">
+            <ion-item style="padding-left: 0px !important;">
+              <ion-datetime disabled #picker name="dob" displayFormat="MMM/DD/YYYY" placeholder="" [max]="getMaxDob()" [min]="getMinDob()"
+                [(ngModel)]="profile.dob" [ngModelOptions]="{standalone: true}" class="input-date-text"></ion-datetime>
+            </ion-item>
+            <ion-icon name="ios-calendar-outline" style="font-size: 7vw !important;position: absolute;right: 55vw;padding-top: 3vw !important;"></ion-icon>
+          </div>
+        </div> -->
+
+        <ion-item class="slide_item_fld" style="margin-right: 3px;">
+          <ion-label stacked>{{lang_resource.common.dob_text }}
+          </ion-label>
+          <ion-input name="newdob" disabled [value]="getDobText(profile.dob)" placeholder=""></ion-input>
+        </ion-item>
+
+        <ion-item class="slide_item_fld" style="margin-left: 3px;">
+          <ion-label stacked>{{lang_resource.common.gender_text }}
+            <!-- <sup>*</sup> -->
+          </ion-label>
+          <ion-input name="gender" disabled [value]="getGenderText(profile.gender)" placeholder=""></ion-input>
+          <!-- <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" disabled name="gender" [(ngModel)]="profile.gender" [ngModelOptions]="{standalone: true}">
+            <ion-option value="1">Male</ion-option>
+            <ion-option value="2">Female</ion-option>
+          </ion-select> -->
+
+        </ion-item>
+      </div>
+
+      <ion-item class="slide_item_fld">
+        <ion-label stacked>{{lang_resource.common.phone_number_text }}
+          <!-- <sup>*</sup> -->
+        </ion-label>
+        <ion-input #phoneNumber="ngModel" name="cell" [(ngModel)]="profile.cell" [pattern]="phone_pattern" type="number" placeholder=""></ion-input>
+      </ion-item>
+      <div class="error-box" *ngIf="phoneNumber.hasError('required') && phoneNumber.touched">Required!</div>
+      <div class="error-box" *ngIf="phoneNumber.hasError('pattern') && phoneNumber.touched">Should be valid and 10 digits.</div>
+    </div>
+
+    <div class="part-background">
+      <div class="part-text">{{lang_resource.common.location_text}}</div>
+
+      <ion-item class="slide_item_fld">
+        <ion-label stacked>{{lang_resource.common.country_text }}
+          <sup>*</sup>
+        </ion-label>
+        <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="contry" [(ngModel)]="profile.address.country"
+          (ionChange)="countryChanged()" required>
+          <ion-option *ngFor="let country of local.contries" [value]="country.code">{{country.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="date_fld">
+        <ion-item class="slide_item_fld item-left">
+          <ion-label stacked>{{lang_resource.common.zip_code_text }}
+            <sup>*</sup>
+          </ion-label>
+          <ion-input class="manged-bottom-border" #zipcode="ngModel" name="zipcode" [(ngModel)]="profile.address.zipCode" [pattern]="zip_code_pattern"
+            type="number" required placeholder=""></ion-input>
+        </ion-item>
+
+        <ion-item class="slide_item_fld item-right">
+          <ion-label stacked>{{lang_resource.common.state_text}}</ion-label>
+          <ion-select *ngIf="states" [selectOptions]="local.selectOptions" class="manged-bottom-border" style="padding-left:5px !important"
+            name="state" [(ngModel)]="profile.address.state" [disabled]="!profile.address.country">
+            <ion-option *ngFor="let state of states" [value]="state">{{state}}</ion-option>
+          </ion-select>
+
+          <ion-input *ngIf="!states" class="manged-bottom-border" name="state" [(ngModel)]="profile.address.state">
+          </ion-input>
+        </ion-item>
+      </div>
+      <div class="error-box" *ngIf="zipcode.hasError('required') && zipcode.touched">Zip code is required.</div>
+      <div class="error-box" *ngIf="zipcode.hasError('pattern') && zipcode.touched">Please enter a valid Zip code.</div>
+
+      <ion-item class="slide_item_fld">
+        <ion-label stacked>{{lang_resource.common.address_text}} (Optional)</ion-label>
+        <ion-input name="addline1" [(ngModel)]="profile.address.addressLine1" type="text" placeholder=""></ion-input>
+      </ion-item>
+
+      <ion-item class="slide_item_fld">
+        <ion-label stacked>{{lang_resource.common.city_text}} (Optional)</ion-label>
+        <ion-input name="city" [(ngModel)]="profile.address.city" type="text" placeholder=""></ion-input>
+      </ion-item>
+
+    </div>
+
+    <div class="part-background">
+      <div class="part-text">{{lang_resource.edit_profile.primary_physician_text}}</div>
+
+      <ion-item class="slide_item_fld">
+        <ion-label stacked>{{lang_resource.edit_profile.primary_physician_name_text}}(Optional)
+          <!-- <sup>*</sup> -->
+        </ion-label>
+        <ion-input #primaryName="ngModel" [(ngModel)]="primaryPhysicianDetail.name" name="primaryName" type="text" [pattern]="p_name_pattern"
+          placeholder=""></ion-input>
+      </ion-item>
+      <div class="error-box" *ngIf="primaryName.hasError('pattern') && primaryName.touched">Should not contain special symbols except hyphen and apostrophe.
+      </div>
+
+      <ion-item class="slide_item_fld">
+        <ion-label stacked>{{lang_resource.edit_profile.primary_physician_email_text}}(Optional)
+          <!-- <sup>*</sup> -->
+        </ion-label>
+        <ion-input #pEmail="ngModel" name="primary_email" [(ngModel)]="primaryPhysicianDetail.email" [pattern]="email_pattern" type="text"
+          placeholder=""></ion-input>
+      </ion-item>
+      <div class="error-box" *ngIf="pEmail.hasError('pattern') && pEmail.touched">Email should be valid.</div>
+
+      <ion-item class="slide_item_fld">
+        <ion-label stacked>{{lang_resource.edit_profile.primary_physician_phone_text}}(Optional)
+          <!-- <sup>*</sup> -->
+        </ion-label>
+        <ion-input #pPhoneNumber="ngModel" [(ngModel)]="primaryPhysicianDetail.cell" [pattern]="phone_pattern" name="primary_phone"
+          type="number" placeholder=""></ion-input>
+      </ion-item>
+      <div class="error-box" *ngIf="pPhoneNumber.hasError('pattern') && pPhoneNumber.touched">Should be valid and 10 digits.</div>
+
+      <ion-item class="slide_item_fld">
+        <ion-label stacked>{{lang_resource.edit_profile.primary_physician_country_text}}(Optional)
+          <!-- <sup>*</sup> -->
+        </ion-label>
+        <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="primary_country" [(ngModel)]="primaryPhysicianDetail.address.country">
+          <ion-option *ngFor="let country of local.contries" [value]="country.code">{{country.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <div class="date_fld">
+        <ion-item class="slide_item_fld" style="margin-right: 3px;">
+          <ion-label stacked>{{lang_resource.edit_profile.primary_physician_zip_text}}(Optional)
+            <!-- <sup>*</sup> -->
+          </ion-label>
+          <ion-input #pZipCode="ngModel" [(ngModel)]="primaryPhysicianDetail.address.zipCode" [pattern]="zip_code_pattern" name="primary_zipcode"
+            type="number" placeholder=""></ion-input>
+        </ion-item>
+
+        <ion-item class="slide_item_fld" style="margin-left: 3px;">
+          <ion-label stacked>{{lang_resource.edit_profile.primary_physician_state_text}}(Optional)</ion-label>
+          <ion-select [selectOptions]="local.selectOptions" style="padding-left:5px !important" name="primary_state" [(ngModel)]="primaryPhysicianDetail.address.state"
+            [disabled]="!primaryPhysicianDetail.address.country">
+            <ion-option *ngFor="let state of states" [value]="state">{{state}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="error-box" *ngIf="pZipCode.hasError('pattern') && pZipCode.touched">Please enter a valid Zip code.</div>
+
+      <ion-item class="slide_item_fld">
+        <ion-label stacked>{{lang_resource.edit_profile.primary_physician_address_text}}(Optional)</ion-label>
+        <ion-input name="primary_address" [(ngModel)]="primaryPhysicianDetail.address.addressLine1" type="text" placeholder=""></ion-input>
+      </ion-item>
+
+      <ion-item class="slide_item_fld">
+        <ion-label stacked>{{lang_resource.edit_profile.primary_physician_city_text}}(Optional)</ion-label>
+        <ion-input name="primary_city" [(ngModel)]="primaryPhysicianDetail.address.city" type="text" placeholder=""></ion-input>
+      </ion-item>
+
+    </div>
+
+  </form>
+
+</ion-content>

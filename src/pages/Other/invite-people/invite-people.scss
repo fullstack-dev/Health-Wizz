@@ -1,0 +1,67 @@
+page-invite-people {
+	h1, h2, h3, h4, h5, p, button, div, .label{
+		font-family: 'SF-UI-Text';
+	}
+	.toolbar{
+		button{
+			margin: 0 5px;
+		}
+		.menu_icon{
+			float: right;
+		}
+	}
+
+	.slide-box{
+		height: 100px;
+		.swiper-slide {
+			width: 65px;
+		}
+		.swiper-slide-active {
+			width: 80px;
+		}
+		.profile_img{
+			width: 65px;
+			height: 65px;
+		}
+	}
+	.swiper-slide-active{
+		.profile_img{
+			width: 70px;
+			height: 70px;
+		}
+	}
+
+	.search_div{
+
+		.searchbar{
+			background-color: transparent;
+			.searchbar-input-container{
+				.searchbar-input{
+					background-color: #eaebed;
+				}
+			}
+		}
+
+		.item{
+			height: 75px;
+			border-top: none !important;
+			img{
+				width: 60px;
+				height: 60px;
+				border: 1px solid gray;
+			}
+			.item-inner{
+				.label{
+					h2{
+						font-size: 20px;
+					}
+				}
+			}
+			button{
+				font-size: 17px;
+				color: $font-appcolor;
+			}
+		}
+
+	}
+}

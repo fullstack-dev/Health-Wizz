@@ -1,0 +1,11 @@
+{
+  "lang": [{
+    "code": "en",
+    "type": "English",
+    "res_url": "assets/data/strings_en.json"
+  }, {
+    "code": "es",
+    "type": "Spanish",
+    "res_url": "assets/data/strings_es.json"
+  }]
+}

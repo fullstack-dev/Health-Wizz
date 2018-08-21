@@ -1,0 +1,110 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- (click)="helper.openMenu()" -->
+    <button ion-button menuToggle class="fir-toggle">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{LoggedinUser_Name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="first-row">
+    <div class="health-index-div" (click)="goToHealthIndex()">
+      <img class="health-index-icon" src="assets/imgs/HomeIcons/health_index@2x.png" />
+      <!-- <div class="health-index-number" *ngIf="health_index_score == undefined else haveScore">
+        <img style="height:10vw;" src="assets/icon/Spinner.svg">
+      </div> -->
+      <!-- <ng-template #haveScore> -->
+      <div class="health-index-number">{{health_index_score}}</div>
+      <!-- </ng-template> -->
+      <div class="health-index-text">{{lang_resource.home_page.health_index}}</div>
+    </div>
+
+    <!-- *ngIf="wallet.isCreated && !this.lock_wallet" -->
+    <!-- <div class="omcoins-div" (click)="goToOmCoins()">
+      <img class="health-index-icon" src="assets/imgs/HomeIcons/Reward_Main@2x.png" />
+      <div class="health-index-number">{{omcoins_score}}</div>
+      <div class="health-index-text">{{lang_resource.home_page.om_coins_text}}</div>
+    </div> -->
+
+    <div class="omcoins-div" (click)="goToOmCoins()" *ngIf="!myWallet.wallet_locked && myWallet.configured_wallet">
+      <img class="health-index-icon" src="assets/imgs/HomeIcons/Reward_Main@2x.png" />
+      <div class="health-index-number" *ngIf="myWallet.walletBalance">{{myWallet.walletBalance}}</div>
+      <div class="health-index-number" *ngIf="!myWallet.walletBalance">0</div>
+      <div class="health-index-text">OmPoints</div>
+    </div>
+
+    <div class="omcoins-div" (click)="goToOmCoins()" *ngIf="myWallet.wallet_locked && myWallet.configured_wallet">
+      <!-- <div class="health-index-number">
+        <ion-icon name="md-lock" color="primary"></ion-icon>
+        <span *ngIf="myWallet.walletBalance">{{myWallet.walletBalance}}</span>
+      </div> -->
+      <img class="health-index-icon" src="assets/imgs/HomeIcons/Reward_Main@2x.png" />
+      <div class="health-index-number" *ngIf="myWallet.walletBalance">{{myWallet.walletBalance}}</div>
+      <div class="health-index-number" *ngIf="!myWallet.walletBalance">0</div>
+      <div class="health-index-text">OmPoints</div>
+    </div>
+
+    <div class="omcoins-div" (click)="configureWallet()" *ngIf="!myWallet.configured_wallet">
+      <img class="health-index-icon" src="assets/imgs/HomeIcons/Reward_Main@2x.png" />
+      <div class="health-index-text">Configure Wallet</div>
+    </div>
+
+  </div>
+
+  <div class="second-row">
+    <img class="avatar-img" [src]="userProfilePic" (click)="goToEditProfile()">
+
+    <!-- Removed - plus icon from dashboard -->
+    <!-- <div class="added-icon-div" (click)="goToEditProfile()">
+      <img class="added-icon" src="assets/imgs/HomeIcons/avatar_plus@2x.png">
+    </div> -->
+    <div class="name-text">
+      {{LoggedinUser_Name}}
+    </div>
+    <!-- loader -->
+    <!-- <div *ngIf="chronicDiseases == undefined" style="text-align:center;">
+      <img style="height:10vw;" src="assets/icon/Spinner.svg">
+    </div> -->
+    <!-- data -->
+    <div class="chf-div" [ngClass]="{'chf-invite-div' : singleCDInvite == true}" (click)="goToCD(chronicDiseases[0].campaigns)"
+      *ngIf="chronicDiseases?.length == 1">
+      <ion-icon style="color:#E85A88" name="ios-alert-outline" *ngIf="singleCDInvite == true"></ion-icon>{{chronicDiseases[0].template.name}}
+    </div>
+    <div class="chf-mul-div" *ngIf="chronicDiseases?.length > 1">
+      <label class="item item-input item-select">
+        <select [(ngModel)]="chronicCampaigns" (click)="goToCD(chronicCampaigns)">
+          <option *ngFor="let item of chronicDiseases" [value]="item.campaigns">{{item.template.name}}</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <div class="last-row">
+    <div class="med-records-div" (click)="goToMedRecords()">
+      <img class="med-records-img" src="assets/imgs/HomeIcons/med_records@2x.png" />
+      <div class="med-records-text">{{lang_resource.home_page.med_records_text}}</div>
+    </div>
+
+    <div class="circles-div" (click)="goToCircles()">
+      <div class="circle-badge-div" *ngIf="circles_score_showing">{{circles_score}}</div>
+      <img class="med-records-img" src="assets/imgs/HomeIcons/circles@2x.png" />
+      <div class="med-records-text">{{lang_resource.home_page.circles_text}}</div>
+    </div>
+
+    <div class="campaigns-div" (click)="goToCampaigns()">
+      <div class="circle-badge-div" *ngIf="campaigns_score_showing">{{campaigns_score}}</div>
+      <img class="med-records-img" src="assets/imgs/HomeIcons/campaigns@2x.png" />
+      <div class="med-records-text">{{lang_resource.home_page.campaigns_text}}</div>
+    </div>
+
+    <!-- <div class="testCircleNotification" (click)="goToCircleNotification()">Circle Notification</div>
+	  	<div class="testCampaignNoti" (click)="goCampaignNoti()">Campaign Notification</div> -->
+  </div>
+
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>Success</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="close()">Close</button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="box">
+
+    <img src="assets/imgs/HomeIcons/smile.png">
+    <h2>Congratulations!</h2>
+    <p>{{campaign?.name}} campaign is created!</p>
+
+  </div>
+
+  <button ion-button end class="invite" (click)="invite()">Invite People</button>
+
+</ion-content>

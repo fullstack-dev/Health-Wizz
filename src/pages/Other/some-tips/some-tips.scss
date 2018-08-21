@@ -1,0 +1,31 @@
+page-some-tips {
+
+	h1, h2, h3, h4, h5, p, button, div, .label{
+		font-family: 'SF-UI-Text';
+	}
+
+	.block-list{
+	    top: calc(50% - 110px);
+	    display: block;
+	    position: relative;
+	    background-color: #fff;
+	    p{
+	    	padding: 20px;
+	    	color: $font-des;
+	    }
+	    .label{
+	    	white-space: normal;
+	    }
+	}
+	.close{
+		position: absolute;
+	    top: 10px;
+	    right: 10px;
+	    border-radius: 50%;
+	    width: 30px;
+	    height: 30px;
+	    border: 1px solid;
+    	background-color: #fff;
+	}
+	
+}

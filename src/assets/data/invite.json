@@ -1,0 +1,334 @@
+{
+  "avatarData": [{
+      "id": "0",
+      "data": [{
+          "id": "0",
+          "name": "Anna Torben",
+          "image": "assets/imgs/HomeIcons/avatar_female_middle_01.png",
+          "value": false
+        },
+        {
+          "id": "1",
+          "name": "Jssse Ross",
+          "image": "assets/imgs/HomeIcons/avatar_female_old_01.png",
+          "value": false
+        },
+        {
+          "id": "2",
+          "name": "Laura Machale",
+          "image": "assets/imgs/HomeIcons/avatar_female_young_01.png",
+          "value": false
+        },
+        {
+          "id": "3",
+          "name": "Mike Gomez",
+          "image": "assets/imgs/HomeIcons/avatar_male_middle_01.png",
+          "value": false
+        },
+        {
+          "id": "4",
+          "name": "Pavel Atanassov",
+          "image": "assets/imgs/HomeIcons/avatar_male_old_01.png",
+          "value": false
+        },
+        {
+          "id": "5",
+          "name": "Adam Fiola",
+          "image": "assets/imgs/HomeIcons/avatar_male_young_01.png",
+          "value": false
+        },
+        {
+          "id": "6",
+          "name": "Tine Johnsgaard",
+          "image": "assets/imgs/AvatarImgs/avatar_ex1.png",
+          "value": false
+        },
+        {
+          "id": "7",
+          "name": "Tomas Chen",
+          "image": "assets/imgs/AvatarImgs/avatar_ex2.jpg",
+          "value": false
+        },
+        {
+          "id": "8",
+          "name": "David Arias",
+          "image": "assets/imgs/AvatarImgs/avatar_ex3.png",
+          "value": false
+        },
+        {
+          "id": "9",
+          "name": "Simon Ronald",
+          "image": "assets/imgs/AvatarImgs/avatar_ex4.jpg",
+          "value": false
+        }
+      ]
+    }, {
+      "id": "1",
+      "data": [{
+          "id": "0",
+          "name": "Javid Mammadov",
+          "image": "assets/imgs/HomeIcons/avatar_male_young_01.png",
+          "value": false
+        },
+        {
+          "id": "1",
+          "name": "Tomas Chen",
+          "image": "assets/imgs/HealthIndexIcons/Pulse@3x.png",
+          "value": false
+        },
+        {
+          "id": "2",
+          "name": "Jerry Jones",
+          "image": "assets/imgs/AvatarImgs/avatar_ex1.png",
+          "value": false
+        },
+        {
+          "id": "3",
+          "name": "Drew Brees",
+          "image": "assets/imgs/HealthIndexIcons/liquid@3x.png",
+          "value": false
+        },
+        {
+          "id": "4",
+          "name": "Simon Ronald",
+          "image": "assets/imgs/HealthIndexIcons/Diet@3x.png",
+          "value": false
+        },
+        {
+          "id": "5",
+          "name": "Tine Johnsgaard",
+          "image": "assets/imgs/AvatarImgs/avatar_ex4.jpg",
+          "value": false
+        },
+        {
+          "id": "6",
+          "name": "Adam Fiola",
+          "image": "assets/imgs/HealthIndexIcons/Lag-swelling@3x.png",
+          "value": false
+        }
+      ]
+    }, {
+      "id": "2",
+      "data": [{
+          "id": "0",
+          "name": "Tine Johnsgaard",
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png",
+          "value": false
+        },
+        {
+          "id": "1",
+          "name": "Adam Fiola",
+          "image": "assets/imgs/HomeIcons/avatar_male_young_01.png",
+          "value": false
+        },
+        {
+          "id": "2",
+          "name": "Simon Ronald",
+          "image": "assets/imgs/HealthIndexIcons/Oxygen@3x.png",
+          "value": false
+        },
+        {
+          "id": "3",
+          "name": "Anna Torben",
+          "image": "assets/imgs/HealthIndexIcons/liquid@3x.png",
+          "value": false
+        },
+        {
+          "id": "4",
+          "name": "Pavel Atanassov",
+          "image": "assets/imgs/AvatarImgs/avatar_ex1.png",
+          "value": false
+        },
+        {
+          "id": "5",
+          "name": "Mike Gomez",
+          "image": "assets/imgs/AvatarImgs/avatar_ex4.jpg",
+          "value": false
+        }
+      ]
+    }, {
+      "id": "3",
+      "data": [{
+          "id": "0",
+          "name": "Mike Gomez",
+          "image": "assets/imgs/AvatarImgs/avatar_ex1.png",
+          "value": false
+        },
+        {
+          "id": "1",
+          "name": "Anna Torben",
+          "image": "assets/imgs/HealthIndexIcons/liquid@3x.png",
+          "value": false
+        },
+        {
+          "id": "2",
+          "name": "Simon Ronald",
+          "image": "assets/imgs/HealthIndexIcons/Diet@3x.png",
+          "value": false
+        },
+        {
+          "id": "3",
+          "name": "Tine Johnsgaard",
+          "image": "assets/imgs/HomeIcons/avatar_male_young_01.png",
+          "value": false
+        },
+        {
+          "id": "4",
+          "name": "Adam Fiola",
+          "image": "assets/imgs/HealthIndexIcons/Breath@3x.png",
+          "value": false
+        },
+        {
+          "id": "5",
+          "name": "Pavel Atanassov",
+          "image": "assets/imgs/HealthIndexIcons/Oxygen@3x.png",
+          "value": false
+        },
+        {
+          "id": "6",
+          "name": "Jssse Ross",
+          "image": "assets/imgs/HealthIndexIcons/Lag-swelling@3x.png",
+          "value": false
+        }
+      ]
+    }, {
+      "id": "4",
+      "data": [{
+          "id": "0",
+          "name": "Mike Gomez",
+          "image": "assets/imgs/HomeIcons/avatar_male_middle_01.png",
+          "value": false
+        },
+        {
+          "id": "1",
+          "name": "Pavel Atanassov",
+          "image": "assets/imgs/HomeIcons/avatar_male_old_01.png",
+          "value": false
+        },
+        {
+          "id": "2",
+          "name": "Adam Fiola",
+          "image": "assets/imgs/HomeIcons/avatar_male_young_01.png",
+          "value": false
+        },
+        {
+          "id": "3",
+          "name": "Tine Johnsgaard",
+          "image": "assets/imgs/AvatarImgs/avatar_ex1.png",
+          "value": false
+        },
+        {
+          "id": "4",
+          "name": "Tomas Chen",
+          "image": "assets/imgs/AvatarImgs/avatar_ex2.jpg",
+          "value": false
+        }
+      ]
+    }, {
+      "id": "5",
+      "data": [{
+          "id": "0",
+          "name": "Pavel Atanassov",
+          "image": "assets/imgs/HomeIcons/avatar_male_old_01.png",
+          "value": false
+        },
+        {
+          "id": "1",
+          "name": "Adam Fiola",
+          "image": "assets/imgs/HomeIcons/avatar_male_young_01.png",
+          "value": false
+        },
+        {
+          "id": "2",
+          "name": "Tine Johnsgaard",
+          "image": "assets/imgs/AvatarImgs/avatar_ex1.png",
+          "value": false
+        },
+        {
+          "id": "3",
+          "name": "Tomas Chen",
+          "image": "assets/imgs/AvatarImgs/avatar_ex2.jpg",
+          "value": false
+        },
+        {
+          "id": "4",
+          "name": "David Arias",
+          "image": "assets/imgs/AvatarImgs/avatar_ex3.png",
+          "value": false
+        },
+        {
+          "id": "5",
+          "name": "Simon Ronald",
+          "image": "assets/imgs/AvatarImgs/avatar_ex4.jpg",
+          "value": false
+        }
+      ]
+    }, {
+      "id": "3",
+      "data": [{
+          "id": "0",
+          "image": "assets/imgs/HealthIndexIcons/Daily-weight@3x.png"
+        },
+        {
+          "id": "1",
+          "image": "assets/imgs/HealthIndexIcons/liquid@3x.png"
+        },
+        {
+          "id": "2",
+          "image": "assets/imgs/HealthIndexIcons/Diet@3x.png"
+        },
+        {
+          "id": "3",
+          "image": "assets/imgs/HealthIndexIcons/Pulse@3x.png"
+        },
+        {
+          "id": "4",
+          "image": "assets/imgs/HealthIndexIcons/Breath@3x.png"
+        },
+        {
+          "id": "5",
+          "image": "assets/imgs/HealthIndexIcons/Oxygen@3x.png"
+        },
+        {
+          "id": "6",
+          "image": "assets/imgs/HealthIndexIcons/Lag-swelling@3x.png"
+        }
+      ]
+    }
+
+  ],
+
+  "socials": [{
+      "id": "0",
+      "name": "By Name",
+      "image": "assets/imgs/HomeIcons/Reward2@2x.png"
+    },
+    {
+      "id": "1",
+      "name": "Circles",
+      "image": "assets/imgs/AddMedImgs/Recent@1x.png"
+    },
+    {
+      "id": "2",
+      "name": "Contacts",
+      "image": "assets/imgs/AvatarImgs/avatar_ex4.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Facebook",
+      "image": "assets/imgs/LoginImgs/facebook-logo.png"
+    },
+    {
+      "id": "4",
+      "name": "Google +",
+      "image": "assets/imgs/LoginImgs/google-logo.png"
+    },
+    {
+      "id": "5",
+      "name": "Linkedin",
+      "image": "assets/imgs/LoginImgs/linkedin-logo.png"
+    }
+  ]
+
+
+}

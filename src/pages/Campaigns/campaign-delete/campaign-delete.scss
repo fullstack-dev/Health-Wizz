@@ -1,0 +1,87 @@
+page-campaign-delete {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p,
+  button,
+  .label {
+    font-family: 'SF-UI-Text';
+  }
+  .toolbar {
+    button {
+      margin: 0 5px;
+    }
+    .menu_icon {
+      float: right;
+    }
+  }
+  .draft,
+  .delete {
+    margin-top: 20px;
+    img {
+      width: 60px;
+      margin: 0 auto;
+      display: block;
+      margin-bottom: 30px;
+    }
+    .warning {
+      color: #e9688c;
+      text-align: center;
+    }
+    .info {
+      color: $gray;
+    }
+    .name_fld {
+      padding: 0;
+      margin-bottom: 15px;
+      .item-inner {
+        border: none !important;
+        .label {
+          font-size: 14px;
+          color: #737370;
+          padding-bottom: 3px;
+          sup {
+            color: red;
+            font-weight: 900;
+          }
+        }
+        .input {
+          border: 1px solid $font-appcolor;
+          border-radius: 2px;
+          padding: 0 10px;
+          .text-input {
+            font-family: 'SF-UI-Text';
+          }
+        }
+        .select {
+          border: 1px solid $font-appcolor;
+          padding: 8px 6px;
+          border-radius: 1px;
+          color: #015c63;
+        }
+      }
+    }
+  }
+  .result-btn {
+    width: calc(100% - 36px); // position: absolute;
+    bottom: 25px;
+    display: inline-block;
+    padding: 3%;
+    align-items: center;
+    button {
+      width: 40%;
+      font-size: 20px;
+      margin: 0 5%;
+      height: 45px;
+    }
+    .l-btn {
+      border: 2px solid;
+      float: left;
+    }
+    .r-btn {
+      float: right;
+    }
+  }
+}

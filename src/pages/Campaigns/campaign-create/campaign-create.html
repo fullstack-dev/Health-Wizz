@@ -1,0 +1,438 @@
+<ion-header>
+
+  <!-- <ion-navbar class="nav_bar"> -->
+  <ion-navbar>
+    <ion-buttons start left>
+      <button ion-button (click)="cancel()">Cancel</button>
+    </ion-buttons>
+
+    <ion-title>{{title}}</ion-title>
+
+    <ion-buttons end>
+      <!-- <button ion-button *ngIf="page == 6" (click)="goCampaignSuccess('submit')">Done</button> -->
+      <button ion-button [disabled]="!enableDoneBtn()" (click)="saveCampaignDraftCopy()">Done</button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content style="background-color: lightgray; overflow-y: hidden;">
+
+  <!--  new invitation -->
+
+  <div class="sld-div">
+
+    <ion-slides pager="true" spaceBetween="-35">
+      <!--  (swipeleft)="slideChanged()" (ionSlidePrevStart)="slideRight()" -->
+
+      <!-- Slider 1 (Campaign Info) -->
+
+      <ion-slide>
+        <div class="campaign_div">
+
+          <h2>Campaign info</h2>
+          <div class="main_box">
+
+            <ion-item class="name_fld">
+              <ion-label stacked>Campaign Name
+                <sup>*</sup>
+              </ion-label>
+              <ion-input type="text" [(ngModel)]="campaign_data.name"></ion-input>
+            </ion-item>
+
+            <div class="cal-div">
+              <div class="left-cal-txt-div">
+                <h2>Start
+                  <sup>*</sup>
+                </h2>
+                <div class="cal-body-div" (click)="picker1.open()">
+                  <ion-item>
+                    <ion-datetime #picker1 displayFormat="MM/DD/YYYY" (ionChange)="startDateUpdated()" [min]="getMinStartDate()" [(ngModel)]="campaign_data.startDate"
+                      [ngModelOptions]="{standalone: true}"></ion-datetime>
+                  </ion-item>
+                  <ion-icon name="ios-calendar-outline" class="cal-icon"></ion-icon>
+                </div>
+              </div>
+
+              <div class="right-cal-txt-div">
+                <h2>End (Optional)</h2>
+                <div class="cal-body-div" (click)="picker2.open()">
+                  <ion-item>
+                    <ion-datetime #picker2 displayFormat="MM/DD/YYYY" [min]="getMinEndDate()" [(ngModel)]="campaign_data.endDate" [ngModelOptions]="{standalone: true}"></ion-datetime>
+                  </ion-item>
+                  <ion-icon name="ios-calendar-outline" class="cal-icon"></ion-icon>
+                </div>
+              </div>
+            </div>
+
+            <div class="des">
+              <ion-item>
+                <ion-label stacked>Description(optional)</ion-label>
+                <ion-textarea rows="6" [(ngModel)]="campaign_data.description"></ion-textarea>
+              </ion-item>
+            </div>
+
+            <div class="custom-toggle">
+              <p>Make Private</p>
+              <ion-toggle></ion-toggle>
+            </div>
+
+          </div>
+
+          <button ion-button class="next_btn" (click)="nextSlide()">Next</button>
+
+        </div>
+      </ion-slide>
+
+      <!-- Slider 2 (Terms (original))-->
+
+      <ion-slide>
+        <div class="campaign_div">
+
+          <h2>Terms</h2>
+
+          <ion-list class="main_box">
+            <ion-item class="name_fld" *ngFor="let term of terms; let i = index">
+              <ion-label stacked>Term {{i+1}}
+                <!-- <sup>*</sup> -->
+              </ion-label>
+              <ion-textarea type="text" style="height:75px !important" [(ngModel)]="term.input"></ion-textarea>
+              <ion-icon *ngIf="terms.length > 1" id="remove_term_btn" name="ios-trash-outline" item-end (click)="removeTerm(i)"></ion-icon>
+            </ion-item>
+            <button ion-button clear (click)="addTerms()">Add term</button>
+          </ion-list>
+
+          <button ion-button class="next_btn1" (click)="nextSlide()">Next</button>
+
+        </div>
+
+      </ion-slide>
+
+      <!-- Slider 3 (Indexes)-->
+
+      <ion-slide *ngIf="!campaign_published">
+        <div class="campaign_div">
+
+          <h2>Indexes</h2>
+
+          <p class="subtitle">Select Indexes you want to check in this campaign</p>
+
+          <div class="main_box custom_sld">
+
+            <!-- (click)="showIndexItem($event, index)" -->
+            <ion-list class="inbexes" *ngFor="let index of indexes_views">
+              <ion-item class="name">
+                <ion-avatar item-start>
+                  <img [ngClass]="{'name_clr': index.selected}" [src]="index.index.image">
+                </ion-avatar>
+                <!-- <p [ngClass]="{'name_clr': index.selected}">{{index.index.label}}</p> -->
+                <ion-label [ngClass]="{'name_clr': index.selected}">{{index.index.label}}</ion-label>
+
+                <ion-toggle [(ngModel)]="index.selected" (ionChange)="showIndexItem($event, index)"></ion-toggle>
+              </ion-item>
+
+              <div class="index" *ngIf="index.selected">
+                <ion-item class="report">
+                  <ion-label stacked>Report Frequency</ion-label>
+                  <ion-select style="padding-left:5px !important" [(ngModel)]="index.freq" (ionChange)="changeIndexFrequency(index)">
+                    <ion-option *ngFor="let item of scheduals" [value]="item.name">{{item.name}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <div class="custom-toggle">
+                  <p>Accept data only from device</p>
+                  <ion-toggle [(ngModel)]="index.only_device"></ion-toggle>
+                </div>
+              </div>
+
+            </ion-list>
+
+          </div>
+
+          <div class="result-btn">
+            <button ion-button outline class="l-btn" (click)="skipIndexes()">Skip</button>
+            <button ion-button class="r-btn" (click)="nextSlide()">Next</button>
+          </div>
+
+        </div>
+      </ion-slide>
+
+      <!-- Slider 4 (Survey)-->
+
+      <ion-slide *ngIf="!campaign_published">
+        <div class="campaign_div">
+
+          <!-- <h2>Survey</h2> -->
+          <ion-item no-lines>
+            <h2>Survey</h2>
+            <button ion-button outline item-end (click)="addSurveyQuestion()">
+              Add Question
+            </button>
+          </ion-item>
+          <div class="main_box">
+            <ion-list *ngFor="let questionInfo of campaign_survey.surveyQuestionInfo; let ques_i = index">
+              <div class="div-section" *ngIf="ques_i > 0"></div>
+              <div>
+                <ion-label class="question-label">Question {{ques_i + 1}}</ion-label>
+                <ion-label class="entry-remove-div" *ngIf="campaign_survey.surveyQuestionInfo.length > 0" (click)="removeSurveyQuestion(ques_i)">Remove</ion-label>
+              </div>
+              <ion-item class="name_fld">
+                <!-- <ion-label stacked>Question {{ques_i + 1}}</ion-label> -->
+                <ion-input type="text" [(ngModel)]="questionInfo.question"></ion-input>
+                <!-- <button *ngIf="ques_i > 0" ion-button item-right outline icon-only (click)="removeSurveyQuestion(ques_i)">
+                  <ion-icon name="remove"></ion-icon>
+                </button> -->
+              </ion-item>
+              <ion-item class="name_fld">
+                <ion-label stacked>Report Frequency</ion-label>
+                <ion-select style="padding-left:5px !important" [(ngModel)]="questionInfo.frequency">
+                  <ion-option *ngFor="let item of scheduals" [value]="item.name">{{item.name}}</ion-option>
+                </ion-select>
+              </ion-item>
+              <ion-item class="name_fld">
+                <ion-label stacked>Type of Question</ion-label>
+                <ion-select style="padding-left:5px !important" [(ngModel)]="questionInfo.answerType" (ionChange)="addDefaultAnswer(ques_i)">
+                  <ion-option *ngFor="let item of types" [value]="item.type">{{item.type}}</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-list *ngFor="let answerInfo of questionInfo.surveyAnswerInfo; let ans_i = index">
+                <div>
+                  <ion-label class="answer-label">Answer option {{ans_i + 1}}</ion-label>
+                  <ion-label class="entry-remove-div" *ngIf="canRemoveAnswer(questionInfo)" (click)="removeAnswerInfo(ques_i, ans_i)">Remove</ion-label>
+                </div>
+                <ion-item class="name_fld">
+                  <!-- <ion-label stacked>Answer option {{ans_i + 1}}</ion-label> -->
+                  <ion-input type="text" [(ngModel)]="answerInfo.answer"></ion-input>
+                  <!-- <button *ngIf="questionInfo.surveyAnswerInfo?.length != 0" ion-button item-right outline icon-only (click)="removeAnswerInfo(ques_i, ans_i)">
+                    <ion-icon name="remove"></ion-icon>
+                  </button> -->
+                </ion-item>
+              </ion-list>
+
+              <ion-item *ngIf="showAddAnswerBtn(ques_i)">
+                <button ion-button outline item-end (click)="addAnswer(ques_i, 1)">
+                  Add Choice
+                </button>
+              </ion-item>
+
+              <!-- <button ion-button *ngIf="showAddAnswerBtn(ques_i)" (click)="addAnswer(ques_i, 1)">Add answer</button> -->
+
+              <!-- <div class="result-btn">
+                <button ion-button outline class="l-btn" *ngIf="showAddAnswerBtn(ques_i)" (click)="addAnswer(ques_i, 1)" icon-left>
+                  <ion-icon name="ios-add"></ion-icon>
+                  Choice
+                </button>
+                <button ion-button class="r-btn" (click)="addSurveyQuestion()" icon-right>Question
+                  <ion-icon name="ios-arrow-round-down"></ion-icon>
+                </button>
+              </div> -->
+
+            </ion-list>
+
+
+            <!-- <ion-item class="name_fld" *ngIf="campData.question_type == 3">
+              <ion-label stacked>Answer option 2</ion-label>
+              <ion-input type="text" [(ngModel)]="campData.answer2"></ion-input>
+            </ion-item> -->
+
+            <!-- <div class="div-section"></div> -->
+
+            <!-- <button ion-button (click)="testSurvey()">Test</button> -->
+            <!-- <ion-item class="name_fld">
+              <ion-label stacked>Question 2</ion-label>
+              <ion-input type="text" [(ngModel)]="campData.question2"></ion-input>
+            </ion-item> -->
+
+          </div>
+
+          <div class="result-btn">
+            <button ion-button outline class="l-btn" (click)="skipSurvey()">Skip</button>
+            <button ion-button class="r-btn" (click)="nextSlide()">Next</button>
+          </div>
+
+        </div>
+      </ion-slide>
+
+      <!-- Slider 5 (Funding)-->
+
+      <ion-slide>
+        <div class="campaign_div">
+
+          <h2>Funding</h2>
+          <p class="subtitle">Choose between different ways to reward your participants</p>
+
+          <div class="main_box custom_sld">
+
+            <ion-list class="rewards">
+              <!-- <ion-item *ngFor="let item of rewardsData" (click)="goSelectPage(item.id)"> -->
+              <ion-item *ngFor="let item of rewardsData" [ngClass]="{selected_reward : current_reward.id == item.id, reward_item: current_reward.id != item.id, disabled_reward:disableFundSource(item)}"
+                (click)="goSelectPage(item)">
+                <h3 style="font-size: 1.7rem;">{{item.title}}</h3>
+                <p>{{item.description}}</p>
+                <ion-icon name="ios-arrow-forward-outline" item-end></ion-icon>
+              </ion-item>
+
+            </ion-list>
+
+          </div>
+        </div>
+      </ion-slide>
+
+      <!-- Slider 6 (Rewards)-->
+      <!-- *ngIf="hideRewards == false || rewardList.length > 0" -->
+      <ion-slide *ngIf="showReward">
+        <div class="campaign_div reward-div" *ngIf="!percentReward">
+          <ion-item no-lines>
+            <h2>Rewards</h2>
+            <button ion-button outline item-end (click)="duplicateReward()">Add Rewards
+            </button>
+          </ion-item>
+          <div class="main_box">
+
+            <ion-list class="dup" *ngFor="let item of rewardList; let index = index">
+              <!-- <div> -->
+              <ion-label class="question-label">Reward {{index+1}} description</ion-label>
+              <ion-label class="entry-remove-div" *ngIf="!campaign_published" (click)="confirmRemoveReward(index,item.id)">Remove</ion-label>
+              <ion-item class="name_fld" no-lines>
+                <ion-input type="text" [(ngModel)]="item.name"></ion-input>
+              </ion-item>
+              <!-- </div> -->
+
+              <div class="amount">
+                <ion-item class="name_fld">
+                  <ion-label stacked>Amount</ion-label>
+                  <ion-input type="number" [(ngModel)]="item.amount"></ion-input>
+                </ion-item>
+                <img src="assets/imgs/HomeIcons/Reward_Main@3x.png">
+              </div>
+
+
+            </ion-list>
+
+            <div class="out_budget" *ngIf="totalAmount > balanceAmount">
+              <p class="error">! we're sorry, but you don't have enough OmPoints for this reward</p>
+              <button ion-button clear small class="custom" (click)="goSomeTips()"> Here are some tips</button>
+            </div>
+
+          </div>
+
+          <button *ngIf="!navData.edit" ion-button class="next_btn" [disabled]="totalAmount > balanceAmount" (click)="nextSlide()">Next</button>
+
+        </div>
+
+        <div class="campaign_div reward-div" *ngIf="percentReward">
+          <ion-item no-lines>
+            <h2>Rewards</h2>
+            <button ion-button outline item-end (click)="getPercentSum()">Add Rewards
+            </button>
+          </ion-item>
+
+          <div class="main_box">
+
+            <ion-list class="dup" *ngFor="let item of rewardList; let index = index">
+
+              <!-- <div> -->
+              <ion-label class="question-label" stacked>Reward {{index + 1}} description</ion-label>
+              <ion-label class="entry-remove-div" *ngIf="!campaign_published" (click)="confirmRemoveReward(index,item.id)">Remove</ion-label>
+              <ion-item class="name_fld" no-lines>
+                <ion-input type="text" [(ngModel)]="item.name"></ion-input>
+              </ion-item>
+              <!-- </div> -->
+              <div class="amount">
+                <ion-item class="name_fld">
+                  <ion-label stacked>Reward Percentage</ion-label>
+                  <ion-input type="number" [(ngModel)]="item.percentage"></ion-input>
+                </ion-item>
+                <p>% out of collected budget</p>
+              </div>
+            </ion-list>
+            <!-- <p (click)="getPercentSum()">add</p> -->
+
+            <div class="budget">
+              <!-- <p>Total rewards percentage is {{totalPercent}}%</p> -->
+              <!-- <p *ngIf="totalPercent !=100" class="error">! The total percentage should be 100%</p> -->
+            </div>
+
+          </div>
+
+          <button *ngIf="!navData.edit" ion-button class="next_btn" (click)="nextSlide()">Next</button>
+
+        </div>
+
+      </ion-slide>
+
+      <!-- Slider 7 (Roles)-->
+
+      <ion-slide *ngIf="!navData.edit">
+        <div class="campaign_div roles">
+          <h2>Roles</h2>
+          <div class="roles main_box">
+
+            <ion-list>
+              <p class="subtitle">Co-moderators</p>
+
+              <ion-item>
+                <ion-avatar item-start>
+                  <img [src]="my_profile_pic">
+                </ion-avatar>
+                <h2>{{my_profile.firstName}}{{" "}}{{my_profile.lastName}}{{" "}}(you)</h2>
+              </ion-item>
+
+              <ion-item *ngFor="let item of invities.moderators; let i = index">
+                <ion-avatar item-start>
+                  <img src="assets/imgs/HomeIcons/avatar_male_middle_01.png">
+                </ion-avatar>
+                <h2>{{item.name}}</h2>
+                <ion-icon name="ios-trash-outline" color="danger" item-end (click)="deleteModItem(item, i)"></ion-icon>
+              </ion-item>
+
+              <button ion-button clear class="add" [disabled]="!canAddModerator()" (click)="addModerator()">Add Moderator</button>
+
+            </ion-list>
+
+            <!-- <div class="validator">
+              <p>Validators</p>
+
+              <ion-item *ngFor="let item of invities.validators; let i = index">
+                <ion-avatar item-start>
+                  <img src="assets/imgs/HomeIcons/avatar_male_middle_01.png">
+                </ion-avatar>
+                <h2>{{item.name}}</h2>
+                <ion-icon name="ios-trash-outline" color="danger" item-end (click)="deleteValItem(item, i)"></ion-icon>
+              </ion-item>
+
+              <button ion-button clear class="add" [disabled]="!canAddValidator()" (click)="addValidator()">Add Validator</button>
+            </div> -->
+
+            <ion-list>
+              <ion-list-header style="text-align: left; text-transform: none;">Validators</ion-list-header>
+
+              <ion-item *ngFor="let item of invities.validators; let i = index">
+                <ion-avatar item-start>
+                  <img src="assets/imgs/HomeIcons/avatar_male_middle_01.png">
+                </ion-avatar>
+                <h2>{{item.name}}</h2>
+                <ion-icon name="ios-trash-outline" color="danger" item-end (click)="deleteValItem(item, i)"></ion-icon>
+              </ion-item>
+
+              <button ion-button clear class="add" [disabled]="!canAddValidator()" (click)="addValidator()">Add Validator</button>
+            </ion-list>
+
+
+          </div>
+
+          <div class="result-btn">
+            <!-- <button ion-button outline class="l-btn" (click)="goToSuccess()">Skip</button> -->
+            <button ion-button class="r-btn" (click)="goCampaignSuccess('submit')">Submit</button>
+          </div>
+
+        </div>
+      </ion-slide>
+
+    </ion-slides>
+
+  </div>
+
+</ion-content>

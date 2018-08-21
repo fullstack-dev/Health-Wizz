@@ -1,0 +1,12 @@
+page-campaign-participants {
+  #moderator {
+    color: $red;
+  }
+  #validator {
+    margin-left: 10px;
+    color: $font-appcolor;
+  }
+  .invited {
+    color: gray;
+  }
+}

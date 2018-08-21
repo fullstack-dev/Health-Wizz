@@ -1,0 +1,64 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start left>
+      <button ion-button (click)="Before()">
+        <!-- <ion-icon name="ios-arrow-back"></ion-icon> -->
+        Cancel
+      </button>
+    </ion-buttons>
+
+    <!-- <button ion-button icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+
+    <ion-buttons end>
+      <button ion-button (click)="Done()">
+        Done
+      </button>
+    </ion-buttons>
+
+    <ion-title>{{page_title}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="new-circle-txt">{{getCircleName()}}</div>
+
+  <div class="img-div">
+    <img id="circleImage" class="img">
+
+  </div>
+
+  <button class="change-picture-btn" (click)="changePicture()">{{lang_resource.circle.create_circle.change_picture}}</button>
+  <form #circleForm="ngForm" novalidate>
+    <ion-item class="slide_item_fld">
+      <ion-label stacked>{{lang_resource.circle.create_circle.circle_name}}
+        <sup>*</sup>
+      </ion-label>
+      <ion-input #circleName="ngModel" [(ngModel)]="circle_data.name" name="circle_name" type="text" [pattern]="name_pattern" required
+        placeholder=""></ion-input>
+    </ion-item>
+    <div class="error-box" *ngIf="circleName.touched && circleName.hasError('required')">Required!</div>
+    <div class="error-box" *ngIf="circleName.touched && circleName.hasError('pattern')">Circle name is not valid!</div>
+
+  </form>
+  <div class="descriptions-txt">{{lang_resource.circle.create_circle.description_text}}(optional)</div>
+  <ion-textarea rows="1" name="circle_description" id="messageInputBox" [(ngModel)]="circle_data.description" placeholder=""
+    (input)="change('messageInputBox')"></ion-textarea>
+
+  <ion-item style="position: relative;">
+    <ion-label class="selected-item-txt" style="color: #737370;font-size: 1.3rem;">Make Private</ion-label>
+    <ion-toggle color="secondary" checked="true" [(ngModel)]="isToggled" (ionChange)="notify()"></ion-toggle>
+  </ion-item>
+
+  <div [hidden]="createhide" class="create-btn-div">
+    <button class="create-btn" [disabled]="!circleForm.valid" (click)="Done()">{{btn_name}}</button>
+  </div>
+
+</ion-content>

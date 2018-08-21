@@ -1,0 +1,92 @@
+page-campaign-notification {
+	h1, h2, h3, h4, h5, p, button, div, .label{
+		font-family: 'SF-UI-Text';
+	}
+
+	.bg{
+		background-color: #000;
+	}
+	
+	.noti-div{
+		position: absolute;
+	    width: calc(100% - 40px);
+	    margin: 20px;
+	    background-color: #fff;
+	    padding: 20px;
+    	bottom: 0;
+    	border-radius: 15px;
+    	.invite{
+    		height: 40px;
+		    background-color: #488aff;
+		    margin-left: -20px;
+		    width: 250px;
+    		display: inline-block;
+    		border-radius: 0 20px 20px 0;
+    		p{
+    			font-size: 20px;
+    			margin: 8px 10px;
+    			color: #fff;
+    		}
+    	}
+    	.close{
+    		position: absolute;
+    		right: 10px;
+    		top: 15px;
+    	}
+    	.name{
+    		padding: 0;
+    		.first{    			
+    			color: dimgray;
+    			font-size: 13px;
+    			span{
+    				color: $font-appcolor;
+    			}
+    		}
+    		.second{
+    			font-size: 16px;
+    			text-align: right;
+    			color: $font-appcolor;
+    		}
+    	}
+    	.date{
+    		font-size: 12px;
+    		color: gray;
+    		margin: 0;
+    		padding: 0 5px;
+    	}
+    	.logo-img{
+    		margin: 30px auto;
+    		display: block;
+    		width: 120px;
+    	}
+    	.logo-list{
+    		height: 40px;
+    		img{
+    			height: 40px;
+    			margin-right: 25px;
+    		}
+
+    	}
+    	.result-btn{
+			width: 100%;
+			display: inline-block;
+			margin-top: 20px;
+	    	align-items: center;
+			button{
+				width: 40%;
+				font-size: 20px;
+				margin: 0 5%;
+				height: 45px;
+			}
+			.l-btn{			
+				border: 2px solid;
+				float: left;
+			}
+			.r-btn{
+				float: right;
+			}
+
+		} 
+
+	}
+}
